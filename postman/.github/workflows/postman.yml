@@ -37,5 +37,5 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Passo 3 Executar a Coleção das Apis
-        run: newman run contactList.postman_collection.json 
+        run: newman run collections/contactlist.postman_collection.json 
 
