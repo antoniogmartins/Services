@@ -1,4 +1,4 @@
-# ROBOT FRAMEWORK (ApiRest)
+# ROBOT FRAMEWORK (RestApi)
 
 => Foram utilizadas a linguagem Python, Json e o proprio RobotFramework para desenvolver este scripts de testes automatizados
 
