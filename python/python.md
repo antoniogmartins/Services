@@ -1,4 +1,4 @@
-# Python Rest Api - SmokeTests - Testes de Serviços
+# Python Rest Api
 
 🚀 Collections:
 
