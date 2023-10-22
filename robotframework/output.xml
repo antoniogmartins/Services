@@ -1,0 +1,598 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.11.0rc1 on linux)" generated="20231002 20:42:38.346" rpa="false" schemaversion="4">
+<suite id="s1" name="Casos Testes" source="/home/antonio/Artefatos/python/RobotFramework/Robot x valicacoes/RestApi/casos_testes.robot">
+<test id="s1-t1" name=" CENARIO 01: Gerar Token" line="6">
+<kw name="Gerar token para a Apis" library="validar_apis">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>aliasName</arg>
+<arg>url=${base_url}</arg>
+<arg>disable_warnings=1</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20231002 20:42:38.486" level="INFO">Creating Session using : alias=aliasName, url=https://thinking-tester-contact-list.herokuapp.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20231002 20:42:38.485" endtime="20231002 20:42:38.486"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${header}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231002 20:42:38.486" level="INFO">${header} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20231002 20:42:38.486" endtime="20231002 20:42:38.486"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{data_token}</var>
+<arg>email=agmartins2018@gmail.com</arg>
+<arg>password=12345678</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231002 20:42:38.486" level="INFO">&amp;{data_token} = { email=agmartins2018@gmail.com | password=12345678 }</msg>
+<status status="PASS" starttime="20231002 20:42:38.486" endtime="20231002 20:42:38.486"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>alias=aliasName</arg>
+<arg>url=${endPointtoken}</arg>
+<arg>json=${data_token}</arg>
+<arg>headers=${header}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20231002 20:42:39.412" level="INFO">POST Request : url=https://thinking-tester-contact-list.herokuapp.com/users/login 
+ path_url=/users/login 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '60'} 
+ body=b'{"email": "agmartins2018@gmail.com", "password": "12345678"}' 
+ </msg>
+<msg timestamp="20231002 20:42:39.412" level="INFO">POST Response : url=https://thinking-tester-contact-list.herokuapp.com/users/login 
+ status=200, reason=OK 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Set-Cookie': 'token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGZiMjczNzViZmZhODAwMTM2OGU0OWMiLCJpYXQiOjE2OTYyOTAxNTl9.ocrP2NoA5qT9DOuHGZyE2TOLis50U74yClkWC4ZBz7c; Max-Age=36000; Path=/; Expires=Tue, 03 Oct 2023 09:42:39 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '290', 'Etag': 'W/"122-pdl0QMjZpBwEqtuufZmhIX8yBEw"', 'Date': 'Mon, 02 Oct 2023 23:42:39 GMT', 'Via': '1.1 vegur'} 
+ body={"user":{"_id":"64fb27375bffa8001368e49c","firstName":"antonio","lastName":"martins","email":"agmartins2018@gmail.com","__v":349},"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGZiMjczNzViZmZhODAwMTM2OGU0OWMiLCJpYXQiOjE2OTYyOTAxNTl9.ocrP2NoA5qT9DOuHGZyE2TOLis50U74yClkWC4ZBz7c"} 
+ </msg>
+<msg timestamp="20231002 20:42:39.412" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231002 20:42:38.486" endtime="20231002 20:42:39.412"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Resposta do Json: ${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231002 20:42:39.412" endtime="20231002 20:42:39.413"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>============================</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231002 20:42:39.413" endtime="20231002 20:42:39.413"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${token}</var>
+<arg>${response.json()["token"]}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20231002 20:42:39.414" level="INFO">${token} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGZiMjczNzViZmZhODAwMTM2OGU0OWMiLCJpYXQiOjE2OTYyOTAxNTl9.ocrP2NoA5qT9DOuHGZyE2TOLis50U74yClkWC4ZBz7c</msg>
+<status status="PASS" starttime="20231002 20:42:39.414" endtime="20231002 20:42:39.414"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Pegando o atributo token do json: ${token}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231002 20:42:39.415" endtime="20231002 20:42:39.415"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${token}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20231002 20:42:39.415" level="INFO">${token} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGZiMjczNzViZmZhODAwMTM2OGU0OWMiLCJpYXQiOjE2OTYyOTAxNTl9.ocrP2NoA5qT9DOuHGZyE2TOLis50U74yClkWC4ZBz7c</msg>
+<status status="PASS" starttime="20231002 20:42:39.415" endtime="20231002 20:42:39.415"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${status_code}</var>
+<arg>${response.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20231002 20:42:39.416" level="INFO">${status_code} = 200</msg>
+<status status="PASS" starttime="20231002 20:42:39.415" endtime="20231002 20:42:39.416"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${status_code}</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20231002 20:42:39.416" endtime="20231002 20:42:39.416"/>
+</kw>
+<kw name="Convert String To Json" library="JSONLibrary">
+<var>${json_response}</var>
+<arg>${response.content}</arg>
+<doc>Convert String to JSON object</doc>
+<msg timestamp="20231002 20:42:39.417" level="INFO">${json_response} = {'user': {'_id': '64fb27375bffa8001368e49c', 'firstName': 'antonio', 'lastName': 'martins', 'email': 'agmartins2018@gmail.com', '__v': 349}, 'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2...</msg>
+<status status="PASS" starttime="20231002 20:42:39.417" endtime="20231002 20:42:39.417"/>
+</kw>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>${conteudo}</var>
+<arg>${json_response}</arg>
+<arg>${idpath}</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20231002 20:42:39.440" level="INFO">${conteudo} = ['64fb27375bffa8001368e49c']</msg>
+<status status="PASS" starttime="20231002 20:42:39.417" endtime="20231002 20:42:39.440"/>
+</kw>
+<kw name="Should Not Be Empty" library="BuiltIn">
+<arg>${conteudo}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<msg timestamp="20231002 20:42:39.440" level="INFO">Length is 1</msg>
+<status status="PASS" starttime="20231002 20:42:39.440" endtime="20231002 20:42:39.440"/>
+</kw>
+<status status="PASS" starttime="20231002 20:42:38.485" endtime="20231002 20:42:39.440"/>
+</kw>
+<status status="PASS" starttime="20231002 20:42:38.485" endtime="20231002 20:42:39.441"/>
+</test>
+<test id="s1-t2" name=" CENARIO 02: Pesquisar por todos os contatos Cadastrados" line="9">
+<kw name="Buscar Todos os Contatos" library="validar_apis">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>aliasName</arg>
+<arg>url=${base_url}</arg>
+<arg>disable_warnings=1</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20231002 20:42:39.442" level="INFO">Creating Session using : alias=aliasName, url=https://thinking-tester-contact-list.herokuapp.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20231002 20:42:39.442" endtime="20231002 20:42:39.442"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${header}</var>
+<arg>Content-Type=application/json</arg>
+<arg>Authorization=Bearer ${token}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231002 20:42:39.443" level="INFO">${header} = {'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGZiMjczNzViZmZhODAwMTM2OGU0OWMiLCJpYXQiOjE2OTYyOTAxNTl9.ocrP2NoA5qT9DOuHGZyE2TOLis50U74y...</msg>
+<status status="PASS" starttime="20231002 20:42:39.442" endtime="20231002 20:42:39.443"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>alias=aliasName</arg>
+<arg>url=${endPointlistContacts}</arg>
+<arg>headers=${header}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20231002 20:42:40.708" level="INFO">GET Request : url=https://thinking-tester-contact-list.herokuapp.com/contacts 
+ path_url=/contacts 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGZiMjczNzViZmZhODAwMTM2OGU0OWMiLCJpYXQiOjE2OTYyOTAxNTl9.ocrP2NoA5qT9DOuHGZyE2TOLis50U74yClkWC4ZBz7c'} 
+ body=None 
+ </msg>
+<msg timestamp="20231002 20:42:40.708" level="INFO">GET Response : url=https://thinking-tester-contact-list.herokuapp.com/contacts 
+ status=200, reason=OK 
+ headers={'Server': 'Cowboy', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1696290160&amp;s=q9qNe8Sj9F2l6gJpQzI50rtUjq33dr1l%2FnfIdjEjZqc%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1696290160&amp;s=q9qNe8Sj9F2l6gJpQzI50rtUjq33dr1l%2FnfIdjEjZqc%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '20335', 'Etag': 'W/"4f6f-payf0ROKoeiB7zL4Hf9vk+zFI8w"', 'Date': 'Mon, 02 Oct 2023 23:42:40 GMT', 'Via': '1.1 vegur'} 
+ body=[{"_id":"6513148dc0c1ec001325802f","firstName":"Ana","lastName":"Belmonte","birthdate":"1977-07-07","email":"maneol@gmail.com","phone":"21999991919","street1":"xpto 1","city":"rj","stateProvince":"rj","postalCode":"2024020","country":"brsil","owner":"64fb27375bffa8001368e49c","__v":0},{"_id":"651314c6c0c1ec0013258031","firstName":"Ana","lastName":"Belmonte","birthdate":"1977-07-07","email":"ana_belmonte@gmail.com","phone":"21999991919","street1":"xpto 1","city":"rj","stateProvince":"rj","postalCode":"2024080","country":"brsil","owner":"64fb27375bffa8001368e49c","__v":0},{"_id":"65131550c0c1ec0013258032","firstName":"Ana","lastName":"Belmonte","birthdate":"1977-07-07","email":"ana_belmonte@gmail.com","phone":"21999991919","street1":"xpto 1","city":"rj","stateProvince":"rj","postalCode":"2024080","country":"brsil","owner":"64fb27375bffa8001368e49c","__v":0},{"_id":"651315675ed1dc0013e8e418","firstName":"Ana","lastName":"Belmonte","birthdate":"1977-07-07","email":"ana_belmonte@gmail.com","phone":"21999991919","street1":"xpto 1","city":"rj","stateProvince":"rj","postalCode":"2024080","country":"brsil","owner":"64fb27375bffa8001368e49c","__v":0},{"_id":"65133db55ed1dc0013e8e46b","firstName":"Ana","lastName":"Belmonte","birthdate":"1977-07-07","email":"ana_belmonte@gmail.com","phone":"21999991919","street1":"xpto 1","city":"rj","stateProvince":"rj","postalCode":"2024080","country":"brsil","owner":"64fb27375bffa8001368e49c","__v":0},{"_id":"65133e25c0c1ec0013258085","firstName":"Ana","lastName":"Belmonte","birthdate":"1977-07-07","email":"ana_belmonte@gmail.com","phone":"21999991919","street1":"xpto 1","city":"rj","stateProvince":"rj","postalCode":"2024080","country":"brsil","owner":"64fb27375bffa8001368e49c","__v":0},{"_id":"65133f57c0c1ec001325808a","firstName":"Ana","lastName":"Belmonte","birthdate":"1977-07-07","email":"ana_belmonte@gmail.com","phone":"21999991919","street1":"xpto 1","city":"rj","stateProvince":"rj","postalCode":"2024080","country":"brsil","owner":"64fb27375bffa8001368e49c","__v":0},{"_id":"65134095c0c1ec001325808c","firstName":"Ana","lastName":"Belmonte","birthdate":"1977-07-07","email":"ana_belmonte@gmail.com","phone":"21999991919","street1":"xpto 1","city":"rj","stateProvince":"rj","postalCode":"2024080","country":"brsil","owner":"64fb27375bffa8001368e49c","__v":0},{"_id":"65135bde5ed1dc0013e8e47f","firstName":"Ana","lastName":"Belmonte","birthdate":"1977-07-07","email":"ana_belmonte@gmail.com","phone":"21999991919","street1":"xpto 1","city":"rj","stateProvince":"rj","postalCode":"2024080","country":"brsil","owner":"64fb27375bffa8001368e49c","__v":0},{"_id":"65133fae5ed1dc0013e8e474","firstName":"Josez","lastName":"Ramalho","birthdate":"1922-01-07","email":"zeramalho@yahoo.com.br","phone":"21992221174","street1":"rua xpto 6","city":"sp","stateProvince":"sp","postalCode":"2022012","country":"brasil","owner":"64fb27375bffa8001368e49c","__v":0,"street2":null},{"_id":"651b3b016f5dd40013e65ffa","firstName":"zE","lastName":"Ramalho","birthdate":"1977-07-25","email":"maneol@gmail.com","phone":"21999991919","street1":"xpto 1","city":"rj","stateProvince":"rj","postalCode":"2024020","country":"brasil","owner":"64fb27375bffa8001368e49c","__v":0,"street2":null},{"_id":"651b3b471ee68f0013b20836","firstName":"zE","lastName":"Ramalho","birthdate":"1977-07-25","email":"maneol@gmail.com","phone":"21999991919","street1":"xpto 1","city":"rj","stateProvince":"rj","postalCode":"2024020","country":"brasil","owner":"64fb27375bffa8001368e49c","__v":0,"street2":null},{"_id":"651b46dd6f5dd40013e66014","firstName":"zE","lastName":"Ramalho","birthdate":"1977-07-25","email":"maneol@gmail.com","phone":"21999991919","street1":"xpto 1","city":"rj","stateProvince":"rj","postalCode":"2024020","country":"brasil","owner":"64fb27375bffa8001368e49c","__v":0,"street2":null},{"_id":"651b46f41ee68f0013b2084a","firstName":"zE","lastName":"Ramalho","birthdate":"1977-07-25","email":"maneol@gmail.com","phone":"21999991919","street1":"xpto 1","city":"rj","stateProvince":"rj","postalCode":"2024020","country":"brasil","owner":"64fb27375bffa8001368e49c","__v":0,"street2":null},{"_id":"6509897e6133f90013e90507","firstName":"luciana","lastName":"belgan","birthdate":"1965-01-07","email":"luciana@gmail.com","phone":"21992212078","street1":"rua xpto 3","city":"rj","stateProvince":"rj","postalCode":"2022001","country":"brasil","owner":"64fb27375bffa8001368e49c","__v":0,"street2":null},{"_id":"6509e133698c84001372564b","firstName":"juarez","lastName":"das cuvers","birthdate":"1977-07-07","email":"maneol@gmail.com","phone":"21999991919","street1":"xpto 1","city":"rj","stateProvince":"rj","postalCode":"2024020","country":"brsil","owner":"64fb27375bffa8001368e49c","__v":0},{"_id":"6509e1506133f90013e905f0","firstName":"juarez","lastName":"das cuvers","birthdate":"1977-07-07","email":"maneol@gmail.com","phone":"21999991919","street1":"xpto 1","city":"rj","stateProvince":"rj","postalCode":"2024020","country":"brsil","owner":"64fb27375bffa8001368e49c","__v":0},{"_id":"6509c8546133f90013e90573","firstName":"manoel2","lastName":"das cuvers","birthdate":"1977-07-07","email":"maneol@gmail.com","phone":"21999991919","street1":"xpto 1","city":"rj","stateProvince":"rj","postalCode":"2024020","country":"brsil","owner":"64fb27375bffa8001368e49c","__v":0},{"_id":"6509c88f698c8400137255ac","firstName":"manoel2","lastName":"das cuvers","birthdate":"1977-07-07","email":"maneol@gmail.com","phone":"21999991919","street1":"xpto 1","city":"rj","stateProvince":"rj","postalCode":"2024020","country":"brsil","owner":"64fb27375bffa8001368e49c","__v":0},{"_id":"6509d0dc6133f90013e905a8","firstName":"manoel2","lastName":"das cuvers","birthdate":"1977-07-07","email":"maneol@gmail.com","phone":"21999991919","street1":"xpto 1","city":"rj","stateProvince":"rj","postalCode":"2024020","country":"brsil","owner":"64fb27375bffa8001368e49c","__v":0},{"_id":"6509d0ee6133f90013e905a9","firstName":"manoel2","lastName":"das cuvers","birthdate":"1977-07-07","email":"maneol@gmail.com","phone":"21999991919","street1":"xpto 1","city":"rj","stateProvince":"rj","postalCode":"2024020","country":"brsil","owner":"64fb27375bffa8001368e49c","__v":0},{"_id":"6509d1716133f90013e905ac","firstName":"manoel2","lastName":"das cuvers","birthdate":"1977-07-07","email":"maneol@gmail.com","phone":"21999991919","street1":"xpto 1","city":"rj","stateProvince":"rj","postalCode":"2024020","country":"brsil","owner":"64fb27375bffa8001368e49c","__v":0},{"_id":"6509d1c5698c84001372560b","firstName":"manoel2","lastName":"das cuvers","birthdate":"1977-07-07","email":"maneol@gmail.com","phone":"21999991919","street1":"xpto 1","city":"rj","stateProvince":"rj","postalCode":"2024020","country":"brsil","owner":"64fb27375bffa8001368e49c","__v":0},{"_id":"6509d1cf698c84001372560c","firstName":"manoel2","lastName":"das cuvers","birthdate":"1977-07-07","email":"maneol@gmail.com","phone":"21999991919","street1":"xpto 1","city":"rj","stateProvince":"rj","postalCode":"2024020","country":"brsil","owner":"64fb27375bffa8001368e49c","__v":0},{"_id":"6509d1f96133f90013e905ae","firstName":"manoel2","lastName":"das cuvers","birthdate":"1977-07-07","email":"maneol@gmail.com","phone":"21999991919","street1":"xpto 1","city":"rj","stateProvince":"rj","postalCode":"2024020","country":"brsil","owner":"64fb27375bffa8001368e49c","__v":0},{"_id":"6509d22f698c84001372560f","firstName":"manoel2","lastName":"das cuvers","birthdate":"1977-07-07","email":"maneol@gmail.com","phone":"21999991919","street1":"xpto 1","city":"rj","stateProvince":"rj","postalCode":"2024020","country":"brsil","owner":"64fb27375bffa8001368e49c","__v":0},{"_id":"6509d24b698c840013725610","firstName":"manoel2","lastName":"das cuvers","birthdate":"1977-07-07","email":"maneol@gmail.com","phone":"21999991919","street1":"xpto 1","city":"rj","stateProvince":"rj","postalCode":"2024020","country":"brsil","owner":"64fb27375bffa8001368e49c","__v":0},{"_id":"6509d2cc6133f90013e905b1","firstName":"manoel2","lastName":"das cuvers","birthdate":"1977-07-07","email":"maneol@gmail.com","phone":"21999991919","street1":"xpto 1","city":"rj","stateProvince":"rj","postalCode":"2024020","country":"brsil","owner":"64fb27375bffa8001368e49c","__v":0},{"_id":"6509d2fd6133f90013e905b4","firstName":"manoel2","lastName":"das cuvers","birthdate":"1977-07-07","email":"maneol@gmail.com","phone":"21999991919","street1":"xpto 1","city":"rj","stateProvince":"rj","postalCode":"2024020","country":"brsil","owner":"64fb27375bffa8001368e49c","__v":0},{"_id":"6509d334698c840013725618","firstName":"manoel2","lastName":"das cuvers","birthdate":"1977-07-07","email":"maneol@gmail.com","phone":"21999991919","street1":"xpto 1","city":"rj","stateProvince":"rj","postalCode":"2024020","country":"brsil","owner":"64fb27375bffa8001368e49c","__v":0},{"_id":"650e1ca0a475da0013b1e3bd","firstName":"manoel2","lastName":"das cuvers","birthdate":"1977-07-07","email":"maneol@gmail.com","phone":"21999991919","street1":"xpto 1","city":"rj","stateProvince":"rj","postalCode":"2024020","country":"brsil","owner":"64fb27375bffa8001368e49c","__v":0},{"_id":"651b38591ee68f0013b20831","firstName":"Ana","lastName":"de Fatima","owner":"64fb27375bffa8001368e49c","__v":0},{"_id":"651b38b06f5dd40013e65ff5","firstName":"Ana","lastName":"de Fatima","owner":"64fb27375bffa8001368e49c","__v":0},{"_id":"651b393c6f5dd40013e65ff6","firstName":"Ana","lastName":"de Fatima","birthdate":"1977-07-07","email":"maneol@gmail.com","phone":"21999991919","street1":"xpto 1","city":"rj","stateProvince":"rj","postalCode":"2024020","country":"brasil","owner":"64fb27375bffa8001368e49c","__v":0},{"_id":"651b3ac26f5dd40013e65ff9","firstName":"Ana","lastName":"de Fatima","birthdate":"1977-07-07","email":"maneol@gmail.com","phone":"21999991919","street1":"xpto 1","city":"rj","stateProvince":"rj","postalCode":"2024020","country":"brasil","owner":"64fb27375bffa8001368e49c","__v":0},{"_id":"651b3b966f5dd40013e65ffd","firstName":"Ana","lastName":"de Fatima","birthdate":"1977-07-07","ema... (set the log level to DEBUG or TRACE to see the full content) 
+ </msg>
+<msg timestamp="20231002 20:42:40.708" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231002 20:42:39.443" endtime="20231002 20:42:40.708"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>============================</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231002 20:42:40.708" endtime="20231002 20:42:40.709"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Retorno: ${response.json}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231002 20:42:40.709" endtime="20231002 20:42:40.710"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>============================</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231002 20:42:40.710" endtime="20231002 20:42:40.710"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Status Code: ${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231002 20:42:40.710" endtime="20231002 20:42:40.711"/>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<arg>200 == ${response.status_code}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" starttime="20231002 20:42:40.711" endtime="20231002 20:42:40.712"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>============================</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231002 20:42:40.712" endtime="20231002 20:42:40.712"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Response: ${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231002 20:42:40.712" endtime="20231002 20:42:40.713"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${status_code}</var>
+<arg>${response.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20231002 20:42:40.714" level="INFO">${status_code} = 200</msg>
+<status status="PASS" starttime="20231002 20:42:40.713" endtime="20231002 20:42:40.714"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${status_code}</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20231002 20:42:40.714" endtime="20231002 20:42:40.714"/>
+</kw>
+<status status="PASS" starttime="20231002 20:42:39.441" endtime="20231002 20:42:40.715"/>
+</kw>
+<status status="PASS" starttime="20231002 20:42:39.441" endtime="20231002 20:42:40.715"/>
+</test>
+<test id="s1-t3" name=" CENARIO 03: Cadastrar um contato" line="12">
+<kw name="Cadastrar Um Contato" library="validar_apis">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>aliasName</arg>
+<arg>url=${base_url}</arg>
+<arg>disable_warnings=1</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20231002 20:42:40.716" level="INFO">Creating Session using : alias=aliasName, url=https://thinking-tester-contact-list.herokuapp.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20231002 20:42:40.716" endtime="20231002 20:42:40.716"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${Contacts}</var>
+<arg>/contacts/</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231002 20:42:40.717" level="INFO">${Contacts} = /contacts/</msg>
+<status status="PASS" starttime="20231002 20:42:40.716" endtime="20231002 20:42:40.717"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${header}</var>
+<arg>Content-Type=application/json</arg>
+<arg>Authorization=Bearer ${token}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231002 20:42:40.717" level="INFO">${header} = {'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGZiMjczNzViZmZhODAwMTM2OGU0OWMiLCJpYXQiOjE2OTYyOTAxNTl9.ocrP2NoA5qT9DOuHGZyE2TOLis50U74y...</msg>
+<status status="PASS" starttime="20231002 20:42:40.717" endtime="20231002 20:42:40.717"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{data_post}</var>
+<arg>firstName=Ana</arg>
+<arg>lastName=de Fatima</arg>
+<arg>birthdate=1977-07-07</arg>
+<arg>email=maneol@gmail.com</arg>
+<arg>phone=21999991919</arg>
+<arg>street1=xpto 1</arg>
+<arg>city=rj</arg>
+<arg>stateProvince=rj</arg>
+<arg>postalCode=2024020</arg>
+<arg>country=brasil</arg>
+<arg>owner=64fb27375bffa8001368e49c</arg>
+<arg>v=0</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231002 20:42:40.718" level="INFO">&amp;{data_post} = { firstName=Ana | lastName=de Fatima | birthdate=1977-07-07 | email=maneol@gmail.com | phone=21999991919 | street1=xpto 1 | city=rj | stateProvince=rj | postalCode=2024020 | country=brasil | owner=64f...</msg>
+<status status="PASS" starttime="20231002 20:42:40.717" endtime="20231002 20:42:40.718"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>alias=aliasName</arg>
+<arg>url=${Contacts}</arg>
+<arg>json=${data_post}</arg>
+<arg>headers=${header}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20231002 20:42:41.626" level="INFO">POST Request : url=https://thinking-tester-contact-list.herokuapp.com/contacts/ 
+ path_url=/contacts/ 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGZiMjczNzViZmZhODAwMTM2OGU0OWMiLCJpYXQiOjE2OTYyOTAxNTl9.ocrP2NoA5qT9DOuHGZyE2TOLis50U74yClkWC4ZBz7c', 'Content-Length': '276'} 
+ body=b'{"firstName": "Ana", "lastName": "de Fatima", "birthdate": "1977-07-07", "email": "maneol@gmail.com", "phone": "21999991919", "street1": "xpto 1", "city": "rj", "stateProvince": "rj", "postalCode": "2024020", "country": "brasil", "owner": "64fb27375bffa8001368e49c", "v": "0"}' 
+ </msg>
+<msg timestamp="20231002 20:42:41.626" level="INFO">POST Response : url=https://thinking-tester-contact-list.herokuapp.com/contacts/ 
+ status=201, reason=Created 
+ headers={'Server': 'Cowboy', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1696290161&amp;s=h6ZZNaiiPbG8R9lsJijt6G3M%2F3DK0q1qZ7ZebnqO8cI%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1696290161&amp;s=h6ZZNaiiPbG8R9lsJijt6G3M%2F3DK0q1qZ7ZebnqO8cI%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '286', 'Etag': 'W/"11e-JCUSVItRuDy/gX0hx2KuNQyWH64"', 'Date': 'Mon, 02 Oct 2023 23:42:41 GMT', 'Via': '1.1 vegur'} 
+ body={"_id":"651b55716f5dd40013e66027","firstName":"Ana","lastName":"de Fatima","birthdate":"1977-07-07","email":"maneol@gmail.com","phone":"21999991919","street1":"xpto 1","city":"rj","stateProvince":"rj","postalCode":"2024020","country":"brasil","owner":"64fb27375bffa8001368e49c","__v":0} 
+ </msg>
+<msg timestamp="20231002 20:42:41.626" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20231002 20:42:40.718" endtime="20231002 20:42:41.626"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Resposta do Json: ${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231002 20:42:41.626" endtime="20231002 20:42:41.627"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>============================</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231002 20:42:41.627" endtime="20231002 20:42:41.627"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${id}</var>
+<arg>${response.json()["_id"]}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20231002 20:42:41.628" level="INFO">${id} = 651b55716f5dd40013e66027</msg>
+<status status="PASS" starttime="20231002 20:42:41.627" endtime="20231002 20:42:41.628"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Pegando o atributo id do json: ${id}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231002 20:42:41.628" endtime="20231002 20:42:41.628"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${id}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20231002 20:42:41.629" level="INFO">${id} = 651b55716f5dd40013e66027</msg>
+<status status="PASS" starttime="20231002 20:42:41.628" endtime="20231002 20:42:41.629"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${status_code}</var>
+<arg>${response.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20231002 20:42:41.629" level="INFO">${status_code} = 201</msg>
+<status status="PASS" starttime="20231002 20:42:41.629" endtime="20231002 20:42:41.629"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${status_code}</arg>
+<arg>201</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20231002 20:42:41.629" endtime="20231002 20:42:41.630"/>
+</kw>
+<status status="PASS" starttime="20231002 20:42:40.715" endtime="20231002 20:42:41.630"/>
+</kw>
+<status status="PASS" starttime="20231002 20:42:40.715" endtime="20231002 20:42:41.630"/>
+</test>
+<test id="s1-t4" name=" CENARIO 04: Pesquisar por um contato cadastrado" line="15">
+<kw name="Buscar Um Contato" library="validar_apis">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>aliasName</arg>
+<arg>url=${base_url}</arg>
+<arg>disable_warnings=1</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20231002 20:42:41.631" level="INFO">Creating Session using : alias=aliasName, url=https://thinking-tester-contact-list.herokuapp.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20231002 20:42:41.631" endtime="20231002 20:42:41.631"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${header}</var>
+<arg>Content-Type=application/json</arg>
+<arg>Authorization=Bearer ${token}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231002 20:42:41.632" level="INFO">${header} = {'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGZiMjczNzViZmZhODAwMTM2OGU0OWMiLCJpYXQiOjE2OTYyOTAxNTl9.ocrP2NoA5qT9DOuHGZyE2TOLis50U74y...</msg>
+<status status="PASS" starttime="20231002 20:42:41.631" endtime="20231002 20:42:41.632"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>alias=aliasName</arg>
+<arg>url=${endPointlistContacts}${id_contact}</arg>
+<arg>headers=${header}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20231002 20:42:42.507" level="INFO">GET Request : url=https://thinking-tester-contact-list.herokuapp.com/contacts651b1a811ee68f0013b207e3 
+ path_url=/contacts651b1a811ee68f0013b207e3 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGZiMjczNzViZmZhODAwMTM2OGU0OWMiLCJpYXQiOjE2OTYyOTAxNTl9.ocrP2NoA5qT9DOuHGZyE2TOLis50U74yClkWC4ZBz7c'} 
+ body=None 
+ </msg>
+<msg timestamp="20231002 20:42:42.508" level="INFO">GET Response : url=https://thinking-tester-contact-list.herokuapp.com/contacts651b1a811ee68f0013b207e3 
+ status=200, reason=OK 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Content-Type': 'text/html; charset=utf-8', 'Content-Length': '564', 'Etag': 'W/"234-hNjllUMlYDDnOdBMQyypOXVcbE4"', 'Date': 'Mon, 02 Oct 2023 23:42:42 GMT', 'Via': '1.1 vegur'} 
+ body=&lt;!DOCTYPE html&gt;
+
+&lt;html&gt;
+
+&lt;head&gt;
+    &lt;title&gt;404&lt;/title&gt;
+    &lt;link rel="icon" href="/img/thinkingTesterIcon.png"&gt;
+    &lt;link rel="stylesheet" href="/css/styles.css"&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;div&gt;
+        &lt;header&gt;
+            &lt;h1&gt;Page Not Found&lt;/h1&gt;
+            &lt;button id='logout' class='logout' onclick="location.href='/logout'"&gt;Logout&lt;/button&gt;
+        &lt;/header&gt;
+        
+        
+    &lt;/div&gt;
+        &lt;footer&gt;
+            &lt;p&gt;Created by Kristin Jackvony, Copyright 2021 &lt;/p&gt;
+            &lt;img src = "/img/thinkingTesterLogo.png"&gt;
+        &lt;/footer&gt;
+        
+&lt;/body&gt;
+
+&lt;/html&gt; 
+ </msg>
+<msg timestamp="20231002 20:42:42.508" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231002 20:42:41.632" endtime="20231002 20:42:42.508"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>============================</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231002 20:42:42.508" endtime="20231002 20:42:42.509"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Retorno: ${response.json}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231002 20:42:42.509" endtime="20231002 20:42:42.511"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>============================</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231002 20:42:42.512" endtime="20231002 20:42:42.512"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Status Code: ${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231002 20:42:42.512" endtime="20231002 20:42:42.514"/>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<arg>200 == ${response.status_code}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" starttime="20231002 20:42:42.514" endtime="20231002 20:42:42.517"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>============================</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231002 20:42:42.517" endtime="20231002 20:42:42.517"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Response: ${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231002 20:42:42.518" endtime="20231002 20:42:42.519"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${status_code}</var>
+<arg>${response.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20231002 20:42:42.521" level="INFO">${status_code} = 200</msg>
+<status status="PASS" starttime="20231002 20:42:42.520" endtime="20231002 20:42:42.521"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${status_code}</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20231002 20:42:42.522" endtime="20231002 20:42:42.523"/>
+</kw>
+<status status="PASS" starttime="20231002 20:42:41.631" endtime="20231002 20:42:42.523"/>
+</kw>
+<status status="PASS" starttime="20231002 20:42:41.630" endtime="20231002 20:42:42.523"/>
+</test>
+<test id="s1-t5" name=" CENARIO 04: Alterar um contato cadastrado" line="18">
+<kw name="Alterar Um Contato" library="validar_apis">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>aliasName</arg>
+<arg>url=${base_url}</arg>
+<arg>disable_warnings=1</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20231002 20:42:42.527" level="INFO">Creating Session using : alias=aliasName, url=https://thinking-tester-contact-list.herokuapp.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20231002 20:42:42.526" endtime="20231002 20:42:42.528"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${Contacts}</var>
+<arg>/contacts/</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231002 20:42:42.529" level="INFO">${Contacts} = /contacts/</msg>
+<status status="PASS" starttime="20231002 20:42:42.528" endtime="20231002 20:42:42.529"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${header}</var>
+<arg>Content-Type=application/json</arg>
+<arg>Authorization=Bearer ${token}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231002 20:42:42.530" level="INFO">${header} = {'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGZiMjczNzViZmZhODAwMTM2OGU0OWMiLCJpYXQiOjE2OTYyOTAxNTl9.ocrP2NoA5qT9DOuHGZyE2TOLis50U74y...</msg>
+<status status="PASS" starttime="20231002 20:42:42.529" endtime="20231002 20:42:42.530"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{data_post}</var>
+<arg>firstName=zE</arg>
+<arg>lastName=Ramalho</arg>
+<arg>birthdate=1977-07-25</arg>
+<arg>email=maneol@gmail.com</arg>
+<arg>phone=21999991919</arg>
+<arg>street1=xpto 1</arg>
+<arg>city=rj</arg>
+<arg>stateProvince=rj</arg>
+<arg>postalCode=2024020</arg>
+<arg>country=brasil</arg>
+<arg>owner=64fb27375bffa8001368e49c</arg>
+<arg>v=0</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231002 20:42:42.531" level="INFO">&amp;{data_post} = { firstName=zE | lastName=Ramalho | birthdate=1977-07-25 | email=maneol@gmail.com | phone=21999991919 | street1=xpto 1 | city=rj | stateProvince=rj | postalCode=2024020 | country=brasil | owner=64fb27...</msg>
+<status status="PASS" starttime="20231002 20:42:42.530" endtime="20231002 20:42:42.531"/>
+</kw>
+<kw name="PUT On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>alias=aliasName</arg>
+<arg>url=${Contacts}${id}</arg>
+<arg>json=${data_post}</arg>
+<arg>headers=${header}</arg>
+<doc>Sends a PUT request on a previously created HTTP Session.</doc>
+<msg timestamp="20231002 20:42:43.369" level="INFO">PUT Request : url=https://thinking-tester-contact-list.herokuapp.com/contacts/651b55716f5dd40013e66027 
+ path_url=/contacts/651b55716f5dd40013e66027 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGZiMjczNzViZmZhODAwMTM2OGU0OWMiLCJpYXQiOjE2OTYyOTAxNTl9.ocrP2NoA5qT9DOuHGZyE2TOLis50U74yClkWC4ZBz7c', 'Content-Length': '273'} 
+ body=b'{"firstName": "zE", "lastName": "Ramalho", "birthdate": "1977-07-25", "email": "maneol@gmail.com", "phone": "21999991919", "street1": "xpto 1", "city": "rj", "stateProvince": "rj", "postalCode": "2024020", "country": "brasil", "owner": "64fb27375bffa8001368e49c", "v": "0"}' 
+ </msg>
+<msg timestamp="20231002 20:42:43.370" level="INFO">PUT Response : url=https://thinking-tester-contact-list.herokuapp.com/contacts/651b55716f5dd40013e66027 
+ status=200, reason=OK 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '298', 'Etag': 'W/"12a-ZxYtEtfhQOze8YszqcyjTjqmWbs"', 'Date': 'Mon, 02 Oct 2023 23:42:43 GMT', 'Via': '1.1 vegur'} 
+ body={"_id":"651b55716f5dd40013e66027","firstName":"zE","lastName":"Ramalho","birthdate":"1977-07-25","email":"maneol@gmail.com","phone":"21999991919","street1":"xpto 1","city":"rj","stateProvince":"rj","postalCode":"2024020","country":"brasil","owner":"64fb27375bffa8001368e49c","__v":0,"street2":null} 
+ </msg>
+<msg timestamp="20231002 20:42:43.370" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231002 20:42:42.531" endtime="20231002 20:42:43.370"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Resposta do Json: ${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231002 20:42:43.370" endtime="20231002 20:42:43.372"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>============================</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231002 20:42:43.373" endtime="20231002 20:42:43.373"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${status_code}</var>
+<arg>${response.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20231002 20:42:43.374" level="INFO">${status_code} = 200</msg>
+<status status="PASS" starttime="20231002 20:42:43.373" endtime="20231002 20:42:43.374"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${status_code}</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20231002 20:42:43.374" endtime="20231002 20:42:43.374"/>
+</kw>
+<status status="PASS" starttime="20231002 20:42:42.525" endtime="20231002 20:42:43.374"/>
+</kw>
+<status status="PASS" starttime="20231002 20:42:42.524" endtime="20231002 20:42:43.375"/>
+</test>
+<test id="s1-t6" name=" CENARIO 05: Deletar por um contato cadastrado" line="21">
+<kw name="Deletar Um Contato" library="validar_apis">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>aliasName</arg>
+<arg>url=${base_url}</arg>
+<arg>disable_warnings=1</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20231002 20:42:43.376" level="INFO">Creating Session using : alias=aliasName, url=https://thinking-tester-contact-list.herokuapp.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20231002 20:42:43.375" endtime="20231002 20:42:43.376"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${Contacts}</var>
+<arg>/contacts/</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231002 20:42:43.376" level="INFO">${Contacts} = /contacts/</msg>
+<status status="PASS" starttime="20231002 20:42:43.376" endtime="20231002 20:42:43.377"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${header}</var>
+<arg>Content-Type=application/json</arg>
+<arg>Authorization=Bearer ${token}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20231002 20:42:43.377" level="INFO">${header} = {'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGZiMjczNzViZmZhODAwMTM2OGU0OWMiLCJpYXQiOjE2OTYyOTAxNTl9.ocrP2NoA5qT9DOuHGZyE2TOLis50U74y...</msg>
+<status status="PASS" starttime="20231002 20:42:43.377" endtime="20231002 20:42:43.377"/>
+</kw>
+<kw name="DELETE On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>alias=aliasName</arg>
+<arg>url=${Contacts}${id}</arg>
+<arg>headers=${header}</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<msg timestamp="20231002 20:42:44.144" level="INFO">DELETE Request : url=https://thinking-tester-contact-list.herokuapp.com/contacts/651b55716f5dd40013e66027 
+ path_url=/contacts/651b55716f5dd40013e66027 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGZiMjczNzViZmZhODAwMTM2OGU0OWMiLCJpYXQiOjE2OTYyOTAxNTl9.ocrP2NoA5qT9DOuHGZyE2TOLis50U74yClkWC4ZBz7c', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg timestamp="20231002 20:42:44.144" level="INFO">DELETE Response : url=https://thinking-tester-contact-list.herokuapp.com/contacts/651b55716f5dd40013e66027 
+ status=200, reason=OK 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Content-Type': 'text/html; charset=utf-8', 'Content-Length': '15', 'Etag': 'W/"f-smqnjm2ArsFbkvZ+qy6N7Dow4bQ"', 'Date': 'Mon, 02 Oct 2023 23:42:44 GMT', 'Via': '1.1 vegur'} 
+ body=Contact deleted 
+ </msg>
+<msg timestamp="20231002 20:42:44.145" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231002 20:42:43.377" endtime="20231002 20:42:44.145"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Resposta do Json: ${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231002 20:42:44.145" endtime="20231002 20:42:44.147"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${status_code}</var>
+<arg>${response.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20231002 20:42:44.148" level="INFO">${status_code} = 200</msg>
+<status status="PASS" starttime="20231002 20:42:44.148" endtime="20231002 20:42:44.148"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${status_code}</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20231002 20:42:44.148" endtime="20231002 20:42:44.149"/>
+</kw>
+<status status="PASS" starttime="20231002 20:42:43.375" endtime="20231002 20:42:44.149"/>
+</kw>
+<status status="PASS" starttime="20231002 20:42:43.375" endtime="20231002 20:42:44.149"/>
+</test>
+<doc>Suite de Testes validando APIś - Author: ANTONIO G. MARTINS.</doc>
+<status status="PASS" starttime="20231002 20:42:38.347" endtime="20231002 20:42:44.150"/>
+</suite>
+<statistics>
+<total>
+<stat pass="6" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="6" fail="0" skip="0" id="s1" name="Casos Testes">Casos Testes</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
