@@ -1,4 +1,4 @@
-# POSTMAN - SmokeTests - Testes de Serviços
+# POSTMAN
 
 🚀 Collections:
 #### Nome do Arquivo: ContactList.postman_collection.json
