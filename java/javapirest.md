@@ -1,4 +1,4 @@
-# JAVA (REST ASSURED) - Smoke Test - Testes de Serviços
+# JAVA (Api Rest - RestAssured)
 
 => Foram utilizados a linguagem Java(Testng) e a dependencia Restassured para desenvolver este scritps de testes automatizado
  
