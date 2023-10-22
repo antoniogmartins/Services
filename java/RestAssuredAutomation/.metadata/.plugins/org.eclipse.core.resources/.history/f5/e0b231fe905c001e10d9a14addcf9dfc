@@ -1,0 +1,59 @@
+import org.testng.annotations.Test;
+import io.restassured.RestAssured;
+import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
+import io.restassured.response.ValidatableResponse;
+import io.restassured.specification.RequestSpecification;
+
+public class TestsExamples {
+
+	RequestSpecification request = RestAssured.given();
+	public static String jsontoken, token;
+
+	@Test(priority =1)
+	public void GerarToken() {
+				
+		request.header("Content-Type","application/json");
+		String _body = "{\n"
+				+ "   \"email\": \"agmartins2018@gmail.com\",\n"
+				+ "   \"password\": \"12345678\"\n"
+				+ "}";
+		
+		Response response_token = 
+			    request.body(_body).post("https://thinking-tester-contact-list.herokuapp.com/users/login")
+        ;		
+		
+		jsontoken = response_token.getBody().asString();
+		token = JsonPath.from(jsontoken).getString("token");
+		
+		System.out.println ("Status Code .."+response_token.getStatusCode());
+		System.out.println ("Tempo .."+response_token.getTime());
+		System.out.println ("Body .. "+response_token.getBody().asPrettyString());
+		System.out.println ("Status Line .. "+response_token.getStatusLine());
+		System.out.println ("Status Line .. "+token);
+	}
+	
+	@Test(priority =2)
+	public static void BuscarUsuario() {
+	
+//		Response Retorno = RestAssured.get("https://thinking-tester-contact-list.herokuapp.com/contacts/65130a905ed1dc0013e8e3f9");
+		
+		RequestSpecification request = RestAssured.given();
+		
+		request.header("Content-Type","application/json");
+		request.header("Authorization","Bearer "+token);
+		
+		Response Retorno = 
+			    request.get("https://thinking-tester-contact-list.herokuapp.com/contacts/65130a905ed1dc0013e8e3f9")
+        ;		
+		
+		System.out.println ("Status Code .."+Retorno.getStatusCode());
+		System.out.println ("Tempo .."+Retorno.getTime());
+		System.out.println ("Body .. "+Retorno.getBody().asPrettyString());
+		System.out.println ("Status Line .. "+Retorno.getStatusLine());
+		
+	}
+	
+
+	
+}

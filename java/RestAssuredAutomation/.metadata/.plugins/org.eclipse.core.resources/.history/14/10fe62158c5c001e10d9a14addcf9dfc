@@ -1,0 +1,22 @@
+import org.testng.annotations.Test;
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
+
+public class TestsExamples {
+
+	@Test
+	public static void teste() {
+	
+		Response Retorno = RestAssured.get("https://reqres.in/api/users/2");
+		
+		System.out.println ("Status Code .."+Retorno.getStatusCode());
+		System.out.println ("Tempo .."+Retorno.getTime());
+		System.out.println ("Body .. "+Retorno.getBody().asPrettyString());
+		System.out.println ("Status Line .. "+Retorno.getStatusLine());
+		
+		
+	}
+	
+
+	
+}

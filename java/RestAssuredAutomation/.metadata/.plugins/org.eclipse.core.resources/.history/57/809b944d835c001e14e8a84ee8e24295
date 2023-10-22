@@ -1,0 +1,23 @@
+
+
+public class TestsExamples {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+         System.out.println("testando");
+         teste();
+	}
+
+	public static void teste() {
+	
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+}

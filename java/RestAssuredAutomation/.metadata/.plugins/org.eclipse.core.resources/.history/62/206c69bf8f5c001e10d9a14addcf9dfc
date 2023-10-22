@@ -1,0 +1,34 @@
+import org.testng.annotations.Test;
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
+import io.restassured.response.ValidatableResponse;
+import io.restassured.specification.RequestSpecification;
+
+public class TestsExamples {
+
+	@Test
+	public static void teste() {
+	
+//		Response Retorno = RestAssured.get("https://thinking-tester-contact-list.herokuapp.com/contacts/65130a905ed1dc0013e8e3f9");
+		
+		RequestSpecification request = RestAssured.given();
+		
+		request.header("Content-Type","application/json");
+		request.header("Authorization", 
+				"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGZiMjczNzViZmZhODAwMTM2OGU0OWMiLCJpYXQiOjE2OTU2ODQxODJ9.V5j6ycKou9J9yiNz_HNFEQ8PIANMn_IYf7h3kIpsb94");
+		
+		Response Retorno = 
+			    request.get("https://thinking-tester-contact-list.herokuapp.com/contacts/65130a905ed1dc0013e8e3f9")
+        ;		
+		
+		System.out.println ("Status Code .."+Retorno.getStatusCode());
+		System.out.println ("Tempo .."+Retorno.getTime());
+		System.out.println ("Body .. "+Retorno.getBody().asPrettyString());
+		System.out.println ("Status Line .. "+Retorno.getStatusLine());
+		
+		
+	}
+	
+
+	
+}
