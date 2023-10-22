@@ -1,4 +1,4 @@
-# CYPRESS (ApiRest)
+# CYPRESS (RestApi)
 => Foi utilizado o Cypress para desenvolver este scripts de testes automatizados
 
 🚀 Collections: 
