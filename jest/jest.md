@@ -40,11 +40,13 @@ ContactList.postman_collection.json
 
 🚀 Validar a ação de Gerar Token
 
+![Captura de ecrã de 2023-11-01 12-07-37](https://github.com/antoniogmartins/Services/assets/35534493/68e7e466-e9ca-47cc-aa96-61fd3466618e)
 
 🚀 Cadastrar/Consultar/Atualizar/Deletar uma Lista de Contatos
 
 🔖 => Validar a ação de Cadastrar um Contato
 
+![Captura de ecrã de 2023-11-01 12-07-46](https://github.com/antoniogmartins/Services/assets/35534493/ac6d1581-322a-4431-9fd1-eb5faf237472)
 
 🔖 => Validar a ação de Buscar o contato cadastrado
 
