@@ -1,21 +1,18 @@
-# CYPRESS (RestApi)
+# jest (RestApi)
 => Foi utilizado o Cypress para desenvolver este scripts de testes automatizados
 
-🚀 Collections: 
-#### Nome do Arquivo: GO Rest.postman_collection.json.json 
-
-### Cadastro/Consultar Usuario
+### Cadastro/Consultar Contato
 ## 🔖 Requisitos funcionais
-- [X] Deve retornar 201 ao cadastrar um usuario
-- [X] Deve retornar 200 ao listar todos os usuarios cadastrados
-- [X] Deve retornar 200 ao pesquisar somente por 1 ususario existente
-- [X] Deve retornar 200 ao alterar um usuario existente
-- [X] Deve retornar 200 ao deletar um usuario existente
+- [X] Deve retornar 201 ao cadastrar um contato
+- [X] Deve retornar 200 ao listar todos os contatos cadastrados
+- [X] Deve retornar 200 ao pesquisar somente por 1 contato existente
+- [X] Deve retornar 200 ao alterar um contato existente
+- [X] Deve retornar 200 ao deletar um contato existente
 
 ## 🔖 Requisitos Não funcionais
-- [X] Deve retornar 422 ao tentar incluir um usuario sem passar nenhuma informação no body
-- [X] Deve retornar 401 (Unauthorized) ao tentar incluir um usuario sem passar no body um dos campos: name, gender, email, status
-- [X] Deve retornar 404 (bad request) ao tentar pesquisar por um usuario inexistente
+- [X] Deve retornar 422 ao tentar incluir um contato sem passar nenhuma informação no body
+- [X] Deve retornar 401 (Unauthorized) ao tentar incluir um contato sem passar no body um dos campos: name, gender, email, status
+- [X] Deve retornar 404 (bad request) ao tentar pesquisar por um contato inexistente
 - [X] Deve retornar 422 ao tentar incluir um Email ja utilizado anteriormente
 
 | campos             | descrição                              | tipo     | obrigatório |
