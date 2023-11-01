@@ -1,4 +1,4 @@
-# jest (RestApi)
+# JEST (RestApi)
 => Foi utilizado o Jest e o SuperTest para desenvolver/validar os cenarios de testes automatizados
 
 ### Cadastro/Consulta de Contato
