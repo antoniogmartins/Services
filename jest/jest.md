@@ -73,7 +73,7 @@ Obs.: É preciso que vc esteja conectado a internet
 
 🚀 Análise do Smoke Tests realizados
 
-Os testes foram executados com exito tanto utilizando o gitactions quanto diretamente por meio do Postman.
+Os testes foram executados com exito tanto utilizando o gitactions quanto diretamente por meio do Jest.
 
 🚀 Análise Final
 
