@@ -1,7 +1,7 @@
 # Services
 
 🔑Jest/Supertest: 
-[Veja mais](https://github.com/antoniogmartins/Services/blob/main/jest/jest.md))
+[Veja mais](https://github.com/antoniogmartins/Services/blob/main/jest/jest.md)
 
 🔑Cypress: 
 [Veja mais](https://github.com/antoniogmartins/Services/blob/main/cypress/cypress.md)
