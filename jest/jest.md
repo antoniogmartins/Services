@@ -1,8 +1,9 @@
 # jest (RestApi)
-=> Foi utilizado o Cypress para desenvolver este scripts de testes automatizados
+=> Foi utilizado o Jest e o SuperTest para desenvolver/validar os cenarios de testes automatizados
 
-### Cadastro/Consultar Contato
+### Cadastro/Consulta de Contato
 ## 🔖 Requisitos funcionais
+- [X] Deve retornar 201 ao logar/gerar um token 
 - [X] Deve retornar 201 ao cadastrar um contato
 - [X] Deve retornar 200 ao listar todos os contatos cadastrados
 - [X] Deve retornar 200 ao pesquisar somente por 1 contato existente
@@ -10,72 +11,51 @@
 - [X] Deve retornar 200 ao deletar um contato existente
 
 ## 🔖 Requisitos Não funcionais
-- [X] Deve retornar 422 ao tentar incluir um contato sem passar nenhuma informação no body
-- [X] Deve retornar 401 (Unauthorized) ao tentar incluir um contato sem passar no body um dos campos: name, gender, email, status
-- [X] Deve retornar 404 (bad request) ao tentar pesquisar por um contato inexistente
-- [X] Deve retornar 422 ao tentar incluir um Email ja utilizado anteriormente
+- [X] Deve retornar 400 (bad request) ao tentar alterar um contato com email invalido
+- [X] Deve retornar 401 (Unauthorized) ao tentar pesquisar um contato sem token
+- [X] Deve retornar 404 (not found) ao tentar pesquisar por um contao inexistente
+- [X] Deve retornar 400 (bad request) ao tentar cadastrar em informar um campo requerido (firstname)
+- [X] Deve retornar 400 (bad request) ao tentar cadastrar em informar um campo requerido (lastname)
+
 
 | campos             | descrição                              | tipo     | obrigatório |
 | :----------------- | :------------------------------------- | :------- | :---------- |
-| name               | primeiro nome ao cadastrar um usuario  | texto    | sim         |
-| gender             | genero sexual do usuario               | texto    | sim         |
-| email              | email do usuario                       | texto    | sim         |
-| status             | tipo do status                         | texto    | sim         |
+| firstname          | primeiro nome ao cadastrar um contato  | texto    | sim         |
+| lastname           | segundo nome ao cadastrar um contato   | texto    | sim         |
+| birthdate          | preco total                            | date     | sim         |
+| email              | valor do pagamento do deposito         | texto    | sim         |
+| phone              | data do booking                        | numero   | nao         |
+| street1            | data do checking                       | texto    | sim         |
+| city               | data do checkout                       | texto    | sim         |
+| stateProvince      | necessidades adicionais                | texto    | sim         |
+| postalCode         | necessidades adicionais                | numero   | sim         |
+| coutnry            | necessidades adicionais                | texto    | sim         |
+| owner              | necessidades adicionais                | texto    | sim         |
+| __v                | necessidades adicionais                | texto    | sim         |
 
 
 🔖 => Arquivo(s) contendo a(s) collection(s):
 
-xxxx.json
+ContactList.postman_collection.json
 
-🚀 Demonstração Geral de um crud contendo uma Lista de Usuarios
-🚀 Cadastrar/Consultar/Atualizar/Deletar uma Lista de Usuarios
-
-Executando diretamente pelo cypress:
-![Captura de tela de 2023-10-06 13-50-20](https://github.com/antoniogmartins/cypress/assets/35534493/2e78d3d6-a74c-4c23-a5cf-f7c1d8a791be)
-
-🔖 => Cadastrar
-
-No código fonte
-![Captura de tela de 2023-10-06 13-06-00](https://github.com/antoniogmartins/cypress/assets/35534493/de3d7fb9-ff1a-4a18-90a6-426120befd25)
-
-Executando diretamente pelo cypress:
-![Captura de tela de 2023-10-06 13-07-36](https://github.com/antoniogmartins/cypress/assets/35534493/d43feb9a-a935-4ae4-8202-e28718da2def)
+🚀 Validar a ação de Gerar Token
 
 
-🔖 => Listar todos os usuarios
+🚀 Cadastrar/Consultar/Atualizar/Deletar uma Lista de Contatos
 
-No código fonte
-![Captura de tela de 2023-10-06 13-09-25](https://github.com/antoniogmartins/cypress/assets/35534493/6c4ef279-7dca-47a4-aa45-cd469edb4f62)
-
-Executando diretamente pelo cypress:
-![Captura de tela de 2023-10-06 13-07-27](https://github.com/antoniogmartins/cypress/assets/35534493/ad640b1c-779c-4a2b-a319-c522f956aed0)
+🔖 => Validar a ação de Cadastrar um Contato
 
 
-🔖 => Pesquisar somente por 01 usuario
-
-No código fonte
-![Captura de tela de 2023-10-06 13-06-23](https://github.com/antoniogmartins/cypress/assets/35534493/c4233c89-6f18-4583-912c-ebb66732c7d9)
-
-Executando diretamente pelo cypress:
-![Captura de tela de 2023-10-06 13-07-42](https://github.com/antoniogmartins/cypress/assets/35534493/82077b00-3dfc-46be-b6ff-6cbfc15e0d2e)
+🔖 => Validar a ação de Buscar o contato cadastrado
 
 
-🔖 => Atualizar os dados de um usuario
-
-No código fonte
-![Captura de tela de 2023-10-06 13-06-28](https://github.com/antoniogmartins/cypress/assets/35534493/2a8020a5-8562-4bde-a45a-85d2229bc310)
-
-Executando diretamente pelo cypress:
-![Captura de tela de 2023-10-06 13-07-52](https://github.com/antoniogmartins/cypress/assets/35534493/1097a31a-e75c-43fb-b80f-d585741e154b)
+🔖 => Validar a ação Alterar os dados do Contato cadastrado,
 
 
-🔖 => Deletar um usuario
+🔖 => Validar a ação de Deletar o contato cadastrado
 
-No código fonte
-![Captura de tela de 2023-10-06 13-06-31](https://github.com/antoniogmartins/cypress/assets/35534493/72241a7f-326d-4bd6-bd04-cdb99d0dfcfe)
 
-Executando diretamente pelo cypress:
-![Captura de tela de 2023-10-06 13-07-59](https://github.com/antoniogmartins/cypress/assets/35534493/0f584e02-7aee-45e3-b6cc-85b148b0cbd7)
+🔖 => Validar a ação de Buscar todos os contatos cadastrados
 
 
 🚀 Como executar de forma automatica, os smoketests utilizando as apis, por meio do GitActions
@@ -85,20 +65,20 @@ Obs.: É preciso que vc esteja conectado a internet
 🚀 Integracao Continua - Pipeline
 
 
+
 🚀 Análise do Smoke Tests realizados
 
-Os testes foram executados com exito tanto utilizando o gitactions quanto diretamente por meio do Postman no apoio a validação das rotas das apis.
+Os testes foram executados com exito tanto utilizando o gitactions quanto diretamente por meio do Postman.
 
 🚀 Análise Final
 
-Smoketests concluidos com exito. StatusCode retornados dentro do esperado de acordo com cada metodo do request
+Smoketests concluidos com exito. StatusCode retornados dentro do esperado de acordo com cada metodo do request e no tempo desejado
 
-🚀 Fontes:
+🚀 Fontes - Documentação da Api:
 
-https://gorest.co.in/
+https://thinking-tester-contact-list.herokuapp.com/contactList
 
 📝 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 Feito com 💜  por Antonio Martins 👋   Meu linkedin
-
