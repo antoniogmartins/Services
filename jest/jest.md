@@ -64,6 +64,15 @@ ContactList.postman_collection.json
 
 ![Captura de ecrã de 2023-11-01 12-21-47](https://github.com/antoniogmartins/Services/assets/35534493/5c4ae2e6-08c4-434a-917c-ce1b3d3f9a1d)
 
+🔖 => Execuçao dos testes utizando cmd do linux
+
+Abrir o Terminal:
+Digitar: npm test <<nome_arquivo>>
+Executando todos os testes:
+
+![Captura de ecrã de 2023-11-01 14-06-57](https://github.com/antoniogmartins/Services/assets/35534493/5fd0bd68-9cf3-4ecb-9370-f6cf5155e96c)
+
+
 🚀 Como executar de forma automatica, os smoketests utilizando as apis, por meio do GitActions
 
 Obs.: É preciso que vc esteja conectado a internet
