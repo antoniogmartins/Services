@@ -50,22 +50,25 @@ ContactList.postman_collection.json
 
 🔖 => Validar a ação de Buscar o contato cadastrado
 
+![Captura de ecrã de 2023-11-01 12-24-07](https://github.com/antoniogmartins/Services/assets/35534493/89312602-2c40-4d0a-a63b-b46b91260a31)
 
 🔖 => Validar a ação Alterar os dados do Contato cadastrado,
 
+![Captura de ecrã de 2023-11-01 12-21-57](https://github.com/antoniogmartins/Services/assets/35534493/c975b9d2-cb4b-459a-893f-63e30f474e4d)
 
 🔖 => Validar a ação de Deletar o contato cadastrado
 
+![Captura de ecrã de 2023-11-01 12-23-15](https://github.com/antoniogmartins/Services/assets/35534493/e44c114f-b803-432e-9d03-5fcb574af3ab)
 
 🔖 => Validar a ação de Buscar todos os contatos cadastrados
 
+![Captura de ecrã de 2023-11-01 12-21-47](https://github.com/antoniogmartins/Services/assets/35534493/5c4ae2e6-08c4-434a-917c-ce1b3d3f9a1d)
 
 🚀 Como executar de forma automatica, os smoketests utilizando as apis, por meio do GitActions
 
 Obs.: É preciso que vc esteja conectado a internet
 
 🚀 Integracao Continua - Pipeline
-
 
 
 🚀 Análise do Smoke Tests realizados
