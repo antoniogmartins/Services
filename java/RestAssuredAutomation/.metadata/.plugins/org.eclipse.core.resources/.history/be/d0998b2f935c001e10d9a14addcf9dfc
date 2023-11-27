@@ -1,0 +1,143 @@
+import org.testng.annotations.Test;
+import io.restassured.RestAssured;
+import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
+import io.restassured.response.ValidatableResponse;
+import io.restassured.specification.RequestSpecification;
+
+public class TestsExamples {
+
+	RequestSpecification request = RestAssured.given();
+	public static String jsontoken, token, _body, _id;
+
+	@Test(priority =1)
+	public void GerarToken() {
+				
+		request.header("Content-Type","application/json");
+		_body = "{\n"
+				+ "   \"email\": \"agmartins2018@gmail.com\",\n"
+				+ "   \"password\": \"12345678\"\n"
+				+ "}";
+		
+		Response response_token = 
+			    request.body(_body).post("https://thinking-tester-contact-list.herokuapp.com/users/login")
+        ;		
+		
+		jsontoken = response_token.getBody().asString();
+		token = JsonPath.from(jsontoken).getString("token");
+		
+		System.out.println ("Status Code .."+response_token.getStatusCode());
+		System.out.println ("Tempo .."+response_token.getTime());
+		System.out.println ("Body .. "+response_token.getBody().asPrettyString());
+		System.out.println ("Status Line .. "+response_token.getStatusLine());
+		System.out.println ("Status Line .. "+token);
+	}
+	
+	@Test(priority = 2)
+	public static void CasdastrarUsuario() {
+	
+		RequestSpecification request = RestAssured.given();
+		
+		request.header("Content-Type","application/json");
+		request.header("Authorization","Bearer "+token);
+		_body = "{\n"
+				+ "    \"firstName\": \"Ana\",\n"
+				+ "    \"lastName\": \"Belmonte\",\n"
+				+ "    \"birthdate\": \"1977-07-07\",\n"
+				+ "    \"email\": \"Ana_belmonte@gmail.com\",\n"
+				+ "    \"phone\": \"21999991919\",\n"
+				+ "    \"street1\": \"xpto 1\",\n"
+				+ "    \"city\": \"rj\",\n"
+				+ "    \"stateProvince\": \"rj\",\n"
+				+ "    \"postalCode\": \"2024080\",\n"
+				+ "    \"country\": \"brsil\",\n"
+				+ "    \"owner\": \"64fb27375bffa8001368e49c\",\n"
+				+ "    \"__v\": 0\n"
+				+ "}";
+		
+		Response RetornoPost = 
+			    request.body(_body).post("https://thinking-tester-contact-list.herokuapp.com/contacts/")
+        ;		
+	    
+		jsontoken = RetornoPost.getBody().asString();
+		_id = JsonPath.from(jsontoken).getString("_id");
+		
+		System.out.println ("Status Code .."+RetornoPost.getStatusCode());
+		System.out.println ("Tempo .."+RetornoPost.getTime());
+		System.out.println ("Body .. "+RetornoPost.getBody().asPrettyString());
+		System.out.println ("Status Line .. "+RetornoPost.getStatusLine());
+		
+	}
+	
+	@Test(priority = 3)
+	public static void BuscarUsuario() {
+	
+		RequestSpecification request = RestAssured.given();
+		
+		request.header("Content-Type","application/json");
+		request.header("Authorization","Bearer "+token);
+		
+		Response RetornoGetuser = 
+			    request.get("https://thinking-tester-contact-list.herokuapp.com/contacts/"+_id)
+        ;		
+		
+		System.out.println ("Status Code .."+RetornoGetuser.getStatusCode());
+		System.out.println ("Tempo .."+RetornoGetuser.getTime());
+		System.out.println ("Body .. "+RetornoGetuser.getBody().asPrettyString());
+		System.out.println ("Status Line .. "+RetornoGetuser.getStatusLine());
+		
+	}
+	
+	@Test(priority = 4)
+	public static void AlterarUsuario() {
+	
+	RequestSpecification request = RestAssured.given();
+		
+		request.header("Content-Type","application/json");
+		request.header("Authorization","Bearer "+token);
+		_body = "{\n"
+				+ "    \"firstName\": \"Josez\",\n"
+				+ "    \"lastName\": \"Ramalho\",\n"
+				+ "    \"birthdate\": \"1922-01-07\",\n"
+				+ "    \"email\": \"zeramalho@yahoo.com.br\",\n"
+				+ "    \"phone\": \"21992221174\",\n"
+				+ "    \"street1\": \"rua xpto 6\",\n"
+				+ "    \"city\": \"sp\",\n"
+				+ "    \"stateProvince\": \"sp\",\n"
+				+ "    \"postalCode\": \"2022012\",\n"
+				+ "    \"country\": \"brasil\",\n"
+				+ "    \"owner\": \"64fb27375bffa8001368e49c\",\n"
+				+ "    \"__v\": 0\n"
+				+ "}";
+		
+		Response RetornoPost = 
+			    request.body(_body).put("https://thinking-tester-contact-list.herokuapp.com/contacts/")
+        ;		
+	    
+		System.out.println ("Status Code .."+RetornoPost.getStatusCode());
+		System.out.println ("Tempo .."+RetornoPost.getTime());
+		System.out.println ("Body .. "+RetornoPost.getBody().asPrettyString());
+		System.out.println ("Status Line .. "+RetornoPost.getStatusLine());
+		
+	}
+	
+	@Test(priority = 5)
+	public static void DeletarUsuario() {
+	
+	RequestSpecification request = RestAssured.given();
+		
+		request.header("Content-Type","application/json");
+		request.header("Authorization","Bearer "+token);
+		
+		Response RetornoDelete = 
+			    request.body(_body).delete("https://thinking-tester-contact-list.herokuapp.com/contacts/")
+        ;		
+	    
+		System.out.println ("Status Code .."+RetornoDelete.getStatusCode());
+		System.out.println ("Tempo .."+RetornoDelete.getTime());
+		System.out.println ("Body .. "+RetornoDelete.getBody().asPrettyString());
+		System.out.println ("Status Line .. "+RetornoDelete.getStatusLine());
+		
+	}
+	
+}

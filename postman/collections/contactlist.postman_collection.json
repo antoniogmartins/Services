@@ -1,0 +1,471 @@
+{
+	"info": {
+		"_postman_id": "ee55f53a-3664-4d63-9c07-b9ce7101169b",
+		"name": "ContactList Exportado",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11476541"
+	},
+	"item": [
+		{
+			"name": "Endpoints Basicos",
+			"item": [
+				{
+					"name": "Login/Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let response = pm.response.json().token;",
+									"pm.environment.set(\"token\", response);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"email\": \"agmartins2018@gmail.com\",\n   \"password\": \"12345678\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://thinking-tester-contact-list.herokuapp.com/users/login",
+							"protocol": "https",
+							"host": [
+								"thinking-tester-contact-list",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar um Contato",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let response = pm.response.json()._id;",
+									"pm.environment.set(\"id\", response);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGZiMjczNzViZmZhODAwMTM2OGU0OWMiLCJpYXQiOjE2OTUxNDYzNjd9.nRem6aQxWMpd_olrXUxIku11qzxhCwbKhyDsksQpYCo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"manoel2\",\n    \"lastName\": \"das cuvers\",\n    \"birthdate\": \"1977-07-07\",\n    \"email\": \"maneol@gmail.com\",\n    \"phone\": \"21999991919\",\n    \"street1\": \"xpto 1\",\n    \"city\": \"rj\",\n    \"stateProvince\": \"rj\",\n    \"postalCode\": \"2024020\",\n    \"country\": \"brsil\",\n    \"owner\": \"64fb27375bffa8001368e49c\",\n    \"__v\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://thinking-tester-contact-list.herokuapp.com/contacts/",
+							"protocol": "https",
+							"host": [
+								"thinking-tester-contact-list",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"contacts",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LIstar todos Contatos",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGZiMjczNzViZmZhODAwMTM2OGU0OWMiLCJpYXQiOjE2OTUxNDYzNjd9.nRem6aQxWMpd_olrXUxIku11qzxhCwbKhyDsksQpYCo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://thinking-tester-contact-list.herokuapp.com/contacts/",
+							"protocol": "https",
+							"host": [
+								"thinking-tester-contact-list",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"contacts",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pesquisar 1 contato",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGZiMjczNzViZmZhODAwMTM2OGU0OWMiLCJpYXQiOjE2OTUxNDYzNjd9.nRem6aQxWMpd_olrXUxIku11qzxhCwbKhyDsksQpYCo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://thinking-tester-contact-list.herokuapp.com/contacts/{{id}}",
+							"protocol": "https",
+							"host": [
+								"thinking-tester-contact-list",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"contacts",
+								"{{id}}"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGZiMjczNzViZmZhODAwMTM2OGU0OWMiLCJpYXQiOjE2OTQxODEzNjl9.gfhBwNItjGx1ZlgI0RQSNsF-oJbayVcWJcoT_mRtMOg",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alterar Contato",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGZiMjczNzViZmZhODAwMTM2OGU0OWMiLCJpYXQiOjE2OTUxNDYzNjd9.nRem6aQxWMpd_olrXUxIku11qzxhCwbKhyDsksQpYCo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"xamira\",\n    \"lastName\": \"das cuve1111rs\",\n    \"birthdate\": \"1977-07-07\",\n    \"email\": \"maneol@gmail.com\",\n    \"phone\": \"21999991919\",\n    \"street1\": \"xpto 1\",\n    \"city\": \"rj\",\n    \"stateProvince\": \"rj\",\n    \"postalCode\": \"2024020\",\n    \"country\": \"brsil\",\n    \"owner\": \"64fb27375bffa8001368e49c\",\n    \"__v\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://thinking-tester-contact-list.herokuapp.com/contacts/{{id}}",
+							"protocol": "https",
+							"host": [
+								"thinking-tester-contact-list",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"contacts",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar contato",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGZiMjczNzViZmZhODAwMTM2OGU0OWMiLCJpYXQiOjE2OTUxNDYzNjd9.nRem6aQxWMpd_olrXUxIku11qzxhCwbKhyDsksQpYCo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://thinking-tester-contact-list.herokuapp.com/contacts/{{id}}",
+							"protocol": "https",
+							"host": [
+								"thinking-tester-contact-list",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"contacts",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Endpoint com Erros",
+			"item": [
+				{
+					"name": "Pesquisar contato - sem token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://thinking-tester-contact-list.herokuapp.com/contacts/6509c409698c84001372559b",
+							"protocol": "https",
+							"host": [
+								"thinking-tester-contact-list",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"contacts",
+								"6509c409698c84001372559b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pesquisar contato inexistente",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGZiMjczNzViZmZhODAwMTM2OGU0OWMiLCJpYXQiOjE2OTUxNDYzNjd9.nRem6aQxWMpd_olrXUxIku11qzxhCwbKhyDsksQpYCo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://thinking-tester-contact-list.herokuapp.com/contacts/6509c409698c84001372559b",
+							"protocol": "https",
+							"host": [
+								"thinking-tester-contact-list",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"contacts",
+								"6509c409698c84001372559b"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cadastrar um Contato sem informacoes obrigatorias",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response = pm.response.json()._id;",
+							"pm.environment.set(\"id\", response);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGZiMjczNzViZmZhODAwMTM2OGU0OWMiLCJpYXQiOjE2OTUxNDYzNjd9.nRem6aQxWMpd_olrXUxIku11qzxhCwbKhyDsksQpYCo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"lastName\": \"das cuvers\",\n    \"birthdate\": \"1977-07-07\",\n    \"email\": \"maneol@gmail.com\",\n    \"phone\": \"21999991919\",\n    \"street1\": \"xpto 1\",\n    \"city\": \"rj\",\n    \"stateProvince\": \"rj\",\n    \"postalCode\": \"2024020\",\n    \"country\": \"brsil\",\n    \"owner\": \"64fb27375bffa8001368e49c\",\n    \"__v\": 0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://thinking-tester-contact-list.herokuapp.com/contacts/",
+					"protocol": "https",
+					"host": [
+						"thinking-tester-contact-list",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"contacts",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar um Contato sem informacoes obrigatorias",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response = pm.response.json()._id;",
+							"pm.environment.set(\"id\", response);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGZiMjczNzViZmZhODAwMTM2OGU0OWMiLCJpYXQiOjE2OTUxNDYzNjd9.nRem6aQxWMpd_olrXUxIku11qzxhCwbKhyDsksQpYCo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\": \"manoel2\",\n    \"lastName\": \"\",\n    \"birthdate\": \"1977-07-07\",\n    \"email\": \"maneol@gmail.com\",\n    \"phone\": \"21999991919\",\n    \"street1\": \"xpto 1\",\n    \"city\": \"rj\",\n    \"stateProvince\": \"rj\",\n    \"postalCode\": \"2024020\",\n    \"country\": \"brsil\",\n    \"owner\": \"64fb27375bffa8001368e49c\",\n    \"__v\": 0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://thinking-tester-contact-list.herokuapp.com/contacts/",
+					"protocol": "https",
+					"host": [
+						"thinking-tester-contact-list",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"contacts",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Alterar Contato - email invalido",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGZiMjczNzViZmZhODAwMTM2OGU0OWMiLCJpYXQiOjE2OTUxNDYzNjd9.nRem6aQxWMpd_olrXUxIku11qzxhCwbKhyDsksQpYCo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\": \"xamira\",\n    \"lastName\": \"das cuve1111rs\",\n    \"birthdate\": \"1977-07-07\",\n    \"email\": \"maneol@\",\n    \"phone\": \"21999991919\",\n    \"street1\": \"xpto 1\",\n    \"city\": \"rj\",\n    \"stateProvince\": \"rj\",\n    \"postalCode\": \"2024020\",\n    \"country\": \"brsil\",\n    \"owner\": \"64fb27375bffa8001368e49c\",\n    \"__v\": 0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://thinking-tester-contact-list.herokuapp.com/contacts/6509c409698c84001372559b",
+					"protocol": "https",
+					"host": [
+						"thinking-tester-contact-list",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"contacts",
+						"6509c409698c84001372559b"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

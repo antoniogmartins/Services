@@ -1,0 +1,33 @@
+import org.testng.annotations.Test;
+
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
+
+public class TestsExamples {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+         System.out.println("testando");
+         teste();
+	}
+
+	@Test
+	public static void teste() {
+	
+		Response Retorno = RestAssured.get("https://reqres.in/api/users/2");
+		//System.out.println (Retorno);
+		
+		System.out.println (Retorno.getStatusCode());
+		System.out.println (Retorno.getTime());
+		System.out.println (Retorno.getBody());
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+}
