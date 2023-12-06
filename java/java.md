@@ -64,10 +64,12 @@ ContactList.postman_collection.json
 
 🔖 => Validar a ação de Deletar o contato cadastrado
 
+![java_restassured_deletarususario](https://github.com/antoniogmartins/Services/assets/35534493/0194abef-e563-4cd3-a5d8-5483ba0f0626)
 
 
 🔖 => Validar a ação de Buscar todos os contatos cadastrados
 
+![java_restassured_buscartodosusuarios](https://github.com/antoniogmartins/Services/assets/35534493/347b93bc-cb67-4ce0-987a-f6cd79adf9f7)
 
 
 🚀 Como executar de forma automatica, os smoketests utilizando as apis, por meio do GitActions
