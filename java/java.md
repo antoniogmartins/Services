@@ -54,10 +54,12 @@ ContactList.postman_collection.json
 
 🔖 => Validar a ação de Buscar o contato cadastrado
 
+![java_restassured_buscarususario](https://github.com/antoniogmartins/Services/assets/35534493/5a5d27d7-618e-4561-87b4-b027647b7340)
 
 
 🔖 => Validar a ação Alterar os dados do Contato cadastrado,
 
+![java_restassured_alterarususario](https://github.com/antoniogmartins/Services/assets/35534493/aa776dcf-f7d2-44d1-86d0-80b639e30222)
 
 
 🔖 => Validar a ação de Deletar o contato cadastrado
