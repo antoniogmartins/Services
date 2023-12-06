@@ -55,14 +55,17 @@ ContactList.postman_collection.json
 🔖 => Validar a ação de Buscar o contato cadastrado
 
 
+
 🔖 => Validar a ação Alterar os dados do Contato cadastrado,
 
-![Captura de tela de 2023-09-26 17-31-47](https://github.com/antoniogmartins/java_apirest/assets/35534493/4a5744ee-912f-4aae-9eb3-1dc4cb09c2d1)
+
 
 🔖 => Validar a ação de Deletar o contato cadastrado
 
 
+
 🔖 => Validar a ação de Buscar todos os contatos cadastrados
+
 
 
 🚀 Como executar de forma automatica, os smoketests utilizando as apis, por meio do GitActions
