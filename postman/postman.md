@@ -93,6 +93,7 @@ Obs.: É preciso que vc esteja conectado a internet
 
 🚀 Como executar de forma automatica, os smoketests utilizando as apis, por meio do Postman
 
+![postman_execução_todos_testes](https://github.com/antoniogmartins/Services/assets/35534493/5614d307-c6ea-44a8-a4a2-bda9d9036d2d)
 
 
 🚀 Análise do Smoke Tests realizados
