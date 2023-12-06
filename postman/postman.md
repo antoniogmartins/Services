@@ -43,19 +43,14 @@ ContactList.postman_collection.json
 
 🚀 Logar, Gerar Token
 
-[Captura de tela de 2023-09-18 17-44-40](https://github.com/antoniogmartins/postman/assets/35534493/0efc1d28-b0a1-4104-87f3-d7accb9429e1
+![postaman_gerar_token](https://github.com/antoniogmartins/Services/assets/35534493/b6e1a825-ce27-44e1-9b1e-7a181fb36a06)
 
-https://github.com/antoniogmartins/postman/assets/35534493/0efc1d28-b0a1-4104-87f3-d7accb9429e1
-
-[Captura de tela de 2023-09-18 17-44-40](https://github.com/antoniogmartins/postman/assets/35534493/0efc1d28-b0a1-4104-87f3-d7accb9429e1
 
 🚀 Cadastrar/Consultar/Atualizar/Deletar uma Lista de Contatos
 
 🔖 => Cadastrar
 
-![Captura de tela de 2023-09-18 17-47-12](https://github.com/antoniogmartins/postman/assets/35534493/6ba3900f-88f1-4681-b20d-d125800c5a93)
-
-![Captura de tela de 2023-09-18 17-47-12](https://github.com/antoniogmartins/postman/assets/35534493/6ba3900f-88f1-4681-b20d-d125800c5a93)
+![postman_cadastrar_contato](https://github.com/antoniogmartins/Services/assets/35534493/a2c78138-1afa-4d6c-9d81-20c725bb2695)
 
 
 🔖 => Listar todos os contatos,
