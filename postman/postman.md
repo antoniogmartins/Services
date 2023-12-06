@@ -61,11 +61,12 @@ ContactList.postman_collection.json
 
 🔖 => Atualizar o contato
 
+![postman_alterar_contato](https://github.com/antoniogmartins/Services/assets/35534493/34d70764-6b67-4725-95b1-58ed8edd3e9c)
 
 
 🔖 => Deletar um contato
 
-
+![postman_deletar_contato](https://github.com/antoniogmartins/Services/assets/35534493/202ca393-d9d4-4aa4-a9c7-1a9553435218)
 
 🚀 Apos a Execução - Interface
 
