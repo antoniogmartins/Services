@@ -45,18 +45,15 @@ ContactList.postman_collection.json
 
 ![postaman_gerar_token](https://github.com/antoniogmartins/Services/assets/35534493/b6e1a825-ce27-44e1-9b1e-7a181fb36a06)
 
-
 🚀 Cadastrar/Consultar/Atualizar/Deletar uma Lista de Contatos
 
 🔖 => Cadastrar
 
 ![postman_cadastrar_contato](https://github.com/antoniogmartins/Services/assets/35534493/a2c78138-1afa-4d6c-9d81-20c725bb2695)
 
-
 🔖 => Listar todos os contatos,
 
-
-
+![postman_Listar_Contatos](https://github.com/antoniogmartins/Services/assets/35534493/8ebde181-4c23-499c-8892-4cab49d8f4df)
 
 🔖 => Pesquisar somente por 01 contato
 
