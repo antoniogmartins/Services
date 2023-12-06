@@ -44,17 +44,16 @@ ContactList.postman_collection.json
 
 🚀 Validar a ação de Gerar Token
 
-![Captura de tela de 2023-09-26 17-23-33](https://github.com/antoniogmartins/java_apirest/assets/35534493/98ecdaac-7d5c-4aa5-9020-9b3a7c4e2cce)
+![java_gerar_token](https://github.com/antoniogmartins/Services/assets/35534493/54e440f3-ffff-4fca-a61c-03bc20761230)
 
 🚀 Cadastrar/Consultar/Atualizar/Deletar uma Lista de Contatos
 
 🔖 => Validar a ação de Cadastrar um Contato
 
-![Captura de tela de 2023-09-26 17-25-20](https://github.com/antoniogmartins/java_apirest/assets/35534493/786cf955-719a-4492-b3d8-0bb7c854713c)
+![java_restassured_cadastrar](https://github.com/antoniogmartins/Services/assets/35534493/a89c28fc-5727-46d7-a76c-aee244bd1c97)
 
 🔖 => Validar a ação de Buscar o contato cadastrado
 
-![Captura de tela de 2023-09-26 17-30-23](https://github.com/antoniogmartins/java_apirest/assets/35534493/ab75a5a9-49f6-4fd5-b4a0-37648f5e4b76)
 
 🔖 => Validar a ação Alterar os dados do Contato cadastrado,
 
@@ -62,11 +61,9 @@ ContactList.postman_collection.json
 
 🔖 => Validar a ação de Deletar o contato cadastrado
 
-![Captura de tela de 2023-09-26 17-34-47](https://github.com/antoniogmartins/java_apirest/assets/35534493/dc5a6210-52bb-4fe2-acf8-b685a69c7aa0)
 
 🔖 => Validar a ação de Buscar todos os contatos cadastrados
 
-![Captura de tela de 2023-09-26 17-35-49](https://github.com/antoniogmartins/java_apirest/assets/35534493/8839f3f9-50cf-4127-bd3d-f843a04021b9)
 
 🚀 Como executar de forma automatica, os smoketests utilizando as apis, por meio do GitActions
 
@@ -75,8 +72,6 @@ Obs.: É preciso que vc esteja conectado a internet
 🚀 Integracao Continua - Pipeline
 
 
-
-![Captura de tela de 2023-09-26 20-28-21](https://github.com/antoniogmartins/java_apirest/assets/35534493/cabf159b-6af4-4e29-9d58-002859d37b17)
 
 
 🚀 Análise do Smoke Tests realizados
