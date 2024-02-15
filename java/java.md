@@ -1,6 +1,6 @@
 # JAVA (RestApi - RestAssured)
 
-=> Foram utilizados a linguagem Java(Testng) e a dependencia Restassured para desenvolver este scritps de testes automatizado
+=> Foram utilizados a linguagem Java(Testng) e a dependencia Restassured para desenvolver este scripts de testes automatizado
  
 🚀 Collections: 
 #### Nome do Arquivo: ContactList.postman_collection.json 
