@@ -12,9 +12,9 @@ Aqui apresento um menu contendo as Automações que desenvolvi considerando (**L
 
 <img width="600" height="300" alt="restassured" src="https://github.com/user-attachments/assets/c7fa65bf-c515-4807-b901-8d73c732ec0a" />
 
-Projeto 01: [Veja mais](https://github.com/antoniogmartins/Services/blob/main/Robotframework/Projeto01/RobotFramework.md)
+Projeto 01: [Veja mais](https://github.com/antoniogmartins/Services/blob/main/Robotframework/Projeto1/RobotFramework.md)
 
-Projeto 02: [Veja mais](https://github.com/antoniogmartins/Services/blob/main/Robotframework/Projeto02/Kickoff2026/RobotFramework.md)
+Projeto 02: [Veja mais](https://github.com/antoniogmartins/Services/blob/main/Robotframework/Projeto2/Kickoff2026/RobotFramework.md)
 
 🔑Postman: 
 [Veja mais](https://github.com/antoniogmartins/Services/blob/main/Postman/postman.md)
