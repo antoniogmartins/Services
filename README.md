@@ -1,5 +1,7 @@
 # Services
 
+Aqui apresento um menu contendo as Automações que desenvolvi considerando (linguagens de programação/Frameworks):
+
 🔑Jest/Supertest: 
 [Veja mais](https://github.com/antoniogmartins/Services/blob/main/Jest/jest.md)
 
@@ -15,7 +17,7 @@
 🔑Python: 
 [Veja mais](https://github.com/antoniogmartins/Services/blob/main/Python/python.md)
 
-🔑RestAssured(Java):
+🔑RestAssured(Linguagem Java):
 
 <img width="600" height="300" alt="restassured" src="https://github.com/user-attachments/assets/c7fa65bf-c515-4807-b901-8d73c732ec0a" />
 
