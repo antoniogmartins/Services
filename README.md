@@ -16,4 +16,5 @@
 [Veja mais](https://github.com/antoniogmartins/Services/blob/main/python/python.md)
 
 🔑RestAssured(Java):
-[Veja mais](https://github.com/antoniogmartins/Services/blob/main/java/java.md)
+[Veja mais](https://github.com/antoniogmartins/Services/blob/main/RestAssured/projeto 1/Readme.md)
+[Veja mais](https://github.com/antoniogmartins/Services/blob/main/RestAssured/projeto 2/Readme.md)
