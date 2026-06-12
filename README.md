@@ -17,6 +17,6 @@
 
 🔑RestAssured(Java):
 
-[Veja mais](https://github.com/antoniogmartins/Services/blob/main/RestAssured/projeto1/Readme.md)
+[Veja mais](https://github.com/antoniogmartins/Services/blob/main/RestAssured/projeto1/RestAssured.md)
 
-[Veja mais](https://github.com/antoniogmartins/Services/blob/main/RestAssured/projeto2/Readme.md)
+[Veja mais](https://github.com/antoniogmartins/Services/blob/main/RestAssured/projeto2/RestAssured.md)
