@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.14.2 on win32)" generated="2026-04-24T09:00:43.883504" rpa="false" schemaversion="5">
+<suite id="s1" name="Desafio2" source="C:\Treinamento\Treino\bianca campos\Kickoff2026\tests\scripts\desafio2.robot">
+<test id="s1-t1" name="CT01 - Validar Login com sucesso" line="17">
+<kw name="Abro o Navegador" owner="keywords_desafio2" type="SETUP">
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>value=${Selenium_Speed}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2026-04-24T09:00:44.090339" elapsed="0.000229"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-04-24T09:00:44.090912" level="INFO">Opening browser 'Chrome' to base url 'https://practicetestautomation.com/practice-test-login/'.</msg>
+<arg>url=${url}</arg>
+<arg>browser=${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-04-24T09:00:44.090702" elapsed="3.302783"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-04-24T09:00:47.394021" elapsed="0.529707"/>
+</kw>
+<arg>${URL_DESAFIO2}</arg>
+<arg>${BROWSER}</arg>
+<status status="PASS" start="2026-04-24T09:00:44.089666" elapsed="3.834203"/>
+</kw>
+<kw name="Given Escrevo usuario no campo Username" owner="keywords_desafio2">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-04-24T09:00:47.925306" level="INFO">Typing text 'student' into text field '//input[@id='username']'.</msg>
+<arg>locator=${input_username}</arg>
+<arg>text=${user_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-24T09:00:47.924776" elapsed="1.630497"/>
+</kw>
+<arg>${USUARIO_DESAFIO2}</arg>
+<status status="PASS" start="2026-04-24T09:00:47.924443" elapsed="1.631158"/>
+</kw>
+<kw name="And Escrevo senha no campo Password" owner="keywords_desafio2">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-04-24T09:00:49.557054" level="INFO">Typing text 'Password123' into text field '//input[@id='password']'.</msg>
+<arg>locator=${input_password}</arg>
+<arg>text=${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-24T09:00:49.556722" elapsed="1.659062"/>
+</kw>
+<arg>${SENHA_DESAFIO2}</arg>
+<status status="PASS" start="2026-04-24T09:00:49.556221" elapsed="1.659863"/>
+</kw>
+<kw name="And Capturo os Elementos" owner="keywords_desafio2">
+<kw name="Capture Element Screenshot" owner="SeleniumLibrary">
+<msg time="2026-04-24T09:00:52.365728" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../Evidencias/desafio2/Campos/FirstName.png"&gt;&lt;img src="../Evidencias/desafio2/Campos/FirstName.png" width="400px"&gt;&lt;/a&gt;</msg>
+<arg>${input_username}</arg>
+<arg>../../tests/Evidencias/desafio2/Campos/FirstName.png</arg>
+<doc>Captures a screenshot from the element identified by ``locator`` and embeds it into log file.</doc>
+<status status="PASS" start="2026-04-24T09:00:51.217810" elapsed="1.148064"/>
+</kw>
+<kw name="Capture Element Screenshot" owner="SeleniumLibrary">
+<msg time="2026-04-24T09:00:53.470081" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../Evidencias/desafio2/Campos/LastName.png"&gt;&lt;img src="../Evidencias/desafio2/Campos/LastName.png" width="400px"&gt;&lt;/a&gt;</msg>
+<arg>${input_password}</arg>
+<arg>../../tests/Evidencias/desafio2/Campos/LastName.png</arg>
+<doc>Captures a screenshot from the element identified by ``locator`` and embeds it into log file.</doc>
+<status status="PASS" start="2026-04-24T09:00:52.366018" elapsed="1.104367"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-04-24T09:00:54.091845" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../Evidencias/desafio2/Tela/Tela_login.png"&gt;&lt;img src="../Evidencias/desafio2/Tela/Tela_login.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>../../tests/Evidencias/desafio2/Tela/Tela_login.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-04-24T09:00:53.470928" elapsed="0.621189"/>
+</kw>
+<status status="PASS" start="2026-04-24T09:00:51.217164" elapsed="2.875359"/>
+</kw>
+<kw name="And Capturo a Tela" owner="keywords_desafio2">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-04-24T09:00:54.666854" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../Evidencias/desafio2/Tela/Tela_sucesso.png"&gt;&lt;img src="../Evidencias/desafio2/Tela/Tela_sucesso.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>../../tests/Evidencias/desafio2/Tela/Tela_sucesso.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-04-24T09:00:54.094306" elapsed="0.572780"/>
+</kw>
+<status status="PASS" start="2026-04-24T09:00:54.093582" elapsed="0.573754"/>
+</kw>
+<kw name="When Clico no botão Submit" owner="keywords_desafio2">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-04-24T09:00:54.669320" level="INFO">Clicking button 'id=submit'.</msg>
+<arg>locator=id=submit</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-24T09:00:54.668884" elapsed="3.810769"/>
+</kw>
+<status status="PASS" start="2026-04-24T09:00:54.668260" elapsed="3.811555"/>
+</kw>
+<kw name="Then Verifico se houve redirecionamento para a pagina principal" owner="keywords_desafio2">
+<kw name="Location Should Be" owner="SeleniumLibrary">
+<msg time="2026-04-24T09:00:58.987209" level="INFO">Current location is 'https://practicetestautomation.com/logged-in-successfully/'.</msg>
+<arg>${URL_PRINCIPAL}</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<status status="PASS" start="2026-04-24T09:00:58.480585" elapsed="0.507224"/>
+</kw>
+<status status="PASS" start="2026-04-24T09:00:58.480170" elapsed="0.507833"/>
+</kw>
+<kw name="And Verifico se estou logado" owner="keywords_desafio2">
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2026-04-24T09:01:00.013233" level="INFO">Element 'xpath=//h1[normalize-space()='Logged In Successfully']' contains text 'Logged In Successfully'.</msg>
+<arg>xpath=//h1[normalize-space()='Logged In Successfully']</arg>
+<arg>${LOGGED_SUCDESSFULLY}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2026-04-24T09:00:58.988923" elapsed="1.024557"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2026-04-24T09:01:01.049609" level="INFO">Element 'xpath=//strong[contains(text(),'Congratulations student. You successfully logged i')]' contains text 'Congratulations student. You successfully logged in!'.</msg>
+<arg>xpath=//strong[contains(text(),'Congratulations student. You successfully logged i')]</arg>
+<arg>${CONGRATULATIONS}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2026-04-24T09:01:00.013774" elapsed="1.035963"/>
+</kw>
+<status status="PASS" start="2026-04-24T09:00:58.988481" elapsed="2.061359"/>
+</kw>
+<kw name="And Capturo a Tela" owner="keywords_desafio2">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-04-24T09:01:01.637727" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../Evidencias/desafio2/Tela/Tela_sucesso.png"&gt;&lt;img src="../Evidencias/desafio2/Tela/Tela_sucesso.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>../../tests/Evidencias/desafio2/Tela/Tela_sucesso.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-04-24T09:01:01.051601" elapsed="0.586286"/>
+</kw>
+<status status="PASS" start="2026-04-24T09:01:01.050571" elapsed="0.587464"/>
+</kw>
+<kw name="Fechar Navegador" owner="keywords_desafio2" type="TEARDOWN">
+<kw name="Aguardo 2 segundos" owner="keywords_desafio2">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-04-24T09:01:03.639939" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-04-24T09:01:01.639417" elapsed="2.000662"/>
+</kw>
+<status status="PASS" start="2026-04-24T09:01:01.639067" elapsed="2.001116"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-04-24T09:01:03.640310" elapsed="2.678180"/>
+</kw>
+<status status="PASS" start="2026-04-24T09:01:01.638712" elapsed="4.680039"/>
+</kw>
+<tag>CT01</tag>
+<tag>primeiro</tag>
+<tag>SetandoNomeDoTeste</tag>
+<status status="PASS" start="2026-04-24T09:00:44.088771" elapsed="22.230563"/>
+</test>
+<test id="s1-t2" name="CT02 - Validar Efetuar Login com credenciais invalidas" line="32">
+<kw name="Abro o Navegador" owner="keywords_desafio2" type="SETUP">
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>value=${Selenium_Speed}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2026-04-24T09:01:06.323263" elapsed="0.000501"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-04-24T09:01:06.324618" level="INFO">Opening browser 'Chrome' to base url 'https://practicetestautomation.com/practice-test-login/'.</msg>
+<arg>url=${url}</arg>
+<arg>browser=${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-04-24T09:01:06.324083" elapsed="2.811297"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-04-24T09:01:09.135800" elapsed="0.526767"/>
+</kw>
+<arg>${URL_DESAFIO2}</arg>
+<arg>${BROWSER}</arg>
+<status status="PASS" start="2026-04-24T09:01:06.322458" elapsed="3.340426"/>
+</kw>
+<kw name="Given Escrevo usuario no campo Username" owner="keywords_desafio2">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-04-24T09:01:09.665998" level="INFO">Typing text 'student 1' into text field '//input[@id='username']'.</msg>
+<arg>locator=${input_username}</arg>
+<arg>text=${user_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-24T09:01:09.664966" elapsed="1.660562"/>
+</kw>
+<arg>${USUARIOINVALIDO_DESAFIO2}</arg>
+<status status="PASS" start="2026-04-24T09:01:09.664039" elapsed="1.661658"/>
+</kw>
+<kw name="And Escrevo senha no campo Password" owner="keywords_desafio2">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-04-24T09:01:11.328475" level="INFO">Typing text 'Password123' into text field '//input[@id='password']'.</msg>
+<arg>locator=${input_password}</arg>
+<arg>text=${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-24T09:01:11.327461" elapsed="1.634795"/>
+</kw>
+<arg>${SENHA_DESAFIO2}</arg>
+<status status="PASS" start="2026-04-24T09:01:11.326483" elapsed="1.636077"/>
+</kw>
+<kw name="And Capturo os Elementos com error" owner="keywords_desafio2">
+<kw name="Capture Element Screenshot" owner="SeleniumLibrary">
+<msg time="2026-04-24T09:01:14.094116" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../Evidencias/desafio2/Campos/FirstName_Error.png"&gt;&lt;img src="../Evidencias/desafio2/Campos/FirstName_Error.png" width="400px"&gt;&lt;/a&gt;</msg>
+<arg>${input_username}</arg>
+<arg>../../tests/Evidencias/desafio2/Campos/FirstName_Error.png</arg>
+<doc>Captures a screenshot from the element identified by ``locator`` and embeds it into log file.</doc>
+<status status="PASS" start="2026-04-24T09:01:12.964386" elapsed="1.129830"/>
+</kw>
+<kw name="Capture Element Screenshot" owner="SeleniumLibrary">
+<msg time="2026-04-24T09:01:15.214869" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../Evidencias/desafio2/Campos/LastName_Error.png"&gt;&lt;img src="../Evidencias/desafio2/Campos/LastName_Error.png" width="400px"&gt;&lt;/a&gt;</msg>
+<arg>${input_password}</arg>
+<arg>../../tests/Evidencias/desafio2/Campos/LastName_Error.png</arg>
+<doc>Captures a screenshot from the element identified by ``locator`` and embeds it into log file.</doc>
+<status status="PASS" start="2026-04-24T09:01:14.094413" elapsed="1.120882"/>
+</kw>
+<status status="PASS" start="2026-04-24T09:01:12.963690" elapsed="2.251842"/>
+</kw>
+<kw name="When Clico no botão Submit" owner="keywords_desafio2">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-04-24T09:01:15.217668" level="INFO">Clicking button 'id=submit'.</msg>
+<arg>locator=id=submit</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-04-24T09:01:15.217213" elapsed="2.653854"/>
+</kw>
+<status status="PASS" start="2026-04-24T09:01:15.216527" elapsed="2.654816"/>
+</kw>
+<kw name="And Capturo a Tela com Error" owner="keywords_desafio2">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-04-24T09:01:18.457196" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../Evidencias/desafio2/Tela/Tela_login_Parte01_Error.png"&gt;&lt;img src="../Evidencias/desafio2/Tela/Tela_login_Parte01_Error.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>../../tests/Evidencias/desafio2/Tela/Tela_login_Parte01_Error.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-04-24T09:01:17.873115" elapsed="0.584407"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2026-04-24T09:01:18.460661" level="INFO">Sending key(s) ('PAGE_DOWN',) to page.</msg>
+<msg time="2026-04-24T09:01:18.460915" level="INFO">Pressing special key PAGE_DOWN to browser.</msg>
+<msg time="2026-04-24T09:01:18.461036" level="INFO">Releasing special key PAGE_DOWN.</msg>
+<arg>NONE</arg>
+<arg>PAGE_DOWN</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2026-04-24T09:01:18.458097" elapsed="0.520915"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-04-24T09:01:19.580538" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="../Evidencias/desafio2/Tela/Tela_login_Parte02_Error.png"&gt;&lt;img src="../Evidencias/desafio2/Tela/Tela_login_Parte02_Error.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>../../tests/Evidencias/desafio2/Tela/Tela_login_Parte02_Error.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-04-24T09:01:18.979465" elapsed="0.601198"/>
+</kw>
+<status status="PASS" start="2026-04-24T09:01:17.872392" elapsed="1.708374"/>
+</kw>
+<kw name="Then Verifico mensagem de error" owner="keywords_desafio2">
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2026-04-24T09:01:20.603630" level="INFO">Element 'xpath=//div[@id='error']' contains text 'Your username is invalid!'.</msg>
+<arg>xpath=//div[@id='error']</arg>
+<arg>${MENSAGEM_ACCESS_USER_ERROR}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2026-04-24T09:01:19.581450" elapsed="1.022319"/>
+</kw>
+<status status="PASS" start="2026-04-24T09:01:19.581161" elapsed="1.022717"/>
+</kw>
+<kw name="Fechar Navegador" owner="keywords_desafio2" type="TEARDOWN">
+<kw name="Aguardo 2 segundos" owner="keywords_desafio2">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-04-24T09:01:22.606008" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-04-24T09:01:20.605319" elapsed="2.000811"/>
+</kw>
+<status status="PASS" start="2026-04-24T09:01:20.604936" elapsed="2.001289"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-04-24T09:01:22.606385" elapsed="2.659598"/>
+</kw>
+<status status="PASS" start="2026-04-24T09:01:20.604358" elapsed="4.661800"/>
+</kw>
+<tag>CT02</tag>
+<tag>segundo</tag>
+<tag>SetandoNomeDoTeste</tag>
+<status status="PASS" start="2026-04-24T09:01:06.321051" elapsed="18.945526"/>
+</test>
+<status status="PASS" start="2026-04-24T09:00:43.885025" elapsed="41.383605"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">CT01</stat>
+<stat pass="1" fail="0" skip="0">CT02</stat>
+<stat pass="1" fail="0" skip="0">primeiro</stat>
+<stat pass="1" fail="0" skip="0">segundo</stat>
+<stat pass="2" fail="0" skip="0">SetandoNomeDoTeste</stat>
+</tag>
+<suite>
+<stat name="Desafio2" id="s1" pass="2" fail="0" skip="0">Desafio2</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
