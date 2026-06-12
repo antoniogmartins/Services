@@ -1,6 +1,6 @@
 # Services
 
-Aqui apresento um menu contendo as Automações que desenvolvi considerando (**Linguagens de programação/Frameworks**):
+Aqui apresento um menu contendo as Automações que desenvolvi considerando (**Linguagens de programação/Frameworks/Ferramentas**):
 
 🔑Jest/Supertest: 
 [Veja mais](https://github.com/antoniogmartins/Services/blob/main/Jest/jest.md)
@@ -25,3 +25,6 @@ Aqui apresento um menu contendo as Automações que desenvolvi considerando (**L
 Projeto 01: [Veja mais](https://github.com/antoniogmartins/Services/blob/main/RestAssured/projeto1/RestAssured.md)
 
 Projeto 02: [Veja mais](https://github.com/antoniogmartins/Services/blob/main/RestAssured/projeto2/RestAssured.md)
+
+
+🔑BowserStack(Linguagem Java):
