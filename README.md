@@ -1,6 +1,6 @@
 # Services
 
-Aqui apresento um menu contendo as Automações que desenvolvi considerando (linguagens de programação/Frameworks):
+Aqui apresento um menu contendo as Automações que desenvolvi considerando (**Linguagens de programação/Frameworks**):
 
 🔑Jest/Supertest: 
 [Veja mais](https://github.com/antoniogmartins/Services/blob/main/Jest/jest.md)
