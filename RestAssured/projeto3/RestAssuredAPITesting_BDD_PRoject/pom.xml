@@ -75,7 +75,7 @@
 				<version>3.5.2</version>
 				<configuration>
 					<includes>
-					    <include>testando</include>
+					    <include>DemoClass01</include>
 					</includes>
 				</configuration>
 			</plugin>

@@ -1,4 +1,4 @@
-package restassuredTests;
+package Demo1_Get_Request;
 
 import org.testng.annotations.Test;
 
