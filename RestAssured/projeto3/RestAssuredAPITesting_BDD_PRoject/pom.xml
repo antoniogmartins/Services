@@ -75,7 +75,7 @@
 				<version>3.5.2</version>
 				<configuration>
 					<includes>
-					    <include>DemoClass01</include>
+					    <include>Demo_Post_Request</include>
 					</includes>
 				</configuration>
 			</plugin>
