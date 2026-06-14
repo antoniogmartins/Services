@@ -3,7 +3,6 @@ package Demo1_Get_Request;
 import org.testng.annotations.Test;
 
 import io.restassured.response.Response;
-
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 
@@ -37,7 +36,12 @@ public class DemoClass01 {
 		        .get (baseURI + "collections");
 		    
 		        
-		    resposta.then().statusCode(200);
+		    resposta.
+		         then()
+		         .statusCode(200)
+		         .statusLine("HTTP/1.1 200 OK")
+		         .assertThat().body("collectionName[1]", equalTo("celular"));
+		    
 		    System.out.println(resposta.asPrettyString());
                 		 
 	 }
