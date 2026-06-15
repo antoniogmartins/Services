@@ -20,8 +20,9 @@ Este projeto demonstra como a IA Generativa pode acelerar essas atividades sem s
 
 <img width="696" height="503" alt="image" src="https://github.com/user-attachments/assets/917560af-2198-418e-9055-705b1cd85e98" />
 
+============================================================================================================
 
-## Módulo 1 - Test Design Assistido por IA ##
+## Fase 1 - Test Design Assistido por IA ##
 
 🔖 Objetivo
 
@@ -39,19 +40,41 @@ Payload:{
 
 }
 
+
 🔖 Prompt Utilizado
 
-<img width="704" height="395" alt="image" src="https://github.com/user-attachments/assets/022cd98f-f1c0-4089-ac1f-4de66aaf4e49" />
+<img width="693" height="353" alt="image" src="https://github.com/user-attachments/assets/61d472c7-1952-4818-9c47-d2109c04a053" />
+
+
+🔖 Resultado da IA
+
+=> Casos de Testes:
+
+| Positivos                             | Negativo                              | Borda                                  | Performance                                 |
+| :------------------------------------ | :------------------------------------ | :------------------------------------- | :------------------------------------------ |
+| 📝 CT001 Cadastro válido              | 📝 CT004 Nome vazio                   | 📝 CT007 255 caracteres                | 📝 CT009 100 requisições simultâneas        |
+| 📝 CT002 Nome com acento              | 📝 CT005 Job vazio                    | 📝 CT008 256 caracteres                | 📝 CT010 500 requisições simultâneas        |
+| 📝 CT003 Nome composto                | 📝 CT006 Payload nulo                 |                                        |                                             |
+
+
+
+============================================================================================================
+
+## Fase 2 - Massa de Teste Gerada por IA ##
+
+
+🔖 Prompt Utilizado
+
+<img width="693" height="61" alt="image" src="https://github.com/user-attachments/assets/4e1d3e86-9d05-49a9-9a50-f975c85bbdf5" />
+
+Resposta
+
+<img width="702" height="245" alt="image" src="https://github.com/user-attachments/assets/a0372494-983d-4489-a81d-249081cdbbfa" />
 
 
 
 
-
-
-
-
-
-
+============================================================================================================
 
 🚀 IA Gerando Massa
 
