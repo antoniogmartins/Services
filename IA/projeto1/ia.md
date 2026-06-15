@@ -181,6 +181,12 @@ Payload
 
 ============================================================================================================
 
+🚀 Estrutura do Repositório 
+
+<img width="721" height="588" alt="image" src="https://github.com/user-attachments/assets/f91689f5-582c-4f67-ba17-524ff38c017d" />
+
+============================================================================================================
+
 🚀 Como a IA foi utilizada
 
 | Atividade                 | IA Utilizada |
@@ -192,6 +198,7 @@ Payload
 | Revisão de código         | ChatGPT      |
 | Identificação de riscos   | ChatGPT      |
 
+============================================================================================================
 
 📝 License
 
