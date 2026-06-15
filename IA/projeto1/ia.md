@@ -49,9 +49,14 @@ Payload
 
 | Positivos                             | Negativo                              | Borda (criar usuario com tamanho maximo                | Performance                                 |
 | :------------------------------------ | :------------------------------------ | :----------------------------------------------------- | :------------------------------------------ |
-| 📝 CT001 Cadastro de usuario válido   | 📝 CT004 Nome vazio                   | 📝 CT007 Cadatrar usuario ate 255 caracteres           | 📝 CT009 100 requisições simultâneas        |
-| 📝 CT002 Nome de usuario com acento   | 📝 CT005 Job vazio                    | 📝 CT008 Cadatrar usuario com mais de 256 caracteres   | 📝 CT010 500 requisições simultâneas        |
-| 📝 CT003 Nome de usuario composto     | 📝 CT006 Payload nulo                 |                                                        |                                             |
+| 📝 CT001 Cadastro de usuario válido   | 📝 CT004 Nome vazio                   | 📝 CT007 Cadatrar usuario ate 1 caracter               | 📝 CT015 100 requisições simultâneas        |
+| 📝 CT002 Nome de usuario com acento   | 📝 CT005 Job vazio                    | 📝 CT008 Cadatrar usuario com mais de 255 caracteres   | 📝 CT016 500 requisições simultâneas        |
+| 📝 CT003 Nome de usuario composto     | 📝 CT006 Payload nulo                 | 📝 CT009 Cadatrar usuario com mais de 256 caracteres   |                                             |
+|                                       |                                       | 📝 CT010 Cadatrar usuario com caracteres especiais     |                                             |
+|                                       |                                       | 📝 CT011 Cadatrar usuario com caracteres unidoce       |                                             |
+|                                       |                                       | 📝 CT012 Cadatrar usuario com campos nulo              |                                             |
+|                                       |                                       | 📝 CT013 Cadatrar usuario com campos vazio             |                                             |
+|                                       |                                       | 📝 CT014 Cadatrar usuario com espaços em branco        |                                             |
 
 🔖  Implementando:
 
@@ -128,19 +133,23 @@ Payload
 
 ============================================================================================================
 
-## Fase 5 - JSON Schema Gerados por IA ##
+## Fase 5 - IA Descobrindo Testes que Você Não Pensou #
 
 🔖 Prompt Utilizado
 
-
+<img width="701" height="217" alt="image" src="https://github.com/user-attachments/assets/4400d0a9-5036-46af-aa00-aca6530208a4" />
 
 🔖 Resposta da IA
 
+<img width="714" height="129" alt="image" src="https://github.com/user-attachments/assets/34c86693-ab12-462d-b7b1-da5551de4b42" />
 
+🔖 Segurança
 
-🔖 Implementação
+<img width="702" height="163" alt="image" src="https://github.com/user-attachments/assets/5f33576e-c579-406a-962d-8f85dc4cead1" />
 
+🔖 Resiliência
 
+<img width="703" height="139" alt="image" src="https://github.com/user-attachments/assets/b11beb83-48c2-4c34-a4d8-3c589bf80cf7" />
 
 ============================================================================================================
 
