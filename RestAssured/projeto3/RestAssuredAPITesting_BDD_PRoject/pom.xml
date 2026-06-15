@@ -65,6 +65,14 @@
 			<version>2.1</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>json-schema-validator</artifactId>
+			<version>5.3.0</version> <!-- ajuste para a versão do rest-assured
+			que você usa -->
+			<scope>test</scope>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -75,7 +83,7 @@
 				<version>3.5.2</version>
 				<configuration>
 					<includes>
-					    <include>Demo_Post_Request</include>
+						<include>Demo_Get_Request</include>
 					</includes>
 				</configuration>
 			</plugin>

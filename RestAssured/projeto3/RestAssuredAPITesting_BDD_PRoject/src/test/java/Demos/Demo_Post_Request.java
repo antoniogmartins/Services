@@ -1,9 +1,9 @@
-package Demo1_Get_Request;
+package Demos;
 
 import org.testng.annotations.Test;
 import io.restassured.response.Response;
 import static io.restassured.RestAssured.*;
-import static org.hamcrest.Matchers.*;
+
 
 
 /* given()
