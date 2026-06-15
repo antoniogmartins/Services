@@ -32,4 +32,8 @@ Projeto 01: [Veja mais](https://github.com/antoniogmartins/Services/blob/main/Re
 Projeto 02: [Veja mais](https://github.com/antoniogmartins/Services/blob/main/RestAssured/projeto2/RestAssured.md)
 
 
-🔑BowserStack(Linguagem Java):
+🔑IA:
+
+Projeto 01: [Veja mais](https://github.com/antoniogmartins/Services/blob/main/IA/projeto1/ia.md)
+
+🔑BowserStack:
