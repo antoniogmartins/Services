@@ -45,6 +45,13 @@
 			<version>5.11.0</version>
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>json-schema-validator</artifactId>
+			<version>5.5.0</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
