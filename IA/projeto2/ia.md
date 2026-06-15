@@ -1,53 +1,5 @@
 # Generative AI Assisted API Testing Framework (RestApi) + RestAssured
 
-Problema de Negócio
-
-Antes de escrever qualquer código, explique o problema.
-
-## Desafio
-
-Times de QA gastam muitas horas em:
-
-- Elaborar cenários
-- Criar massa de teste
-- Desenvolver assertions
-- Revisar automações
-- Criar documentação
-
-Este projeto demonstra como a IA Generativa pode acelerar essas atividades sem substituir a análise crítica do QA.
-
-
-🚀 Arquitetura do Projeto
-
-                +------------------+
-                |   ChatGPT/Gemini |
-                +--------+---------+
-                         |
-                         |
-                         v
-+--------------------------------------+
-|      Engenharia de Prompt QA         |
-+--------------------------------------+
-                         |
-                         |
-                         v
-+--------------------------------------+
-|      Casos de Teste Gerados          |
-+--------------------------------------+
-                         |
-                         |
-                         v
-+--------------------------------------+
-|         Rest Assured Framework       |
-+--------------------------------------+
-                         |
-                         |
-                         v
-+--------------------------------------+
-|      Execução e Evidências           |
-+--------------------------------------+
-
-
 🚀 IA Gerando Massa
 
 Prompt documentado:
