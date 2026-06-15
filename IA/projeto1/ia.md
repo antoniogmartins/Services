@@ -18,7 +18,7 @@ Este projeto demonstra como a IA Generativa pode acelerar essas atividades sem s
 
 🚀 Arquitetura do Projeto
 
-<img width="696" height="503" alt="image" src="https://github.com/user-attachments/assets/917560af-2198-418e-9055-705b1cd85e98" /T
+<img width="696" height="503" alt="image" src="https://github.com/user-attachments/assets/917560af-2198-418e-9055-705b1cd85e98">
 
 🚀 Tecnologias
 
