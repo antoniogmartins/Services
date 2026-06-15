@@ -47,16 +47,16 @@ Payload
 
 🔖  Gerando Casos de Testes:
 
-| Positivos                             | Negativo                              | Borda (criar usuario com tamanho maximo                | Performance                                 |
-| :------------------------------------ | :------------------------------------ | :----------------------------------------------------- | :------------------------------------------ |
-| 📝 CT001 Cadastro de usuario válido   | 📝 CT004 Nome vazio                   | 📝 CT007 Cadatrar usuario ate 1 caracter               | 📝 CT015 100 requisições simultâneas        |
-| 📝 CT002 Nome de usuario com acento   | 📝 CT005 Job vazio                    | 📝 CT008 Cadatrar usuario com mais de 255 caracteres   | 📝 CT016 500 requisições simultâneas        |
-| 📝 CT003 Nome de usuario composto     | 📝 CT006 Payload nulo                 | 📝 CT009 Cadatrar usuario com mais de 256 caracteres   |                                             |
-|                                       |                                       | 📝 CT010 Cadatrar usuario com caracteres especiais     |                                             |
-|                                       |                                       | 📝 CT011 Cadatrar usuario com caracteres unidoce       |                                             |
-|                                       |                                       | 📝 CT012 Cadatrar usuario com campos nulo              |                                             |
-|                                       |                                       | 📝 CT013 Cadatrar usuario com campos vazio             |                                             |
-|                                       |                                       | 📝 CT014 Cadatrar usuario com espaços em branco        |                                             |
+| Positivos                             | Negativo                              | Borda (criar usuario com tamanho maximo                 | Performance                                 |
+| :------------------------------------ | :------------------------------------ | :------------------------------------------------------ | :------------------------------------------ |
+| 📝 CT001 Cadastrar usuario válido     | 📝 CT004 Nome vazio                   | 📝 CT007 Cadastrar usuario ate 1 caracter               | 📝 CT015 100 requisições simultâneas        |
+| 📝 CT002 Nome de usuario com acento   | 📝 CT005 Job vazio                    | 📝 CT008 Cadastrar usuario com mais de 255 caracteres   | 📝 CT016 500 requisições simultâneas        |
+| 📝 CT003 Nome de usuario composto     | 📝 CT006 Payload nulo                 | 📝 CT009 Cadastrar usuario com mais de 256 caracteres   |                                             |
+|                                       |                                       | 📝 CT010 Cadastrar usuario com caracteres especiais     |                                             |
+|                                       |                                       | 📝 CT011 Cadastrar usuario com caracteres unidoce       |                                             |
+|                                       |                                       | 📝 CT012 Cadastrar usuario com campos nulo              |                                             |
+|                                       |                                       | 📝 CT013 Cadastrar usuario com campos vazio             |                                             |
+|                                       |                                       | 📝 CT014 Cadastrar usuario com espaços em branco        |                                             |
 
 🔖  Implementando:
 
@@ -133,7 +133,7 @@ Payload
 
 ============================================================================================================
 
-## Fase 5 - IA Descobrindo Testes que Você Não Pensou #
+## Fase 6 - IA Descobrindo Testes que Você Não Pensou #
 
 🔖 Prompt Utilizado
 
