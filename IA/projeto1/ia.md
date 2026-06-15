@@ -1,4 +1,4 @@
-# Generative AI Assisted API Testing Framework (RestApi) + RestAssured
+# Generative AI Assisted API Testing Framework RestAssured + IA(Inteligência Artificial Genérica)
 
 <img width="1536" height="1024" alt="a9f95139-c34f-4a74-b9c0-26cf1c2cbc40" src="https://github.com/user-attachments/assets/8e8a6dbf-a72e-41b7-82da-e0dc271f823e" />
 
