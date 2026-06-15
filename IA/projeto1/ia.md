@@ -169,22 +169,28 @@ Payload
 
 ============================================================================================================
 
-## Fase 8 - IA Atuano como REvisor de AUtomação ##
+## Fase 8 - IA Atuano como Revisor de AUtomação ##
 
 🔖 Prompt Utilizado
 
-<img width="705" height="55" alt="image" src="https://github.com/user-attachments/assets/25bad941-b53b-4dcd-86bd-c2e3a283b006" />
+<img width="711" height="95" alt="image" src="https://github.com/user-attachments/assets/2fc154e4-d27e-4537-89b1-f140d8883888" />
 
-🔖 Resposta da IA
+🔖 Resposta da IA (Sugestão da IA)
 
-<img width="713" height="274" alt="image" src="https://github.com/user-attachments/assets/46e55edc-f0ee-468e-8bd8-08615a7452c1" />
-
-🔖 Implementação
-
-<img width="712" height="316" alt="image" src="https://github.com/user-attachments/assets/46d0a18e-d9b4-42fd-a272-49d09c51e16b" />
+<img width="710" height="273" alt="image" src="https://github.com/user-attachments/assets/f51125b8-cfe2-4838-b530-7a8d18eff193" />
 
 ============================================================================================================
 
+🚀 Como a IA foi utilizada
+
+| Atividade                 | IA Utilizada |
+| ------------------------- | ------------ |
+| Geração de cenários       | ChatGPT      |
+| Criação de massa de teste | ChatGPT      |
+| Criação de POJOs          | Copilot      |
+| Geração de JSON Schema    | Gemini       |
+| Revisão de código         | ChatGPT      |
+| Identificação de riscos   | ChatGPT      |
 
 
 📝 License
