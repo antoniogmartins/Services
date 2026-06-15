@@ -70,7 +70,9 @@ Mostrar como a IA auxilia na análise.
 
 Endpoint:
 
-    POST /users
+   GET https://reqres.in/api/users/2
+   
+   POST https://reqres.in/api/users
 
 Payload
 
