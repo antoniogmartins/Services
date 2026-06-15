@@ -82,57 +82,21 @@ Payload
 
 ## Fase 3 - Massa de Teste Gerada por IA ##
 
-
 🔖 Prompt Utilizado
 
 <img width="693" height="61" alt="image" src="https://github.com/user-attachments/assets/4e1d3e86-9d05-49a9-9a50-f975c85bbdf5" />
 
-🔖 Respostad a IA
+🔖 Resposta da IA
 
-<img width="702" height="245" alt="image" src="https://github.com/user-attachments/assets/a0372494-983d-4489-a81d-249081cdbbfa" />
+<img width="725" height="338" alt="image" src="https://github.com/user-attachments/assets/8db6fd4a-80d2-4e0c-9c4e-67c02805d1cb" />
 
-Implementação
+🔖 Implementação
 
+<img width="705" height="492" alt="image" src="https://github.com/user-attachments/assets/158b2767-1bd5-4c65-bdb4-6efa0ad783fe" />
 
 ============================================================================================================
 
-🚀 IA Gerando Massa
-
-Prompt documentado:
-
-           Atue como QA Senior.
-
-           Gere 10 usuários brasileiros válidos.
-
-           Formato JSON.
-
-Resultado salvo em:
-
-src/test/resources/testdata/users.json
-
-[
-
- {
-
-   "name":"Antonio Martins",
-
-   "job":"QA Senior"
-
- },
-
- {
-
-   "name":"Maria Oliveira",
-
-   "job":"Product Owner"
-
- }
-
-]
-
-
-🚀 IA Gerando Assertions
-
+l
 
 
 
