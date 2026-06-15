@@ -96,7 +96,21 @@ Payload
 
 ============================================================================================================
 
-l
+## Fase 4 - Casos de Borda Gerados por IA ##
+
+🔖 Prompt Utilizado
+
+<img width="704" height="90" alt="image" src="https://github.com/user-attachments/assets/f58e68fc-6475-4a2a-b629-83be7847bb51" />
+
+🔖 Resposta da IA
+
+<img width="707" height="314" alt="image" src="https://github.com/user-attachments/assets/3749bf02-bb39-4ea4-865d-47dc6ac3bcb1" />
+
+🔖 Implementação
+
+<img width="683" height="483" alt="image" src="https://github.com/user-attachments/assets/6e524185-7e69-4739-8279-e613603496fd" />
+
+============================================================================================================
 
 
 
