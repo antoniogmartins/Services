@@ -47,11 +47,11 @@ Payload
 
 => Casos de Testes:
 
-| Positivos                             | Negativo                              | Borda                                  | Performance                                 |
-| :------------------------------------ | :------------------------------------ | :------------------------------------- | :------------------------------------------ |
-| 📝 CT001 Cadastro válido              | 📝 CT004 Nome vazio                   | 📝 CT007 255 caracteres                | 📝 CT009 100 requisições simultâneas        |
-| 📝 CT002 Nome com acento              | 📝 CT005 Job vazio                    | 📝 CT008 256 caracteres                | 📝 CT010 500 requisições simultâneas        |
-| 📝 CT003 Nome composto                | 📝 CT006 Payload nulo                 |                                        |                                             |
+| Positivos                             | Negativo                              | Borda (criar usuario com tamanho maximo                | Performance                                 |
+| :------------------------------------ | :------------------------------------ | :----------------------------------------------------- | :------------------------------------------ |
+| 📝 CT001 Cadastro de usuario válido   | 📝 CT004 Nome vazio                   | 📝 CT007 Cadatrar usuario ate 255 caracteres           | 📝 CT009 100 requisições simultâneas        |
+| 📝 CT002 Nome de usuario com acento   | 📝 CT005 Job vazio                    | 📝 CT008 Cadatrar usuario com mais de 256 caracteres   | 📝 CT010 500 requisições simultâneas        |
+| 📝 CT003 Nome de usuario composto     | 📝 CT006 Payload nulo                 |                                                        |                                             |
 
 
 
