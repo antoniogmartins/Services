@@ -234,6 +234,17 @@ Payload
 <img width="688" height="850" alt="image" src="https://github.com/user-attachments/assets/6c30542c-c319-4f70-b501-d1ed9d6900f2" />
 
 ============================================================================================================
+🚀  Métricas
+
+| Atividade           | Manual | IA     |
+|---------------------|--------|--------|
+| Cenários            | 40 min | 5 min  |
+| Massa de Teste      | 30 min | 2 min  |
+| Assertions          | 15 min | 1 min  |
+| Revisão de Código   | 60 min | 10 min |
+
+
+============================================================================================================
 
 🚀 Como a IA foi utilizada
 
