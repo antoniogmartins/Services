@@ -1,22 +1,37 @@
 # Generative AI Assisted API Testing Framework (RestApi)
 
 🚀 IA Gerando Massa
+
 Prompt documentado:
+
            Atue como QA Senior.
+
            Gere 10 usuários brasileiros válidos.
+
            Formato JSON.
+
 Resultado salvo em:
+
 src/test/resources/testdata/users.json
 
 [
+
  {
+
    "name":"Antonio Martins",
+
    "job":"QA Senior"
+
  },
+
  {
+
    "name":"Maria Oliveira",
+
    "job":"Product Owner"
+
  }
+
 ]
 
 
