@@ -36,6 +36,28 @@ Este projeto demonstra como a IA Generativa pode acelerar essas atividades sem s
 | 📝 GitHub Copilot       |
 | 📝 Gemini               |
 
+
+
+🚀 Setup Maven
+
+<dependencies>
+ 
+    <dependency>
+        <groupId>io.rest-assured</groupId>
+        <artifactId>rest-assured</artifactId>
+        <version>5.5.0</version>
+        <scope>test</scope>
+    </dependency>
+
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter</artifactId>
+        <version>5.11.0</version>
+        <scope>test</scope>
+    </dependency>
+
+</dependencies>
+
 ============================================================================================================
 
 ## Fase 1 - Test Design Assistido por IA ##
