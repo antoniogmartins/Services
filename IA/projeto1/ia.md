@@ -70,9 +70,9 @@ Mostrar como a IA auxilia na análise.
 
 Endpoint:
 
-   GET https://reqres.in/api/users/2
+         GET https://reqres.in/api/users/2
    
-   POST https://reqres.in/api/users
+         POST https://reqres.in/api/users
 
 Payload
 
@@ -222,7 +222,7 @@ Payload
 
 🚀 Estrutura do Repositório 
 
-<img width="721" height="588" alt="image" src="https://github.com/user-attachments/assets/f91689f5-582c-4f67-ba17-524ff38c017d" />
+<img width="688" height="850" alt="image" src="https://github.com/user-attachments/assets/6c30542c-c319-4f70-b501-d1ed9d6900f2" />
 
 ============================================================================================================
 
