@@ -259,6 +259,22 @@ Payload
 
 ============================================================================================================
 
+🚀 Releases
+
+v1.0 GET APIs
+
+v2.0 POST APIs
+
+v3.0 PUT APIs
+
+v4.0 DELETE APIs
+
+v5.0 Schema Validation
+
+v6.0 AI Assisted Testing
+
+============================================================================================================
+
 📝 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
