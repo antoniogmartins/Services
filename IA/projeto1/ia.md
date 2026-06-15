@@ -45,7 +45,7 @@ Payload
 
 🔖 Resultado da IA
 
-=> Casos de Testes:
+🔖  Gerando Casos de Testes:
 
 | Positivos                             | Negativo                              | Borda (criar usuario com tamanho maximo                | Performance                                 |
 | :------------------------------------ | :------------------------------------ | :----------------------------------------------------- | :------------------------------------------ |
@@ -53,18 +53,41 @@ Payload
 | 📝 CT002 Nome de usuario com acento   | 📝 CT005 Job vazio                    | 📝 CT008 Cadatrar usuario com mais de 256 caracteres   | 📝 CT010 500 requisições simultâneas        |
 | 📝 CT003 Nome de usuario composto     | 📝 CT006 Payload nulo                 |                                                        |                                             |
 
+🔖  Implementando:
+
+<img width="699" height="456" alt="image" src="https://github.com/user-attachments/assets/ae752a20-3484-4b5a-8a8e-55419fe5cad5" />
 
 
 ============================================================================================================
 
-## Fase 2 - Massa de Teste Gerada por IA ##
+## Fase 2 - Assertions Gerada por IA ##
+
+<img width="709" height="215" alt="image" src="https://github.com/user-attachments/assets/c76096c8-1ef3-47b4-9a7f-3fa1dcc1fe27" />
+
+🔖 Prompt Utilizado
+
+<img width="709" height="57" alt="image" src="https://github.com/user-attachments/assets/dc22e771-fce9-4740-a6b1-bc42793d8b12" />
+
+
+🔖 Resposta IA
+
+<img width="706" height="146" alt="image" src="https://github.com/user-attachments/assets/4a47881d-c9a2-4afa-b0bb-90319981d1cf" />
+
+🔖 Implementando:
+
+<img width="722" height="358" alt="image" src="https://github.com/user-attachments/assets/c7d0f1df-0c25-4ddf-b470-b59ef336d20b" />
+
+
+============================================================================================================
+
+## Fase 3 - Massa de Teste Gerada por IA ##
 
 
 🔖 Prompt Utilizado
 
 <img width="693" height="61" alt="image" src="https://github.com/user-attachments/assets/4e1d3e86-9d05-49a9-9a50-f975c85bbdf5" />
 
-Resposta
+🔖 Respostad a IA
 
 <img width="702" height="245" alt="image" src="https://github.com/user-attachments/assets/a0372494-983d-4489-a81d-249081cdbbfa" />
 
