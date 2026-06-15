@@ -22,7 +22,7 @@ Este projeto demonstra como a IA Generativa pode acelerar essas atividades sem s
 
 🚀 Tecnologias
 
-| AUtomação               |
+| Automação               |
 | :---------------------- |
 | 📝 Java11               |
 | 📝 Maven                |
@@ -77,7 +77,6 @@ Payload
 🔖  Implementando:
 
 <img width="699" height="456" alt="image" src="https://github.com/user-attachments/assets/ae752a20-3484-4b5a-8a8e-55419fe5cad5" />
-
 
 ============================================================================================================
 
