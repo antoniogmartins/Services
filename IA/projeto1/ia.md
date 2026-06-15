@@ -30,16 +30,13 @@ Mostrar como a IA auxilia na análise.
 
 🔖 Cenário
 
-Endpoint:POST /users
-Payload:{
+Endpoint:
 
+    POST /users
 
-  "name":"Antonio",
-  
-  "job":"QA"
+Payload
 
-}
-
+<img width="696" height="145" alt="image" src="https://github.com/user-attachments/assets/eb6cf613-aca1-4972-a282-ea7344242376" />
 
 🔖 Prompt Utilizado
 
@@ -71,7 +68,7 @@ Resposta
 
 <img width="702" height="245" alt="image" src="https://github.com/user-attachments/assets/a0372494-983d-4489-a81d-249081cdbbfa" />
 
-
+Implementação
 
 
 ============================================================================================================
