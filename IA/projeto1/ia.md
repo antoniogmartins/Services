@@ -47,16 +47,16 @@ Payload
 
 🔖  Gerando Casos de Testes:
 
-| Positivos                             | Negativo                              | Borda (criar usuario com tamanho maximo                 | Performance                                 |
-| :------------------------------------ | :------------------------------------ | :------------------------------------------------------ | :------------------------------------------ |
-| 📝 CT001 Cadastrar usuario válido     | 📝 CT004 Nome vazio                   | 📝 CT007 Cadastrar usuario ate 1 caracter               | 📝 CT015 100 requisições simultâneas        |
-| 📝 CT002 Nome de usuario com acento   | 📝 CT005 Job vazio                    | 📝 CT008 Cadastrar usuario com mais de 255 caracteres   | 📝 CT016 500 requisições simultâneas        |
-| 📝 CT003 Nome de usuario composto     | 📝 CT006 Payload nulo                 | 📝 CT009 Cadastrar usuario com mais de 256 caracteres   |                                             |
-|                                       |                                       | 📝 CT010 Cadastrar usuario com caracteres especiais     |                                             |
-|                                       |                                       | 📝 CT011 Cadastrar usuario com caracteres unidoce       |                                             |
-|                                       |                                       | 📝 CT012 Cadastrar usuario com campos nulo              |                                             |
-|                                       |                                       | 📝 CT013 Cadastrar usuario com campos vazio             |                                             |
-|                                       |                                       | 📝 CT014 Cadastrar usuario com espaços em branco        |                                             |
+| Positivos                                        | Negativo                              | Borda (criar usuario com tamanho maximo                 | Performance                                 |
+| :----------------------------------------------- | :------------------------------------ | :------------------------------------------------------ | :------------------------------------------ |
+| 📝 CT001 Cadastrar usuario válido                | 📝 CT004 Nome vazio                   | 📝 CT007 Cadastrar usuario ate 1 caracter               | 📝 CT015 100 requisições simultâneas        |
+| 📝 CT002 Cadastrar Nome de usuario com acento    | 📝 CT005 Job vazio                    | 📝 CT008 Cadastrar usuario com mais de 255 caracteres   | 📝 CT016 500 requisições simultâneas        |
+| 📝 CT003 Cadastrar Nome de usuario composto      | 📝 CT006 Payload nulo                 | 📝 CT009 Cadastrar usuario com mais de 256 caracteres   |                                             |
+|                                                  |                                       | 📝 CT010 Cadastrar usuario com caracteres especiais     |                                             |
+|                                                  |                                       | 📝 CT011 Cadastrar usuario com caracteres unidoce       |                                             |
+|                                                  |                                       | 📝 CT012 Cadastrar usuario com campos nulo              |                                             |
+|                                                  |                                       | 📝 CT013 Cadastrar usuario com campos vazio             |                                             |
+|                                                  |                                       | 📝 CT014 Cadastrar usuario com espaços em branco        |                                             |
 
 🔖  Implementando:
 
@@ -152,6 +152,39 @@ Payload
 <img width="703" height="139" alt="image" src="https://github.com/user-attachments/assets/b11beb83-48c2-4c34-a4d8-3c589bf80cf7" />
 
 ============================================================================================================
+
+## Fase 7 - POJO Gerados por IA ##
+
+🔖 Prompt Utilizado
+
+<img width="703" height="203" alt="image" src="https://github.com/user-attachments/assets/0d31fb7c-12c6-4fc0-81bb-33f304a3bfdf" />
+
+🔖 Resposta da IA
+
+<img width="703" height="440" alt="image" src="https://github.com/user-attachments/assets/93a9b90d-b7f6-4671-812f-c5dac2e08655" />
+
+🔖 Implementação
+
+<img width="709" height="235" alt="image" src="https://github.com/user-attachments/assets/e640e2ed-bafd-44ef-9f09-105df02252c9" />
+
+============================================================================================================
+
+## Fase 8 - IA Atuano como REvisor de AUtomação ##
+
+🔖 Prompt Utilizado
+
+<img width="705" height="55" alt="image" src="https://github.com/user-attachments/assets/25bad941-b53b-4dcd-86bd-c2e3a283b006" />
+
+🔖 Resposta da IA
+
+<img width="713" height="274" alt="image" src="https://github.com/user-attachments/assets/46e55edc-f0ee-468e-8bd8-08615a7452c1" />
+
+🔖 Implementação
+
+<img width="712" height="316" alt="image" src="https://github.com/user-attachments/assets/46d0a18e-d9b4-42fd-a272-49d09c51e16b" />
+
+============================================================================================================
+
 
 
 📝 License
