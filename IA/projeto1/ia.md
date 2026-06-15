@@ -14,7 +14,16 @@ Times de QA gastam muitas horas em:
 - Revisar automações
 - Criar documentação
 
-Este projeto demonstra como a IA Generativa pode acelerar essas atividades sem substituir a análise crítica do QA.
+## Objetivos ##
+
+- Automatizar APIs REST
+- Utilizar IA para geração de cenários
+- Utilizar IA para geração de massa de dados
+- Utilizar IA para revisão de código
+- Utilizar IA para geração de assertions
+- Utilizar IA para identificação de riscos
+
+Este projeto destina-se a demonstrar como criar a aplicação de IA Generativa no ciclo completo de testes de software utilizando o Java + RestAssured e como pode ser acelerardo estas atividades sem substituir a análise crítica do QA 
 
 🚀 Arquitetura do Projeto
 
