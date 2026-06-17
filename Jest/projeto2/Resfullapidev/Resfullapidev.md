@@ -1,3 +1,9 @@
+![NodeJS](https://img.shields.io/badge/Node.js-20.x-green)
+![Mocha](https://img.shields.io/badge/Test-Mocha-red)
+![Chai](https://img.shields.io/badge/Assertions-Chai-orange)
+![Supertest](https://img.shields.io/badge/API-Supertest-blue)
+![QA](https://img.shields.io/badge/Quality-Engineering-purple)
+
 # 🚀 API Test Automation Framework
 
 ## Sobre o Projeto
