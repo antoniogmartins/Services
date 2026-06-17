@@ -29,10 +29,15 @@ Endpoints identificados: Login, CRUD de Usuários, CRUD de Produtos e Operaçõe
 
 1. LOGIN
 Cenários Positivos
+
 ID	Cenário
+
 LGN-001	Realizar login com email e senha válidos
+
 LGN-002	Validar retorno do token JWT/autorização
+
 LGN-003	Validar estrutura da resposta de autenticação
+
 LGN-004	Utilizar token gerado em chamadas autenticadas
 
 Cenários Negativos
