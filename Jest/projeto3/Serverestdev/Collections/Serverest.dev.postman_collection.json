@@ -1,0 +1,385 @@
+{
+	"info": {
+		"_postman_id": "cc1a0b5b-2e3a-4c16-a34c-746811ad874e",
+		"name": "Serverest.dev",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "11476541",
+		"_collection_link": "https://contact-lisst.postman.co/workspace/Contact-List-Documentation~33856deb-d59a-46d4-b666-f9b378f67e40/collection/11476541-cc1a0b5b-2e3a-4c16-a34c-746811ad874e?action=share&source=collection_link&creator=11476541"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let response = pm.response.json();",
+									"",
+									"pm.environment.set(\"token\", response.authorization);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"fulano@qa.com\",\n  \"password\": \"teste\"\n}"
+						},
+						"url": "{{hostname}}/login"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "LIstar Usuarios",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							}
+						],
+						"url": "{{hostname}}/usuarios"
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar Usuario",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nome\": \"SHIBIRUBA\",\n  \"email\": \"marly@qa.com.br\",\n  \"password\": \"teste\",\n  \"administrador\": \"true\"\n}"
+						},
+						"url": "{{hostname}}/usuarios"
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar por Usuario",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							}
+						],
+						"url": "{{hostname}}/usuarios/0nbnjnkMyRgOkttM"
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir Usuario",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							}
+						],
+						"url": "{{hostname}}/usuarios/0nbnjnkMyRgOkttM"
+					},
+					"response": []
+				},
+				{
+					"name": "Alterar Usuario",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nome\": \"Fulano da Silva\",\n  \"email\": \"beltran11o@qa.com.br\",\n  \"password\": \"teste\",\n  \"administrador\": \"true\"\n}"
+						},
+						"url": "{{hostname}}/usuarios/0uxuPY0cbmQhpEz1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Produtos",
+			"item": [
+				{
+					"name": "Listar Produtos Cadastrados",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{hostname}}/produtos?preco=470&quantidade=0",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"produtos"
+							],
+							"query": [
+								{
+									"key": "preco",
+									"value": "470"
+								},
+								{
+									"key": "quantidade",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar Produto",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nome\": \"Logitech MX Vertical20\",\n  \"preco\": 470,\n  \"descricao\": \"Mouse\",\n  \"quantidade\": 381\n}"
+						},
+						"url": "{{hostname}}/produtos"
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Produto por ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							}
+						],
+						"url": "{{hostname}}/produtos/DI3fyPoBHaIMCx0J"
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar um Produto",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							}
+						],
+						"url": "{{hostname}}/produtos/BeeJh5lz3k6kSIzA"
+					},
+					"response": []
+				},
+				{
+					"name": "Alterar Produto",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nome\": \"Logitech MX Vertica2l\",\n  \"preco\": 470,\n  \"descricao\": \"Mouse\",\n  \"quantidade\": 381\n}"
+						},
+						"url": "{{hostname}}/produtos/DI3fyPoBHaIMCx0J"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Carrinhos",
+			"item": [
+				{
+					"name": "Listar carrinhos Cadastrados",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{hostname}}/carrinhos?precoTotal=179070&quantidadeTotal=381",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"carrinhos"
+							],
+							"query": [
+								{
+									"key": "precoTotal",
+									"value": "179070"
+								},
+								{
+									"key": "quantidadeTotal",
+									"value": "381"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Adicionar Carrinho",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"produtos\": [\n    {\n      \"idProduto\": \"7ctsVpHMPgEcyRF8\",\n      \"quantidade\": 381\n    }\n  ]\n}"
+						},
+						"url": "{{hostname}}/carrinhos"
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Carrinho",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							}
+						],
+						"url": "{{hostname}}/carrinhos/3maMcNrDfG9O9b5J"
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir Carrinho",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							}
+						],
+						"url": "{{hostname}}/carrinhos/concluir-compra"
+					},
+					"response": []
+				},
+				{
+					"name": "Cancelar Compra",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							}
+						],
+						"url": "{{hostname}}/carrinhos/cancelar-compra"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
