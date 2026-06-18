@@ -88,14 +88,16 @@ Consulta de Usuário
 | USR-007    | Buscar usuário por ID válido                                  |
 | USR-008    | Validar filtros de listagem (se suportados)                   |
 
+ALteração de Usuário
+
+| ID         | Cenário                                                       |
+| ---------- | ------------------------------------------------------------- |
+| USR-009    | Alterar nome do usuário                                       |
+| USR-010    | Alterar email                                                 |
+| USR-011    | Alterar perfil administrador                                  |
+| USR-012    | Alterar todos os campos                                       |
 
 
-Alteração
-ID	Cenário
-USR-009	Alterar nome do usuário
-USR-010	Alterar email
-USR-011	Alterar perfil administrador
-USR-012	Alterar todos os campos
 
 Exclusão
 ID	Cenário
