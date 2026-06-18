@@ -1,29 +1,6 @@
 
 # 🚀 Pendências
 
-## Sobre o Projeto 3: 
-
-# Objetivo
-
-# Arquitetura
-
-# Tecnologias
-
-# Como executar
-
-# Evidências
-
-# Pipeline
-
-# Relatórios
-
-# Melhorias futuras
-
-# Inclua screenshots: Allure Reports, GitHub Actions, Test Results
-
-
-==========================================================
-
 Com base na collection Postman anexada, identifiquei os módulos Login, Usuários, Produtos e Carrinhos. Abaixo estão os principais cenários de teste organizados por tipo.
 
 Endpoints identificados: ## Login, CRUD de Usuários, CRUD de Produtos e Operações de Carrinho. ##
@@ -786,3 +763,27 @@ src/
 ├── factories/
 ├── payloads/
 ├── tests/
+
+===========================================================
+## Sobre o Projeto 3: 
+
+# Objetivo
+
+# Arquitetura
+
+# Tecnologias
+
+# Como executar
+
+# Evidências
+
+# Pipeline
+
+# Relatórios
+
+# Melhorias futuras
+
+# Inclua screenshots: Allure Reports, GitHub Actions, Test Results
+
+
+==========================================================
