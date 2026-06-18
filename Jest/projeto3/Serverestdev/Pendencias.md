@@ -3,26 +3,32 @@
 
 Com base na collection Postman anexada, identifiquei os módulos Login, Usuários, Produtos e Carrinhos. Abaixo estão os principais cenários de teste organizados por tipo.
 
-Endpoints identificados: ## Login, CRUD de Usuários, CRUD de Produtos e Operações de Carrinho. ##
+Endpoints identificados: **Login, CRUD de Usuários, CRUD de Produtos e Operações de Carrinho.**
+   
+**1 - LOGIN**
 
-1. LOGIN
+**1.1 - Cenários Positivos**
 
-=> Cenários Positivos
-
-| ID         | Cenário                                                   |
-| ---------- | --------------------------------------------------------- |
-| LGN-001    | Realizar login com email e senha válidos                  |
-| LGN-002    | Validar retorno do token JWT/autorização                  |
-| LGN-003    | Validar estrutura da resposta de autenticação             |
-| LGN-004    | Utilizar token gerado em chamadas autenticadas            |
+| ID         | Cenário                                                       |
+| ---------- | ------------------------------------------------------------- |
+| LGN-001    | Realizar login com email e senha válidos                      |
+| LGN-002    | Validar retorno do token JWT/autorização                      |
+| LGN-003    | Validar estrutura da resposta de autenticação                 |
+| LGN-004    | Utilizar token gerado em chamadas autenticadas                |
 
 
-Cenários Negativos
-ID	Cenário
-LGN-005	Login com senha incorreta
-LGN-006	Login com email inexistente
-LGN-007	Login com email vazio
-LGN-008	Login com senha vazia
+**1.2 - Cenários Negativos**
+
+| ID         | Cenário                                                       |
+| ---------- | ------------------------------------------------------------- |
+| LGN-005    | Login com senha incorreta                                     |
+| LGN-006    | Login com email inexistente                                   |
+| LGN-007    | Login com email vazio                                         |
+| LGN-008    | Login com senha vazia                                         |
+| LGN-009    | Login sem enviar body                                         |
+| LGN-010    | Login com formato inválido de email                           |
+| LGN-011    | Login com caracteres especiais maliciosos (SQL Injection/XSS) |
+
 LGN-009	Login sem enviar body
 LGN-010	Login com formato inválido de email
 LGN-011	Login com caracteres especiais maliciosos (SQL Injection/XSS)
