@@ -41,8 +41,6 @@ O objetivo é validar operações CRUD em uma API REST pública, aplicando boas 
 
 ## Arquitetura do Projeto
 
-```
-
 ---
 
 ## Cenários Automatizados
