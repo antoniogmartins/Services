@@ -18,8 +18,6 @@ Endpoints:
 
 -> Realizar Login e Gerar Token
 
-Realizar Login
-
 **1.1 - Cenários Positivos** (Implementado)
 
 | ID         | Cenário                                                       |

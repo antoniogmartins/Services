@@ -47,6 +47,181 @@ O objetivo é validar operações CRUD em uma API REST pública, aplicando boas 
 
 ## Cenários Automatizados
 
+Com base na collection Postman anexada, identifiquei os módulos Login, Usuários, Produtos e Carrinhos. Abaixo estão os principais cenários de teste organizados por tipo.
+
+Endpoints identificados: **Login, CRUD de Usuários, CRUD de Produtos e Operações de Carrinho.**
+   
+**1 - LOGIN**
+
+Endpoints:
+
+-> Realizar Login e Gerar Token
+
+**1.1 - Cenários Positivos** (Implementado)
+
+| ID         | Cenário                                                       |
+| ---------- | ------------------------------------------------------------- |
+| LGN-001    | Realizar login com email e senha válidos                      |
+| LGN-002    | Validar retorno do token JWT/autorização                      |
+| LGN-003    | Validar estrutura da resposta de autenticação                 |
+| LGN-004    | Utilizar token gerado em chamadas autenticadas                |
+
+
+**1.2 - Cenários Negativos**
+
+| ID         | Cenário                                                       |
+| ---------- | ------------------------------------------------------------- |
+| LGN-005    | Login com senha incorreta                                     |
+| LGN-006    | Login com email inexistente                                   |
+| LGN-007    | Login com email vazio                                         |
+| LGN-008    | Login com senha vazia                                         |
+| LGN-009    | Login sem enviar body                                         |
+| LGN-010    | Login com formato inválido de email                           |
+| LGN-011    | Login com caracteres especiais maliciosos (SQL Injection/XSS) |
+
+
+**1.3 - Cenários Alternativos**
+
+| ID         | Cenário                                                       |
+| ---------- | ------------------------------------------------------------- |
+| LGN-012    | Login com letras maiúsculas/minúsculas no email               |
+| LGN-013    | Login com espaços antes/depois do email                       |
+
+
+**1.4 - Cenários de Exceção**
+
+| ID         | Cenário                                                       |
+| ---------- | ------------------------------------------------------------- |
+| LGN-014    | Falha interna do servidor durante autenticação                |
+| LGN-015    | Timeout da requisição                                         |
+| LGN-016    | Serviço de autenticação indisponível                          |
+
+
+**2. USUÁRIOS**
+
+Endpoints:
+
+-> Listar usuários
+
+-> Cadastrar usuário
+
+-> Buscar usuário por ID
+
+-> Alterar usuário
+
+-> Excluir usuário
+
+
+**2.1 - Cenários Positivos**
+
+**2.1.1 - Cadastro de Usuário**
+
+| ID         | Cenário                                                       |
+| ---------- | ------------------------------------------------------------- |
+| USR-001    | Cadastrar usuário administrador                               |
+| USR-002    | Cadastrar usuário comum                                       |
+| USR-003    | Cadastrar usuário com dados válidos                           |
+| USR-004    | Validar geração do ID do usuário                              |
+| USR-005    | Validar persistência dos dados cadastrados                    |
+
+
+**2.1.2 - Consulta de Usuário**
+
+| ID         | Cenário                                                       |
+| ---------- | ------------------------------------------------------------- |
+| USR-006    | Listar usuários cadastrados                                   |
+| USR-007    | Buscar usuário por ID válido                                  |
+| USR-008    | Validar filtros de listagem (se suportados)                   |
+
+
+**2.1.3 - Alteração de Usuário**
+
+| ID         | Cenário                                                       |
+| ---------- | ------------------------------------------------------------- |
+| USR-009    | Alterar nome do usuário                                       |
+| USR-010    | Alterar email                                                 |
+| USR-011    | Alterar perfil administrador                                  |
+| USR-012    | Alterar todos os campos                                       |
+
+
+**2.1.4 - Exclusão de Usuário**
+
+| ID         | Cenário                                                       |
+| ---------- | ------------------------------------------------------------- |
+| USR-013    | Excluir usuário existente                                     |
+| USR-014    | Validar remoção após exclusão                                 |
+
+
+**2.1.5 - Exclusão de Usuário**
+
+| ID         | Cenário                                                       |
+| ---------- | ------------------------------------------------------------- |
+| USR-013    | Excluir usuário existente                                     |
+| USR-014    | Validar remoção após exclusão                                 |
+
+
+**2.2 - Cenários Negativos**
+
+**2.2.1 - Cadastro Usuarios**
+
+| ID         | Cenário                                                       |
+| ---------- | ------------------------------------------------------------- |
+| USR-015    | Cadastrar usuário sem nome                                    |
+| USR-016    | Cadastrar usuário sem email                                   |
+| USR-017    | Cadastrar usuário sem senha                                   |
+| USR-018    | Cadastrar usuário com email duplicado                         |
+| USR-019    | Cadastrar usuário com email inválido                          |
+| USR-020    | Cadastrar usuário sem token                                   |
+| USR-021    | Cadastrar usuário com token inválido                          |
+| USR-022    | Cadastrar usuário com campos nulos                            |
+
+
+**2.2.2 - Consulta Usuarios**
+
+| ID         | Cenário                                                       |
+| ---------- | ------------------------------------------------------------- |
+| USR-023    | Buscar usuário inexistente                                    |
+| USR-024    | Buscar usuário com ID inválido                                |
+| USR-025    | Buscar usuário com ID vazio                                   |
+
+
+**2.2.3 - Alteração Usuarios**
+
+| ID         | Cenário                                                              |
+| ---------- | -------------------------------------------------------------------- |
+| USR-026    | Alterar usuário inexistente                                          |
+| USR-027    | Alterar email para um já existente                                   |
+| USR-028    | Alterar sem token válido                                             |
+| USR-029    | Alterar enviando payload inválido                                    |
+
+
+**2.2.4 - Exclusão Usuarios**
+
+| ID         | Cenário                                                              |
+| ---------- | -------------------------------------------------------------------- |
+| USR-030    | Excluir usuário inexistente                                          |
+| USR-031    | Excluir usuário com token inválido                                   |
+| USR-032    | Excluir usuário vinculado a regras de negócio que impeçam remoção    |
+
+
+**2.3 - Cenários Alternativos**
+
+| ID         | Cenário                                                              |
+| ---------- | -------------------------------------------------------------------- |
+| USR-033    | PUT em ID inexistente criando novo recurso (caso suportado)          |
+| USR-034    | Cadastro com caracteres especiais no nome                            |
+| USR-035    | Cadastro com nomes extensos                                          |
+| USR-036    | Cadastro com administrador=true e administrador=false                |
+
+
+**2.4 - Cenários Exceção**
+
+| ID         | Cenário                                                              |
+| ---------- | -------------------------------------------------------------------- |
+| USR-037    | Banco indisponível durante cadastro                                  |
+| USR-038    | Falha na gravação dos dados                                          |
+| USR-039    | Erro interno ao consultar usuário                                    |
+
 
 
 ---
