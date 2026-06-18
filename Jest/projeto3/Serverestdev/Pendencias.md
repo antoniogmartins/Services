@@ -363,29 +363,19 @@ Endpoints:
 | CAR-029    | Erro interno ao cancelar compra                                      |
 
 
-**4. TESTES E2E (Fluxos completos)**
+**5. TESTES E2E (Fluxos completos)**
 
-Cenários E2E (Fluxos completos)
+**5.1 - Cenários E2E (Fluxos completos)**
 
-Além dos testes por endpoint, recomendo estes fluxos ponta a ponta:
-
-ID	Fluxo
-E2E-001	Login → Criar Usuário → Consultar Usuário → Excluir Usuário
-
-
-
-
-E2E-002	Login → Cadastrar Produto → Consultar Produto → Alterar Produto → Excluir Produto
-
-E2E-003	Login → Cadastrar Produto → Criar Carrinho → Concluir Compra
-
-E2E-004	Login → Cadastrar Produto → Criar Carrinho → Cancelar Compra
-
-E2E-005	Validar redução do estoque após compra
-
-E2E-006	Validar restauração do estoque após cancelamento
-
-E2E-007	Validar acesso sem token em todos endpoints protegidos
+| ID         | Cenário                                                                                 |
+| ---------- | --------------------------------------------------------------------------------------- |
+| E2E-001    | Login → Criar Usuário → Consultar Usuário → Excluir Usuário                           |
+| E2E-002    | Login → Cadastrar Produto → Consultar Produto → Alterar Produto → Excluir Produto    |
+| E2E-003    | Login → Cadastrar Produto → Criar Carrinho → Concluir Compra                          |
+| E2E-004    | Login → Cadastrar Produto → Criar Carrinho → Cancelar Compra                          |
+| E2E-005    | Validar redução do estoque após compra                                                  |
+| E2E-006    | Validar restauração do estoque após cancelamento                                        |
+| E2E-007    | Validar acesso sem token em todos endpoints protegidos                                  |
 
 
 Essa suíte cobre os cenários funcionais principais, validações de negócio, segurança, autorização, integridade de dados e fluxos críticos da API Serverest.
