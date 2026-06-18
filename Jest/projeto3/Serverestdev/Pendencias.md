@@ -80,12 +80,15 @@ Cadastro de Usuário
 | USR-004    | Validar geração do ID do usuário                              |
 | USR-005    | Validar persistência dos dados cadastrados                    |
 
+Consulta de Usuário
 
-Consulta
-ID	Cenário
-USR-006	Listar usuários cadastrados
-USR-007	Buscar usuário por ID válido
-USR-008	Validar filtros de listagem (se suportados)
+| ID         | Cenário                                                       |
+| ---------- | ------------------------------------------------------------- |
+| USR-006    | Listar usuários cadastrados                                   |
+| USR-007    | Buscar usuário por ID válido                                  |
+| USR-008    | Validar filtros de listagem (se suportados)                   |
+
+
 
 Alteração
 ID	Cenário
