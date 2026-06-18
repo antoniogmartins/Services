@@ -1,4 +1,11 @@
 
+![NodeJS](https://img.shields.io/badge/Node.js-20.x-green)
+![Mocha](https://img.shields.io/badge/Test-Mocha-red)
+![Chai](https://img.shields.io/badge/Assertions-Chai-orange)
+![Supertest](https://img.shields.io/badge/API-Supertest-blue)
+![QA](https://img.shields.io/badge/Quality-Engineering-purple)
+
+
 # 🚀 Pendências
 
 Com base na collection Postman anexada, identifiquei os módulos Login, Usuários, Produtos e Carrinhos. Abaixo estão os principais cenários de teste organizados por tipo.
@@ -7,7 +14,12 @@ Endpoints identificados: **Login, CRUD de Usuários, CRUD de Produtos e Operaç�
    
 **1 - LOGIN**
 
+Endpoints:
+-> Realizar Login e Gerar Token
+
 **1.1 - Cenários Positivos**
+
+Realizar Login
 
 | ID         | Cenário                                                       |
 | ---------- | ------------------------------------------------------------- |
@@ -29,12 +41,14 @@ Endpoints identificados: **Login, CRUD de Usuários, CRUD de Produtos e Operaç�
 | LGN-010    | Login com formato inválido de email                           |
 | LGN-011    | Login com caracteres especiais maliciosos (SQL Injection/XSS) |
 
+
 **1.3 - Cenários Alternativos**
 
 | ID         | Cenário                                                       |
 | ---------- | ------------------------------------------------------------- |
 | LGN-012    | Login com letras maiúsculas/minúsculas no email               |
 | LGN-013    | Login com espaços antes/depois do email                       |
+
 
 **1.4 - Cenários de Exceção**
 
@@ -45,7 +59,7 @@ Endpoints identificados: **Login, CRUD de Usuários, CRUD de Produtos e Operaç�
 | LGN-016    | Serviço de autenticação indisponível                          |
 
 
-2. USUÁRIOS
+**2. USUÁRIOS**
 
 Endpoints:
 -> Listar usuários
@@ -54,14 +68,18 @@ Endpoints:
 -> Alterar usuário
 -> Excluir usuário
 
-Cenários Positivos:
-Cadastro
-ID	Cenário
-USR-001	Cadastrar usuário administrador
-USR-002	Cadastrar usuário comum
-USR-003	Cadastrar usuário com dados válidos
-USR-004	Validar geração do ID do usuário
-USR-005	Validar persistência dos dados cadastrados
+**2.1 - Cenários Positivos**
+
+Cadastro de Usuário
+
+| ID         | Cenário                                                       |
+| ---------- | ------------------------------------------------------------- |
+| USR-001    | Cadastrar usuário administrador                               |
+| USR-002    | Cadastrar usuário comum                                       |
+| USR-003    | Cadastrar usuário com dados válidos                           |
+| USR-004    | Validar geração do ID do usuário                              |
+| USR-005    | Validar persistência dos dados cadastrados                    |
+
 
 Consulta
 ID	Cenário
@@ -392,6 +410,7 @@ class AuthService {
 }
 
 module.exports = AuthService;
+
 produto.spec.js
 const AuthService = require('../services/auth.service');
 
@@ -440,7 +459,68 @@ src/
 
 Isso demonstra reutilização, manutenção e escalabilidade, características valorizadas em projetos de automação de API.
 
+===================================================================================================================================
+Se você estiver usando Express + Supertest + Chai, um cenário de teste para "Validar estrutura da resposta de autenticação" pode ser:
+
+const request = require('supertest');
+const chai = require('chai');
+const expect = chai.expect;
+
+const app = require('../src/app'); // sua aplicação Express
+
+describe('Login', () => {
+
+  it('Deve validar a estrutura da resposta de autenticação', async () => {
+
+    const response = await request(app)
+      .post('/login')
+      .send({
+        email: 'fulano@qa.com',
+        password: 'teste'
+      });
+
+    expect(response.status).to.equal(200);
+
+    // Validação da estrutura
+    expect(response.body).to.be.an('object');
+    expect(response.body).to.have.property('authorization');
+
+    // Validação do tipo
+    expect(response.body.authorization).to.be.a('string');
+
+    // Validação de conteúdo
+    expect(response.body.authorization).to.not.be.empty;
+
+  });
+
+});
+Validação mais robusta
+
+Caso queira garantir exatamente os campos retornados:
+
+expect(response.body).to.have.all.keys([
+  'authorization'
+]);
+Utilizando JSON Schema
+
+Uma abordagem muito utilizada em automação de API é validar a estrutura através de schema:
+
+const authSchema = {
+  type: 'object',
+  required: ['message'],['authorization'],
+  properties: {
+    authorization: {
+      type: 'string'
+    }
+  }
+};
+
+Com chai-json-schema:
+
+expect(response.body).to.be.jsonSchema(authSchema);
+
 ============================================================
+
 Ao usar o chai, express, supertest que tipo de relatorio posso dispor para rodar os testes?
 
 1. Relatório Console (Padrão do Mocha)
