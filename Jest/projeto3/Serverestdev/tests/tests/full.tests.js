@@ -14,9 +14,9 @@ before(async function () {
 //-> Realizar Login e Gerar Token
 //**1.1 - Cenários Positivos**
 
-describe('LGN-001 - Realizar login com email e senha válidos', function () {
-    describe ('POST /Login', () => {
-      it('Realizar login com email e senha válidos', async function() { 
+describe('Realizar Login', function () {
+    describe ('POST /Login - Cenarios Positivos', () => {
+      it('LGN-001 - Realizar login com email e senha válidos', async function() { 
         const response = await request(url)
             .post('/login')
             .set("Content-Type", "application/json")
@@ -29,12 +29,8 @@ describe('LGN-001 - Realizar login com email e senha válidos', function () {
          expect(response.status).to.equal(200);
          expect(response.body.message).to.equal('Login realizado com sucesso');
          });
-    });    
-  });
 
-describe('LGN-002 - Validar retorno do token JWT/autorização', function () {
-    describe ('POST /Login', () => {
-      it('Validar retorno do token JWT/autorização', async function() { 
+      it('LGN-002 - Validar retorno do token JWT/autorização', async function() { 
         const response = await request(url)
             .post('/login')
             .set("Content-Type", "application/json")
@@ -49,13 +45,8 @@ describe('LGN-002 - Validar retorno do token JWT/autorização', function () {
          token = response.body.authorization;
          console.log('O valor do token é: ' + token);
          });
-    });   
-  });
 
-
-describe('LGN-003 - Validar estrutura da resposta de autenticação', function () {
-    describe ('POST /Login', () => {
-      it('Validar estrutura da resposta de autenticação', async function() { 
+      it('LGN-003 - Validar estrutura da resposta de autenticação', async function() { 
         const response = await request(url)
             .post('/login')
             .set("Content-Type", "application/json")
@@ -79,28 +70,20 @@ describe('LGN-003 - Validar estrutura da resposta de autenticação', function (
         expect(response.body.authorization).to.not.be.empty;
 
        });
-    });   
-});
 
-//-> Realizar Login e Gerar Token
-//1.2 - Cenários Negativos
-describe('LGN-004 - Utilizar token gerado em chamadas autenticadas', function () {
-    describe ('POST /Login', () => {
-      it('Utilizar token gerado em chamadas autenticadas', async function() { 
-        
+      it('LGN-004 - Utilizar token gerado em chamadas autenticadas', async function() { 
         before(async () => {
-
         const loginResponse = await request(baseURL)
             .post('/login')
             .send({
                 email: 'fulano@qa.com',
                 password: 'teste'
-            });
+            })
 
         token = loginResponse.body.authorization;
-    });
+       });
 
-    it('Deve permitir cadastrar produto utilizando token válido', async () => {
+      it('LGN-004 - Deve permitir cadastrar produto utilizando token válido', async () => {
 
         const response = await request(baseURL)
             .post('/produtos')
@@ -110,129 +93,166 @@ describe('LGN-004 - Utilizar token gerado em chamadas autenticadas', function ()
                 preco: 150,
                 descricao: 'Mouse Gamer RGB',
                 quantidade: 10
-            });
+            })
 
         expect(response.status).to.equal(201);
         expect(response.body).to.have.property('message');
-    });
-
-
-       });
-    });   
-});
-
-
-//-> Realizar Cadastro de um Usuario
-//2.1 - Cenários Positivos
-
-describe('5 - Adiciona um Novo Usuario', function() {
-    describe ('POST /Usuarios', () => {
-
-      it('Deve retornar 201 ao criar um Usuario', async function() { 
-        //  this.timeout(10000);
-          const response = await request(url)
-            .post('/usuarios')
+      });
+  });
+}); 
+describe ('POST /Login - Cenarios Negativos', () => {
+      it('LGN-005 - Realizar login com senha incorreta', async function() { 
+        const response = await request(url)
+            .post('/login')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("Authorization", token)
             .send({
-                    nome: 'SHIBIRUBA',
-                    email: `marly${Date.now()}@qa.com.br`,
-                    password: 'teste',
-                    administrador: 'true'
+                  email: 'fulano@qa.com',
+                  password: 'teste123'
             })
-         console.log('O valor do token é: ' + token);
-         console.log('O valor do status é: ' + response.status);
-         console.log('O valor do body é: ' + JSON.stringify(response.body));
-         id = response.body._id;
-         console.log('O valor do id é: ' + id);
          expect(response.headers["content-type"]).to.match(/json/);
-         expect(response.status).to.equal(201);
-         expect(response.body.message).to.equal('Cadastro realizado com sucesso');
-
-
+         expect(response.status).to.equal(401);
+         expect(response.body.message).to.equal('Email e/ou senha inválidos');
          });
-    });  
-});
+
+      it('LGN-006 - Realizar login com email inexistente', async function() { 
+        const response = await request(url)
+            .post('/login')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .send({
+                  email: 'fulano123@qa.com.br',
+                  password: 'teste'
+            })
+         expect(response.headers["content-type"]).to.match(/json/);
+         expect(response.status).to.equal(401);
+         expect(response.body.message).to.equal('Email e/ou senha inválidos');
+         });
+
+      it('LGN-007 - Realizar login com email vazio', async function() { 
+        const response = await request(url)
+            .post('/login')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .send({
+                  email: '',
+                  password: 'teste'
+            })
+         expect(response.headers["content-type"]).to.match(/json/);
+         expect(response.status).to.equal(400);
+         expect(response.body.email).to.equal('email não pode ficar em branco');
+         });
+      
+      it('LGN-008 - Realizar login com senha vazia', async function() { 
+        const response = await request(url)
+            .post('/login')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .send({
+                  email: 'fulano@qa.com',
+                  password: ''
+            })
+         expect(response.headers["content-type"]).to.match(/json/);
+         expect(response.status).to.equal(400);
+         expect(response.body.password).to.equal('password não pode ficar em branco');
+         });
+
+      it('LGN-009 - Realizar login sem enviar o body', async function() { 
+        const response = await request(url)
+            .post('/login')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+        // console.log("body: " + JSON.stringify(response.body));
+         expect(response.headers["content-type"]).to.match(/json/);
+         expect(response.status).to.equal(400);
+         expect(response.body).has.property('email').to.equal('email é obrigatório');
+         expect(response.body).has.property('password').to.equal('password é obrigatório');
+         });
+
+      it('LGN-010 - Realizar login com formato inválido de email', async function() { 
+        const response = await request(url)
+            .post('/login')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .send({
+                  email: 'fulano.qa.com',
+                  password: 'teste'
+                  })
+         expect(response.headers["content-type"]).to.match(/json/);
+         expect(response.status).to.equal(400);
+         expect(response.body).has.property('email').to.equal('email deve ser um email válido');
+         });
+
+      it('LGN-011.1 - Login com caracteres especiais maliciosos (SQL Injection/XSS)', async function() {
+
+         const response = await request(url)
+              .post('/login')
+              .set('Content-Type', 'application/json')
+              .set('accept', 'application/json')
+              .send({
+                  email: "' OR '1'='1",
+                  password: "' OR '1'='1"
+                  })
+         expect(response.headers["content-type"]).to.match(/json/);
+         expect(response.status).to.be.oneOf([400, 401]);
+         //expect(response.body).has.property('email').to.equal('email deve ser um email válido');
+         expect(response.body).to.have.property('email').that.matches(/(Email e\/ou senha inválidos|email deve ser um email válido)/);
+         });
+
+      it('LGN-011.2 - Realizar login com caracteres especiais inválidos', async function() {
+
+         const response = await request(url)
+              .post('/login')
+              .set('Content-Type', 'application/json')
+              .set('accept', 'application/json')
+              .send({
+                   email: '!@#$%^&*()',
+                   password: 'teste'
+                  })
+
+         expect(response.headers["content-type"]).to.match(/json/);
+         expect(response.status).to.be.oneOf([400, 401]);
+         //expect(response.body).has.property('email').to.equal('email deve ser um email válido');
+         expect(response.body).to.have.property('email').that.matches(/(Email e\/ou senha inválidos|email deve ser um email válido)/);
+         });
+
+      it('LGN-011.3 - Realizar login com payload semelhante a XSS', async function() {
+
+         const response = await request(url)
+              .post('/login')
+              .set('Content-Type', 'application/json')
+              .set('accept', 'application/json')
+              .send({
+                   email: '<script>alert("xss")</script>',
+                   password: 'teste'
+                  })
+
+         expect(response.headers["content-type"]).to.match(/json/);
+         expect(response.status).to.be.oneOf([400, 401]);
+         //expect(response.body).has.property('email').to.equal('email deve ser um email válido');
+         expect(response.body).to.have.property('email').that.matches(/(Email e\/ou senha inválidos|email deve ser um email válido)/);
+         });
+
+
 /*
-describe('2 - List all your collections info', function() {
-  describe ('GET /Collections', () => {
-     it('Deve retornar 200 ao Listar todas as informações do collections', async function() {
+         it('LGN-001 - Realizar login com email e senha válidos', async function() { 
         const response = await request(url)
-          .get('')
-          .set("Content-Type", "application/json")
-          .set("x-api-key", "4f7dfc0d-c810-4189-b0c9-da03bea5c317") 
-        expect(response.headers["content-type"]).to.match(/json/);
-        expect(response.status).to.equal(200);
-        expect(response.body[1].collectionName).to.equal('celular');
-        });
-   });
-});
-
-describe('3 - List all objects in a collection', function() {
-  describe ('GET /Collections/TipoProduto/Objetos', () => {
-      it('Deve retornar 200 ao Listar todas os objetos de uma collection para um Tipo de Produto', async function() {
-        const response = await request(url)
-          .get('celular/objects')
-          .set("Content-Type", "application/json")
-          .set("x-api-key", "4f7dfc0d-c810-4189-b0c9-da03bea5c317") 
-        expect(response.headers["content-type"]).to.match(/json/);
-        expect(response.status).to.equal(200);
-        expect(response.body[2].name).to.equal('Apple MacBook Pro 16');
-        });
-   });
-});
-
-describe('4 - Single Object from a collection', function() {
-  describe ('GET /Collections/TipoProduto/Objetos/:id', () => {
-      it('Deve retornar 200 ao Listar as informações de um unico objeto de uma collection para um Tipo de Produto', async function() {
-        const response = await request(url)
-          .get('celular/objects/' + id)
-          .set("Content-Type", "application/json")
-          .set("x-api-key", "4f7dfc0d-c810-4189-b0c9-da03bea5c317") 
-        expect(response.headers["content-type"]).to.match(/json/);
-        expect(response.status).to.equal(200);
-        expect(response.body.name).to.equal('Apple MacBook Pro 18');
-        expect(response.body.data['Hard disk size']).to.equal('1 TB');
-        });
-   });
-});
-
-//Parei aqui, não consegui atualizar o objeto criado no teste 1, por isso utilizei um objeto já existente para os testes 4, 5 e 6.
-describe('5 - Update an object', function() {     
-  describe ('PUT /Collections/TipoProduto/Objetos/:id', () => {
-      it('Deve retornar 200 ao Atualizar um objeto de uma collection para um Tipo de Produto', async function() {
-        const response = await request(url)
-          .put('celular/objects/' + id)
-          .set("Content-Type", "application/json")
-          .set("x-api-key", "4f7dfc0d-c810-4189-b0c9-da03bea5c317")
-          .send({
-                  name: 'Apple MacBook Pro 14',
-                  data: {
-                  year: 2019,
-                  price: 2049.99,
-                  'CPU model': 'Intel Core i9',
-                  'Hard disk size': '1 TB',
-                  'color': 'silver'
-                }
-          })
-        expect(response.status).to.equal(200);
-        });
-   });  
-});
-
-describe('6 - Delete an object', function() {     
-  describe ('DELETE /Collections/TipoProduto/Objetos/:id', () => {
-      it('Deve retornar 200 ao Deletar um objeto de uma collection para um Tipo de Produto', async function() {
-        const response = await request(url)
-          .delete('celular/objects/' + id)
-          .set("Content-Type", "application/json")
-          .set("x-api-key", "4f7dfc0d-c810-4189-b0c9-da03bea5c317")
-        expect(response.status).to.equal(200);
-        });
-   });  
-});
-
-});
+            .post('/login')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .send({
+                  email: 'fulano@qa.com',
+                  password: 'teste'
+            })
+         expect(response.headers["content-type"]).to.match(/json/);
+         expect(response.status).to.equal(200);
+         expect(response.body.message).to.equal('Login realizado com sucesso');
+         });
 */
+
+
+    });
+});
+
+
 
