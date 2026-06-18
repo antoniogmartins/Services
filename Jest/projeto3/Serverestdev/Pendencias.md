@@ -28,7 +28,7 @@ Endpoints:
 | LGN-004    | Utilizar token gerado em chamadas autenticadas                |
 
 
-**1.2 - Cenários Negativos**
+**1.2 - Cenários Negativos** (Implementado)
 
 | ID         | Cenário                                                       |
 | ---------- | ------------------------------------------------------------- |
@@ -56,6 +56,9 @@ Endpoints:
 | LGN-014    | Falha interna do servidor durante autenticação                |
 | LGN-015    | Timeout da requisição                                         |
 | LGN-016    | Serviço de autenticação indisponível                          |
+
+** Para o LGN-014 não é automatizável de forma confiável na ServeRest, pois você não consegue derrubar banco, 
+matar serviço de autenticação ou simular indisponibilidade.
 
 
 **2. USUÁRIOS**

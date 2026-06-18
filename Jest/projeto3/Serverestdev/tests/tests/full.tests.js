@@ -7,6 +7,26 @@ const url = 'https://serverest.dev';
 let token = "";
 let id = 0;
 
+const payloads = [
+        {
+            email: "' OR '1'='1",
+            password: "' OR '1'='1"
+        },
+        {
+            email: '<script>alert(1)</script>',
+            password: 'teste'
+        },
+        {
+            email: '!@#$%^&*()',
+            password: 'teste'
+        },
+        {
+            email: '../../etc/passwd',
+            password: 'teste'
+        }
+    ];
+
+
 before(async function () {
   this.timeout(10000);
 });
@@ -234,21 +254,79 @@ describe ('POST /Login - Cenarios Negativos', () => {
          });
 
 
-/*
-         it('LGN-001 - Realizar login com email e senha válidos', async function() { 
+      it('LGN-011.4 - Realizar login com script no campo senha', async function() {
+
+         const response = await request(url)
+              .post('/login')
+              .set('Content-Type', 'application/json')
+              .set('accept', 'application/json')
+              .send({
+                   email: 'fulano@qa.com.br',
+                   password: '<script>alert("xss")</script>'
+                  })
+
+         expect(response.headers["content-type"]).to.match(/json/);
+         expect(response.status).to.be.oneOf([400, 401]);
+         //expect(response.body).has.property('email').to.equal('email deve ser um email válido');
+         expect(response.body).to.have.property('message').that.matches(/(Email e\/ou senha inválidos|email deve ser um email válido)/);
+         });
+
+     payloads.forEach((payload, index) => {
+     it('LGN-011.5 - Realizar login com uso de Data Driven Test${index + 1}', async function() {
+
+            const response = await request(url)
+              .post('/login')
+              .set('Content-Type', 'application/json')
+              .set('accept', 'application/json')
+              .send(payload)
+
+         expect(response.headers["content-type"]).to.match(/json/);
+         expect(response.status).to.be.oneOf([400, 401]);
+      //   expect(response.body).has.property('email').to.equal('email deve ser um email válido');
+         expect(response.body).to.have.property('email').that.matches(/(Email e\/ou senha inválidos|email deve ser um email válido)/);
+         });
+        });
+
+      it('LGN-012 - Realizar login com leetras maiusculas/minusculas no email', async function() { 
         const response = await request(url)
             .post('/login')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
             .send({
-                  email: 'fulano@qa.com',
+                  email: 'FULANO@QA.COM',
                   password: 'teste'
             })
          expect(response.headers["content-type"]).to.match(/json/);
-         expect(response.status).to.equal(200);
-         expect(response.body.message).to.equal('Login realizado com sucesso');
+         expect(response.status).to.equal(401);
+         expect(response.body.message).to.equal('Email e/ou senha inválidos');
          });
-*/
+
+
+    it('LGN-013 - Realizar login com espaços antes e depois do email', async function() { 
+        const response = await request(url)
+            .post('/login')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .send({
+                  email: ' fulano@qa.com ',
+                  password: 'teste'
+            })
+         expect(response.headers["content-type"]).to.match(/json/);
+         expect(response.status).to.equal(400);
+         expect(response.body.email).to.equal('email deve ser um email válido');
+         });
+
+
+     it('LGN-014 - Falha interna do servidor durante autenticação', async function() { 
+
+      console.log('LGN-014 - Falha interna do servidor durante autenticação - Erro 500 - Internal Server Error');
+      console.log('Esse cenário é mais adequado para ser testado manualmente ou utilizando ferramentas de teste de carga/estresse para simular falhas no servidor.');
+      console.log('No entanto, para fins de documentação, o teste poderia ser algo como:');
+      console.log('Simular falha interna do servidor durante autenticação e verificar se a resposta é adequada (ex: status 500 e mensagem de erro genérica).');
+      });
+      
+
+
 
 
     });
