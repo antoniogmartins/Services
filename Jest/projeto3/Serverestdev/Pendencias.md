@@ -63,9 +63,13 @@ Realizar Login
 
 Endpoints:
 -> Listar usuários
+
 -> Cadastrar usuário
+
 -> Buscar usuário por ID
+
 -> Alterar usuário
+
 -> Excluir usuário
 
 
@@ -119,7 +123,7 @@ Endpoints:
 
 **2.2 - Cenários Negativos**
 
-2.2.1 - Cadastro Usuarios
+**2.2.1 - Cadastro Usuarios**
 
 | ID         | Cenário                                                       |
 | ---------- | ------------------------------------------------------------- |
@@ -133,25 +137,49 @@ Endpoints:
 | USR-022    | Cadastrar usuário com campos nulos                            |
 
 
+**2.2.2 - Consulta Usuarios**
 
-Consulta
-ID	Cenário
-USR-023	Buscar usuário inexistente
-USR-024	Buscar usuário com ID inválido
-USR-025	Buscar usuário com ID vazio
+| ID         | Cenário                                                       |
+| ---------- | ------------------------------------------------------------- |
+| USR-023    | Buscar usuário inexistente                                    |
+| USR-024    | Buscar usuário com ID inválido                                |
+| USR-025    | Buscar usuário com ID vazio                                   |
 
-Alteração
-ID	Cenário
-USR-026	Alterar usuário inexistente
-USR-027	Alterar email para um já existente
-USR-028	Alterar sem token válido
-USR-029	Alterar enviando payload inválido
+
+**2.2.3 - Alteração Usuarios**
+
+| ID         | Cenário                                                              |
+| ---------- | -------------------------------------------------------------------- |
+| USR-026    | Alterar usuário inexistente                                          |
+| USR-027    | Alterar email para um já existente                                   |
+| USR-028    | Alterar sem token válido                                             |
+| USR-029    | Alterar enviando payload inválido                                    |
+
+
+**2.2.4 - Exclusão Usuarios**
+
+| ID         | Cenário                                                              |
+| ---------- | -------------------------------------------------------------------- |
+| USR-030    | Excluir usuário inexistente                                          |
+| USR-031    | Excluir usuário com token inválido                                   |
+| USR-032    | Excluir usuário vinculado a regras de negócio que impeçam remoção    |
+| USR-033    | Alterar enviando payload inválido                                    |
+
+
+
+
+
+
+
+
+
+
 
 Exclusão
 ID	Cenário
-USR-030	Excluir usuário inexistente
-USR-031	Excluir usuário com token inválido
-USR-032	Excluir usuário vinculado a regras de negócio que impeçam remoção
+USR-030	
+USR-031	
+USR-032	
 
 Cenários Alternativos
 ID	Cenário
