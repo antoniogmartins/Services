@@ -41,104 +41,38 @@ O objetivo é validar operações CRUD em uma API REST pública, aplicando boas 
 
 ## Arquitetura do Projeto
 
-```text
-api-test-automation
-│
-├── test
-│   └── collections.spec.js
-│
-├── package.json
-├── README.md
-└── .gitignore
 ```
 
 ---
 
 ## Cenários Automatizados
 
-### Cenário 1 - Criar Objeto
 
-**Método:** POST
-
-Valida:
-
-* Status Code 200
-* Retorno do ID gerado
-* Nome do objeto criado
-
----
-
-### Cenário 2 - Listar Collections
-
-**Método:** GET
-
-Valida:
-
-* Status Code 200
-* Content-Type JSON
-* Nome da Collection
-
----
-
-### Cenário 3 - Listar Objetos da Collection
-
-**Método:** GET
-
-Valida:
-
-* Status Code 200
-* Estrutura do retorno
-* Dados esperados
-
----
-
-### Cenário 4 - Consultar Objeto Específico
-
-**Método:** GET
-
-Valida:
-
-* Status Code 200
-* Nome do objeto
-* Dados técnicos do equipamento
-
----
-
-### Cenário 5 - Atualizar Objeto
-
-**Método:** PUT
-
-Valida:
-
-* Status Code 200
-* Atualização dos atributos
-
----
-
-### Cenário 6 - Excluir Objeto
-
-**Método:** DELETE
-
-Valida:
-
-* Status Code 200
-* Exclusão realizada com sucesso
 
 ---
 
 ## Boas Práticas Aplicadas
 
-✔ Assertions com Chai
 
-✔ Testes assíncronos utilizando async/await
+---
 
-✔ Separação por funcionalidades
+## Como Executar
 
-✔ Headers parametrizados
 
-✔ Estrutura preparada para escalabilidade
+---
 
-✔ Organização baseada em cenários de negócio
+## Evidências
+
+
+---
+
+## Pipelines
+
+
+---
+
+## Relatórios
+
 
 ---
 
@@ -146,53 +80,22 @@ Valida:
 
 ### Qualidade Técnica
 
-* Implementação de Page/API Objects
-* Variáveis de ambiente
-* Integração com dotenv
-* Massa dinâmica de testes
-* Geração automática de IDs
 
 ### Qualidade de Engenharia
 
-* Integração contínua com GitHub Actions
-* Pipeline CI/CD
-* Relatórios Allure
-* Coverage de APIs
-* Contract Testing
 
 ### Observabilidade
 
-* Logs estruturados
-* Monitoramento de execução
-* Métricas de qualidade
 
 ---
 
 ## Desafio Encontrado
 
-Durante o desenvolvimento foi identificado um comportamento relacionado à persistência do objeto criado via POST para utilização posterior nos testes de UPDATE e DELETE.
-
-Como alternativa para garantir a execução dos cenários seguintes, foi utilizado um ID previamente existente.
-
-Este ponto foi documentado para futura evolução da suíte através da implementação de compartilhamento dinâmico de contexto entre cenários.
 
 ---
 
-## Como Executar
 
-### Instalar dependências
 
-```bash
-npm install
-```
-
-### Executar os testes
-
-```bash
-npm test
-```
-
----
 
 ## Competências Demonstradas
 
@@ -212,9 +115,7 @@ npm test
 
 ## Autor
 
-QA Engineer focado em Automação, Qualidade de Software e Estratégias de Teste.
 
-Buscando construir soluções que aumentem a confiabilidade, qualidade e velocidade das entregas.
 
 
 

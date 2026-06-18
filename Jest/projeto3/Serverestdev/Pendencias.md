@@ -23,22 +23,22 @@
 
 
 ==========================================================
+
 Com base na collection Postman anexada, identifiquei os módulos Login, Usuários, Produtos e Carrinhos. Abaixo estão os principais cenários de teste organizados por tipo.
 
-Endpoints identificados: Login, CRUD de Usuários, CRUD de Produtos e Operações de Carrinho.
+Endpoints identificados: ## Login, CRUD de Usuários, CRUD de Produtos e Operações de Carrinho. ##
 
 1. LOGIN
-Cenários Positivos
 
-ID	Cenário
+=> Cenários Positivos
 
-LGN-001	Realizar login com email e senha válidos
+| ID         | Cenário                                                   |
+| ---------- | --------------------------------------------------------- |
+| LGN-001    | Realizar login com email e senha válidos                  |
+| LGN-002    | Validar retorno do token JWT/autorização                  |
+| LGN-003    | Validar estrutura da resposta de autenticação             |
+| LGN-004    | Utilizar token gerado em chamadas autenticadas            |
 
-LGN-002	Validar retorno do token JWT/autorização
-
-LGN-003	Validar estrutura da resposta de autenticação
-
-LGN-004	Utilizar token gerado em chamadas autenticadas
 
 Cenários Negativos
 ID	Cenário
@@ -278,6 +278,182 @@ E2E-006	Validar restauração do estoque após cancelamento
 E2E-007	Validar acesso sem token em todos endpoints protegidos
 
 Essa suíte cobre os cenários funcionais principais, validações de negócio, segurança, autorização, integridade de dados e fluxos críticos da API Serverest.
+
+============================================================
+
+Exemplo 1 - Obter token no login e usar para cadastrar produto
+const request = require('supertest');
+const { expect } = require('chai');
+
+const baseURL = 'https://serverest.dev';
+
+describe('LGN-004 - Utilizar token gerado em chamadas autenticadas', () => {
+
+    let token;
+
+    before(async () => {
+
+        const loginResponse = await request(baseURL)
+            .post('/login')
+            .send({
+                email: 'fulano@qa.com',
+                password: 'teste'
+            });
+
+        token = loginResponse.body.authorization;
+    });
+
+    it('Deve permitir cadastrar produto utilizando token válido', async () => {
+
+        const response = await request(baseURL)
+            .post('/produtos')
+            .set('Authorization', token)
+            .send({
+                nome: `Mouse Gamer ${Date.now()}`,
+                preco: 150,
+                descricao: 'Mouse Gamer RGB',
+                quantidade: 10
+            });
+
+        expect(response.status).to.equal(201);
+        expect(response.body).to.have.property('message');
+    });
+
+});
+Exemplo 2 - Validar que o token foi retornado
+
+Esse seria o cenário LGN-002.
+
+it('Deve retornar token após login válido', async () => {
+
+    const response = await request(baseURL)
+        .post('/login')
+        .send({
+            email: 'fulano@qa.com',
+            password: 'teste'
+        });
+
+    expect(response.status).to.equal(200);
+    expect(response.body).to.have.property('authorization');
+    expect(response.body.authorization).to.be.a('string');
+});
+Exemplo 3 - Positivo + Negativo no mesmo describe
+describe('Autenticação via Token', () => {
+
+    let token;
+
+    before(async () => {
+
+        const login = await request(baseURL)
+            .post('/login')
+            .send({
+                email: 'fulano@qa.com',
+                password: 'teste'
+            });
+
+        token = login.body.authorization;
+    });
+
+    it('Deve acessar recurso protegido com token válido', async () => {
+
+        const response = await request(baseURL)
+            .post('/produtos')
+            .set('Authorization', token)
+            .send({
+                nome: `Produto ${Date.now()}`,
+                preco: 100,
+                descricao: 'Teste',
+                quantidade: 5
+            });
+
+        expect(response.status).to.equal(201);
+    });
+
+    it('Não deve acessar recurso protegido sem token', async () => {
+
+        const response = await request(baseURL)
+            .post('/produtos')
+            .send({
+                nome: `Produto ${Date.now()}`,
+                preco: 100,
+                descricao: 'Teste',
+                quantidade: 5
+            });
+
+        expect(response.status).to.equal(401);
+    });
+
+});
+Exemplo mais profissional (Service Layer)
+
+Em projetos que impressionam mais coordenadores e líderes de QA, normalmente não deixamos o login dentro do teste.
+
+auth.service.js
+const request = require('supertest');
+
+class AuthService {
+
+    static async getToken() {
+
+        const response = await request(process.env.BASE_URL)
+            .post('/login')
+            .send({
+                email: process.env.EMAIL,
+                password: process.env.PASSWORD
+            });
+
+        return response.body.authorization;
+    }
+}
+
+module.exports = AuthService;
+produto.spec.js
+const AuthService = require('../services/auth.service');
+
+describe('Produtos', () => {
+
+    let token;
+
+    before(async () => {
+        token = await AuthService.getToken();
+    });
+
+    it('Deve cadastrar produto', async () => {
+
+        const response = await request(process.env.BASE_URL)
+            .post('/produtos')
+            .set('Authorization', token)
+            .send({
+                nome: `Produto ${Date.now()}`,
+                preco: 100,
+                descricao: 'Teste',
+                quantidade: 10
+            });
+
+        expect(response.status).to.equal(201);
+    });
+
+});
+O que um coordenador de QA gosta de ver
+src/
+├── services/
+│   ├── auth.service.js
+│   ├── produto.service.js
+│
+├── payloads/
+│   ├── produto.payload.js
+│
+├── tests/
+│   ├── login.spec.js
+│   ├── produtos.spec.js
+│
+├── helpers/
+│   ├── token.helper.js
+│
+└── reports/
+    └── allure/
+
+Isso demonstra reutilização, manutenção e escalabilidade, características valorizadas em projetos de automação de API.
 
 ============================================================
 Ao usar o chai, express, supertest que tipo de relatorio posso dispor para rodar os testes?
