@@ -17,9 +17,9 @@ Endpoints identificados: **Login, CRUD de Usuários, CRUD de Produtos e Operaç�
 Endpoints:
 -> Realizar Login e Gerar Token
 
-**1.1 - Cenários Positivos**
-
 Realizar Login
+
+**1.1 - Cenários Positivos** (Implementado)
 
 | ID         | Cenário                                                       |
 | ---------- | ------------------------------------------------------------- |
@@ -68,9 +68,10 @@ Endpoints:
 -> Alterar usuário
 -> Excluir usuário
 
+
 **2.1 - Cenários Positivos**
 
-Cadastro de Usuário
+**2.1.1 - Cadastro de Usuário**
 
 | ID         | Cenário                                                       |
 | ---------- | ------------------------------------------------------------- |
@@ -80,7 +81,8 @@ Cadastro de Usuário
 | USR-004    | Validar geração do ID do usuário                              |
 | USR-005    | Validar persistência dos dados cadastrados                    |
 
-Consulta de Usuário
+
+**2.1.2 - Consulta de Usuário**
 
 | ID         | Cenário                                                       |
 | ---------- | ------------------------------------------------------------- |
@@ -88,7 +90,8 @@ Consulta de Usuário
 | USR-007    | Buscar usuário por ID válido                                  |
 | USR-008    | Validar filtros de listagem (se suportados)                   |
 
-ALteração de Usuário
+
+**2.1.3 - Alteração de Usuário**
 
 | ID         | Cenário                                                       |
 | ---------- | ------------------------------------------------------------- |
@@ -98,23 +101,38 @@ ALteração de Usuário
 | USR-012    | Alterar todos os campos                                       |
 
 
+**2.1.4 - Exclusão de Usuário**
 
-Exclusão
-ID	Cenário
-USR-013	Excluir usuário existente
-USR-014	Validar remoção após exclusão
+| ID         | Cenário                                                       |
+| ---------- | ------------------------------------------------------------- |
+| USR-013    | Excluir usuário existente                                     |
+| USR-014    | Validar remoção após exclusão                                 |
 
-Cenários Negativos:
-Cadastro
-ID	Cenário
-USR-015	Cadastrar usuário sem nome
-USR-016	Cadastrar usuário sem email
-USR-017	Cadastrar usuário sem senha
-USR-018	Cadastrar usuário com email duplicado
-USR-019	Cadastrar usuário com email inválido
-USR-020	Cadastrar usuário sem token
-USR-021	Cadastrar usuário com token inválido
-USR-022	Cadastrar usuário com campos nulos
+
+**2.1.5 - Exclusão de Usuário**
+
+| ID         | Cenário                                                       |
+| ---------- | ------------------------------------------------------------- |
+| USR-013    | Excluir usuário existente                                     |
+| USR-014    | Validar remoção após exclusão                                 |
+
+
+**2.2 - Cenários Negativos**
+
+2.2.1 - Cadastro Usuarios
+
+| ID         | Cenário                                                       |
+| ---------- | ------------------------------------------------------------- |
+| USR-015    | Cadastrar usuário sem nome                                    |
+| USR-016    | Cadastrar usuário sem email                                   |
+| USR-017    | Cadastrar usuário sem senha                                   |
+| USR-018    | Cadastrar usuário com email duplicado                         |
+| USR-019    | Cadastrar usuário com email inválido                          |
+| USR-020    | Cadastrar usuário sem token                                   |
+| USR-021    | Cadastrar usuário com token inválido                          |
+| USR-022    | Cadastrar usuário com campos nulos                            |
+
+
 
 Consulta
 ID	Cenário

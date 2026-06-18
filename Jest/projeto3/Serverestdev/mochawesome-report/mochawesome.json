@@ -1,66 +1,373 @@
 {
   "stats": {
-    "suites": 1,
-    "tests": 1,
-    "passes": 1,
+    "suites": 10,
+    "tests": 5,
+    "passes": 5,
     "pending": 0,
     "failures": 0,
-    "start": "2026-06-18T09:49:07.032Z",
-    "end": "2026-06-18T09:49:07.691Z",
-    "duration": 659,
-    "testsRegistered": 1,
-    "passPercent": 100,
+    "start": "2026-06-18T09:53:50.978Z",
+    "end": "2026-06-18T09:53:52.690Z",
+    "duration": 1712,
+    "testsRegistered": 6,
+    "passPercent": 83.33333333333334,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
-    "skipped": 0,
-    "hasSkipped": false
+    "skipped": 1,
+    "hasSkipped": true
   },
   "results": [
     {
-      "uuid": "bf665767-7387-45e2-bc2e-ce4c4c20b66f",
+      "uuid": "85b3d48b-ad18-4863-9565-a1663de5d405",
       "title": "",
-      "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/login.spec.js",
-      "file": "/tests/tests/login.spec.js",
-      "beforeHooks": [],
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [
+        {
+          "title": "\"before all\" hook in \"{root}\"",
+          "fullTitle": "\"before all\" hook in \"{root}\"",
+          "timedOut": false,
+          "duration": 0,
+          "state": null,
+          "speed": null,
+          "pass": false,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "this.timeout(10000);",
+          "err": {},
+          "uuid": "05a53a30-0ddc-457f-a890-7bdf78791f19",
+          "parentUUID": "85b3d48b-ad18-4863-9565-a1663de5d405",
+          "isHook": true,
+          "skipped": false
+        },
+        {
+          "title": "\"before all\" hook",
+          "fullTitle": "\"before all\" hook",
+          "timedOut": false,
+          "duration": 0,
+          "state": null,
+          "speed": null,
+          "pass": false,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "const loginResponse = await request(baseURL)\n            .post('/login')\n            .send({\n                email: 'fulano@qa.com',\n                password: 'teste'\n            });\n        token = loginResponse.body.authorization;",
+          "err": {},
+          "uuid": "06325a9a-fade-45fb-9085-5d536547bd30",
+          "parentUUID": "85b3d48b-ad18-4863-9565-a1663de5d405",
+          "isHook": true,
+          "skipped": false
+        }
+      ],
       "afterHooks": [],
-      "tests": [],
+      "tests": [
+        {
+          "title": "Deve permitir cadastrar produto utilizando token válido",
+          "fullTitle": "Deve permitir cadastrar produto utilizando token válido",
+          "timedOut": false,
+          "duration": 0,
+          "state": null,
+          "speed": null,
+          "pass": false,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "const response = await request(baseURL)\n            .post('/produtos')\n            .set('Authorization', token)\n            .send({\n                nome: `Mouse Gamer ${Date.now()}`,\n                preco: 150,\n                descricao: 'Mouse Gamer RGB',\n                quantidade: 10\n            });\n        expect(response.status).to.equal(201);\n        expect(response.body).to.have.property('message');",
+          "err": {},
+          "uuid": "91f436e4-f2f0-447a-80c5-e6c6d025c0d1",
+          "parentUUID": "85b3d48b-ad18-4863-9565-a1663de5d405",
+          "isHook": false,
+          "skipped": true
+        }
+      ],
       "suites": [
         {
-          "uuid": "2f2d151d-1e63-4a36-a012-a11a77a61946",
-          "title": "Login",
-          "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/login.spec.js",
-          "file": "/tests/tests/login.spec.js",
+          "uuid": "e4e2a9ae-45c0-4f0a-ba92-78444f8f31f4",
+          "title": "LGN-001 - Realizar login com email e senha válidos",
+          "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/full.tests.js",
+          "file": "/tests/tests/full.tests.js",
           "beforeHooks": [],
           "afterHooks": [],
-          "tests": [
+          "tests": [],
+          "suites": [
             {
-              "title": "LGN-001 - Login com sucesso",
-              "fullTitle": "Login LGN-001 - Login com sucesso",
-              "timedOut": false,
-              "duration": 648,
-              "state": "passed",
-              "speed": "slow",
-              "pass": true,
-              "fail": false,
-              "pending": false,
-              "context": null,
-              "code": "const response =\n            await LoginService.login(\n                'fulano@qa.com',\n                'teste'\n            );\n        expect(response.status).to.equal(200);\n        expect(response.body.message)\n            .to.equal('Login realizado com sucesso');",
-              "err": {},
-              "uuid": "26e6d64f-3170-4488-84dc-fc98b9e55b83",
-              "parentUUID": "2f2d151d-1e63-4a36-a012-a11a77a61946",
-              "isHook": false,
-              "skipped": false
+              "uuid": "ee9cc322-e471-4e94-b706-7a23e769b4ea",
+              "title": "POST /Login",
+              "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/full.tests.js",
+              "file": "/tests/tests/full.tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Realizar login com email e senha válidos",
+                  "fullTitle": "LGN-001 - Realizar login com email e senha válidos POST /Login Realizar login com email e senha válidos",
+                  "timedOut": false,
+                  "duration": 496,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const response = await request(url)\n    .post('/login')\n    .set(\"Content-Type\", \"application/json\")\n    .set(\"accept\", \"application/json\")\n    .send({\n          email: 'fulano@qa.com',\n          password: 'teste'\n    })\n expect(response.headers[\"content-type\"]).to.match(/json/);\n expect(response.status).to.equal(200);\n expect(response.body.message).to.equal('Login realizado com sucesso');",
+                  "err": {},
+                  "uuid": "3f75e80f-0bd1-4382-a9ac-c29febf40d53",
+                  "parentUUID": "ee9cc322-e471-4e94-b706-7a23e769b4ea",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "3f75e80f-0bd1-4382-a9ac-c29febf40d53"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 496,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 10000
             }
           ],
-          "suites": [],
-          "passes": [
-            "26e6d64f-3170-4488-84dc-fc98b9e55b83"
-          ],
+          "passes": [],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 648,
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 10000
+        },
+        {
+          "uuid": "15d1059d-6b17-45c0-b17d-5479ff70f393",
+          "title": "LGN-002 - Validar retorno do token JWT/autorização",
+          "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/full.tests.js",
+          "file": "/tests/tests/full.tests.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "2ac7a755-fb1d-4701-a3d2-c6b7e3fb06fa",
+              "title": "POST /Login",
+              "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/full.tests.js",
+              "file": "/tests/tests/full.tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Validar retorno do token JWT/autorização",
+                  "fullTitle": "LGN-002 - Validar retorno do token JWT/autorização POST /Login Validar retorno do token JWT/autorização",
+                  "timedOut": false,
+                  "duration": 383,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const response = await request(url)\n    .post('/login')\n    .set(\"Content-Type\", \"application/json\")\n    .set(\"accept\", \"application/json\")\n    .send({\n          email: 'fulano@qa.com',\n          password: 'teste'\n    })\n expect(response.headers[\"content-type\"]).to.match(/json/);\n expect(response.status).to.equal(200);\n expect(response.body).to.have.property('authorization');\n token = response.body.authorization;\n console.log('O valor do token é: ' + token);",
+                  "err": {},
+                  "uuid": "5675ec0d-720d-45ea-8014-b96c9d1c0054",
+                  "parentUUID": "2ac7a755-fb1d-4701-a3d2-c6b7e3fb06fa",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "5675ec0d-720d-45ea-8014-b96c9d1c0054"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 383,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 10000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 10000
+        },
+        {
+          "uuid": "e64aaad3-3e95-4336-bac6-8d2b72675225",
+          "title": "LGN-003 - Validar estrutura da resposta de autenticação",
+          "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/full.tests.js",
+          "file": "/tests/tests/full.tests.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "492b330f-31f4-484d-a996-4f332b97eecb",
+              "title": "POST /Login",
+              "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/full.tests.js",
+              "file": "/tests/tests/full.tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Validar estrutura da resposta de autenticação",
+                  "fullTitle": "LGN-003 - Validar estrutura da resposta de autenticação POST /Login Validar estrutura da resposta de autenticação",
+                  "timedOut": false,
+                  "duration": 401,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const response = await request(url)\n    .post('/login')\n    .set(\"Content-Type\", \"application/json\")\n    .set(\"accept\", \"application/json\")\n    .send({\n          email: 'fulano@qa.com',\n          password: 'teste'\n    })\nexpect(response.status).to.equal(200);\n\n // Validação da estrutura\n expect(response.body).to.be.an('object');\n expect(response.body).to.have.property('message');\n expect(response.body).to.have.property('authorization');\n expect(response.body).to.have.all.keys(['message', 'authorization']);\n // Validação do tipo\n expect(response.body.authorization).to.be.a('string');\n// Validação de conteúdo\nexpect(response.body.authorization).to.not.be.empty;",
+                  "err": {},
+                  "uuid": "b8a19c65-a9a2-4d8b-955a-c100540a03f1",
+                  "parentUUID": "492b330f-31f4-484d-a996-4f332b97eecb",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "b8a19c65-a9a2-4d8b-955a-c100540a03f1"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 401,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 10000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 10000
+        },
+        {
+          "uuid": "c00f6d26-3c30-4578-b017-d9842919e90a",
+          "title": "LGN-004 - Utilizar token gerado em chamadas autenticadas",
+          "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/full.tests.js",
+          "file": "/tests/tests/full.tests.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "36ecc445-b66f-423b-a83f-0dbfd1157285",
+              "title": "POST /Login",
+              "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/full.tests.js",
+              "file": "/tests/tests/full.tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Utilizar token gerado em chamadas autenticadas",
+                  "fullTitle": "LGN-004 - Utilizar token gerado em chamadas autenticadas POST /Login Utilizar token gerado em chamadas autenticadas",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "before(async () => {\nconst loginResponse = await request(baseURL)\n    .post('/login')\n    .send({\n        email: 'fulano@qa.com',\n        password: 'teste'\n    });\ntoken = loginResponse.body.authorization;\n    });\n\n    it('Deve permitir cadastrar produto utilizando token válido', async () => {\nconst response = await request(baseURL)\n    .post('/produtos')\n    .set('Authorization', token)\n    .send({\n        nome: `Mouse Gamer ${Date.now()}`,\n        preco: 150,\n        descricao: 'Mouse Gamer RGB',\n        quantidade: 10\n    });\nexpect(response.status).to.equal(201);\nexpect(response.body).to.have.property('message');\n    });",
+                  "err": {},
+                  "uuid": "ef7195ef-f2c7-48de-85d0-6538ce054d3f",
+                  "parentUUID": "36ecc445-b66f-423b-a83f-0dbfd1157285",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "ef7195ef-f2c7-48de-85d0-6538ce054d3f"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 0,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 10000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 10000
+        },
+        {
+          "uuid": "5cf42e8b-8c69-47d2-b7c0-1333a06f573a",
+          "title": "5 - Adiciona um Novo Usuario",
+          "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/full.tests.js",
+          "file": "/tests/tests/full.tests.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "40e8d53a-ca16-4119-8e1e-5941e94cf55f",
+              "title": "POST /Usuarios",
+              "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/full.tests.js",
+              "file": "/tests/tests/full.tests.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Deve retornar 201 ao criar um Usuario",
+                  "fullTitle": "5 - Adiciona um Novo Usuario POST /Usuarios Deve retornar 201 ao criar um Usuario",
+                  "timedOut": false,
+                  "duration": 409,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "//  this.timeout(10000);\n  const response = await request(url)\n    .post('/usuarios')\n    .set(\"Content-Type\", \"application/json\")\n    .set(\"accept\", \"application/json\")\n    .set(\"Authorization\", token)\n    .send({\n            nome: 'SHIBIRUBA',\n            email: `marly${Date.now()}@qa.com.br`,\n            password: 'teste',\n            administrador: 'true'\n    })\n console.log('O valor do token é: ' + token);\n console.log('O valor do status é: ' + response.status);\n console.log('O valor do body é: ' + JSON.stringify(response.body));\n id = response.body._id;\n console.log('O valor do id é: ' + id);\n expect(response.headers[\"content-type\"]).to.match(/json/);\n expect(response.status).to.equal(201);\n expect(response.body.message).to.equal('Cadastro realizado com sucesso');",
+                  "err": {},
+                  "uuid": "bb7c71d7-80f2-48ab-962c-b9735d9ec10a",
+                  "parentUUID": "40e8d53a-ca16-4119-8e1e-5941e94cf55f",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "bb7c71d7-80f2-48ab-962c-b9735d9ec10a"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 409,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 10000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
           "root": false,
           "rootEmpty": false,
           "_timeout": 10000
@@ -69,10 +376,12 @@
       "passes": [],
       "failures": [],
       "pending": [],
-      "skipped": [],
+      "skipped": [
+        "91f436e4-f2f0-447a-80c5-e6c6d025c0d1"
+      ],
       "duration": 0,
       "root": true,
-      "rootEmpty": true,
+      "rootEmpty": false,
       "_timeout": 10000
     }
   ],
