@@ -41,7 +41,7 @@ Endpoints:
 | LGN-011    | Login com caracteres especiais maliciosos (SQL Injection/XSS) |
 
 
-**1.3 - Cenários Alternativos**
+**1.3 - Cenários Alternativos** (Implementado)
 
 | ID         | Cenário                                                       |
 | ---------- | ------------------------------------------------------------- |
@@ -49,7 +49,7 @@ Endpoints:
 | LGN-013    | Login com espaços antes/depois do email                       |
 
 
-**1.4 - Cenários de Exceção**
+**1.4 - Cenários de Exceção** (Implementado)
 
 | ID         | Cenário                                                       |
 | ---------- | ------------------------------------------------------------- |
@@ -57,7 +57,7 @@ Endpoints:
 | LGN-015    | Timeout da requisição                                         |
 | LGN-016    | Serviço de autenticação indisponível                          |
 
-** Para o LGN-014 não é automatizável de forma confiável na ServeRest, pois você não consegue derrubar banco, 
+** Para o LGN-014 não foi pssivel automatizar de forma confiável na ServeRest, pois a pessoa não consegue derrubar banco, 
 matar serviço de autenticação ou simular indisponibilidade.
 
 

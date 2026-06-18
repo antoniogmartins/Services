@@ -6,6 +6,7 @@ const { expect } = require('chai', 'chai-json-schema');
 const url = 'https://serverest.dev';
 let token = "";
 let id = 0;
+const inicio = Date.now();
 
 const payloads = [
         {
@@ -325,12 +326,114 @@ describe ('POST /Login - Cenarios Negativos', () => {
       console.log('Simular falha interna do servidor durante autenticação e verificar se a resposta é adequada (ex: status 500 e mensagem de erro genérica).');
       });
       
+     it('LGN-015.1 - Valiar o Timeout da Requisição de Login', async function() { 
+        const response = await request(url)
+            .post('/login')
+            .timeout({
+                  response: 3000,
+                  deadline: 5000
+            })
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .send({
+                  email: 'fulano@qa.com',
+                  password: 'teste'
+            })
+         expect(response.headers["content-type"]).to.match(/json/);
+         expect(response.status).to.equal(200);
+         expect(response.body.message).to.equal('Login realizado com sucesso');
+         });
 
+      it('LGN-015.2 - Validar que a resposta veio dentro de um tempo aceitável', async function() { 
+        const response = await request(url)
+            .post('/login')
+            .timeout({
+                  response: 3000,
+                  deadline: 5000
+            })
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .send({
+                  email: 'fulano@qa.com',
+                  password: 'teste'
+            })
+    
+         expect(response.status).to.equal(200);
+    
+         const tempoResposta = Date.now() - inicio;
 
+         console.log(`Tempo: ${tempoResposta}ms`);
 
+         expect(response.status).to.equal(200);
+         expect(tempoResposta).to.be.lessThan(15000);
+      });
+
+      it.skip('LGN-016.1 - Validar os Serviços de Autenticação Indisponiveis', async function() { 
+        const response = await request(url)
+            .post('/login')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .send({
+                  email: 'fulano@qa.com',
+                  password: 'teste'
+            })
+         expect(response.status).to.equal(200);
+         });
+
+       it('LGN-016.2 - Validar Serviços de Autenticação ao utilizar uma url invalida', async function() { 
+          try {
+        const response = await request('https://servidor-inexistente.dev')
+            .post('/login')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .send({
+                  email: 'fulano@qa.com',
+                  password: 'teste'
+            })
+                 throw new Error('Era esperado erro de conexão');
+                  } catch (error) {
+
+                     expect(error).to.exist;
+
+                  }
+
+                });
+         
+
+         it('LGN-016.3 - Validar Serviços de Autenticação ao Simular um Timeout ', async function() { 
+
+         try{
+         const response = await request(url)
+            .post('/login')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .send({
+                  email: 'fulano@qa.com',
+                  password: 'teste'
+            })
+           } catch (error) {
+
+             expect(error.timeout).to.exist;
+
+           }
+         });
 
     });
 });
 
 
-
+/*
+it('LGN-001 - Realizar login com email e senha válidos', async function() { 
+        const response = await request(url)
+            .post('/login')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .send({
+                  email: 'fulano@qa.com',
+                  password: 'teste'
+            })
+         expect(response.headers["content-type"]).to.match(/json/);
+         expect(response.status).to.equal(200);
+         expect(response.body.message).to.equal('Login realizado com sucesso');
+         });
+*/
