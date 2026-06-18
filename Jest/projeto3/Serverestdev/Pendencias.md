@@ -60,6 +60,8 @@ Endpoints:
 ** Para o LGN-014 não foi pssivel automatizar de forma confiável na ServeRest, pois a pessoa não consegue derrubar banco, 
 matar serviço de autenticação ou simular indisponibilidade.
 
+** Para o LGN-016 utilizando a ServeRest pública, você não consegue provocar um "Serviço de autenticação indisponível" real, porque não controla a infraestrutura.
+
 
 **2. USUÁRIOS**
 
