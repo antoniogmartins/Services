@@ -303,7 +303,7 @@ Endpoints:
 | CAR-005    | Validar cálculo da quantidade total                                  |
 
 
-**4.1.2 - COnsultar Carrinho de compras**
+**4.1.2 - Consultar Carrinho de compras**
 
 | ID         | Cenário                                                              |
 | ---------- | -------------------------------------------------------------------- |
@@ -313,44 +313,57 @@ Endpoints:
 | CAR-009    | Filtrar por quantidade total                                         |
 
 
+**4.1.3 - Concluir Compra e Atualizar Estoque**
 
-Compra
-ID	Cenário
-CAR-010	Concluir compra com sucesso
-CAR-011	Atualizar estoque após compra
-
-Cancelamento
-ID	Cenário
-CAR-012	Cancelar compra
-CAR-013	Devolver estoque ao cancelar
-
-Cenários Negativos:
-ID	Cenário
-CAR-014	Adicionar produto inexistente
-CAR-015	Adicionar quantidade superior ao estoque
-CAR-016	Adicionar produto sem token
-CAR-017	Adicionar carrinho vazio
-CAR-018	Buscar carrinho inexistente
-CAR-019	Concluir compra sem carrinho ativo
-CAR-020	Cancelar compra sem carrinho ativo
-CAR-021	Concluir compra com estoque insuficiente
-
-Cenários Alternativos:
-ID	Cenário
-CAR-022	Adicionar mesmo produto mais de uma vez
-CAR-023	Adicionar produto com quantidade igual ao estoque
-CAR-024	Comprar todos os itens disponíveis
-CAR-025	Carrinho contendo apenas um item
-
-Cenários de Exceção
-ID	Cenário
-CAR-026	Falha ao debitar estoque
-CAR-027	Falha ao concluir compra após pagamento
-CAR-028	Inconsistência de estoque concorrente
-CAR-029	Erro interno ao cancelar compra
+| ID         | Cenário                                                              |
+| ---------- | -------------------------------------------------------------------- |
+| CAR-010    | Concluir compra com sucesso                                          |
+| CAR-011    | Atualizar estoque após compra                                        |
 
 
+**4.1.4 - Cancelar Compra e Atualizar Estoque**
 
+| ID         | Cenário                                                              |
+| ---------- | -------------------------------------------------------------------- |
+| CAR-012    | Cancelar compra                                                      |
+| CAR-013    | Devolver estoque ao cancelar                                         |
+
+
+**4.2 - Cenários Negativos**
+
+| ID         | Cenário                                                              |
+| ---------- | -------------------------------------------------------------------- |
+| CAR-014    | Adicionar produto inexistente                                        |
+| CAR-015    | Adicionar quantidade superior ao estoque                             |
+| CAR-016    | Adicionar produto sem token                                          |
+| CAR-017    | Adicionar carrinho vazio                                             |
+| CAR-018    | Buscar carrinho inexistente                                          |
+| CAR-019    | Concluir compra sem carrinho ativo                                   |
+| CAR-020    | Cancelar compra sem carrinho ativo                                   |
+| CAR-021    | Concluir compra com estoque insuficiente                             |
+
+
+**4.3 - Cenários ALternativos**
+
+| ID         | Cenário                                                              |
+| ---------- | -------------------------------------------------------------------- |
+| CAR-022    | Adicionar mesmo produto mais de uma vez                              |
+| CAR-023    | Adicionar produto com quantidade igual ao estoque                    |
+| CAR-024    | Comprar todos os itens disponíveis                                   |
+| CAR-025    | Carrinho contendo apenas um item                                     |
+
+
+**4.4 - Cenários ALternativos**
+
+| ID         | Cenário                                                              |
+| ---------- | -------------------------------------------------------------------- |
+| CAR-026    | Falha ao debitar estoque                                             |
+| CAR-027    | Falha ao concluir compra após pagamento                              |
+| CAR-028    | Inconsistência de estoque concorrente                                |
+| CAR-029    | Erro interno ao cancelar compra                                      |
+
+
+**4. TESTES E2E (Fluxos completos)**
 
 Cenários E2E (Fluxos completos)
 
@@ -358,12 +371,22 @@ Além dos testes por endpoint, recomendo estes fluxos ponta a ponta:
 
 ID	Fluxo
 E2E-001	Login → Criar Usuário → Consultar Usuário → Excluir Usuário
+
+
+
+
 E2E-002	Login → Cadastrar Produto → Consultar Produto → Alterar Produto → Excluir Produto
+
 E2E-003	Login → Cadastrar Produto → Criar Carrinho → Concluir Compra
+
 E2E-004	Login → Cadastrar Produto → Criar Carrinho → Cancelar Compra
+
 E2E-005	Validar redução do estoque após compra
+
 E2E-006	Validar restauração do estoque após cancelamento
+
 E2E-007	Validar acesso sem token em todos endpoints protegidos
+
 
 Essa suíte cobre os cenários funcionais principais, validações de negócio, segurança, autorização, integridade de dados e fluxos críticos da API Serverest.
 

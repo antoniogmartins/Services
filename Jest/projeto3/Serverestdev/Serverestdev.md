@@ -8,43 +8,6 @@
 
 ## Sobre o Projeto
 
-Este projeto foi desenvolvido para demonstrar conhecimentos em Automação de Testes de API utilizando JavaScript, Node.js, Mocha, Chai e Supertest.
-
-O objetivo é validar operações CRUD em uma API REST pública, aplicando boas práticas de testes automatizados, validações de contrato, assertions robustas e organização escalável dos cenários.
-
----
-
-## Objetivos
-
-* Validar criação de objetos via API
-* Validar consultas de collections
-* Validar consultas de objetos específicos
-* Validar atualização de registros
-* Validar exclusão de registros
-* Demonstrar estrutura de automação para APIs REST
-* Evidenciar conhecimento em Quality Assurance e Quality Engineering
-
----
-
-## Tecnologias Utilizadas
-
-| Tecnologia | Finalidade               |
-| ---------- | ------------------------ |
-| Node.js    | Runtime JavaScript       |
-| Mocha      | Framework de testes      |
-| Chai       | Biblioteca de Assertions |
-| Supertest  | Testes de API            |
-| GitHub     | Versionamento            |
-| REST API   | Integração e validação   |
-
----
-
-## Arquitetura do Projeto
-
----
-
-## Cenários Automatizados
-
 Com base na collection Postman anexada, identifiquei os módulos Login, Usuários, Produtos e Carrinhos. Abaixo estão os principais cenários de teste organizados por tipo.
 
 Endpoints identificados: **Login, CRUD de Usuários, CRUD de Produtos e Operações de Carrinho.**
@@ -290,6 +253,115 @@ Endpoints:
 | PRD-022    | Alterar produto inexistente                                          |
 | PRD-023    | Excluir produto inexistente                                          |
 | PRD-024    | Excluir produto associado a carrinho                                 |
+
+
+**3.3 - Cenários Alternativos**
+
+| ID         | Cenário                                                              |
+| ---------- | -------------------------------------------------------------------- |
+| PRD-025    | Produto com preço zero                                               |
+| PRD-026    | Produto com descrição vazia                                          |
+| PRD-027    | Produto com caracteres especiais                                     |
+| PRD-028    | Atualização parcial dos dados                                        |
+
+
+**3.3 - Cenários de Exceção**
+
+| ID         | Cenário                                                              |
+| ---------- | -------------------------------------------------------------------- |
+| PRD-029    | Falha ao atualizar estoque                                           |
+| PRD-030    | Erro interno ao excluir produto                                      |
+| PRD-031    | Timeout durante cadastro                                             |
+
+
+
+**4. CARRINHOS**
+
+Endpoints:
+
+-> Listar carrinhos
+
+-> Adicionar carrinho
+
+-> Buscar carrinho
+
+-> Concluir compra
+
+-> Cancelar compra
+
+
+**4.1 - Cenários Positivos**
+
+**4.1.1 - Adicionar produto ao Carrinho de compras**
+
+| ID         | Cenário                                                              |
+| ---------- | -------------------------------------------------------------------- |
+| CAR-001    | Adicionar produto ao carrinho                                        |
+| CAR-002    | Adicionar múltiplos produtos ao carrinho                             |
+| CAR-003    | Adicionar produto com quantidade disponível                          |
+| CAR-004    | Validar cálculo do valor total                                       |
+| CAR-005    | Validar cálculo da quantidade total                                  |
+
+
+**4.1.2 - Consultar Carrinho de compras**
+
+| ID         | Cenário                                                              |
+| ---------- | -------------------------------------------------------------------- |
+| CAR-006    | Listar carrinhos                                                     |
+| CAR-007    | Buscar carrinho por ID válido                                        |
+| CAR-008    | Filtrar por preço total                                              |
+| CAR-009    | Filtrar por quantidade total                                         |
+
+
+**4.1.3 - Concluir Compra e Atualizar Estoque**
+
+| ID         | Cenário                                                              |
+| ---------- | -------------------------------------------------------------------- |
+| CAR-010    | Concluir compra com sucesso                                          |
+| CAR-011    | Atualizar estoque após compra                                        |
+
+
+**4.1.4 - Cancelar Compra e Atualizar Estoque**
+
+| ID         | Cenário                                                              |
+| ---------- | -------------------------------------------------------------------- |
+| CAR-012    | Cancelar compra                                                      |
+| CAR-013    | Devolver estoque ao cancelar                                         |
+
+
+**4.2 - Cenários Negativos**
+
+| ID         | Cenário                                                              |
+| ---------- | -------------------------------------------------------------------- |
+| CAR-014    | Adicionar produto inexistente                                        |
+| CAR-015    | Adicionar quantidade superior ao estoque                             |
+| CAR-016    | Adicionar produto sem token                                          |
+| CAR-017    | Adicionar carrinho vazio                                             |
+| CAR-018    | Buscar carrinho inexistente                                          |
+| CAR-019    | Concluir compra sem carrinho ativo                                   |
+| CAR-020    | Cancelar compra sem carrinho ativo                                   |
+| CAR-021    | Concluir compra com estoque insuficiente                             |
+
+
+**4.3 - Cenários ALternativos**
+
+| ID         | Cenário                                                              |
+| ---------- | -------------------------------------------------------------------- |
+| CAR-022    | Adicionar mesmo produto mais de uma vez                              |
+| CAR-023    | Adicionar produto com quantidade igual ao estoque                    |
+| CAR-024    | Comprar todos os itens disponíveis                                   |
+| CAR-025    | Carrinho contendo apenas um item                                     |
+
+
+**4.4 - Cenários ALternativos**
+
+| ID         | Cenário                                                              |
+| ---------- | -------------------------------------------------------------------- |
+| CAR-026    | Falha ao debitar estoque                                             |
+| CAR-027    | Falha ao concluir compra após pagamento                              |
+| CAR-028    | Inconsistência de estoque concorrente                                |
+| CAR-029    | Erro interno ao cancelar compra                                      |
+
 
 
 
