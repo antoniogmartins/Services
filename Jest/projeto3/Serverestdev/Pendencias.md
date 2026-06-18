@@ -15,6 +15,7 @@ Endpoints identificados: **Login, CRUD de Usuários, CRUD de Produtos e Operaç�
 **1 - LOGIN**
 
 Endpoints:
+
 -> Realizar Login e Gerar Token
 
 Realizar Login
@@ -62,6 +63,7 @@ Realizar Login
 **2. USUÁRIOS**
 
 Endpoints:
+
 -> Listar usuários
 
 -> Cadastrar usuário
@@ -163,36 +165,28 @@ Endpoints:
 | USR-030    | Excluir usuário inexistente                                          |
 | USR-031    | Excluir usuário com token inválido                                   |
 | USR-032    | Excluir usuário vinculado a regras de negócio que impeçam remoção    |
-| USR-033    | Alterar enviando payload inválido                                    |
+
+
+**2.3 - Cenários Alternativos**
+
+| ID         | Cenário                                                              |
+| ---------- | -------------------------------------------------------------------- |
+| USR-033    | PUT em ID inexistente criando novo recurso (caso suportado)          |
+| USR-034    | Cadastro com caracteres especiais no nome                            |
+| USR-035    | Cadastro com nomes extensos                                          |
+| USR-036    | Cadastro com administrador=true e administrador=false                |
+
+
+**2.4 - Cenários Exceção**
+
+| ID         | Cenário                                                              |
+| ---------- | -------------------------------------------------------------------- |
+| USR-037    | Banco indisponível durante cadastro                                  |
+| USR-038    | Falha na gravação dos dados                                          |
+| USR-039    | Erro interno ao consultar usuário                                    |
 
 
 
-
-
-
-
-
-
-
-
-Exclusão
-ID	Cenário
-USR-030	
-USR-031	
-USR-032	
-
-Cenários Alternativos
-ID	Cenário
-USR-033	PUT em ID inexistente criando novo recurso (caso suportado)
-USR-034	Cadastro com caracteres especiais no nome
-USR-035	Cadastro com nomes extensos
-USR-036	Cadastro com administrador=true e administrador=false
-
-Cenários de Exceção
-ID	Cenário
-USR-037	Banco indisponível durante cadastro
-USR-038	Falha na gravação dos dados
-USR-039	Erro interno ao consultar usuário
 
 3. PRODUTOS
 
