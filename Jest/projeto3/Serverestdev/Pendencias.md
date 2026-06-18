@@ -255,56 +255,64 @@ Endpoints:
 | PRD-024    | Excluir produto associado a carrinho                                 |
 
 
+**3.3 - Cenários Alternativos**
 
-PRD-015	
-PRD-016
-PRD-017	
-PRD-018	
-PRD-019	
-PRD-020	
-PRD-021	
-PRD-022	
-PRD-023	
-PRD-024	
+| ID         | Cenário                                                              |
+| ---------- | -------------------------------------------------------------------- |
+| PRD-025    | Produto com preço zero                                               |
+| PRD-026    | Produto com descrição vazia                                          |
+| PRD-027    | Produto com caracteres especiais                                     |
+| PRD-028    | Atualização parcial dos dados                                        |
 
-Cenários Alternativos
-ID	Cenário
-PRD-025	Produto com preço zero
-PRD-026	Produto com descrição vazia
-PRD-027	Produto com caracteres especiais
-PRD-028	Atualização parcial dos dados
 
-Cenários de Exceção
-ID	Cenário
-PRD-029	Falha ao atualizar estoque
-PRD-030	Erro interno ao excluir produto
-PRD-031	Timeout durante cadastro
+**3.3 - Cenários de Exceção**
 
-4. CARRINHOS
+| ID         | Cenário                                                              |
+| ---------- | -------------------------------------------------------------------- |
+| PRD-029    | Falha ao atualizar estoque                                           |
+| PRD-030    | Erro interno ao excluir produto                                      |
+| PRD-031    | Timeout durante cadastro                                             |
+
+
+
+**4. CARRINHOS**
 
 Endpoints:
 
 -> Listar carrinhos
+
 -> Adicionar carrinho
+
 -> Buscar carrinho
+
 -> Concluir compra
+
 -> Cancelar compra
 
-Cenários Positivos:
-Criação
-ID	Cenário
-CAR-001	Adicionar produto ao carrinho
-CAR-002	Adicionar múltiplos produtos ao carrinho
-CAR-003	Adicionar produto com quantidade disponível
-CAR-004	Validar cálculo do valor total
-CAR-005	Validar cálculo da quantidade total
 
-Consulta
-ID	Cenário
-CAR-006	Listar carrinhos
-CAR-007	Buscar carrinho por ID válido
-CAR-008	Filtrar por preço total
-CAR-009	Filtrar por quantidade total
+**4.1 - Cenários Positivos**
+
+**4.1.1 - Adicionar produto ao Carrinho de compras**
+
+| ID         | Cenário                                                              |
+| ---------- | -------------------------------------------------------------------- |
+| CAR-001    | Adicionar produto ao carrinho                                        |
+| CAR-002    | Adicionar múltiplos produtos ao carrinho                             |
+| CAR-003    | Adicionar produto com quantidade disponível                          |
+| CAR-004    | Validar cálculo do valor total                                       |
+| CAR-005    | Validar cálculo da quantidade total                                  |
+
+
+**4.1.2 - COnsultar Carrinho de compras**
+
+| ID         | Cenário                                                              |
+| ---------- | -------------------------------------------------------------------- |
+| CAR-006    | Listar carrinhos                                                     |
+| CAR-007    | Buscar carrinho por ID válido                                        |
+| CAR-008    | Filtrar por preço total                                              |
+| CAR-009    | Filtrar por quantidade total                                         |
+
+
 
 Compra
 ID	Cenário

@@ -221,6 +221,77 @@ Endpoints:
 | USR-039    | Erro interno ao consultar usuário                                    |
 
 
+**3. PRODUTOS**
+
+Endpoints:
+
+-> Listar produtos
+
+-> Cadastrar produto
+
+-> Buscar produto por ID
+
+-> Alterar produto
+
+-> Excluir produto
+
+
+**3.1 - Cenários Positivos**
+
+**3.1.1 - Cadastro de Produtos**
+
+| ID         | Cenário                                                              |
+| ---------- | -------------------------------------------------------------------- |
+| PRD-001    | Cadastrar produto válido                                             |
+| PRD-002    | Cadastrar produto com estoque zero                                   |
+| PRD-003    | Cadastrar produto com quantidade alta                                |
+| PRD-004    | Validar geração do ID do produto                                     |
+
+
+**3.1.2 - Consulta de Produtos**
+
+| ID         | Cenário                                                              |
+| ---------- | -------------------------------------------------------------------- |
+| PRD-005    | Listar produtos                                                      |
+| PRD-006    | Buscar produto por ID válido                                         |
+| PRD-007    | Filtrar por preço                                                    |
+| PRD-008    | Filtrar por quantidade                                               |
+
+
+**3.1.3 - Alteração de Produtos**
+
+| ID         | Cenário                                                              |
+| ---------- | -------------------------------------------------------------------- |
+| PRD-009    | Alterar nome do produto                                              |
+| PRD-010    | Alterar preço                                                       |
+| PRD-011    | Alterar estoque                                                      |
+| PRD-012    | Alterar descrição                                                    |
+
+
+**3.1.4 - Exclusão de Produtos**
+
+| ID         | Cenário                                                              |
+| ---------- | -------------------------------------------------------------------- |
+| PRD-013    | Excluir produto existente                                            |
+| PRD-014    | Confirmar remoção após exclusão                                      |
+
+
+**3.2 - Cenários Positivos**
+
+| ID         | Cenário                                                              |
+| ---------- | -------------------------------------------------------------------- |
+| PRD-015    | Cadastrar produto sem nome                                           |
+| PRD-016    | Cadastrar produto sem preço                                          |
+| PRD-017    | Cadastrar produto com preço negativo                                 |
+| PRD-018    | Cadastrar produto com quantidade negativa                            |
+| PRD-019    | Cadastrar produto duplicado                                          |
+| PRD-020    | Cadastrar produto sem token                                          |
+| PRD-021    | Buscar produto inexistente                                           |
+| PRD-022    | Alterar produto inexistente                                          |
+| PRD-023    | Excluir produto inexistente                                          |
+| PRD-024    | Excluir produto associado a carrinho                                 |
+
+
 
 ---
 
