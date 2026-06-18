@@ -29,19 +29,21 @@ Endpoints identificados: **Login, CRUD de Usuários, CRUD de Produtos e Operaç�
 | LGN-010    | Login com formato inválido de email                           |
 | LGN-011    | Login com caracteres especiais maliciosos (SQL Injection/XSS) |
 
-LGN-009	Login sem enviar body
-LGN-010	Login com formato inválido de email
-LGN-011	Login com caracteres especiais maliciosos (SQL Injection/XSS)
+**1.3 - Cenários Alternativos**
 
-Cenários Alternativos
-ID	Cenário
-LGN-012	Login com letras maiúsculas/minúsculas no email
-LGN-013	Login com espaços antes/depois do email
-Cenários de Exceção
-ID	Cenário
-LGN-014	Falha interna do servidor durante autenticação
-LGN-015	Timeout da requisição
-LGN-016	Serviço de autenticação indisponível
+| ID         | Cenário                                                       |
+| ---------- | ------------------------------------------------------------- |
+| LGN-012    | Login com letras maiúsculas/minúsculas no email               |
+| LGN-013    | Login com espaços antes/depois do email                       |
+
+**1.4 - Cenários de Exceção**
+
+| ID         | Cenário                                                       |
+| ---------- | ------------------------------------------------------------- |
+| LGN-014    | Falha interna do servidor durante autenticação                |
+| LGN-015    | Timeout da requisição                                         |
+| LGN-016    | Serviço de autenticação indisponível                          |
+
 
 2. USUÁRIOS
 
