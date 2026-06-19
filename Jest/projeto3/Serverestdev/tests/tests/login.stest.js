@@ -67,6 +67,8 @@ describe('Realizar Login', function () {
          console.log('O valor do token é: ' + token);
          });
 
+     
+
       it('LGN-003 - Validar estrutura da resposta de autenticação', async function() { 
         const response = await request(url)
             .post('/login')

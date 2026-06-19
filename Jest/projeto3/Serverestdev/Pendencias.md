@@ -80,7 +80,7 @@ Endpoints:
 
 **2.1 - Cenários Positivos**
 
-**2.1.1 - Cadastro de Usuário**
+**2.1.1 - Cadastro de Usuário** (Implementado)
 
 | ID         | Cenário                                                       |
 | ---------- | ------------------------------------------------------------- |
@@ -117,13 +117,6 @@ Endpoints:
 | USR-013    | Excluir usuário existente                                     |
 | USR-014    | Validar remoção após exclusão                                 |
 
-
-**2.1.5 - Exclusão de Usuário**
-
-| ID         | Cenário                                                       |
-| ---------- | ------------------------------------------------------------- |
-| USR-013    | Excluir usuário existente                                     |
-| USR-014    | Validar remoção após exclusão                                 |
 
 
 **2.2 - Cenários Negativos**
@@ -244,7 +237,7 @@ Endpoints:
 | PRD-014    | Confirmar remoção após exclusão                                      |
 
 
-**3.2 - Cenários Positivos**
+**3.2 - Cenários Negativos**
 
 | ID         | Cenário                                                              |
 | ---------- | -------------------------------------------------------------------- |
@@ -348,7 +341,7 @@ Endpoints:
 | CAR-021    | Concluir compra com estoque insuficiente                             |
 
 
-**4.3 - Cenários ALternativos**
+**4.3 - Cenários Alternativos**
 
 | ID         | Cenário                                                              |
 | ---------- | -------------------------------------------------------------------- |
@@ -358,7 +351,7 @@ Endpoints:
 | CAR-025    | Carrinho contendo apenas um item                                     |
 
 
-**4.4 - Cenários ALternativos**
+**4.4 - Cenários de Exceção**
 
 | ID         | Cenário                                                              |
 | ---------- | -------------------------------------------------------------------- |
