@@ -36,7 +36,7 @@ before(async function () {
 //**1.1 - Cenários Positivos**
 
 describe('Realizar Login', function () {
-    describe ('POST /Login - Cenarios Positivos', () => {
+    describe ('Login - Cenarios Positivos', () => {
       it('LGN-001 - Realizar login com email e senha válidos', async function() { 
         const response = await request(url)
             .post('/login')
@@ -123,7 +123,7 @@ describe('Realizar Login', function () {
       });
   });
 }); 
-describe ('POST /Login - Cenarios Negativos', () => {
+describe ('Login - Cenarios Negativos', () => {
       it('LGN-005 - Realizar login com senha incorreta', async function() { 
         const response = await request(url)
             .post('/login')
@@ -289,7 +289,8 @@ describe ('POST /Login - Cenarios Negativos', () => {
          expect(response.body).to.have.property('email').that.matches(/(Email e\/ou senha inválidos|email deve ser um email válido)/);
          });
         });
-
+}); 
+describe ('Login - Cenarios Alternativos', () => {
       it('LGN-012 - Realizar login com leetras maiusculas/minusculas no email', async function() { 
         const response = await request(url)
             .post('/login')
@@ -318,8 +319,9 @@ describe ('POST /Login - Cenarios Negativos', () => {
          expect(response.status).to.equal(400);
          expect(response.body.email).to.equal('email deve ser um email válido');
          });
-
-
+    });
+ 
+describe ('Login - Cenarios de Exceção', () => {
      it('LGN-014 - Falha interna do servidor durante autenticação', async function() { 
 
       console.log('LGN-014 - Falha interna do servidor durante autenticação - Erro 500 - Internal Server Error');
@@ -383,7 +385,8 @@ describe ('POST /Login - Cenarios Negativos', () => {
          });
 
        it('LGN-016.2 - Validar Serviços de Autenticação ao utilizar uma url invalida', async function() { 
-          try {
+        
+        try {
         const response = await request('https://servidor-inexistente.dev')
             .post('/login')
             .set("Content-Type", "application/json")
@@ -401,7 +404,6 @@ describe ('POST /Login - Cenarios Negativos', () => {
 
                 });
          
-
          it('LGN-016.3 - Validar Serviços de Autenticação ao Simular um Timeout ', async function() { 
 
          try{
@@ -418,24 +420,10 @@ describe ('POST /Login - Cenarios Negativos', () => {
              expect(error.timeout).to.exist;
 
            }
+        
          });
-
-    });
+        
+ });
 });
 
 
-/*
-it('LGN-001 - Realizar login com email e senha válidos', async function() { 
-        const response = await request(url)
-            .post('/login')
-            .set("Content-Type", "application/json")
-            .set("accept", "application/json")
-            .send({
-                  email: 'fulano@qa.com',
-                  password: 'teste'
-            })
-         expect(response.headers["content-type"]).to.match(/json/);
-         expect(response.status).to.equal(200);
-         expect(response.body.message).to.equal('Login realizado com sucesso');
-         });
-*/
