@@ -91,7 +91,7 @@ Endpoints:
 | USR-005    | Validar persistência dos dados cadastrados                    |
 
 
-**2.1.2 - Consulta de Usuário**
+**2.1.2 - Consulta de Usuário** (Implementado)
 
 | ID         | Cenário                                                       |
 | ---------- | ------------------------------------------------------------- |

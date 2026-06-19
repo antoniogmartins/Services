@@ -255,7 +255,7 @@ describe('Cadastrar Usuario', function () {
         
      });
 
-     it('USR-008.3 - Validar filtro por email do usuário criado', async function() { 
+     it('USR-008.3 - Validar filtro pelo nome do usuário criado', async function() { 
         
         const email = `Maria${Date.now()}y@qa.com.br`;
 
