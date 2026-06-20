@@ -28,7 +28,7 @@ Endpoints:
 | LGN-004    | Utilizar token gerado em chamadas autenticadas                |
 
 
-**1.2 - Cenários Negativos**
+**1.2 - Cenários Negativos** (Implementado)
 
 | ID         | Cenário                                                       |
 | ---------- | ------------------------------------------------------------- |
@@ -41,7 +41,7 @@ Endpoints:
 | LGN-011    | Login com caracteres especiais maliciosos (SQL Injection/XSS) |
 
 
-**1.3 - Cenários Alternativos**
+**1.3 - Cenários Alternativos** (Implementado)
 
 | ID         | Cenário                                                       |
 | ---------- | ------------------------------------------------------------- |
@@ -49,13 +49,18 @@ Endpoints:
 | LGN-013    | Login com espaços antes/depois do email                       |
 
 
-**1.4 - Cenários de Exceção**
+**1.4 - Cenários de Exceção** (Implementado)
 
 | ID         | Cenário                                                       |
 | ---------- | ------------------------------------------------------------- |
 | LGN-014    | Falha interna do servidor durante autenticação                |
 | LGN-015    | Timeout da requisição                                         |
 | LGN-016    | Serviço de autenticação indisponível                          |
+
+** Para o LGN-014 não foi pssivel automatizar de forma confiável na ServeRest, pois a pessoa não consegue derrubar banco, 
+matar serviço de autenticação ou simular indisponibilidade.
+
+** Para o LGN-016 utilizando a ServeRest pública, você não consegue provocar um "Serviço de autenticação indisponível" real, porque não controla a infraestrutura.
 
 
 **2. USUÁRIOS**
@@ -75,7 +80,7 @@ Endpoints:
 
 **2.1 - Cenários Positivos**
 
-**2.1.1 - Cadastro de Usuário**
+**2.1.1 - Cadastro de Usuário** (Implementado)
 
 | ID         | Cenário                                                       |
 | ---------- | ------------------------------------------------------------- |
@@ -86,7 +91,7 @@ Endpoints:
 | USR-005    | Validar persistência dos dados cadastrados                    |
 
 
-**2.1.2 - Consulta de Usuário**
+**2.1.2 - Consulta de Usuário** (Implementado)
 
 | ID         | Cenário                                                       |
 | ---------- | ------------------------------------------------------------- |
@@ -99,9 +104,9 @@ Endpoints:
 
 | ID         | Cenário                                                       |
 | ---------- | ------------------------------------------------------------- |
-| USR-009    | Alterar nome do usuário                                       |
-| USR-010    | Alterar email                                                 |
-| USR-011    | Alterar perfil administrador                                  |
+| USR-009    | Alterar somente o nome do usuário                             |
+| USR-010    | Alterar somente o email                                       |
+| USR-011    | Alterar somente o perfil administrador                        |
 | USR-012    | Alterar todos os campos                                       |
 
 
@@ -111,14 +116,8 @@ Endpoints:
 | ---------- | ------------------------------------------------------------- |
 | USR-013    | Excluir usuário existente                                     |
 | USR-014    | Validar remoção após exclusão                                 |
+| USR-015    | Validar uma retentativa de Excluir um usuario ja deletado     |
 
-
-**2.1.5 - Exclusão de Usuário**
-
-| ID         | Cenário                                                       |
-| ---------- | ------------------------------------------------------------- |
-| USR-013    | Excluir usuário existente                                     |
-| USR-014    | Validar remoção após exclusão                                 |
 
 
 **2.2 - Cenários Negativos**
@@ -239,7 +238,7 @@ Endpoints:
 | PRD-014    | Confirmar remoção após exclusão                                      |
 
 
-**3.2 - Cenários Positivos**
+**3.2 - Cenários Negativos**
 
 | ID         | Cenário                                                              |
 | ---------- | -------------------------------------------------------------------- |
@@ -343,7 +342,7 @@ Endpoints:
 | CAR-021    | Concluir compra com estoque insuficiente                             |
 
 
-**4.3 - Cenários ALternativos**
+**4.3 - Cenários Alternativos**
 
 | ID         | Cenário                                                              |
 | ---------- | -------------------------------------------------------------------- |
@@ -353,7 +352,7 @@ Endpoints:
 | CAR-025    | Carrinho contendo apenas um item                                     |
 
 
-**4.4 - Cenários ALternativos**
+**4.4 - Cenários de Exceção**
 
 | ID         | Cenário                                                              |
 | ---------- | -------------------------------------------------------------------- |
@@ -377,8 +376,6 @@ Endpoints:
 | E2E-006    | Validar restauração do estoque após cancelamento                                        |
 | E2E-007    | Validar acesso sem token em todos endpoints protegidos                                  |
 
-
-Essa suíte cobre os cenários funcionais principais, validações de negócio, segurança, autorização, integridade de dados e fluxos críticos da API Serverest.
 
 ---
 

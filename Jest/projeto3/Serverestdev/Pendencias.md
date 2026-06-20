@@ -104,9 +104,9 @@ Endpoints:
 
 | ID         | Cenário                                                       |
 | ---------- | ------------------------------------------------------------- |
-| USR-009    | Alterar nome do usuário                                       |
-| USR-010    | Alterar email                                                 |
-| USR-011    | Alterar perfil administrador                                  |
+| USR-009    | Alterar somente o nome do usuário                             |
+| USR-010    | Alterar somente o email                                       |
+| USR-011    | Alterar somente o perfil administrador                        |
 | USR-012    | Alterar todos os campos                                       |
 
 
@@ -116,6 +116,7 @@ Endpoints:
 | ---------- | ------------------------------------------------------------- |
 | USR-013    | Excluir usuário existente                                     |
 | USR-014    | Validar remoção após exclusão                                 |
+| USR-015    | Validar uma retentativa de Excluir um usuario ja deletado     |
 
 
 
