@@ -82,13 +82,9 @@ Framework Open Source orientado à automação baseada em palavras-chave.
 
 ### Projetos
 
-📁 Projeto 01
+📁 [Projeto 01](https://github.com/antoniogmartins/Services/blob/main/Robotframework/Projeto1/RobotFramework.md)
 
-➡️ https://github.com/antoniogmartins/Services/blob/main/Robotframework/Projeto1/RobotFramework.md
-
-📁 Projeto 02
-
-➡️ https://github.com/antoniogmartins/Services/blob/main/Robotframework/Projeto2/Kickoff2026/RobotFramework.md
+📁 [Projeto 02](https://github.com/antoniogmartins/Services/blob/main/Robotframework/Projeto2/Kickoff2026/RobotFramework.md)
 
 ---
 
@@ -142,9 +138,7 @@ Projetos explorando o uso de IA para acelerar processos de Quality Assurance.
 
 ### Projetos
 
-📁 Projeto 01
-
-➡️ https://github.com/antoniogmartins/Services/blob/main/IA/projeto1/ia.md
+📁 [Projeto 01](https://github.com/antoniogmartins/Services/blob/main/IA/projeto1/ia.md)
 
 ---
 
@@ -164,12 +158,12 @@ Projetos e estudos relacionados a:
 # 📈 Roadmap
 
 * [x] APIs Testing
-* [x] Web Testing
+* [ ] Web Testing
 * [x] Robot Framework
 * [x] Rest Assured
-* [x] Postman
-* [x] Python
-* [x] IA aplicada a QA
+* [ ] Postman
+* [ ] Python
+* [ ] IA aplicada a QA
 * [ ] Contract Testing
 * [ ] Performance Testing
 * [ ] Playwright
