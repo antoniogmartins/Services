@@ -51,11 +51,11 @@ Framework voltado para automação de testes de APIs REST utilizando JavaScript.
 * Schema Validation
 * Arquitetura Escalável
 
-➡️ [Acessar Projeto 01](https://github.com/antoniogmartins/Services/blob/main/Jest/projeto1/readme.md)
+➡️ [Projeto 01](https://github.com/antoniogmartins/Services/blob/main/Jest/projeto1/readme.md)
 
-➡️ [Acessar Projeto 02](https://github.com/antoniogmartins/Services/blob/main/Jest/projeto2/readme.md)
+➡️ [Projeto 02](https://github.com/antoniogmartins/Services/blob/main/Jest/projeto2/readme.md)
 
-➡️ [Acessar Projeto 03](https://github.com/antoniogmartins/Services/blob/main/Jest/projeto3/readme.md)
+➡️ [Projeto 03](https://github.com/antoniogmartins/Services/blob/main/Jest/projeto3/readme.md)
 
 ---
 
@@ -70,7 +70,7 @@ Framework moderno para automação de aplicações Web.
 * API Testing
 * Boas Práticas de Automação
 
-➡️ [Acessar Projetos](https://github.com/antoniogmartins/Services/blob/main/Cypress/readme.md)
+➡️ [Projetos](https://github.com/antoniogmartins/Services/blob/main/Cypress/readme.md)
 
 ---
 
@@ -103,7 +103,7 @@ Coleções e automações voltadas para validação de APIs.
 * Scripts
 * Testes Automatizados
 
-➡️ [Acessar Projetos](https://github.com/antoniogmartins/Services/blob/main/Postman/readme.md)
+➡️ [Projetos](https://github.com/antoniogmartins/Services/blob/main/Postman/readme.md)
 
 ---
 
@@ -118,7 +118,7 @@ Projetos voltados para automação, manipulação de dados e Quality Engineering
 * Integrações
 * Testes
 
-➡️ [Acessar Projetos](https://github.com/antoniogmartins/Services/blob/main/Python/readme.md)
+➡️ [Projetos](https://github.com/antoniogmartins/Services/blob/main/Python/readme.md)
 
 ---
 
@@ -130,9 +130,9 @@ Framework Java especializado em automação de testes de APIs REST.
 
 ### Projetos
 
-📁 [Projeto 01] (https://github.com/antoniogmartins/Services/blob/main/RestAssured/projeto1/readme.md)
+📁 [Projeto 01](https://github.com/antoniogmartins/Services/blob/main/RestAssured/projeto1/readme.md)
 
-📁 [Projeto 02] (https://github.com/antoniogmartins/Services/blob/main/RestAssured/projeto2/readme.md)
+📁 [Projeto 02](https://github.com/antoniogmartins/Services/blob/main/RestAssured/projeto2/readme.md)
 
 ---
 
