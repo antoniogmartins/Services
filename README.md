@@ -1,3 +1,7 @@
+![GitHub stars](https://img.shields.io/github/stars/antoniogmartins/Services?style=social)
+![GitHub forks](https://img.shields.io/github/forks/antoniogmartins/Services?style=social)
+![GitHub last commit](https://img.shields.io/github/last-commit/antoniogmartins/Services)
+
 # 🚀 QA Automation Portfolio
 
 <div align="center">
@@ -150,6 +154,22 @@ Projetos e estudos relacionados a:
 * Cross Device Testing
 * Testes em Nuvem
 * Compatibilidade entre Plataformas
+
+🚧 Conteúdo em desenvolvimento.
+
+---
+
+## 🔹 Arquiteturas QA
+
+Projetos e estudos relacionados a:
+
+* Service Layer Pattern
+* Page Object Model (POM)
+* API Object Pattern
+* BDD
+* TDD
+* Contract Testing
+* CI/CD
 
 🚧 Conteúdo em desenvolvimento.
 
