@@ -1,98 +1,73 @@
-# JEST (RestApi)
-=> Foi utilizado o Jest e o SuperTest para desenvolver/validar os cenarios de testes automatizados
+# 🚧 Projeto em Desenvolvimento
 
-### Cadastro/Consulta de Contato
-## 🔖 Requisitos funcionais
-- [X] Deve retornar 201 ao logar/gerar um token 
-- [X] Deve retornar 201 ao cadastrar um contato
-- [X] Deve retornar 200 ao listar todos os contatos cadastrados
-- [X] Deve retornar 200 ao pesquisar somente por 1 contato existente
-- [X] Deve retornar 200 ao alterar um contato existente
-- [X] Deve retornar 200 ao deletar um contato existente
+<div align="center">
 
-## 🔖 Requisitos Não funcionais
-- [X] Deve retornar 400 (bad request) ao tentar alterar um contato com email invalido
-- [X] Deve retornar 401 (Unauthorized) ao tentar pesquisar um contato sem token
-- [X] Deve retornar 404 (not found) ao tentar pesquisar por um contao inexistente
-- [X] Deve retornar 400 (bad request) ao tentar cadastrar em informar um campo requerido (firstname)
-- [X] Deve retornar 400 (bad request) ao tentar cadastrar em informar um campo requerido (lastname)
+![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow)
+![Maintenance](https://img.shields.io/badge/Maintenance-Ativa-blue)
+![QA](https://img.shields.io/badge/QA-Contract%20Testing-green)
 
+</div>
 
-| campos             | descrição                              | tipo     | obrigatório |
-| :----------------- | :------------------------------------- | :------- | :---------- |
-| firstname          | primeiro nome ao cadastrar um contato  | texto    | sim         |
-| lastname           | segundo nome ao cadastrar um contato   | texto    | sim         |
-| birthdate          | preco total                            | date     | sim         |
-| email              | valor do pagamento do deposito         | texto    | sim         |
-| phone              | data do booking                        | numero   | nao         |
-| street1            | data do checking                       | texto    | sim         |
-| city               | data do checkout                       | texto    | sim         |
-| stateProvince      | necessidades adicionais                | texto    | sim         |
-| postalCode         | necessidades adicionais                | numero   | sim         |
-| coutnry            | necessidades adicionais                | texto    | sim         |
-| owner              | necessidades adicionais                | texto    | sim         |
-| __v                | necessidades adicionais                | texto    | sim         |
+## 📢 Aviso
 
+Este projeto encontra-se atualmente em fase de desenvolvimento e evolução contínua.
 
-🔖 => Arquivo(s) contendo a(s) collection(s):
+O objetivo é construir uma solução robusta para **Testes de Contrato (Contract Testing)**, aplicando boas práticas de automação de testes, qualidade de software e integração contínua.
 
-ContactList.postman_collection.json
+Durante esta fase, algumas funcionalidades podem estar:
 
-🚀 Validar a ação de Gerar Token
+* 🚧 Em construção
+* 🔄 Sendo refatoradas
+* 🧪 Em validação
+* 📚 Com documentação parcial
 
-![Captura de ecrã de 2023-11-01 12-07-37](https://github.com/antoniogmartins/Services/assets/35534493/68e7e466-e9ca-47cc-aa96-61fd3466618e)
+## 🎯 Objetivo do Projeto
 
-🚀 Cadastrar/Consultar/Atualizar/Deletar uma Lista de Contatos
+Implementar uma arquitetura escalável para validação de contratos entre consumidores e provedores de APIs, garantindo:
 
-🔖 => Validar a ação de Cadastrar um Contato
+* Integridade das integrações
+* Detecção antecipada de quebras de contrato
+* Redução de defeitos em produção
+* Maior confiabilidade entre sistemas distribuídos
 
-![Captura de ecrã de 2023-11-01 12-07-46](https://github.com/antoniogmartins/Services/assets/35534493/ac6d1581-322a-4431-9fd1-eb5faf237472)
+## 🛠️ Roadmap
 
-🔖 => Validar a ação de Buscar o contato cadastrado
+### Em andamento
 
-![Captura de ecrã de 2023-11-01 12-24-07](https://github.com/antoniogmartins/Services/assets/35534493/89312602-2c40-4d0a-a63b-b46b91260a31)
+* [x] Estrutura inicial do projeto
+* [x] Configuração do ambiente
+* [ ] Implementação dos testes de contrato
+* [ ] Integração com pipeline CI/CD
+* [ ] Relatórios automatizados
+* [ ] Documentação técnica
+* [ ] Exemplos de cenários reais
 
-🔖 => Validar a ação Alterar os dados do Contato cadastrado,
+### Próximas entregas
 
-![Captura de ecrã de 2023-11-01 12-21-57](https://github.com/antoniogmartins/Services/assets/35534493/c975b9d2-cb4b-459a-893f-63e30f474e4d)
+* Consumer Contract Tests
+* Provider Verification Tests
+* Pact Broker Integration
+* Versionamento de Contratos
+* Quality Gates
+* Dashboards de Execução
 
-🔖 => Validar a ação de Deletar o contato cadastrado
+## 📈 Status Atual
 
-![Captura de ecrã de 2023-11-01 12-23-15](https://github.com/antoniogmartins/Services/assets/35534493/e44c114f-b803-432e-9d03-5fcb574af3ab)
+```text
+Progresso Geral
 
-🔖 => Validar a ação de Buscar todos os contatos cadastrados
+████████░░░░░░░░░░░░ 40%
+```
 
-![Captura de ecrã de 2023-11-01 12-21-47](https://github.com/antoniogmartins/Services/assets/35534493/5c4ae2e6-08c4-434a-917c-ce1b3d3f9a1d)
+## 🤝 Contribuições
 
-🔖 => Execuçao dos testes utizando cmd do linux
+Sugestões, feedbacks e discussões técnicas são sempre bem-vindos.
 
-Abrir o Terminal:
-Digitar: npm test <<nome_arquivo>>
-Executando todos os testes:
+## ⭐ Acompanhe a evolução
 
-![Captura de ecrã de 2023-11-01 14-06-57](https://github.com/antoniogmartins/Services/assets/35534493/5fd0bd68-9cf3-4ecb-9370-f6cf5155e96c)
+Caso o tema seja do seu interesse, deixe uma ⭐ no repositório para acompanhar as próximas atualizações.
 
+---
 
-🚀 Como executar de forma automatica, os smoketests utilizando as apis, por meio do GitActions
+💡 Projeto desenvolvido com foco em práticas modernas de Quality Assurance, Testes Automatizados e Contract Testing.
 
-Obs.: É preciso que vc esteja conectado a internet
-
-🚀 Integracao Continua - Pipeline
-
-
-🚀 Análise do Smoke Tests realizados
-
-Os testes foram executados com exito tanto utilizando o gitactions quanto diretamente por meio do Jest.
-
-🚀 Análise Final
-
-Smoketests concluidos com exito. StatusCode retornados dentro do esperado de acordo com cada metodo do request e no tempo desejado
-
-🚀 Fontes - Documentação da Api:
-
-https://thinking-tester-contact-list.herokuapp.com/contactList
-
-📝 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-Feito com 💜  por Antonio Martins 👋   Meu linkedin
