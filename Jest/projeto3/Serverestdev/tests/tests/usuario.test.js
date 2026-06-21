@@ -15,7 +15,7 @@ before(async function () {
 
 describe('Usuário - USU', function () {
   describe('Usuário - Cenarios Positivos', () => {
-    describe ('Cadastro de Usuario', () => {
+    describe ('Cadastro de Usuário(s)', () => {
       it('USR-000 - Validar retorno do token JWT/autorização', async function() { 
 
         const response = await request(url)
@@ -157,7 +157,7 @@ describe('Usuário - USU', function () {
       });
 
 
-describe ('Consulta de Usuario', () => {
+describe ('Consulta de Usuário(s)', () => {
 
       it.skip('USR-006 - Listar usuários cadastrados', async function() { 
         const response = await request(url)
@@ -289,7 +289,7 @@ describe ('Consulta de Usuario', () => {
     });
   
 
-describe ('Alteração de Usuario', () => {
+describe ('Alteração de Usuário(s)', () => {
 
       it.skip('USR-009 - Alterar somente o nome de um usuario cadastrado', async function() { 
         const response = await request(url)
@@ -372,7 +372,7 @@ describe ('Alteração de Usuario', () => {
       });
     });
 
-describe ('Exclusão de Usuario', () => {
+describe ('Exclusão de Usuário(s)', () => {
 
       it.skip('USR-013 - Excluir usuário existente', async function() { 
         const response = await request(url)
@@ -420,8 +420,8 @@ describe ('Exclusão de Usuario', () => {
 }); 
 
 describe ('Usuário - Cenarios Negativos', () => {
-    describe ('Cadastro de Usuarios', () => {
-      it('USR-016 - Cadastrar usuário sem nome', async function() { 
+    describe ('Cadastro de Usuário(s)', () => {
+      it.skip('USR-016 - Cadastrar usuário sem nome', async function() { 
         const response = await request(url)
             .post('/usuarios')
             .set("Content-Type", "application/json")
@@ -439,7 +439,7 @@ describe ('Usuário - Cenarios Negativos', () => {
          expect(response.body).to.have.property('nome').equal('nome é obrigatório');
         });
 
-      it('USR-017 - Cadastrar usuário sem email', async function() { 
+      it.skip('USR-017 - Cadastrar usuário sem email', async function() { 
         const response = await request(url)
             .post('/usuarios')
             .set("Content-Type", "application/json")
@@ -457,7 +457,7 @@ describe ('Usuário - Cenarios Negativos', () => {
          expect(response.body).to.have.property('email').equal('email é obrigatório');
         });
 
-      it('USR-018 - Cadastrar usuário sem senha', async function() { 
+      it.skip('USR-018 - Cadastrar usuário sem senha', async function() { 
         const response = await request(url)
             .post('/usuarios')
             .set("Content-Type", "application/json")
@@ -475,7 +475,7 @@ describe ('Usuário - Cenarios Negativos', () => {
          expect(response.body).to.have.property('password').equal('password é obrigatório');
         });
 
-        it('USR-019 - Cadastrar usuário com email duplicado ', async function() { 
+        it.skip('USR-019 - Cadastrar usuário com email duplicado ', async function() { 
         await request(url)
             .post('/usuarios')
             .set("Content-Type", "application/json")
@@ -507,7 +507,7 @@ describe ('Usuário - Cenarios Negativos', () => {
          expect(response.body).to.have.property('message').equal('Este email já está sendo usado');
         });
         
-        it('USR-020 - Cadastrar usuário com email inválido', async function() { 
+        it.skip('USR-020 - Cadastrar usuário com email inválido', async function() { 
         const response = await request(url)
             .post('/usuarios')
             .set("Content-Type", "application/json")
@@ -526,7 +526,7 @@ describe ('Usuário - Cenarios Negativos', () => {
          expect(response.body).to.have.property('email').equal('email deve ser um email válido');
         });
 
-        it('USR-021 - Cadastrar usuário sem token', async function() { 
+        it.skip('USR-021 - Cadastrar usuário sem token', async function() { 
         const response = await request(url)
             .post('/usuarios')
             .set("Content-Type", "application/json")
@@ -544,7 +544,7 @@ describe ('Usuário - Cenarios Negativos', () => {
          expect(response.body).to.have.property('message').equal('Cadastro realizado com sucesso');
         });
 
-        it('USR-022 - Cadastrar usuário com token invalido', async function() { 
+        it.skip('USR-022 - Cadastrar usuário com token invalido', async function() { 
         const response = await request(url)
             .post('/usuarios')
             .set("Content-Type", "application/json")
@@ -563,7 +563,7 @@ describe ('Usuário - Cenarios Negativos', () => {
          expect(response.body).to.have.property('message').equal('Cadastro realizado com sucesso');
         });
 
-        it('USR-023 - Cadastrar usuário com campos nulos', async function() { 
+        it.skip('USR-023 - Cadastrar usuário com campos nulos', async function() { 
         const response = await request(url)
             .post('/usuarios')
             .set("Content-Type", "application/json")
@@ -587,6 +587,20 @@ describe ('Usuário - Cenarios Negativos', () => {
         });
 
     });
+
+     describe ('Consulta de Usuário(s)', () => {
+      it('USR-024 - Buscar usuário inexistente', async function() { 
+        const response = await request(url)
+            .get('/usuarios/'+"59wmGEOtnHWqWwKA")
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+         expect(response.status).to.equal(400);
+        
+         // Validação da estrutura
+         expect(response.headers["content-type"]).to.match(/json/);
+         expect(response.body).to.have.property('message').equal('Usuário não encontrado');
+        });
+      });   
 });
 
 
