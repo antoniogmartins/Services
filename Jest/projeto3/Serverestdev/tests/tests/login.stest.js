@@ -35,7 +35,7 @@ before(async function () {
 //-> Realizar Login e Gerar Token
 //**1.1 - Cenários Positivos**
 
-describe('Login', function () {
+describe('Login - LGN', function () {
     describe ('Login - Cenarios Positivos', () => {
       it('LGN-001 - Realizar login com email e senha válidos', async function() { 
         const response = await request(url)
