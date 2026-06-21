@@ -100,7 +100,7 @@ Endpoints:
 | USR-008    | Validar filtros de listagem (se suportados)                   |
 
 
-**2.1.3 - Alteração de Usuário**
+**2.1.3 - Alteração de Usuário**(Implementado)
 
 | ID         | Cenário                                                       |
 | ---------- | ------------------------------------------------------------- |
@@ -110,7 +110,7 @@ Endpoints:
 | USR-012    | Alterar todos os campos                                       |
 
 
-**2.1.4 - Exclusão de Usuário**
+**2.1.4 - Exclusão de Usuário**(Implementado)
 
 | ID         | Cenário                                                       |
 | ---------- | ------------------------------------------------------------- |
@@ -122,65 +122,65 @@ Endpoints:
 
 **2.2 - Cenários Negativos**
 
-**2.2.1 - Cadastro Usuarios**
+**2.2.1 - Cadastro Usuarios**(Implementado)
 
 | ID         | Cenário                                                       |
 | ---------- | ------------------------------------------------------------- |
-| USR-015    | Cadastrar usuário sem nome                                    |
-| USR-016    | Cadastrar usuário sem email                                   |
-| USR-017    | Cadastrar usuário sem senha                                   |
-| USR-018    | Cadastrar usuário com email duplicado                         |
-| USR-019    | Cadastrar usuário com email inválido                          |
-| USR-020    | Cadastrar usuário sem token                                   |
-| USR-021    | Cadastrar usuário com token inválido                          |
-| USR-022    | Cadastrar usuário com campos nulos                            |
+| USR-016    | Cadastrar usuário sem nome                                    |
+| USR-017    | Cadastrar usuário sem email                                   |
+| USR-018    | Cadastrar usuário sem senha                                   |
+| USR-019    | Cadastrar usuário com email duplicado                         |
+| USR-020    | Cadastrar usuário com email inválido                          |
+| USR-021    | Cadastrar usuário sem token                                   |
+| USR-022    | Cadastrar usuário com token inválido                          |
+| USR-023    | Cadastrar usuário com campos nulos                            |
 
 
 **2.2.2 - Consulta Usuarios**
 
 | ID         | Cenário                                                       |
 | ---------- | ------------------------------------------------------------- |
-| USR-023    | Buscar usuário inexistente                                    |
-| USR-024    | Buscar usuário com ID inválido                                |
-| USR-025    | Buscar usuário com ID vazio                                   |
+| USR-024    | Buscar usuário inexistente                                    |
+| USR-025    | Buscar usuário com ID inválido                                |
+| USR-026    | Buscar usuário com ID vazio                                   |
 
 
 **2.2.3 - Alteração Usuarios**
 
 | ID         | Cenário                                                              |
 | ---------- | -------------------------------------------------------------------- |
-| USR-026    | Alterar usuário inexistente                                          |
-| USR-027    | Alterar email para um já existente                                   |
-| USR-028    | Alterar sem token válido                                             |
-| USR-029    | Alterar enviando payload inválido                                    |
+| USR-027    | Alterar usuário inexistente                                          |
+| USR-028    | Alterar email para um já existente                                   |
+| USR-029    | Alterar sem token válido                                             |
+| USR-030    | Alterar enviando payload inválido                                    |
 
 
 **2.2.4 - Exclusão Usuarios**
 
 | ID         | Cenário                                                              |
 | ---------- | -------------------------------------------------------------------- |
-| USR-030    | Excluir usuário inexistente                                          |
-| USR-031    | Excluir usuário com token inválido                                   |
-| USR-032    | Excluir usuário vinculado a regras de negócio que impeçam remoção    |
+| USR-031    | Excluir usuário inexistente                                          |
+| USR-032    | Excluir usuário com token inválido                                   |
+| USR-033    | Excluir usuário vinculado a regras de negócio que impeçam remoção    |
 
 
 **2.3 - Cenários Alternativos**
 
 | ID         | Cenário                                                              |
 | ---------- | -------------------------------------------------------------------- |
-| USR-033    | PUT em ID inexistente criando novo recurso (caso suportado)          |
-| USR-034    | Cadastro com caracteres especiais no nome                            |
-| USR-035    | Cadastro com nomes extensos                                          |
-| USR-036    | Cadastro com administrador=true e administrador=false                |
+| USR-034    | PUT em ID inexistente criando novo recurso (caso suportado)          |
+| USR-035    | Cadastro com caracteres especiais no nome                            |
+| USR-036    | Cadastro com nomes extensos                                          |
+| USR-037    | Cadastro com administrador=true e administrador=false                |
 
 
 **2.4 - Cenários Exceção**
 
 | ID         | Cenário                                                              |
 | ---------- | -------------------------------------------------------------------- |
-| USR-037    | Banco indisponível durante cadastro                                  |
-| USR-038    | Falha na gravação dos dados                                          |
-| USR-039    | Erro interno ao consultar usuário                                    |
+| USR-038    | Banco indisponível durante cadastro                                  |
+| USR-039    | Falha na gravação dos dados                                          |
+| USR-040    | Erro interno ao consultar usuário                                    |
 
 
 **3. PRODUTOS**
@@ -377,6 +377,7 @@ Endpoints:
 | E2E-007    | Validar acesso sem token em todos endpoints protegidos                                  |
 
 
+Essa suíte cobre os cenários funcionais principais, validações de negócio, segurança, autorização, integridade de dados e fluxos críticos da API Serverest.
 ---
 
 ## Boas Práticas Aplicadas
