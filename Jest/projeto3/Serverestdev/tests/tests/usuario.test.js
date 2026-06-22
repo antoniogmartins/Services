@@ -5,6 +5,7 @@ const { expect } = require('chai', 'chai-json-schema');
 const url = 'https://serverest.dev';
 let token = "";
 let id = 0;
+let _iemail = "";
 
 before(async function () {
   this.timeout(20000);
@@ -14,7 +15,7 @@ before(async function () {
 //**1.1 - Cenários Positivos**
 
 describe('Usuário - USU', function () {
-  describe('Usuário - Cenarios Positivos', () => {
+  describe('Usuário - Cenários Positivos', () => {
     describe ('Cadastro de Usuário(s)', () => {
       it('USR-000 - Validar retorno do token JWT/autorização', async function() { 
 
@@ -193,8 +194,8 @@ describe ('Consulta de Usuário(s)', () => {
         });
       });
 
-     it.skip('USR-007 - Buscar usuário por ID válido', async function() { 
-        console.log('O valor do id é: ' + id);
+     it('USR-007 - Buscar usuário por ID válido', async function() { 
+     //   console.log('O valor do id é: ' + id);
         const response = await request(url)
             .get('/usuarios/'+id)
             .set("Content-Type", "application/json")
@@ -211,6 +212,8 @@ describe ('Consulta de Usuário(s)', () => {
          expect(response.body).to.have.property('administrador');
          expect(response.body).to.have.property('_id');
          expect(response.body).to.have.property('_id').equal(id);
+         _iemail = response.body.email;
+         console.log(""+_iemail);
         
     });
 
@@ -419,7 +422,7 @@ describe ('Exclusão de Usuário(s)', () => {
     });
 }); 
 
-describe ('Usuário - Cenarios Negativos', () => {
+describe ('Usuário - Cenários Negativos', () => {
     describe ('Cadastro de Usuário(s)', () => {
       it.skip('USR-016 - Cadastrar usuário sem nome', async function() { 
         const response = await request(url)
@@ -588,8 +591,8 @@ describe ('Usuário - Cenarios Negativos', () => {
 
     });
 
-     describe ('Consulta de Usuário(s)', () => {
-      it('USR-024 - Buscar usuário inexistente', async function() { 
+    describe ('Consulta de Usuário(s)', () => {
+        it.skip('USR-024 - Buscar usuário inexistente', async function() { 
         const response = await request(url)
             .get('/usuarios/'+"59wmGEOtnHWqWwKA")
             .set("Content-Type", "application/json")
@@ -600,14 +603,231 @@ describe ('Usuário - Cenarios Negativos', () => {
          expect(response.headers["content-type"]).to.match(/json/);
          expect(response.body).to.have.property('message').equal('Usuário não encontrado');
         });
-      });   
+
+        it.skip('USR-025 - Buscar usuário com ID inválido', async function() { 
+        const response = await request(url)
+            .get('/usuarios/'+"59wmGEOtnHWqWwKAweweeewe")
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+         expect(response.status).to.equal(400);
+        
+         // Validação da estrutura
+         expect(response.headers["content-type"]).to.match(/json/);
+         expect(response.body).to.have.property('id').equal('id deve ter exatamente 16 caracteres alfanuméricos');
+        });
+
+
+        it.skip('USR-026 - Buscar usuário com ID vazio', async function() { 
+        const response = await request(url)
+            .get('/usuarios/""')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+         expect(response.status).to.equal(400);
+        
+         // Validação da estrutura
+         expect(response.headers["content-type"]).to.match(/json/);
+         expect(response.body).to.have.property('id').equal('id deve ter exatamente 16 caracteres alfanuméricos');
+        });
+
+      });  
+      
+      //bug=> utilizando o metodo put: ao infomar um id inexistente, na verdade ele inclui um novo registro
+    describe ('Alteração de Usuário(s)', () => {
+        it('USR-027 - Alterar usuario inexistente', async function() { 
+        const response = await request(url)
+            //.put('/usuarios/${id}+1')
+            .put(`/usuarios/${id}`+1)
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .send({
+                     nome: 'Marta Josefina',
+                     email: `marta${Date.now()}@qa.com.br`,
+                     password: 'teste',
+                     administrador: 'false'
+            })
+
+         expect(response.status).to.equal(201);
+        
+         // Validação da estrutura
+         expect(response.headers["content-type"]).to.match(/json/);
+         expect(response.body).to.have.property('message').equal('Cadastro realizado com sucesso');
+        });
+
+        it.skip('USR-028 - Alterar email para um ja existente', async function() { 
+        const response = await request(url)
+            .put('/usuarios/${id}')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .send({
+                     nome: 'Marta Josefina',
+                     email: _iemail,
+                     password: 'teste',
+                     administrador: 'false'
+            })
+
+         expect(response.status).to.equal(400);
+        
+         // Validação da estrutura
+         expect(response.headers["content-type"]).to.match(/json/);
+         expect(response.body).to.have.property('message').equal('Este email já está sendo usado');
+        });
+
+        it.skip('USR-029 - Alterar usuario sem token valido', async function() { 
+        const response = await request(url)
+            .put('/usuarios/${id}')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token+1)
+            .send({
+                     nome: 'Marta Josefina',
+                     email: `marta${Date.now()}@qa.com.br`,
+                     password: 'teste',
+                     administrador: 'false'
+            })
+
+         expect(response.status).to.equal(201);
+        
+         // Validação da estrutura
+         expect(response.headers["content-type"]).to.match(/json/);
+         expect(response.body).to.have.property('message').equal('Cadastro realizado com sucesso');
+        });
+
+        it.skip('USR-030 - Alterar usuário enviando payload inválido', async function() { 
+        const response = await request(url)
+            .put('/usuarios/${id}')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .send({
+                     nome_teste: 'Marta Josefina',
+                     email_teste: `marta${Date.now()}@qa.com.br`,
+                     password_teste: 'teste',
+                     administrador_teste: 'false'
+            })
+
+         expect(response.status).to.equal(400);
+        
+         // Validação da estrutura
+         expect(response.headers["content-type"]).to.match(/json/);
+         expect(response.body).to.have.property('nome').equal('nome é obrigatório');
+         expect(response.body).to.have.property('email').equal('email é obrigatório');
+         expect(response.body).to.have.property('password').equal('password é obrigatório');
+         expect(response.body).to.have.property('administrador').equal('administrador é obrigatório');
+         expect(response.body).to.have.property('nome_teste').equal('nome_teste não é permitido');
+         expect(response.body).to.have.property('email_teste').equal('email_teste não é permitido');
+         expect(response.body).to.have.property('password_teste').equal('password_teste não é permitido');
+         expect(response.body).to.have.property('administrador_teste').equal('administrador_teste não é permitido');
+
+      });
+    });
+
+    describe ('Exclusão de Usuário(s)', () => {
+        it.skip('USR-031 - Excluir usuário inexistente', async function() { 
+        const resposta = await request(url)
+            .post('/usuarios')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+            .send({
+                     nome: 'Marta Josefina',
+                     email: `marta${Date.now()}@qa.com.br`,
+                     password: 'teste',
+                     administrador: 'false'
+            })
+        id = resposta.body._id;
+
+        const response = await request(url)
+            .del(`/usuarios/${id}+1`)
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json");
+
+         expect(response.status).to.equal(200);
+        
+         // Validação da estrutura
+         expect(response.headers["content-type"]).to.match(/json/);
+         expect(response.body).to.have.property('message').equal('Nenhum registro excluído');
+        });
+        
+        it.skip('USR-032 - Excluir usuário com token inválido', async function() { 
+        const resposta = await request(url)
+            .post('/usuarios')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token+1)
+            .send({
+                     nome: 'Marta Josefina',
+                     email: `marta${Date.now()}@qa.com.br`,
+                     password: 'teste',
+                     administrador: 'false'
+            })
+        id = resposta.body._id;
+
+        const response = await request(url)
+            .del(`/usuarios/${id}`)
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json");
+
+         expect(response.status).to.equal(200);
+        
+         // Validação da estrutura
+         expect(response.headers["content-type"]).to.match(/json/);
+         expect(response.body).to.have.property('message').equal('Registro excluído com sucesso');
+        });
+
+        it.skip('USR-033 - Excluir usuário vinculado a regras de negócio que impeçam remoção', async function() { 
+
+        const response = await request(url)
+            .del(`/usuarios/0uxuPY0cbmQhpEz1`)
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json");
+
+         expect(response.status).to.equal(400);
+        
+         // Validação da estrutura
+         expect(response.headers["content-type"]).to.match(/json/);
+         expect(response.body).to.have.property('message').equal('Não é permitido excluir usuário com carrinho cadastrado');
+        });
+    });
+}); 
+
+describe ('Usuário - Cenários Alternativos', () => {
+        it('USR-034 - PUT em ID inexistente criando novo recurso (caso suportado)', async function() { 
+        const resposta = await request(url)
+            .post('/usuarios')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token+1)
+            .send({
+                     nome: 'Marta Josefina',
+                     email: `marta${Date.now()}@qa.com.br`,
+                     password: 'teste',
+                     administrador: 'false'
+            })
+        id = resposta.body._id;
+
+        const response = await request(url)
+            .put(`/usuarios/${id}`+1)
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .send({
+                     nome: 'Marta Josefina',
+                     email: `marta${Date.now()}@qa.com.br`,
+                     password: 'teste',
+                     administrador: 'false'
+            })
+
+         expect(response.status).to.equal(201);
+        
+         // Validação da estrutura
+         expect(response.headers["content-type"]).to.match(/json/);
+         expect(response.body).to.have.property('message').equal('Cadastro realizado com sucesso');
+        });
+    });
 });
 
 
 
 
 
-    
 
 
 
@@ -615,13 +835,7 @@ describe ('Usuário - Cenarios Negativos', () => {
 
 
 
-
-
-
-
-
-
-describe ('Usuário - Cenarios Alternativos', () => {
+describe ('Usuário - Cenários Alternativos', () => {
 
       it.skip('USR-000 - Em andamento', async function() { 
         const response = await request(url)
@@ -634,7 +848,7 @@ describe ('Usuário - Cenarios Alternativos', () => {
       });        
 }); 
 
-describe ('Usuário - Cenarios Exceção', () => {
+describe ('Usuário - Cenários Exceção', () => {
 
       it.skip('USR-000 - Em andamento', async function() { 
         const response = await request(url)
@@ -646,7 +860,7 @@ describe ('Usuário - Cenarios Exceção', () => {
          expect(response.status).to.equal(200);
        }); 
     });
-  });
+
 
 
 

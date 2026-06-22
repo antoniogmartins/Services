@@ -136,7 +136,7 @@ Endpoints:
 | USR-023    | Cadastrar usuário com campos nulos                            |
 
 
-**2.2.2 - Consulta Usuarios**
+**2.2.2 - Consulta Usuarios**(Implementado)
 
 | ID         | Cenário                                                       |
 | ---------- | ------------------------------------------------------------- |
@@ -145,7 +145,7 @@ Endpoints:
 | USR-026    | Buscar usuário com ID vazio                                   |
 
 
-**2.2.3 - Alteração Usuarios**
+**2.2.3 - Alteração Usuarios**(Implementado)
 
 | ID         | Cenário                                                              |
 | ---------- | -------------------------------------------------------------------- |

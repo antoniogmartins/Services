@@ -36,7 +36,7 @@ before(async function () {
 //**1.1 - Cenários Positivos**
 
 describe('Login - LGN', function () {
-    describe ('Login - Cenarios Positivos', () => {
+    describe ('Login - Cenários Positivos', () => {
       it.skip('LGN-001 - Realizar login com email e senha válidos', async function() { 
         const response = await request(url)
             .post('/login')
@@ -123,7 +123,7 @@ describe('Login - LGN', function () {
       });
   });
 }); 
-describe ('Login - Cenarios Negativos', () => {
+describe ('Login - Cenários Negativos', () => {
       it.skip('LGN-005 - Realizar login com senha incorreta', async function() { 
         const response = await request(url)
             .post('/login')
@@ -290,7 +290,7 @@ describe ('Login - Cenarios Negativos', () => {
          });
         });
 }); 
-describe ('Login - Cenarios Alternativos', () => {
+describe ('Login - Cenários Alternativos', () => {
       it.skip('LGN-012 - Realizar login com leetras maiusculas/minusculas no email', async function() { 
         const response = await request(url)
             .post('/login')
@@ -321,7 +321,7 @@ describe ('Login - Cenarios Alternativos', () => {
          });
     });
  
-describe ('Login - Cenarios de Exceção', () => {
+describe ('Login - Cenários de Exceção', () => {
      it.skip('LGN-014 - Falha interna do servidor durante autenticação', async function() { 
 
       console.log('LGN-014 - Falha interna do servidor durante autenticação - Erro 500 - Internal Server Error');
@@ -330,7 +330,7 @@ describe ('Login - Cenarios de Exceção', () => {
       console.log('Simular falha interna do servidor durante autenticação e verificar se a resposta é adequada (ex: status 500 e mensagem de erro genérica).');
       });
       
-     it('LGN-015.1 - Valiar o Timeout da Requisição de Login', async function() { 
+     it('LGN-015.1 - Validar o Timeout da Requisição de Login', async function() { 
         const response = await request(url)
             .post('/login')
             .timeout({
