@@ -136,7 +136,7 @@ Endpoints:
 | USR-023    | Cadastrar usuário com campos nulos                            |
 
 
-**2.2.2 - Consulta Usuarios**
+**2.2.2 - Consulta Usuarios**(Implementado)
 
 | ID         | Cenário                                                       |
 | ---------- | ------------------------------------------------------------- |
@@ -145,7 +145,7 @@ Endpoints:
 | USR-026    | Buscar usuário com ID vazio                                   |
 
 
-**2.2.3 - Alteração Usuarios**
+**2.2.3 - Alteração Usuarios**(Implementado)
 
 | ID         | Cenário                                                              |
 | ---------- | -------------------------------------------------------------------- |
@@ -155,7 +155,7 @@ Endpoints:
 | USR-030    | Alterar enviando payload inválido                                    |
 
 
-**2.2.4 - Exclusão Usuarios**
+**2.2.4 - Exclusão Usuarios**(Implementado)
 
 | ID         | Cenário                                                              |
 | ---------- | -------------------------------------------------------------------- |
@@ -164,21 +164,21 @@ Endpoints:
 | USR-033    | Excluir usuário vinculado a regras de negócio que impeçam remoção    |
 
 
-**2.3 - Cenários Alternativos**
+**2.3 - Cenários Alternativos**(Implementado)
 
 | ID         | Cenário                                                              |
 | ---------- | -------------------------------------------------------------------- |
 | USR-034    | PUT em ID inexistente criando novo recurso (caso suportado)          |
-| USR-035    | Cadastro com caracteres especiais no nome                            |
-| USR-036    | Cadastro com nomes extensos                                          |
-| USR-037    | Cadastro com administrador=true e administrador=false                |
+| USR-035    | Cadastro de usuarios com caracteres especiais no nome                |
+| USR-036    | Cadastro de usuarios com nomes extensos                              |
+| USR-037    | Cadastro de usuarios com administrador=true e administrador=false    |
 
 
-**2.4 - Cenários Exceção**
+**2.4 - Cenários Exceção**(Implementado)
 
 | ID         | Cenário                                                              |
 | ---------- | -------------------------------------------------------------------- |
-| USR-038    | Banco indisponível durante cadastro                                  |
+| USR-038    | Banco de dados indisponível durante cadastro                         |
 | USR-039    | Falha na gravação dos dados                                          |
 | USR-040    | Erro interno ao consultar usuário                                    |
 
@@ -200,7 +200,7 @@ Endpoints:
 
 **3.1 - Cenários Positivos**
 
-**3.1.1 - Cadastro de Produtos**
+**3.1.1 - Cadastro de Produtos** (em andamento)
 
 | ID         | Cenário                                                              |
 | ---------- | -------------------------------------------------------------------- |

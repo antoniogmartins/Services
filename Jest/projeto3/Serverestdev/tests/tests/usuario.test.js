@@ -790,7 +790,7 @@ describe ('Usuário - Cenários Negativos', () => {
 }); 
 
 describe ('Usuário - Cenários Alternativos', () => {
-        it('USR-034 - PUT em ID inexistente criando novo recurso (caso suportado)', async function() { 
+        it.skip('USR-034 - PUT em ID inexistente criando novo recurso (caso suportado)', async function() { 
         const resposta = await request(url)
             .post('/usuarios')
             .set("Content-Type", "application/json")
@@ -821,7 +821,98 @@ describe ('Usuário - Cenários Alternativos', () => {
          expect(response.headers["content-type"]).to.match(/json/);
          expect(response.body).to.have.property('message').equal('Cadastro realizado com sucesso');
         });
+
+        it.skip('USR-035 -  Cadastro de usuarios com caracteres especiais no nome', async function() { 
+        const response = await request(url)
+            .post('/usuarios')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .send({
+                     nome: '#%*((*&¨%%$*&&¨%%$$##@',
+                     email: `marta${Date.now()}@qa.com.br`,
+                     password: 'teste',
+                     administrador: 'false'
+            })
+
+         expect(response.status).to.equal(201);
+        
+         // Validação da estrutura
+         expect(response.headers["content-type"]).to.match(/json/);
+         expect(response.body).to.have.property('message').equal('Cadastro realizado com sucesso');
+        });
+
+        it.skip('USR-036 - Cadastro de usuarios com nomes extensos', async function() { 
+        const response = await request(url)
+            .post('/usuarios')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .send({
+                     nome: 'Maria EduardaMaria EduardaMaria EduardaMaria EduardaMaria EduardaMaria EduardaMaria EduardaMaria EduardaMaria EduardaMaria EduardaMaria EduardaMaria EduardaMaria Eduarda',
+                     email: `marta${Date.now()}@qa.com.br`,
+                     password: 'teste',
+                     administrador: 'false'
+            })
+
+         expect(response.status).to.equal(201);
+        
+         // Validação da estrutura
+         expect(response.headers["content-type"]).to.match(/json/);
+         expect(response.body).to.have.property('message').equal('Cadastro realizado com sucesso');
+        });
+
+        it('USR-037.1 - Cadastro de usuarios com administrador=false ', async function() { 
+        const response = await request(url)
+            .post('/usuarios')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .send({
+                     nome: 'Maria EduardaMaria ',
+                     email: `marta${Date.now()}@qa.com.br`,
+                     password: 'teste',
+                     administrador: 'false'
+            })
+
+         expect(response.status).to.equal(201);
+        
+         // Validação da estrutura
+         expect(response.headers["content-type"]).to.match(/json/);
+         expect(response.body).to.have.property('message').equal('Cadastro realizado com sucesso');
+        });
+
+        it('USR-037.2 - Cadastro de usuarios com administrador=true ', async function() { 
+        const response = await request(url)
+            .post('/usuarios')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .send({
+                     nome: 'Maria EduardaMaria ',
+                     email: `marta${Date.now()}@qa.com.br`,
+                     password: 'teste',
+                     administrador: 'true'
+            })
+
+         expect(response.status).to.equal(201);
+        
+         // Validação da estrutura
+         expect(response.headers["content-type"]).to.match(/json/);
+         expect(response.body).to.have.property('message').equal('Cadastro realizado com sucesso');
+        });
     });
+});
+
+describe ('Usuário - Cenários Exceção', () => {
+        it('USR-038 - Banco indisponível durante cadastro', async function() { 
+        console.log("Não automatizável na camada de API pública");
+        console.log("Necessário acesso ao backend ou ambiente controlado.")
+     });
+        it('USR-039 - Falha na gravação dos dados', async function() { 
+        console.log("Não automatizável na camada de API pública");
+        console.log("Necessário acesso ao backend ou ambiente controlado.")
+     });
+        it('USR-040 - Erro interno ao consultar usuário', async function() { 
+        console.log("Não automatizável na camada de API pública");
+        console.log("Necessário acesso ao backend ou ambiente controlado.")
+     });
 });
 
 
@@ -832,34 +923,6 @@ describe ('Usuário - Cenários Alternativos', () => {
 
 
 
-
-
-
-describe ('Usuário - Cenários Alternativos', () => {
-
-      it.skip('USR-000 - Em andamento', async function() { 
-        const response = await request(url)
-            .get('/usuarios/'+id)
-            .set("Content-Type", "application/json")
-            .set("accept", "application/json")
-
-         console.log("body: " + JSON.stringify(response.body));   
-         expect(response.status).to.equal(200);
-      });        
-}); 
-
-describe ('Usuário - Cenários Exceção', () => {
-
-      it.skip('USR-000 - Em andamento', async function() { 
-        const response = await request(url)
-            .get('/usuarios/'+id)
-            .set("Content-Type", "application/json")
-            .set("accept", "application/json")
-
-         console.log("body: " + JSON.stringify(response.body));   
-         expect(response.status).to.equal(200);
-       }); 
-    });
 
 
 

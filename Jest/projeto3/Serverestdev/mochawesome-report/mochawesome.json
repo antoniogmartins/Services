@@ -1,16 +1,16 @@
 {
   "stats": {
-    "suites": 19,
-    "tests": 65,
-    "passes": 6,
-    "pending": 59,
+    "suites": 21,
+    "tests": 72,
+    "passes": 12,
+    "pending": 60,
     "failures": 0,
-    "start": "2026-06-22T09:32:51.568Z",
-    "end": "2026-06-22T09:33:13.947Z",
-    "duration": 22379,
-    "testsRegistered": 65,
+    "start": "2026-06-22T10:26:44.321Z",
+    "end": "2026-06-22T10:26:48.445Z",
+    "duration": 4124,
+    "testsRegistered": 72,
     "passPercent": 100,
-    "pendingPercent": 90.76923076923077,
+    "pendingPercent": 83.33333333333334,
     "other": 0,
     "hasOther": false,
     "skipped": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "70b07939-57a1-42e2-a1de-345eb869d1cb",
+      "uuid": "925889d5-6772-4764-82c4-16fc2473c7d7",
       "title": "",
       "fullFile": "",
       "file": "",
@@ -36,8 +36,8 @@
           "context": null,
           "code": "this.timeout(10000);",
           "err": {},
-          "uuid": "9c3f55c4-6829-4fc0-8693-ec9d80edbad7",
-          "parentUUID": "70b07939-57a1-42e2-a1de-345eb869d1cb",
+          "uuid": "d1955fe3-8598-47d9-a03b-d2d07634f29e",
+          "parentUUID": "925889d5-6772-4764-82c4-16fc2473c7d7",
           "isHook": true,
           "skipped": false
         },
@@ -54,8 +54,26 @@
           "context": null,
           "code": "this.timeout(20000);",
           "err": {},
-          "uuid": "7434a47e-385d-495b-8e31-a53ab9f392c5",
-          "parentUUID": "70b07939-57a1-42e2-a1de-345eb869d1cb",
+          "uuid": "5a24c780-d7b0-4953-b053-8680e57a9c08",
+          "parentUUID": "925889d5-6772-4764-82c4-16fc2473c7d7",
+          "isHook": true,
+          "skipped": false
+        },
+        {
+          "title": "\"before all\" hook in \"{root}\"",
+          "fullTitle": "\"before all\" hook in \"{root}\"",
+          "timedOut": false,
+          "duration": 0,
+          "state": null,
+          "speed": null,
+          "pass": false,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "this.timeout(20000);",
+          "err": {},
+          "uuid": "1c07bc56-35cd-4969-9a27-fc9cb2fb5aac",
+          "parentUUID": "925889d5-6772-4764-82c4-16fc2473c7d7",
           "isHook": true,
           "skipped": false
         }
@@ -64,7 +82,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "d8c01287-6eff-447d-96e1-61459416f1cc",
+          "uuid": "57b1405f-abe1-4cb5-bef5-1a93bceae9c7",
           "title": "Login - LGN",
           "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/login.test.js",
           "file": "/tests/tests/login.test.js",
@@ -73,7 +91,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "642c8a64-baa4-45f2-a3ba-f939ff20e7d4",
+              "uuid": "aa397938-82eb-4fba-8f79-57a74e443288",
               "title": "Login - Cenários Positivos",
               "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/login.test.js",
               "file": "/tests/tests/login.test.js",
@@ -93,8 +111,8 @@
                   "context": null,
                   "code": "",
                   "err": {},
-                  "uuid": "63fc359e-693b-476b-86d4-7d3cb3fa5e5e",
-                  "parentUUID": "642c8a64-baa4-45f2-a3ba-f939ff20e7d4",
+                  "uuid": "14d31316-50d8-4eb3-b1ae-4a7be5fb8bcb",
+                  "parentUUID": "aa397938-82eb-4fba-8f79-57a74e443288",
                   "isHook": false,
                   "skipped": false
                 },
@@ -111,8 +129,8 @@
                   "context": null,
                   "code": "",
                   "err": {},
-                  "uuid": "9d8b366c-be61-44bc-a66c-c29f610148a1",
-                  "parentUUID": "642c8a64-baa4-45f2-a3ba-f939ff20e7d4",
+                  "uuid": "89093503-5293-4a06-b1f3-97ab5cf9bca2",
+                  "parentUUID": "aa397938-82eb-4fba-8f79-57a74e443288",
                   "isHook": false,
                   "skipped": false
                 },
@@ -129,8 +147,8 @@
                   "context": null,
                   "code": "",
                   "err": {},
-                  "uuid": "c0e6ad8e-6e15-4e5f-a8ad-ae77ba11c8d5",
-                  "parentUUID": "642c8a64-baa4-45f2-a3ba-f939ff20e7d4",
+                  "uuid": "7d25b8f8-6b1b-45f0-bb6d-8426d524e851",
+                  "parentUUID": "aa397938-82eb-4fba-8f79-57a74e443288",
                   "isHook": false,
                   "skipped": false
                 },
@@ -147,8 +165,8 @@
                   "context": null,
                   "code": "",
                   "err": {},
-                  "uuid": "6bdf74e2-4bff-4755-8811-05cb1c6c4673",
-                  "parentUUID": "642c8a64-baa4-45f2-a3ba-f939ff20e7d4",
+                  "uuid": "7ae528c0-641c-455e-84cc-7831dda05dde",
+                  "parentUUID": "aa397938-82eb-4fba-8f79-57a74e443288",
                   "isHook": false,
                   "skipped": false
                 }
@@ -157,10 +175,10 @@
               "passes": [],
               "failures": [],
               "pending": [
-                "63fc359e-693b-476b-86d4-7d3cb3fa5e5e",
-                "9d8b366c-be61-44bc-a66c-c29f610148a1",
-                "c0e6ad8e-6e15-4e5f-a8ad-ae77ba11c8d5",
-                "6bdf74e2-4bff-4755-8811-05cb1c6c4673"
+                "14d31316-50d8-4eb3-b1ae-4a7be5fb8bcb",
+                "89093503-5293-4a06-b1f3-97ab5cf9bca2",
+                "7d25b8f8-6b1b-45f0-bb6d-8426d524e851",
+                "7ae528c0-641c-455e-84cc-7831dda05dde"
               ],
               "skipped": [],
               "duration": 0,
@@ -169,7 +187,7 @@
               "_timeout": 20000
             },
             {
-              "uuid": "a71518f7-675b-4620-b56c-f3c1f21b68ed",
+              "uuid": "82cef28b-ac4b-4e1f-b91e-8dcc213381df",
               "title": "Login - Cenários Negativos",
               "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/login.test.js",
               "file": "/tests/tests/login.test.js",
@@ -189,8 +207,8 @@
                   "context": null,
                   "code": "",
                   "err": {},
-                  "uuid": "bfd224d0-acf4-475a-b024-a0b68e93a667",
-                  "parentUUID": "a71518f7-675b-4620-b56c-f3c1f21b68ed",
+                  "uuid": "2a6ceaa0-fb67-405b-b022-1f1943645440",
+                  "parentUUID": "82cef28b-ac4b-4e1f-b91e-8dcc213381df",
                   "isHook": false,
                   "skipped": false
                 },
@@ -207,8 +225,8 @@
                   "context": null,
                   "code": "",
                   "err": {},
-                  "uuid": "42e1000a-9881-4cc9-afd0-9c512858aafb",
-                  "parentUUID": "a71518f7-675b-4620-b56c-f3c1f21b68ed",
+                  "uuid": "9809c261-ebe2-4a11-80f1-456a0315a964",
+                  "parentUUID": "82cef28b-ac4b-4e1f-b91e-8dcc213381df",
                   "isHook": false,
                   "skipped": false
                 },
@@ -225,8 +243,8 @@
                   "context": null,
                   "code": "",
                   "err": {},
-                  "uuid": "e8b0a5e0-9b45-41b4-91df-e95d698b694f",
-                  "parentUUID": "a71518f7-675b-4620-b56c-f3c1f21b68ed",
+                  "uuid": "4e6320c4-beae-403d-9ac5-78989a5f566b",
+                  "parentUUID": "82cef28b-ac4b-4e1f-b91e-8dcc213381df",
                   "isHook": false,
                   "skipped": false
                 },
@@ -243,8 +261,8 @@
                   "context": null,
                   "code": "",
                   "err": {},
-                  "uuid": "0acb93ff-3dff-4fe0-bef6-442968d4bf05",
-                  "parentUUID": "a71518f7-675b-4620-b56c-f3c1f21b68ed",
+                  "uuid": "a299ff9c-e2e1-4f01-ac13-a33c6f059ca4",
+                  "parentUUID": "82cef28b-ac4b-4e1f-b91e-8dcc213381df",
                   "isHook": false,
                   "skipped": false
                 },
@@ -261,8 +279,8 @@
                   "context": null,
                   "code": "",
                   "err": {},
-                  "uuid": "ac7c649e-ee99-4dd9-9d10-87682355ab70",
-                  "parentUUID": "a71518f7-675b-4620-b56c-f3c1f21b68ed",
+                  "uuid": "783402f0-4781-4f70-a176-36995771fade",
+                  "parentUUID": "82cef28b-ac4b-4e1f-b91e-8dcc213381df",
                   "isHook": false,
                   "skipped": false
                 },
@@ -279,8 +297,8 @@
                   "context": null,
                   "code": "",
                   "err": {},
-                  "uuid": "b2f83070-c1e5-460b-bade-4d134c9c3279",
-                  "parentUUID": "a71518f7-675b-4620-b56c-f3c1f21b68ed",
+                  "uuid": "d405892b-3270-431c-8139-a010877b1cdd",
+                  "parentUUID": "82cef28b-ac4b-4e1f-b91e-8dcc213381df",
                   "isHook": false,
                   "skipped": false
                 },
@@ -297,8 +315,8 @@
                   "context": null,
                   "code": "",
                   "err": {},
-                  "uuid": "00867b54-1f64-4c23-8665-b6956e3dff98",
-                  "parentUUID": "a71518f7-675b-4620-b56c-f3c1f21b68ed",
+                  "uuid": "8c7ce56d-cf8e-4c9e-8fee-77f9628328ac",
+                  "parentUUID": "82cef28b-ac4b-4e1f-b91e-8dcc213381df",
                   "isHook": false,
                   "skipped": false
                 },
@@ -315,8 +333,8 @@
                   "context": null,
                   "code": "",
                   "err": {},
-                  "uuid": "34cacad1-5c39-4211-9a38-654520867a2e",
-                  "parentUUID": "a71518f7-675b-4620-b56c-f3c1f21b68ed",
+                  "uuid": "7ec8c85a-a4a1-4f2c-97a5-15924dd2d9b9",
+                  "parentUUID": "82cef28b-ac4b-4e1f-b91e-8dcc213381df",
                   "isHook": false,
                   "skipped": false
                 },
@@ -333,8 +351,8 @@
                   "context": null,
                   "code": "",
                   "err": {},
-                  "uuid": "9654c113-5aa2-4ece-a5b3-308779088608",
-                  "parentUUID": "a71518f7-675b-4620-b56c-f3c1f21b68ed",
+                  "uuid": "8697a492-5090-4455-8e63-05b2b28be7d4",
+                  "parentUUID": "82cef28b-ac4b-4e1f-b91e-8dcc213381df",
                   "isHook": false,
                   "skipped": false
                 },
@@ -351,8 +369,8 @@
                   "context": null,
                   "code": "",
                   "err": {},
-                  "uuid": "7419516d-c59b-41d3-9913-e35cf7b21d85",
-                  "parentUUID": "a71518f7-675b-4620-b56c-f3c1f21b68ed",
+                  "uuid": "da0bdd44-7111-42d5-a591-680a3f43944f",
+                  "parentUUID": "82cef28b-ac4b-4e1f-b91e-8dcc213381df",
                   "isHook": false,
                   "skipped": false
                 },
@@ -369,8 +387,8 @@
                   "context": null,
                   "code": "",
                   "err": {},
-                  "uuid": "5b740d7b-d0ca-48ab-8624-d7176b0c9cc6",
-                  "parentUUID": "a71518f7-675b-4620-b56c-f3c1f21b68ed",
+                  "uuid": "f5753171-93b1-4525-84e3-05545cfba3fb",
+                  "parentUUID": "82cef28b-ac4b-4e1f-b91e-8dcc213381df",
                   "isHook": false,
                   "skipped": false
                 },
@@ -387,8 +405,8 @@
                   "context": null,
                   "code": "",
                   "err": {},
-                  "uuid": "43d53e12-058b-4e35-bf46-4dbf203cec02",
-                  "parentUUID": "a71518f7-675b-4620-b56c-f3c1f21b68ed",
+                  "uuid": "3500221c-16c1-43a3-84f6-e56181d3266a",
+                  "parentUUID": "82cef28b-ac4b-4e1f-b91e-8dcc213381df",
                   "isHook": false,
                   "skipped": false
                 },
@@ -405,8 +423,8 @@
                   "context": null,
                   "code": "",
                   "err": {},
-                  "uuid": "f5093f73-214b-4ef1-91cc-289c6980886b",
-                  "parentUUID": "a71518f7-675b-4620-b56c-f3c1f21b68ed",
+                  "uuid": "2ed555c2-1f78-4adc-a886-d1a2b475bf6c",
+                  "parentUUID": "82cef28b-ac4b-4e1f-b91e-8dcc213381df",
                   "isHook": false,
                   "skipped": false
                 },
@@ -423,8 +441,8 @@
                   "context": null,
                   "code": "",
                   "err": {},
-                  "uuid": "a646fb00-1cb1-4bec-8d2c-a253f3e54de6",
-                  "parentUUID": "a71518f7-675b-4620-b56c-f3c1f21b68ed",
+                  "uuid": "c89e7cae-e842-405f-9ad4-f5756c6c5d54",
+                  "parentUUID": "82cef28b-ac4b-4e1f-b91e-8dcc213381df",
                   "isHook": false,
                   "skipped": false
                 }
@@ -433,20 +451,20 @@
               "passes": [],
               "failures": [],
               "pending": [
-                "bfd224d0-acf4-475a-b024-a0b68e93a667",
-                "42e1000a-9881-4cc9-afd0-9c512858aafb",
-                "e8b0a5e0-9b45-41b4-91df-e95d698b694f",
-                "0acb93ff-3dff-4fe0-bef6-442968d4bf05",
-                "ac7c649e-ee99-4dd9-9d10-87682355ab70",
-                "b2f83070-c1e5-460b-bade-4d134c9c3279",
-                "00867b54-1f64-4c23-8665-b6956e3dff98",
-                "34cacad1-5c39-4211-9a38-654520867a2e",
-                "9654c113-5aa2-4ece-a5b3-308779088608",
-                "7419516d-c59b-41d3-9913-e35cf7b21d85",
-                "5b740d7b-d0ca-48ab-8624-d7176b0c9cc6",
-                "43d53e12-058b-4e35-bf46-4dbf203cec02",
-                "f5093f73-214b-4ef1-91cc-289c6980886b",
-                "a646fb00-1cb1-4bec-8d2c-a253f3e54de6"
+                "2a6ceaa0-fb67-405b-b022-1f1943645440",
+                "9809c261-ebe2-4a11-80f1-456a0315a964",
+                "4e6320c4-beae-403d-9ac5-78989a5f566b",
+                "a299ff9c-e2e1-4f01-ac13-a33c6f059ca4",
+                "783402f0-4781-4f70-a176-36995771fade",
+                "d405892b-3270-431c-8139-a010877b1cdd",
+                "8c7ce56d-cf8e-4c9e-8fee-77f9628328ac",
+                "7ec8c85a-a4a1-4f2c-97a5-15924dd2d9b9",
+                "8697a492-5090-4455-8e63-05b2b28be7d4",
+                "da0bdd44-7111-42d5-a591-680a3f43944f",
+                "f5753171-93b1-4525-84e3-05545cfba3fb",
+                "3500221c-16c1-43a3-84f6-e56181d3266a",
+                "2ed555c2-1f78-4adc-a886-d1a2b475bf6c",
+                "c89e7cae-e842-405f-9ad4-f5756c6c5d54"
               ],
               "skipped": [],
               "duration": 0,
@@ -455,7 +473,7 @@
               "_timeout": 20000
             },
             {
-              "uuid": "45e1572d-2f35-4484-840a-237a430d821f",
+              "uuid": "3b5fc106-cd59-4082-992f-870382fc4a59",
               "title": "Login - Cenários Alternativos",
               "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/login.test.js",
               "file": "/tests/tests/login.test.js",
@@ -475,8 +493,8 @@
                   "context": null,
                   "code": "",
                   "err": {},
-                  "uuid": "65d7624a-4237-401d-a52f-9146620081f8",
-                  "parentUUID": "45e1572d-2f35-4484-840a-237a430d821f",
+                  "uuid": "34489b2e-f27d-41bc-a378-aee2f1eb594b",
+                  "parentUUID": "3b5fc106-cd59-4082-992f-870382fc4a59",
                   "isHook": false,
                   "skipped": false
                 },
@@ -493,8 +511,8 @@
                   "context": null,
                   "code": "",
                   "err": {},
-                  "uuid": "7d7955fb-5d01-45da-87ce-f6415c3d93fe",
-                  "parentUUID": "45e1572d-2f35-4484-840a-237a430d821f",
+                  "uuid": "e4c5579b-6996-4d37-8280-2a7cb09885c0",
+                  "parentUUID": "3b5fc106-cd59-4082-992f-870382fc4a59",
                   "isHook": false,
                   "skipped": false
                 }
@@ -503,8 +521,8 @@
               "passes": [],
               "failures": [],
               "pending": [
-                "65d7624a-4237-401d-a52f-9146620081f8",
-                "7d7955fb-5d01-45da-87ce-f6415c3d93fe"
+                "34489b2e-f27d-41bc-a378-aee2f1eb594b",
+                "e4c5579b-6996-4d37-8280-2a7cb09885c0"
               ],
               "skipped": [],
               "duration": 0,
@@ -513,7 +531,7 @@
               "_timeout": 20000
             },
             {
-              "uuid": "e56232fc-8656-4828-b60a-de455db1cee4",
+              "uuid": "b75eb7cf-d884-439b-bc5d-3e7bef8abc9f",
               "title": "Login - Cenários de Exceção",
               "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/login.test.js",
               "file": "/tests/tests/login.test.js",
@@ -533,8 +551,8 @@
                   "context": null,
                   "code": "",
                   "err": {},
-                  "uuid": "d6a506e9-44bb-4db2-9d24-933d15895556",
-                  "parentUUID": "e56232fc-8656-4828-b60a-de455db1cee4",
+                  "uuid": "a5badaeb-96f7-4a23-a989-e4739b2c2640",
+                  "parentUUID": "b75eb7cf-d884-439b-bc5d-3e7bef8abc9f",
                   "isHook": false,
                   "skipped": false
                 },
@@ -542,7 +560,7 @@
                   "title": "LGN-015.1 - Validar o Timeout da Requisição de Login",
                   "fullTitle": "Login - LGN Login - Cenários de Exceção LGN-015.1 - Validar o Timeout da Requisição de Login",
                   "timedOut": false,
-                  "duration": 1299,
+                  "duration": 552,
                   "state": "passed",
                   "speed": "slow",
                   "pass": true,
@@ -551,8 +569,8 @@
                   "context": null,
                   "code": "const response = await request(url)\n    .post('/login')\n    .timeout({\n          response: 3000,\n          deadline: 5000\n    })\n    .set(\"Content-Type\", \"application/json\")\n    .set(\"accept\", \"application/json\")\n    .send({\n          email: 'fulano@qa.com',\n          password: 'teste'\n    })\n expect(response.headers[\"content-type\"]).to.match(/json/);\n expect(response.status).to.equal(200);\n expect(response.body.message).to.equal('Login realizado com sucesso');",
                   "err": {},
-                  "uuid": "4c91ba20-12df-4147-9680-88d43aec7adf",
-                  "parentUUID": "e56232fc-8656-4828-b60a-de455db1cee4",
+                  "uuid": "f09c2624-feef-4094-bfd9-d762be58cf43",
+                  "parentUUID": "b75eb7cf-d884-439b-bc5d-3e7bef8abc9f",
                   "isHook": false,
                   "skipped": false
                 },
@@ -569,8 +587,8 @@
                   "context": null,
                   "code": "",
                   "err": {},
-                  "uuid": "02ec25ad-cffa-43a6-9456-89c53c307ef5",
-                  "parentUUID": "e56232fc-8656-4828-b60a-de455db1cee4",
+                  "uuid": "6bf87314-e4f6-4189-b333-1a03542b92a8",
+                  "parentUUID": "b75eb7cf-d884-439b-bc5d-3e7bef8abc9f",
                   "isHook": false,
                   "skipped": false
                 },
@@ -587,8 +605,8 @@
                   "context": null,
                   "code": "",
                   "err": {},
-                  "uuid": "14484623-2a4d-4a5e-aa81-e7a73cfb2d1b",
-                  "parentUUID": "e56232fc-8656-4828-b60a-de455db1cee4",
+                  "uuid": "02a78088-4659-4c5b-8fbf-80d50846ba8a",
+                  "parentUUID": "b75eb7cf-d884-439b-bc5d-3e7bef8abc9f",
                   "isHook": false,
                   "skipped": false
                 },
@@ -605,8 +623,8 @@
                   "context": null,
                   "code": "",
                   "err": {},
-                  "uuid": "8112d6d5-b933-450e-a5fb-2231262551d3",
-                  "parentUUID": "e56232fc-8656-4828-b60a-de455db1cee4",
+                  "uuid": "8e69f962-b73b-42e1-959c-83d8d2ec60d6",
+                  "parentUUID": "b75eb7cf-d884-439b-bc5d-3e7bef8abc9f",
                   "isHook": false,
                   "skipped": false
                 },
@@ -623,26 +641,26 @@
                   "context": null,
                   "code": "",
                   "err": {},
-                  "uuid": "632a58e8-d1a7-4163-b949-fef00c0b8596",
-                  "parentUUID": "e56232fc-8656-4828-b60a-de455db1cee4",
+                  "uuid": "4d2c5cab-4929-4983-a26f-b26c740b49c3",
+                  "parentUUID": "b75eb7cf-d884-439b-bc5d-3e7bef8abc9f",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "4c91ba20-12df-4147-9680-88d43aec7adf"
+                "f09c2624-feef-4094-bfd9-d762be58cf43"
               ],
               "failures": [],
               "pending": [
-                "d6a506e9-44bb-4db2-9d24-933d15895556",
-                "02ec25ad-cffa-43a6-9456-89c53c307ef5",
-                "14484623-2a4d-4a5e-aa81-e7a73cfb2d1b",
-                "8112d6d5-b933-450e-a5fb-2231262551d3",
-                "632a58e8-d1a7-4163-b949-fef00c0b8596"
+                "a5badaeb-96f7-4a23-a989-e4739b2c2640",
+                "6bf87314-e4f6-4189-b333-1a03542b92a8",
+                "02a78088-4659-4c5b-8fbf-80d50846ba8a",
+                "8e69f962-b73b-42e1-959c-83d8d2ec60d6",
+                "4d2c5cab-4929-4983-a26f-b26c740b49c3"
               ],
               "skipped": [],
-              "duration": 1299,
+              "duration": 552,
               "root": false,
               "rootEmpty": false,
               "_timeout": 20000
@@ -658,7 +676,103 @@
           "_timeout": 20000
         },
         {
-          "uuid": "c1b5bfb2-3653-45bf-9bed-648480aac609",
+          "uuid": "376e4d2c-7349-4f13-80ed-822fc742cfb2",
+          "title": "Produto - PRD",
+          "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/produto.test.js",
+          "file": "/tests/tests/produto.test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "4c23452b-12b7-499e-b059-b584a5f28905",
+              "title": "Produto - Cenários Positivos",
+              "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/produto.test.js",
+              "file": "/tests/tests/produto.test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [],
+              "suites": [
+                {
+                  "uuid": "610d45ba-8311-4e52-bbc2-fd71d7e9fe8a",
+                  "title": "Cadastro de Produto(s)",
+                  "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/produto.test.js",
+                  "file": "/tests/tests/produto.test.js",
+                  "beforeHooks": [],
+                  "afterHooks": [],
+                  "tests": [
+                    {
+                      "title": "USR-000 - Validar retorno do token JWT/autorização",
+                      "fullTitle": "Produto - PRD Produto - Cenários Positivos Cadastro de Produto(s) USR-000 - Validar retorno do token JWT/autorização",
+                      "timedOut": false,
+                      "duration": 379,
+                      "state": "passed",
+                      "speed": "slow",
+                      "pass": true,
+                      "fail": false,
+                      "pending": false,
+                      "context": null,
+                      "code": "const response = await request(url)\n            .post('/login')\n            .set(\"Content-Type\", \"application/json\")\n            .set(\"accept\", \"application/json\")\n            .send({\n                  email: 'fulano@qa.com',\n                  password: 'teste'\n            })\n         expect(response.headers[\"content-type\"]).to.match(/json/);\n         expect(response.status).to.equal(200);\n         expect(response.body).to.have.property('authorization');\n         expect(response.body.message).to.equal('Login realizado com sucesso');\n         token = response.body.authorization;\n         console.log('O valor do token é: ' + token);",
+                      "err": {},
+                      "uuid": "79a8f64c-a19e-45c0-b7b7-c906f3139a34",
+                      "parentUUID": "610d45ba-8311-4e52-bbc2-fd71d7e9fe8a",
+                      "isHook": false,
+                      "skipped": false
+                    },
+                    {
+                      "title": "USR-000 - Validar geração do ID do usuario",
+                      "fullTitle": "Produto - PRD Produto - Cenários Positivos Cadastro de Produto(s) USR-000 - Validar geração do ID do usuario",
+                      "timedOut": false,
+                      "duration": 409,
+                      "state": "passed",
+                      "speed": "slow",
+                      "pass": true,
+                      "fail": false,
+                      "pending": false,
+                      "context": null,
+                      "code": "const response = await request(url)\n    .post('/usuarios')\n    .set(\"Content-Type\", \"application/json\")\n    .set(\"accept\", \"application/json\")\n    .set(\"authorization\", token)\n    .send({\n             nome: 'Maria Delfina',\n             email: `Maria${Date.now()}y@qa.com.br`,\n             password: 'teste',\n             administrador: 'false'\n    })\n    id = response.body._id;\n    console.log('O valor do id é: ' + id);\n expect(response.status).to.equal(201);\n expect(response.body).to.have.property('_id');",
+                      "err": {},
+                      "uuid": "d5e03e7f-3c9e-457e-96ca-f2c08489ee4f",
+                      "parentUUID": "610d45ba-8311-4e52-bbc2-fd71d7e9fe8a",
+                      "isHook": false,
+                      "skipped": false
+                    }
+                  ],
+                  "suites": [],
+                  "passes": [
+                    "79a8f64c-a19e-45c0-b7b7-c906f3139a34",
+                    "d5e03e7f-3c9e-457e-96ca-f2c08489ee4f"
+                  ],
+                  "failures": [],
+                  "pending": [],
+                  "skipped": [],
+                  "duration": 788,
+                  "root": false,
+                  "rootEmpty": false,
+                  "_timeout": 20000
+                }
+              ],
+              "passes": [],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 0,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 20000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 20000
+        },
+        {
+          "uuid": "88ae9f25-00d3-42d4-a4cb-5f375916b3f8",
           "title": "Usuário - USU",
           "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/usuario.test.js",
           "file": "/tests/tests/usuario.test.js",
@@ -667,7 +781,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "b9858d9d-f3b6-4b34-bbc1-9e6434df20a8",
+              "uuid": "ab87f17d-1046-4b31-879d-e6137dbe5138",
               "title": "Usuário - Cenários Positivos",
               "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/usuario.test.js",
               "file": "/tests/tests/usuario.test.js",
@@ -676,7 +790,7 @@
               "tests": [],
               "suites": [
                 {
-                  "uuid": "3a6b5b8b-671a-4a94-a135-e687461e0746",
+                  "uuid": "e0d16cac-c34e-4bca-8a8b-ae168d718be2",
                   "title": "Cadastro de Usuário(s)",
                   "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/usuario.test.js",
                   "file": "/tests/tests/usuario.test.js",
@@ -687,7 +801,7 @@
                       "title": "USR-000 - Validar retorno do token JWT/autorização",
                       "fullTitle": "Usuário - USU Usuário - Cenários Positivos Cadastro de Usuário(s) USR-000 - Validar retorno do token JWT/autorização",
                       "timedOut": false,
-                      "duration": 380,
+                      "duration": 470,
                       "state": "passed",
                       "speed": "slow",
                       "pass": true,
@@ -696,8 +810,8 @@
                       "context": null,
                       "code": "const response = await request(url)\n            .post('/login')\n            .set(\"Content-Type\", \"application/json\")\n            .set(\"accept\", \"application/json\")\n            .send({\n                  email: 'fulano@qa.com',\n                  password: 'teste'\n            })\n         expect(response.headers[\"content-type\"]).to.match(/json/);\n         expect(response.status).to.equal(200);\n         expect(response.body).to.have.property('authorization');\n         expect(response.body.message).to.equal('Login realizado com sucesso');\n         token = response.body.authorization;\n         console.log('O valor do token é: ' + token);",
                       "err": {},
-                      "uuid": "04a13477-0feb-49a0-8ebb-7a3b126b9067",
-                      "parentUUID": "3a6b5b8b-671a-4a94-a135-e687461e0746",
+                      "uuid": "512d3e0b-0d08-4358-a471-33e388496ded",
+                      "parentUUID": "e0d16cac-c34e-4bca-8a8b-ae168d718be2",
                       "isHook": false,
                       "skipped": false
                     },
@@ -714,8 +828,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "39cbffe0-3c5d-4779-9fe4-cd0e5728a82d",
-                      "parentUUID": "3a6b5b8b-671a-4a94-a135-e687461e0746",
+                      "uuid": "fbc1a6dc-3871-4b17-a8bd-8d1f56a9cbc3",
+                      "parentUUID": "e0d16cac-c34e-4bca-8a8b-ae168d718be2",
                       "isHook": false,
                       "skipped": false
                     },
@@ -732,8 +846,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "8e4f9e24-30ef-4ff9-a3f5-5b7b680ab2f3",
-                      "parentUUID": "3a6b5b8b-671a-4a94-a135-e687461e0746",
+                      "uuid": "83acccf6-a448-4324-8353-236a0ccc403a",
+                      "parentUUID": "e0d16cac-c34e-4bca-8a8b-ae168d718be2",
                       "isHook": false,
                       "skipped": false
                     },
@@ -750,8 +864,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "1aa69283-6a20-415f-89e7-62327b64a900",
-                      "parentUUID": "3a6b5b8b-671a-4a94-a135-e687461e0746",
+                      "uuid": "c784efe4-f76e-4dfe-9aa4-d1ff9a2fbe65",
+                      "parentUUID": "e0d16cac-c34e-4bca-8a8b-ae168d718be2",
                       "isHook": false,
                       "skipped": false
                     },
@@ -759,7 +873,7 @@
                       "title": "USR-004 - Validar geração do ID do usuario",
                       "fullTitle": "Usuário - USU Usuário - Cenários Positivos Cadastro de Usuário(s) USR-004 - Validar geração do ID do usuario",
                       "timedOut": false,
-                      "duration": 9625,
+                      "duration": 445,
                       "state": "passed",
                       "speed": "slow",
                       "pass": true,
@@ -768,8 +882,8 @@
                       "context": null,
                       "code": "const response = await request(url)\n    .post('/usuarios')\n    .set(\"Content-Type\", \"application/json\")\n    .set(\"accept\", \"application/json\")\n    .set(\"authorization\", token)\n    .send({\n             nome: 'Maria Delfina',\n             email: `Maria${Date.now()}y@qa.com.br`,\n             password: 'teste',\n             administrador: 'false'\n    })\n    id = response.body._id;\n    console.log('O valor do id é: ' + id);\n expect(response.status).to.equal(201);\n expect(response.body).to.have.property('_id');",
                       "err": {},
-                      "uuid": "13f6cce4-b1dd-4d5f-8961-df02290e87ae",
-                      "parentUUID": "3a6b5b8b-671a-4a94-a135-e687461e0746",
+                      "uuid": "a1718d3b-380d-470e-883a-6aa29185697f",
+                      "parentUUID": "e0d16cac-c34e-4bca-8a8b-ae168d718be2",
                       "isHook": false,
                       "skipped": false
                     },
@@ -786,32 +900,32 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "abfc4dd2-3c58-40a0-bfe7-4c53b87f9a97",
-                      "parentUUID": "3a6b5b8b-671a-4a94-a135-e687461e0746",
+                      "uuid": "bf67459d-8db1-4e3d-9958-626be432c909",
+                      "parentUUID": "e0d16cac-c34e-4bca-8a8b-ae168d718be2",
                       "isHook": false,
                       "skipped": false
                     }
                   ],
                   "suites": [],
                   "passes": [
-                    "04a13477-0feb-49a0-8ebb-7a3b126b9067",
-                    "13f6cce4-b1dd-4d5f-8961-df02290e87ae"
+                    "512d3e0b-0d08-4358-a471-33e388496ded",
+                    "a1718d3b-380d-470e-883a-6aa29185697f"
                   ],
                   "failures": [],
                   "pending": [
-                    "39cbffe0-3c5d-4779-9fe4-cd0e5728a82d",
-                    "8e4f9e24-30ef-4ff9-a3f5-5b7b680ab2f3",
-                    "1aa69283-6a20-415f-89e7-62327b64a900",
-                    "abfc4dd2-3c58-40a0-bfe7-4c53b87f9a97"
+                    "fbc1a6dc-3871-4b17-a8bd-8d1f56a9cbc3",
+                    "83acccf6-a448-4324-8353-236a0ccc403a",
+                    "c784efe4-f76e-4dfe-9aa4-d1ff9a2fbe65",
+                    "bf67459d-8db1-4e3d-9958-626be432c909"
                   ],
                   "skipped": [],
-                  "duration": 10005,
+                  "duration": 915,
                   "root": false,
                   "rootEmpty": false,
                   "_timeout": 20000
                 },
                 {
-                  "uuid": "22a0cba9-3012-4be5-8da7-99cbfd5fa1cb",
+                  "uuid": "186c7ab8-f777-412f-87b5-8b0e73fae377",
                   "title": "Consulta de Usuário(s)",
                   "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/usuario.test.js",
                   "file": "/tests/tests/usuario.test.js",
@@ -831,8 +945,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "0aac8d00-64de-4822-bfff-0e4d1b6e5adb",
-                      "parentUUID": "22a0cba9-3012-4be5-8da7-99cbfd5fa1cb",
+                      "uuid": "36e1f2ef-aa23-44f3-9fed-7bc14cc9f07c",
+                      "parentUUID": "186c7ab8-f777-412f-87b5-8b0e73fae377",
                       "isHook": false,
                       "skipped": false
                     },
@@ -840,7 +954,7 @@
                       "title": "USR-007 - Buscar usuário por ID válido",
                       "fullTitle": "Usuário - USU Usuário - Cenários Positivos Consulta de Usuário(s) USR-007 - Buscar usuário por ID válido",
                       "timedOut": false,
-                      "duration": 492,
+                      "duration": 405,
                       "state": "passed",
                       "speed": "slow",
                       "pass": true,
@@ -849,8 +963,8 @@
                       "context": null,
                       "code": "//   console.log('O valor do id é: ' + id);\n   const response = await request(url)\n       .get('/usuarios/'+id)\n       .set(\"Content-Type\", \"application/json\")\n       .set(\"accept\", \"application/json\")\n     \n    expect(response.status).to.equal(200);\n   \n    // Validação da estrutura\n    expect(response.headers[\"content-type\"]).to.match(/json/);\n    expect(response.body).to.have.property('nome');\n    expect(response.body).to.have.property('email');\n    expect(response.body).to.have.property('password');\n    expect(response.body).to.have.property('administrador');\n    expect(response.body).to.have.property('_id');\n    expect(response.body).to.have.property('_id').equal(id);\n    _iemail = response.body.email;\n    console.log(\"\"+_iemail);",
                       "err": {},
-                      "uuid": "7c5bfbc8-3bcb-4c28-a349-05f56a8a413f",
-                      "parentUUID": "22a0cba9-3012-4be5-8da7-99cbfd5fa1cb",
+                      "uuid": "f786a725-79d5-49c1-865c-501e1ee6baf8",
+                      "parentUUID": "186c7ab8-f777-412f-87b5-8b0e73fae377",
                       "isHook": false,
                       "skipped": false
                     },
@@ -867,8 +981,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "78c5f0a1-5f35-4787-bad3-bbb02d71e9ce",
-                      "parentUUID": "22a0cba9-3012-4be5-8da7-99cbfd5fa1cb",
+                      "uuid": "f005be58-3da2-41aa-9a26-23ac6aba8e0e",
+                      "parentUUID": "186c7ab8-f777-412f-87b5-8b0e73fae377",
                       "isHook": false,
                       "skipped": false
                     },
@@ -885,8 +999,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "66b0fce4-6a0e-482f-b978-2433eb30b07d",
-                      "parentUUID": "22a0cba9-3012-4be5-8da7-99cbfd5fa1cb",
+                      "uuid": "9a7ec552-55ba-4b00-90cd-39286e446543",
+                      "parentUUID": "186c7ab8-f777-412f-87b5-8b0e73fae377",
                       "isHook": false,
                       "skipped": false
                     },
@@ -903,31 +1017,31 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "f6a1646b-06f4-429a-9efc-5636e40acf6f",
-                      "parentUUID": "22a0cba9-3012-4be5-8da7-99cbfd5fa1cb",
+                      "uuid": "978209e8-fa8f-472d-80a5-d0380fa1d0b5",
+                      "parentUUID": "186c7ab8-f777-412f-87b5-8b0e73fae377",
                       "isHook": false,
                       "skipped": false
                     }
                   ],
                   "suites": [],
                   "passes": [
-                    "7c5bfbc8-3bcb-4c28-a349-05f56a8a413f"
+                    "f786a725-79d5-49c1-865c-501e1ee6baf8"
                   ],
                   "failures": [],
                   "pending": [
-                    "0aac8d00-64de-4822-bfff-0e4d1b6e5adb",
-                    "78c5f0a1-5f35-4787-bad3-bbb02d71e9ce",
-                    "66b0fce4-6a0e-482f-b978-2433eb30b07d",
-                    "f6a1646b-06f4-429a-9efc-5636e40acf6f"
+                    "36e1f2ef-aa23-44f3-9fed-7bc14cc9f07c",
+                    "f005be58-3da2-41aa-9a26-23ac6aba8e0e",
+                    "9a7ec552-55ba-4b00-90cd-39286e446543",
+                    "978209e8-fa8f-472d-80a5-d0380fa1d0b5"
                   ],
                   "skipped": [],
-                  "duration": 492,
+                  "duration": 405,
                   "root": false,
                   "rootEmpty": false,
                   "_timeout": 20000
                 },
                 {
-                  "uuid": "bc6ee684-b9e8-473e-8463-52b35791bceb",
+                  "uuid": "2ade56c6-73b3-4daa-8658-d913d5e10386",
                   "title": "Alteração de Usuário(s)",
                   "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/usuario.test.js",
                   "file": "/tests/tests/usuario.test.js",
@@ -947,8 +1061,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "5c09bfd3-a843-47e5-a187-2e98650dc547",
-                      "parentUUID": "bc6ee684-b9e8-473e-8463-52b35791bceb",
+                      "uuid": "b18f4284-5cc6-4779-9d07-65ec406b8d02",
+                      "parentUUID": "2ade56c6-73b3-4daa-8658-d913d5e10386",
                       "isHook": false,
                       "skipped": false
                     },
@@ -965,8 +1079,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "bb980890-842f-42cd-8676-f78e853358bb",
-                      "parentUUID": "bc6ee684-b9e8-473e-8463-52b35791bceb",
+                      "uuid": "18fc0403-72e0-4f66-b01a-dad46c17b47a",
+                      "parentUUID": "2ade56c6-73b3-4daa-8658-d913d5e10386",
                       "isHook": false,
                       "skipped": false
                     },
@@ -983,8 +1097,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "f7e6f58a-99e2-4f71-89d5-36b75aea77f3",
-                      "parentUUID": "bc6ee684-b9e8-473e-8463-52b35791bceb",
+                      "uuid": "8958fd5b-e953-40e3-907f-793d3de7b669",
+                      "parentUUID": "2ade56c6-73b3-4daa-8658-d913d5e10386",
                       "isHook": false,
                       "skipped": false
                     },
@@ -1001,8 +1115,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "368bfe00-c947-4374-810b-290c4cb3673d",
-                      "parentUUID": "bc6ee684-b9e8-473e-8463-52b35791bceb",
+                      "uuid": "0d312907-c168-428c-906c-4be7e51912e4",
+                      "parentUUID": "2ade56c6-73b3-4daa-8658-d913d5e10386",
                       "isHook": false,
                       "skipped": false
                     }
@@ -1011,10 +1125,10 @@
                   "passes": [],
                   "failures": [],
                   "pending": [
-                    "5c09bfd3-a843-47e5-a187-2e98650dc547",
-                    "bb980890-842f-42cd-8676-f78e853358bb",
-                    "f7e6f58a-99e2-4f71-89d5-36b75aea77f3",
-                    "368bfe00-c947-4374-810b-290c4cb3673d"
+                    "b18f4284-5cc6-4779-9d07-65ec406b8d02",
+                    "18fc0403-72e0-4f66-b01a-dad46c17b47a",
+                    "8958fd5b-e953-40e3-907f-793d3de7b669",
+                    "0d312907-c168-428c-906c-4be7e51912e4"
                   ],
                   "skipped": [],
                   "duration": 0,
@@ -1023,7 +1137,7 @@
                   "_timeout": 20000
                 },
                 {
-                  "uuid": "61cfabf5-8b06-42a6-8d4f-eb9c29642db4",
+                  "uuid": "112a77a9-1870-475d-bb39-7b3a9ace4bb1",
                   "title": "Exclusão de Usuário(s)",
                   "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/usuario.test.js",
                   "file": "/tests/tests/usuario.test.js",
@@ -1043,8 +1157,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "adfdb887-fc97-4ce5-8497-713eeb1cfed2",
-                      "parentUUID": "61cfabf5-8b06-42a6-8d4f-eb9c29642db4",
+                      "uuid": "d427fe2c-e689-4043-9154-29835127dd58",
+                      "parentUUID": "112a77a9-1870-475d-bb39-7b3a9ace4bb1",
                       "isHook": false,
                       "skipped": false
                     },
@@ -1061,8 +1175,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "07ac8013-ccfa-45d7-b8ff-53059f907720",
-                      "parentUUID": "61cfabf5-8b06-42a6-8d4f-eb9c29642db4",
+                      "uuid": "145e876e-b508-40ea-b722-c6b6e7986bad",
+                      "parentUUID": "112a77a9-1870-475d-bb39-7b3a9ace4bb1",
                       "isHook": false,
                       "skipped": false
                     },
@@ -1079,8 +1193,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "1665b95d-4faa-4bf7-9cf8-f3b3f865d06b",
-                      "parentUUID": "61cfabf5-8b06-42a6-8d4f-eb9c29642db4",
+                      "uuid": "d16156e9-5c23-43d3-9387-212665e9bc08",
+                      "parentUUID": "112a77a9-1870-475d-bb39-7b3a9ace4bb1",
                       "isHook": false,
                       "skipped": false
                     }
@@ -1089,9 +1203,9 @@
                   "passes": [],
                   "failures": [],
                   "pending": [
-                    "adfdb887-fc97-4ce5-8497-713eeb1cfed2",
-                    "07ac8013-ccfa-45d7-b8ff-53059f907720",
-                    "1665b95d-4faa-4bf7-9cf8-f3b3f865d06b"
+                    "d427fe2c-e689-4043-9154-29835127dd58",
+                    "145e876e-b508-40ea-b722-c6b6e7986bad",
+                    "d16156e9-5c23-43d3-9387-212665e9bc08"
                   ],
                   "skipped": [],
                   "duration": 0,
@@ -1110,7 +1224,7 @@
               "_timeout": 20000
             },
             {
-              "uuid": "8f29863d-5d13-4593-81f9-78fea4b15864",
+              "uuid": "0539ce99-22d4-48e5-adcc-85d2c15ad1ce",
               "title": "Usuário - Cenários Negativos",
               "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/usuario.test.js",
               "file": "/tests/tests/usuario.test.js",
@@ -1119,7 +1233,7 @@
               "tests": [],
               "suites": [
                 {
-                  "uuid": "d2d44d99-38d8-44fd-b585-b6ac8d1a3c84",
+                  "uuid": "3e12b0a9-c95d-41d7-a5cb-b01c690b4eb8",
                   "title": "Cadastro de Usuário(s)",
                   "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/usuario.test.js",
                   "file": "/tests/tests/usuario.test.js",
@@ -1139,8 +1253,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "a41f4e0e-254f-453c-9d93-f3c1b6707c00",
-                      "parentUUID": "d2d44d99-38d8-44fd-b585-b6ac8d1a3c84",
+                      "uuid": "0d2d17b1-64a6-4e63-b3f9-0ebed14a5a09",
+                      "parentUUID": "3e12b0a9-c95d-41d7-a5cb-b01c690b4eb8",
                       "isHook": false,
                       "skipped": false
                     },
@@ -1157,8 +1271,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "74b584a3-8e15-4691-b30d-3354111ec26f",
-                      "parentUUID": "d2d44d99-38d8-44fd-b585-b6ac8d1a3c84",
+                      "uuid": "a398d1b9-ad31-45e4-ac08-728f37153a61",
+                      "parentUUID": "3e12b0a9-c95d-41d7-a5cb-b01c690b4eb8",
                       "isHook": false,
                       "skipped": false
                     },
@@ -1175,8 +1289,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "abdc2fc5-ca50-4d7a-8c69-ca963fd0297d",
-                      "parentUUID": "d2d44d99-38d8-44fd-b585-b6ac8d1a3c84",
+                      "uuid": "b14c9f01-ebdd-4827-bbb4-90925c874136",
+                      "parentUUID": "3e12b0a9-c95d-41d7-a5cb-b01c690b4eb8",
                       "isHook": false,
                       "skipped": false
                     },
@@ -1193,8 +1307,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "5f72c6e2-98fb-4ba3-a45a-b09a8fb49927",
-                      "parentUUID": "d2d44d99-38d8-44fd-b585-b6ac8d1a3c84",
+                      "uuid": "8b8ff915-1e2b-4ed2-ab61-e21a4f431066",
+                      "parentUUID": "3e12b0a9-c95d-41d7-a5cb-b01c690b4eb8",
                       "isHook": false,
                       "skipped": false
                     },
@@ -1211,8 +1325,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "690719c0-d235-4283-92e8-28aba21828d4",
-                      "parentUUID": "d2d44d99-38d8-44fd-b585-b6ac8d1a3c84",
+                      "uuid": "7fa9ad78-ec25-48bc-aa73-63680a0aa1a0",
+                      "parentUUID": "3e12b0a9-c95d-41d7-a5cb-b01c690b4eb8",
                       "isHook": false,
                       "skipped": false
                     },
@@ -1229,8 +1343,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "e4339cc9-8aa6-4716-8fb4-cff5a8bf8ac6",
-                      "parentUUID": "d2d44d99-38d8-44fd-b585-b6ac8d1a3c84",
+                      "uuid": "1b04069b-dac7-45db-9943-87c1a05101c1",
+                      "parentUUID": "3e12b0a9-c95d-41d7-a5cb-b01c690b4eb8",
                       "isHook": false,
                       "skipped": false
                     },
@@ -1247,8 +1361,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "809edb38-9ed2-4bd7-8110-01ac7ed110a2",
-                      "parentUUID": "d2d44d99-38d8-44fd-b585-b6ac8d1a3c84",
+                      "uuid": "4cd4d196-f207-4261-830e-3ccecb9d8ad5",
+                      "parentUUID": "3e12b0a9-c95d-41d7-a5cb-b01c690b4eb8",
                       "isHook": false,
                       "skipped": false
                     },
@@ -1265,8 +1379,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "86d6b0b4-fd32-4397-86b6-c5620bba19b0",
-                      "parentUUID": "d2d44d99-38d8-44fd-b585-b6ac8d1a3c84",
+                      "uuid": "3d2ecc26-fab5-45a7-90de-9afb40659f9b",
+                      "parentUUID": "3e12b0a9-c95d-41d7-a5cb-b01c690b4eb8",
                       "isHook": false,
                       "skipped": false
                     }
@@ -1275,14 +1389,14 @@
                   "passes": [],
                   "failures": [],
                   "pending": [
-                    "a41f4e0e-254f-453c-9d93-f3c1b6707c00",
-                    "74b584a3-8e15-4691-b30d-3354111ec26f",
-                    "abdc2fc5-ca50-4d7a-8c69-ca963fd0297d",
-                    "5f72c6e2-98fb-4ba3-a45a-b09a8fb49927",
-                    "690719c0-d235-4283-92e8-28aba21828d4",
-                    "e4339cc9-8aa6-4716-8fb4-cff5a8bf8ac6",
-                    "809edb38-9ed2-4bd7-8110-01ac7ed110a2",
-                    "86d6b0b4-fd32-4397-86b6-c5620bba19b0"
+                    "0d2d17b1-64a6-4e63-b3f9-0ebed14a5a09",
+                    "a398d1b9-ad31-45e4-ac08-728f37153a61",
+                    "b14c9f01-ebdd-4827-bbb4-90925c874136",
+                    "8b8ff915-1e2b-4ed2-ab61-e21a4f431066",
+                    "7fa9ad78-ec25-48bc-aa73-63680a0aa1a0",
+                    "1b04069b-dac7-45db-9943-87c1a05101c1",
+                    "4cd4d196-f207-4261-830e-3ccecb9d8ad5",
+                    "3d2ecc26-fab5-45a7-90de-9afb40659f9b"
                   ],
                   "skipped": [],
                   "duration": 0,
@@ -1291,7 +1405,7 @@
                   "_timeout": 20000
                 },
                 {
-                  "uuid": "58f2798b-1647-481d-a26f-cd5e6e7e1556",
+                  "uuid": "1edb1e2a-13df-4552-bdb9-fc271277ba69",
                   "title": "Consulta de Usuário(s)",
                   "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/usuario.test.js",
                   "file": "/tests/tests/usuario.test.js",
@@ -1311,8 +1425,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "6dc121aa-b22c-4ddc-93ef-7fb796274b0b",
-                      "parentUUID": "58f2798b-1647-481d-a26f-cd5e6e7e1556",
+                      "uuid": "28ba0f81-0792-4956-825f-cc17755c7223",
+                      "parentUUID": "1edb1e2a-13df-4552-bdb9-fc271277ba69",
                       "isHook": false,
                       "skipped": false
                     },
@@ -1329,8 +1443,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "26c2587b-5bdd-4dbe-958a-9e7386dcd28a",
-                      "parentUUID": "58f2798b-1647-481d-a26f-cd5e6e7e1556",
+                      "uuid": "fad347e9-9e3c-4eb6-99cc-18fcce652178",
+                      "parentUUID": "1edb1e2a-13df-4552-bdb9-fc271277ba69",
                       "isHook": false,
                       "skipped": false
                     },
@@ -1347,8 +1461,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "7b622410-004a-409e-8c20-a92f0dbc1e90",
-                      "parentUUID": "58f2798b-1647-481d-a26f-cd5e6e7e1556",
+                      "uuid": "71f589f3-08a7-46a6-bf33-bd21c4734826",
+                      "parentUUID": "1edb1e2a-13df-4552-bdb9-fc271277ba69",
                       "isHook": false,
                       "skipped": false
                     }
@@ -1357,9 +1471,9 @@
                   "passes": [],
                   "failures": [],
                   "pending": [
-                    "6dc121aa-b22c-4ddc-93ef-7fb796274b0b",
-                    "26c2587b-5bdd-4dbe-958a-9e7386dcd28a",
-                    "7b622410-004a-409e-8c20-a92f0dbc1e90"
+                    "28ba0f81-0792-4956-825f-cc17755c7223",
+                    "fad347e9-9e3c-4eb6-99cc-18fcce652178",
+                    "71f589f3-08a7-46a6-bf33-bd21c4734826"
                   ],
                   "skipped": [],
                   "duration": 0,
@@ -1368,7 +1482,7 @@
                   "_timeout": 20000
                 },
                 {
-                  "uuid": "488207c2-3240-43cc-8b63-6502536e9426",
+                  "uuid": "e7c3410f-4a9d-49fa-81de-2da75969b272",
                   "title": "Alteração de Usuário(s)",
                   "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/usuario.test.js",
                   "file": "/tests/tests/usuario.test.js",
@@ -1379,7 +1493,7 @@
                       "title": "USR-027 - Alterar usuario inexistente",
                       "fullTitle": "Usuário - USU Usuário - Cenários Negativos Alteração de Usuário(s) USR-027 - Alterar usuario inexistente",
                       "timedOut": false,
-                      "duration": 9726,
+                      "duration": 410,
                       "state": "passed",
                       "speed": "slow",
                       "pass": true,
@@ -1388,8 +1502,8 @@
                       "context": null,
                       "code": "const response = await request(url)\n    //.put('/usuarios/${id}+1')\n    .put(`/usuarios/${id}`+1)\n    .set(\"Content-Type\", \"application/json\")\n    .set(\"accept\", \"application/json\")\n    .send({\n             nome: 'Marta Josefina',\n             email: `marta${Date.now()}@qa.com.br`,\n             password: 'teste',\n             administrador: 'false'\n    })\n expect(response.status).to.equal(201);\n\n // Validação da estrutura\n expect(response.headers[\"content-type\"]).to.match(/json/);\n expect(response.body).to.have.property('message').equal('Cadastro realizado com sucesso');",
                       "err": {},
-                      "uuid": "78108a7b-d53a-4645-824a-222168631eb2",
-                      "parentUUID": "488207c2-3240-43cc-8b63-6502536e9426",
+                      "uuid": "1a1bcf55-2222-463a-ad72-e93f351c8851",
+                      "parentUUID": "e7c3410f-4a9d-49fa-81de-2da75969b272",
                       "isHook": false,
                       "skipped": false
                     },
@@ -1406,8 +1520,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "0edb81ac-d2b4-47e1-a9af-2ac84816c6bb",
-                      "parentUUID": "488207c2-3240-43cc-8b63-6502536e9426",
+                      "uuid": "ec935c67-c485-4341-8bbe-d51107aae7cd",
+                      "parentUUID": "e7c3410f-4a9d-49fa-81de-2da75969b272",
                       "isHook": false,
                       "skipped": false
                     },
@@ -1424,8 +1538,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "70232369-23de-4316-a4c6-6a751a8fe167",
-                      "parentUUID": "488207c2-3240-43cc-8b63-6502536e9426",
+                      "uuid": "2e763399-d870-4256-984b-b78857656ff1",
+                      "parentUUID": "e7c3410f-4a9d-49fa-81de-2da75969b272",
                       "isHook": false,
                       "skipped": false
                     },
@@ -1442,30 +1556,30 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "43a944ee-ea92-4e36-bb1a-7a5ec1d0a96c",
-                      "parentUUID": "488207c2-3240-43cc-8b63-6502536e9426",
+                      "uuid": "66358bae-00b5-47ee-bc47-9ce610727911",
+                      "parentUUID": "e7c3410f-4a9d-49fa-81de-2da75969b272",
                       "isHook": false,
                       "skipped": false
                     }
                   ],
                   "suites": [],
                   "passes": [
-                    "78108a7b-d53a-4645-824a-222168631eb2"
+                    "1a1bcf55-2222-463a-ad72-e93f351c8851"
                   ],
                   "failures": [],
                   "pending": [
-                    "0edb81ac-d2b4-47e1-a9af-2ac84816c6bb",
-                    "70232369-23de-4316-a4c6-6a751a8fe167",
-                    "43a944ee-ea92-4e36-bb1a-7a5ec1d0a96c"
+                    "ec935c67-c485-4341-8bbe-d51107aae7cd",
+                    "2e763399-d870-4256-984b-b78857656ff1",
+                    "66358bae-00b5-47ee-bc47-9ce610727911"
                   ],
                   "skipped": [],
-                  "duration": 9726,
+                  "duration": 410,
                   "root": false,
                   "rootEmpty": false,
                   "_timeout": 20000
                 },
                 {
-                  "uuid": "05d8d49c-d85e-4ef0-8dfc-aacf6aaa68ff",
+                  "uuid": "a091b2c3-e6b2-4211-98e4-2aa743b666ab",
                   "title": "Exclusão de Usuário(s)",
                   "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/usuario.test.js",
                   "file": "/tests/tests/usuario.test.js",
@@ -1485,8 +1599,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "e4e8ea46-b80b-4a1c-942c-8070fa755f4d",
-                      "parentUUID": "05d8d49c-d85e-4ef0-8dfc-aacf6aaa68ff",
+                      "uuid": "252e742d-721b-4350-8896-da1ce00ca386",
+                      "parentUUID": "a091b2c3-e6b2-4211-98e4-2aa743b666ab",
                       "isHook": false,
                       "skipped": false
                     },
@@ -1503,8 +1617,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "56ee8e30-60cb-42bb-8337-46445c7f7e8f",
-                      "parentUUID": "05d8d49c-d85e-4ef0-8dfc-aacf6aaa68ff",
+                      "uuid": "2c2cae36-2589-446b-8f16-293246cf163f",
+                      "parentUUID": "a091b2c3-e6b2-4211-98e4-2aa743b666ab",
                       "isHook": false,
                       "skipped": false
                     },
@@ -1521,8 +1635,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "c81e7562-72a2-4d65-8914-db8106b4be33",
-                      "parentUUID": "05d8d49c-d85e-4ef0-8dfc-aacf6aaa68ff",
+                      "uuid": "75b07d2e-e4ae-434d-a63c-0d1b52024a48",
+                      "parentUUID": "a091b2c3-e6b2-4211-98e4-2aa743b666ab",
                       "isHook": false,
                       "skipped": false
                     }
@@ -1531,9 +1645,9 @@
                   "passes": [],
                   "failures": [],
                   "pending": [
-                    "e4e8ea46-b80b-4a1c-942c-8070fa755f4d",
-                    "56ee8e30-60cb-42bb-8337-46445c7f7e8f",
-                    "c81e7562-72a2-4d65-8914-db8106b4be33"
+                    "252e742d-721b-4350-8896-da1ce00ca386",
+                    "2c2cae36-2589-446b-8f16-293246cf163f",
+                    "75b07d2e-e4ae-434d-a63c-0d1b52024a48"
                   ],
                   "skipped": [],
                   "duration": 0,
@@ -1552,7 +1666,7 @@
               "_timeout": 20000
             },
             {
-              "uuid": "179ddf5e-7729-489c-9866-6b3fa70028b3",
+              "uuid": "4a2c254a-7a61-4d6d-a8dc-54cba8537344",
               "title": "Usuário - Cenários Alternativos",
               "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/usuario.test.js",
               "file": "/tests/tests/usuario.test.js",
@@ -1563,29 +1677,106 @@
                   "title": "USR-034 - PUT em ID inexistente criando novo recurso (caso suportado)",
                   "fullTitle": "Usuário - USU Usuário - Cenários Alternativos USR-034 - PUT em ID inexistente criando novo recurso (caso suportado)",
                   "timedOut": false,
-                  "duration": 817,
+                  "duration": 0,
+                  "state": "pending",
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": true,
+                  "context": null,
+                  "code": "",
+                  "err": {},
+                  "uuid": "bc4a6a16-ab0d-4f8c-8893-7736db2c1b90",
+                  "parentUUID": "4a2c254a-7a61-4d6d-a8dc-54cba8537344",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "USR-035 -  Cadastro de usuarios com caracteres especiais no nome",
+                  "fullTitle": "Usuário - USU Usuário - Cenários Alternativos USR-035 -  Cadastro de usuarios com caracteres especiais no nome",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": "pending",
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": true,
+                  "context": null,
+                  "code": "",
+                  "err": {},
+                  "uuid": "b5eaa7e3-c580-41c1-9c72-e21ca013cae7",
+                  "parentUUID": "4a2c254a-7a61-4d6d-a8dc-54cba8537344",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "USR-036 - Cadastro de usuarios com nomes extensos",
+                  "fullTitle": "Usuário - USU Usuário - Cenários Alternativos USR-036 - Cadastro de usuarios com nomes extensos",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": "pending",
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": true,
+                  "context": null,
+                  "code": "",
+                  "err": {},
+                  "uuid": "b6643134-c18f-48b0-8929-7fc7fd0ecb6f",
+                  "parentUUID": "4a2c254a-7a61-4d6d-a8dc-54cba8537344",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "USR-037.1 - Cadastro de usuarios com administrador=false ",
+                  "fullTitle": "Usuário - USU Usuário - Cenários Alternativos USR-037.1 - Cadastro de usuarios com administrador=false ",
+                  "timedOut": false,
+                  "duration": 609,
                   "state": "passed",
                   "speed": "slow",
                   "pass": true,
                   "fail": false,
                   "pending": false,
                   "context": null,
-                  "code": "const resposta = await request(url)\n    .post('/usuarios')\n    .set(\"Content-Type\", \"application/json\")\n    .set(\"accept\", \"application/json\")\n    .set(\"authorization\", token+1)\n    .send({\n             nome: 'Marta Josefina',\n             email: `marta${Date.now()}@qa.com.br`,\n             password: 'teste',\n             administrador: 'false'\n    })\nid = resposta.body._id;\nconst response = await request(url)\n    .put(`/usuarios/${id}`+1)\n    .set(\"Content-Type\", \"application/json\")\n    .set(\"accept\", \"application/json\")\n    .send({\n             nome: 'Marta Josefina',\n             email: `marta${Date.now()}@qa.com.br`,\n             password: 'teste',\n             administrador: 'false'\n    })\n expect(response.status).to.equal(201);\n\n // Validação da estrutura\n expect(response.headers[\"content-type\"]).to.match(/json/);\n expect(response.body).to.have.property('message').equal('Cadastro realizado com sucesso');",
+                  "code": "const response = await request(url)\n    .post('/usuarios')\n    .set(\"Content-Type\", \"application/json\")\n    .set(\"accept\", \"application/json\")\n    .send({\n             nome: 'Maria EduardaMaria ',\n             email: `marta${Date.now()}@qa.com.br`,\n             password: 'teste',\n             administrador: 'false'\n    })\n expect(response.status).to.equal(201);\n\n // Validação da estrutura\n expect(response.headers[\"content-type\"]).to.match(/json/);\n expect(response.body).to.have.property('message').equal('Cadastro realizado com sucesso');",
                   "err": {},
-                  "uuid": "adff71d5-a707-4d1c-b1d1-e015b2a5fbf5",
-                  "parentUUID": "179ddf5e-7729-489c-9866-6b3fa70028b3",
+                  "uuid": "35f7717e-7977-47d7-9077-e6b731136b0d",
+                  "parentUUID": "4a2c254a-7a61-4d6d-a8dc-54cba8537344",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "USR-037.2 - Cadastro de usuarios com administrador=true ",
+                  "fullTitle": "Usuário - USU Usuário - Cenários Alternativos USR-037.2 - Cadastro de usuarios com administrador=true ",
+                  "timedOut": false,
+                  "duration": 406,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const response = await request(url)\n    .post('/usuarios')\n    .set(\"Content-Type\", \"application/json\")\n    .set(\"accept\", \"application/json\")\n    .send({\n             nome: 'Maria EduardaMaria ',\n             email: `marta${Date.now()}@qa.com.br`,\n             password: 'teste',\n             administrador: 'true'\n    })\n expect(response.status).to.equal(201);\n\n // Validação da estrutura\n expect(response.headers[\"content-type\"]).to.match(/json/);\n expect(response.body).to.have.property('message').equal('Cadastro realizado com sucesso');",
+                  "err": {},
+                  "uuid": "02a3b30d-bf13-49e0-81b7-1c1414b78804",
+                  "parentUUID": "4a2c254a-7a61-4d6d-a8dc-54cba8537344",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "adff71d5-a707-4d1c-b1d1-e015b2a5fbf5"
+                "35f7717e-7977-47d7-9077-e6b731136b0d",
+                "02a3b30d-bf13-49e0-81b7-1c1414b78804"
               ],
               "failures": [],
-              "pending": [],
+              "pending": [
+                "bc4a6a16-ab0d-4f8c-8893-7736db2c1b90",
+                "b5eaa7e3-c580-41c1-9c72-e21ca013cae7",
+                "b6643134-c18f-48b0-8929-7fc7fd0ecb6f"
+              ],
               "skipped": [],
-              "duration": 817,
+              "duration": 1015,
               "root": false,
               "rootEmpty": false,
               "_timeout": 20000
@@ -1601,46 +1792,7 @@
           "_timeout": 20000
         },
         {
-          "uuid": "1c639c1e-7150-4772-868c-7e6eb7dea227",
-          "title": "Usuário - Cenários Alternativos",
-          "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/usuario.test.js",
-          "file": "/tests/tests/usuario.test.js",
-          "beforeHooks": [],
-          "afterHooks": [],
-          "tests": [
-            {
-              "title": "USR-000 - Em andamento",
-              "fullTitle": "Usuário - Cenários Alternativos USR-000 - Em andamento",
-              "timedOut": false,
-              "duration": 0,
-              "state": "pending",
-              "speed": null,
-              "pass": false,
-              "fail": false,
-              "pending": true,
-              "context": null,
-              "code": "",
-              "err": {},
-              "uuid": "c742c238-094c-42f7-9f9e-83770879f12f",
-              "parentUUID": "1c639c1e-7150-4772-868c-7e6eb7dea227",
-              "isHook": false,
-              "skipped": false
-            }
-          ],
-          "suites": [],
-          "passes": [],
-          "failures": [],
-          "pending": [
-            "c742c238-094c-42f7-9f9e-83770879f12f"
-          ],
-          "skipped": [],
-          "duration": 0,
-          "root": false,
-          "rootEmpty": false,
-          "_timeout": 20000
-        },
-        {
-          "uuid": "caaab5d3-5977-4448-9cc6-018647a304c4",
+          "uuid": "9646ff2e-7597-49ba-9d1a-69c007a6c20e",
           "title": "Usuário - Cenários Exceção",
           "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/usuario.test.js",
           "file": "/tests/tests/usuario.test.js",
@@ -1648,30 +1800,68 @@
           "afterHooks": [],
           "tests": [
             {
-              "title": "USR-000 - Em andamento",
-              "fullTitle": "Usuário - Cenários Exceção USR-000 - Em andamento",
+              "title": "USR-038 - Banco indisponível durante cadastro",
+              "fullTitle": "Usuário - Cenários Exceção USR-038 - Banco indisponível durante cadastro",
               "timedOut": false,
               "duration": 0,
-              "state": "pending",
-              "speed": null,
-              "pass": false,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
               "fail": false,
-              "pending": true,
+              "pending": false,
               "context": null,
-              "code": "",
+              "code": "console.log(\"Não automatizável na camada de API pública\");\nconsole.log(\"Necessário acesso ao backend ou ambiente controlado.\")",
               "err": {},
-              "uuid": "1a17ac6f-6131-4340-9499-b3ec0c39b5fd",
-              "parentUUID": "caaab5d3-5977-4448-9cc6-018647a304c4",
+              "uuid": "e28f113d-6953-4302-832a-164632371ebc",
+              "parentUUID": "9646ff2e-7597-49ba-9d1a-69c007a6c20e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "USR-039 - Falha na gravação dos dados",
+              "fullTitle": "Usuário - Cenários Exceção USR-039 - Falha na gravação dos dados",
+              "timedOut": false,
+              "duration": 0,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "console.log(\"Não automatizável na camada de API pública\");\nconsole.log(\"Necessário acesso ao backend ou ambiente controlado.\")",
+              "err": {},
+              "uuid": "3a86ab29-68e2-41f2-bdb8-90015b06e0a3",
+              "parentUUID": "9646ff2e-7597-49ba-9d1a-69c007a6c20e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "USR-040 - Erro interno ao consultar usuário",
+              "fullTitle": "Usuário - Cenários Exceção USR-040 - Erro interno ao consultar usuário",
+              "timedOut": false,
+              "duration": 0,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "console.log(\"Não automatizável na camada de API pública\");\nconsole.log(\"Necessário acesso ao backend ou ambiente controlado.\")",
+              "err": {},
+              "uuid": "fddec036-e95c-4631-9fd3-d96f9d499369",
+              "parentUUID": "9646ff2e-7597-49ba-9d1a-69c007a6c20e",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
-          "passes": [],
-          "failures": [],
-          "pending": [
-            "1a17ac6f-6131-4340-9499-b3ec0c39b5fd"
+          "passes": [
+            "e28f113d-6953-4302-832a-164632371ebc",
+            "3a86ab29-68e2-41f2-bdb8-90015b06e0a3",
+            "fddec036-e95c-4631-9fd3-d96f9d499369"
           ],
+          "failures": [],
+          "pending": [],
           "skipped": [],
           "duration": 0,
           "root": false,
