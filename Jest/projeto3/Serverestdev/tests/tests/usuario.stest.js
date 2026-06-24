@@ -898,7 +898,7 @@ describe ('Usuário - Cenários Alternativos', () => {
          expect(response.body).to.have.property('message').equal('Cadastro realizado com sucesso');
         });
     });
-});
+
 
 describe ('Usuário - Cenários Exceção', () => {
         it('USR-038 - Banco indisponível durante cadastro', async function() { 
@@ -914,37 +914,4 @@ describe ('Usuário - Cenários Exceção', () => {
         console.log("Necessário acesso ao backend ou ambiente controlado.")
      });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
- it.skip('USR-012 - Alterar somente o perfil de administrador', async function() { 
-        const response = await request(url)
-            .put(`/usuarios/${id}`)
-            .set("Content-Type", "application/json")
-            .set("accept", "application/json")
-            .send({
-                     nome: 'Maria Delfina',
-                     email: `Maria${Date.now()}y@qa.com.br`,
-                     password: 'teste',
-                     administrador: 'false'
-            })
-
-        console.log(id);
-         expect(response.status).to.equal(200);
-        
-         // Validação da estrutura
-         expect(response.headers["content-type"]).to.match(/json/);
-         expect(response.body).to.have.property('message').equal('Registro alterado com sucesso');
-*/
+});
