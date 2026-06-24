@@ -1,16 +1,16 @@
 {
   "stats": {
     "suites": 6,
-    "tests": 12,
-    "passes": 5,
+    "tests": 15,
+    "passes": 8,
     "pending": 7,
     "failures": 0,
-    "start": "2026-06-24T14:04:46.716Z",
-    "end": "2026-06-24T14:04:48.803Z",
-    "duration": 2087,
-    "testsRegistered": 12,
+    "start": "2026-06-24T15:01:22.460Z",
+    "end": "2026-06-24T15:01:26.155Z",
+    "duration": 3695,
+    "testsRegistered": 15,
     "passPercent": 100,
-    "pendingPercent": 58.333333333333336,
+    "pendingPercent": 46.666666666666664,
     "other": 0,
     "hasOther": false,
     "skipped": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "61f0be2b-30eb-4cf7-9fe5-49055ee0e12e",
+      "uuid": "72d4f9ec-4650-48fa-843f-59340abdcda8",
       "title": "",
       "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/produto.test.js",
       "file": "/tests/tests/produto.test.js",
@@ -27,7 +27,7 @@
           "title": "\"before all\" hook in \"{root}\"",
           "fullTitle": "\"before all\" hook in \"{root}\"",
           "timedOut": false,
-          "duration": 1,
+          "duration": 0,
           "state": null,
           "speed": null,
           "pass": false,
@@ -36,8 +36,8 @@
           "context": null,
           "code": "this.timeout(40000);",
           "err": {},
-          "uuid": "e07c54d6-367a-4fa1-bce7-ef33b36e071b",
-          "parentUUID": "61f0be2b-30eb-4cf7-9fe5-49055ee0e12e",
+          "uuid": "a0937911-0a88-449a-830c-a6d35731c06b",
+          "parentUUID": "72d4f9ec-4650-48fa-843f-59340abdcda8",
           "isHook": true,
           "skipped": false
         }
@@ -46,7 +46,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "0f3dd41c-e9f6-4046-aae6-5640f8d3161f",
+          "uuid": "8cca7995-712a-4003-b07a-022715eaa786",
           "title": "Produto - PRD",
           "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/produto.test.js",
           "file": "/tests/tests/produto.test.js",
@@ -55,7 +55,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "4937ed9c-4065-43d4-920e-4396fc47ef52",
+              "uuid": "bf82e509-eee4-459e-a485-d76dd0d2097c",
               "title": "Produto - Cenários Positivos",
               "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/produto.test.js",
               "file": "/tests/tests/produto.test.js",
@@ -64,7 +64,7 @@
               "tests": [],
               "suites": [
                 {
-                  "uuid": "39240779-6a42-4a58-bfe9-2e44a4f8198b",
+                  "uuid": "4706f8a8-45c8-422f-a19f-858d8ac83c41",
                   "title": "Cadastro de Produto(s)",
                   "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/produto.test.js",
                   "file": "/tests/tests/produto.test.js",
@@ -75,7 +75,7 @@
                       "title": "USR-000 - Validar retorno do token JWT/autorização",
                       "fullTitle": "Produto - PRD Produto - Cenários Positivos Cadastro de Produto(s) USR-000 - Validar retorno do token JWT/autorização",
                       "timedOut": false,
-                      "duration": 548,
+                      "duration": 425,
                       "state": "passed",
                       "speed": "slow",
                       "pass": true,
@@ -84,8 +84,8 @@
                       "context": null,
                       "code": "const response = await request(url)\n    .post('/login')\n    .set(\"Content-Type\", \"application/json\")\n    .set(\"accept\", \"application/json\")\n    .send({\n          email: 'fulano@qa.com',\n          password: 'teste'\n    })\n expect(response.headers[\"content-type\"]).to.match(/json/);\n expect(response.status).to.equal(200);\n expect(response.body).to.have.property('authorization');\n expect(response.body.message).to.equal('Login realizado com sucesso');\n token = response.body.authorization;\n console.log('O valor do token é: ' + token);",
                       "err": {},
-                      "uuid": "1474b237-f940-4052-becb-59b2589467aa",
-                      "parentUUID": "39240779-6a42-4a58-bfe9-2e44a4f8198b",
+                      "uuid": "984a7337-1ad3-490e-aa3b-9d2e1dc1cd1d",
+                      "parentUUID": "4706f8a8-45c8-422f-a19f-858d8ac83c41",
                       "isHook": false,
                       "skipped": false
                     },
@@ -93,7 +93,7 @@
                       "title": "USR-000 - Validar geração do ID do usuario",
                       "fullTitle": "Produto - PRD Produto - Cenários Positivos Cadastro de Produto(s) USR-000 - Validar geração do ID do usuario",
                       "timedOut": false,
-                      "duration": 381,
+                      "duration": 380,
                       "state": "passed",
                       "speed": "slow",
                       "pass": true,
@@ -102,8 +102,8 @@
                       "context": null,
                       "code": "const response = await request(url)\n    .post('/usuarios')\n    .set(\"Content-Type\", \"application/json\")\n    .set(\"accept\", \"application/json\")\n    .set(\"authorization\", token)\n    .send({\n             nome: 'Maria Delfina',\n             email: `Maria${Date.now()}y@qa.com.br`,\n             password: 'teste',\n             administrador: 'false'\n    })\n    id_usuario = response.body._id;\n    console.log('O valor do id é: ' + id_usuario);\n expect(response.status).to.equal(201);\n expect(response.body).to.have.property('_id');",
                       "err": {},
-                      "uuid": "2559dd09-468c-412f-9c4d-a6d8611020e7",
-                      "parentUUID": "39240779-6a42-4a58-bfe9-2e44a4f8198b",
+                      "uuid": "962961b1-4fd4-4b99-81da-722704d9c3ab",
+                      "parentUUID": "4706f8a8-45c8-422f-a19f-858d8ac83c41",
                       "isHook": false,
                       "skipped": false
                     },
@@ -120,8 +120,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "31bb75ab-2c31-4562-8bf8-882e9e1c19d6",
-                      "parentUUID": "39240779-6a42-4a58-bfe9-2e44a4f8198b",
+                      "uuid": "cacbfb75-735f-42ce-b29d-a81f5c520ff3",
+                      "parentUUID": "4706f8a8-45c8-422f-a19f-858d8ac83c41",
                       "isHook": false,
                       "skipped": false
                     },
@@ -138,8 +138,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "20ec279f-e5a7-4705-a538-d8226652b7b5",
-                      "parentUUID": "39240779-6a42-4a58-bfe9-2e44a4f8198b",
+                      "uuid": "f4950a4c-3968-4c06-a929-01fd3d6fa17a",
+                      "parentUUID": "4706f8a8-45c8-422f-a19f-858d8ac83c41",
                       "isHook": false,
                       "skipped": false
                     },
@@ -156,8 +156,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "802eb8d7-f2c5-46c9-a86f-d1daa04c48da",
-                      "parentUUID": "39240779-6a42-4a58-bfe9-2e44a4f8198b",
+                      "uuid": "b08fcb39-f162-4a50-b645-49aaeb598f90",
+                      "parentUUID": "4706f8a8-45c8-422f-a19f-858d8ac83c41",
                       "isHook": false,
                       "skipped": false
                     },
@@ -165,7 +165,7 @@
                       "title": "PRD-004 - Validar geração do ID do produto",
                       "fullTitle": "Produto - PRD Produto - Cenários Positivos Cadastro de Produto(s) PRD-004 - Validar geração do ID do produto",
                       "timedOut": false,
-                      "duration": 404,
+                      "duration": 515,
                       "state": "passed",
                       "speed": "slow",
                       "pass": true,
@@ -174,32 +174,32 @@
                       "context": null,
                       "code": "const response = await request(url)\n    .post('/produtos')\n    .set(\"Content-Type\", \"application/json\")\n    .set(\"accept\", \"application/json\")\n    .set(\"authorization\", token)\n    .send({\n            nome: `Logitech MX Vertical_Modelo_X${Date.now()}Y`,\n            preco: 470,\n            descricao: 'Mouse',\n            quantidade: 381\n    })\n    id_produto = response.body._id;\n    console.log('O valor do id é: ' + id_produto);\n    expect(response.status).to.equal(201);\n    expect(response.body).to.have.property('_id');\n    expect(response.body.message).to.equal('Cadastro realizado com sucesso');",
                       "err": {},
-                      "uuid": "757eccf0-2278-4913-9e3c-817d63dd398c",
-                      "parentUUID": "39240779-6a42-4a58-bfe9-2e44a4f8198b",
+                      "uuid": "1295099f-7a03-4967-9cde-58e73d8585f3",
+                      "parentUUID": "4706f8a8-45c8-422f-a19f-858d8ac83c41",
                       "isHook": false,
                       "skipped": false
                     }
                   ],
                   "suites": [],
                   "passes": [
-                    "1474b237-f940-4052-becb-59b2589467aa",
-                    "2559dd09-468c-412f-9c4d-a6d8611020e7",
-                    "757eccf0-2278-4913-9e3c-817d63dd398c"
+                    "984a7337-1ad3-490e-aa3b-9d2e1dc1cd1d",
+                    "962961b1-4fd4-4b99-81da-722704d9c3ab",
+                    "1295099f-7a03-4967-9cde-58e73d8585f3"
                   ],
                   "failures": [],
                   "pending": [
-                    "31bb75ab-2c31-4562-8bf8-882e9e1c19d6",
-                    "20ec279f-e5a7-4705-a538-d8226652b7b5",
-                    "802eb8d7-f2c5-46c9-a86f-d1daa04c48da"
+                    "cacbfb75-735f-42ce-b29d-a81f5c520ff3",
+                    "f4950a4c-3968-4c06-a929-01fd3d6fa17a",
+                    "b08fcb39-f162-4a50-b645-49aaeb598f90"
                   ],
                   "skipped": [],
-                  "duration": 1333,
+                  "duration": 1320,
                   "root": false,
                   "rootEmpty": false,
-                  "_timeout": 20000
+                  "_timeout": 40000
                 },
                 {
-                  "uuid": "9768f8a3-1296-4fc3-b7d0-5cfbe2fc0ced",
+                  "uuid": "c3dc1dab-4fb2-4a01-bc26-cc4f83cec5ed",
                   "title": "Consulta de Produto(s)",
                   "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/produto.test.js",
                   "file": "/tests/tests/produto.test.js",
@@ -219,8 +219,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "be981239-e3b1-44bb-aeb4-c13fd24fd210",
-                      "parentUUID": "9768f8a3-1296-4fc3-b7d0-5cfbe2fc0ced",
+                      "uuid": "eb277092-a599-4874-82f1-57762144b2f8",
+                      "parentUUID": "c3dc1dab-4fb2-4a01-bc26-cc4f83cec5ed",
                       "isHook": false,
                       "skipped": false
                     },
@@ -237,8 +237,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "ab30859f-db7e-46a9-9bcb-8303ceb98efc",
-                      "parentUUID": "9768f8a3-1296-4fc3-b7d0-5cfbe2fc0ced",
+                      "uuid": "ac554c53-3c3d-4eaa-8b32-ce8af2249a5f",
+                      "parentUUID": "c3dc1dab-4fb2-4a01-bc26-cc4f83cec5ed",
                       "isHook": false,
                       "skipped": false
                     },
@@ -255,8 +255,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "2cae9056-1752-4398-85fa-81e3450145d9",
-                      "parentUUID": "9768f8a3-1296-4fc3-b7d0-5cfbe2fc0ced",
+                      "uuid": "53738d9d-bd77-4335-9641-903acaaa2bae",
+                      "parentUUID": "c3dc1dab-4fb2-4a01-bc26-cc4f83cec5ed",
                       "isHook": false,
                       "skipped": false
                     },
@@ -273,8 +273,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "fc01b0a4-f558-44bc-b535-8dc8b67486ee",
-                      "parentUUID": "9768f8a3-1296-4fc3-b7d0-5cfbe2fc0ced",
+                      "uuid": "efabc626-61b9-47b5-aa9a-b0075c80f318",
+                      "parentUUID": "c3dc1dab-4fb2-4a01-bc26-cc4f83cec5ed",
                       "isHook": false,
                       "skipped": false
                     }
@@ -283,19 +283,19 @@
                   "passes": [],
                   "failures": [],
                   "pending": [
-                    "be981239-e3b1-44bb-aeb4-c13fd24fd210",
-                    "ab30859f-db7e-46a9-9bcb-8303ceb98efc",
-                    "2cae9056-1752-4398-85fa-81e3450145d9",
-                    "fc01b0a4-f558-44bc-b535-8dc8b67486ee"
+                    "eb277092-a599-4874-82f1-57762144b2f8",
+                    "ac554c53-3c3d-4eaa-8b32-ce8af2249a5f",
+                    "53738d9d-bd77-4335-9641-903acaaa2bae",
+                    "efabc626-61b9-47b5-aa9a-b0075c80f318"
                   ],
                   "skipped": [],
                   "duration": 0,
                   "root": false,
                   "rootEmpty": false,
-                  "_timeout": 20000
+                  "_timeout": 40000
                 },
                 {
-                  "uuid": "21e136d7-7453-403d-9164-e1f8fa82a9e5",
+                  "uuid": "32bbb6e3-d7c3-4171-8914-68e8527d2428",
                   "title": "Alteração de Produto(s)",
                   "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/produto.test.js",
                   "file": "/tests/tests/produto.test.js",
@@ -306,32 +306,89 @@
                       "title": "PRD-009 - Alterar Nome do Produto",
                       "fullTitle": "Produto - PRD Produto - Cenários Positivos Alteração de Produto(s) PRD-009 - Alterar Nome do Produto",
                       "timedOut": false,
-                      "duration": 384,
+                      "duration": 481,
                       "state": "passed",
                       "speed": "slow",
                       "pass": true,
                       "fail": false,
                       "pending": false,
                       "context": null,
-                      "code": "const resposta = await request(url)\n   .put(`/produtos/${id_produto}`)\n   .set(\"Content-Type\", \"application/json\")\n   .set(\"Accept\", \"application/json\")\n   .set(\"authorization\", token)\n   .send({\n           nome: `Logitech MX Vertical_Modelo_X${Date.now()}Y`,\n           preco: 57000000,\n           descricao: 'Mouse',\n           quantidade: 170\n   }) \nexpect(resposta.headers[\"content-type\"]).to.match(/json/);\nexpect(resposta.status).to.equal(200);\nexpect(resposta.body.message).to.equal('Registro alterado com sucesso');",
+                      "code": "const resposta = await request(url)\n   .put(`/produtos/${id_produto}`)\n   .set(\"Content-Type\", \"application/json\")\n   .set(\"Accept\", \"application/json\")\n   .set(\"authorization\", token)\n   .send({\n           nome: `Logitech MX Vertical_Modelo_X${Date.now()}Y`\n   }) \nexpect(resposta.headers[\"content-type\"]).to.match(/json/);\nexpect(resposta.status).to.equal(400);\nexpect(resposta.body.preco).to.equal('preco é obrigatório');\nexpect(resposta.body.descricao).to.equal('descricao é obrigatório');\nexpect(resposta.body.quantidade).to.equal('quantidade é obrigatório');",
                       "err": {},
-                      "uuid": "6d54d87b-2260-455b-8c3b-e92b2c877492",
-                      "parentUUID": "21e136d7-7453-403d-9164-e1f8fa82a9e5",
+                      "uuid": "134a62b5-cf53-479d-b2f1-27837c00867c",
+                      "parentUUID": "32bbb6e3-d7c3-4171-8914-68e8527d2428",
+                      "isHook": false,
+                      "skipped": false
+                    },
+                    {
+                      "title": "PRD-010 - Alterar Preço do Produto",
+                      "fullTitle": "Produto - PRD Produto - Cenários Positivos Alteração de Produto(s) PRD-010 - Alterar Preço do Produto",
+                      "timedOut": false,
+                      "duration": 409,
+                      "state": "passed",
+                      "speed": "slow",
+                      "pass": true,
+                      "fail": false,
+                      "pending": false,
+                      "context": null,
+                      "code": "const resposta = await request(url)\n   .put(`/produtos/${id_produto}`)\n   .set(\"Content-Type\", \"application/json\")\n   .set(\"Accept\", \"application/json\")\n   .set(\"authorization\", token)\n   .send({\n           preco: 870\n   }) \nexpect(resposta.headers[\"content-type\"]).to.match(/json/);\nexpect(resposta.status).to.equal(400);\nexpect(resposta.body.nome).to.equal('nome é obrigatório');\nexpect(resposta.body.descricao).to.equal('descricao é obrigatório');\nexpect(resposta.body.quantidade).to.equal('quantidade é obrigatório');",
+                      "err": {},
+                      "uuid": "b06abbef-ddca-4950-9b51-b7ad78eac3fa",
+                      "parentUUID": "32bbb6e3-d7c3-4171-8914-68e8527d2428",
+                      "isHook": false,
+                      "skipped": false
+                    },
+                    {
+                      "title": "PRD-011 - Alterar Estoque do Produto",
+                      "fullTitle": "Produto - PRD Produto - Cenários Positivos Alteração de Produto(s) PRD-011 - Alterar Estoque do Produto",
+                      "timedOut": false,
+                      "duration": 427,
+                      "state": "passed",
+                      "speed": "slow",
+                      "pass": true,
+                      "fail": false,
+                      "pending": false,
+                      "context": null,
+                      "code": "const resposta = await request(url)\n   .put(`/produtos/${id_produto}`)\n   .set(\"Content-Type\", \"application/json\")\n   .set(\"Accept\", \"application/json\")\n   .set(\"authorization\", token)\n   .send({\n           quantidade: 181\n   }) \nexpect(resposta.headers[\"content-type\"]).to.match(/json/);\nexpect(resposta.status).to.equal(400);\nexpect(resposta.body.nome).to.equal('nome é obrigatório');\nexpect(resposta.body.descricao).to.equal('descricao é obrigatório');\nexpect(resposta.body.preco).to.equal('preco é obrigatório');",
+                      "err": {},
+                      "uuid": "a37afb92-0376-4d83-90fa-3a042c6a6771",
+                      "parentUUID": "32bbb6e3-d7c3-4171-8914-68e8527d2428",
+                      "isHook": false,
+                      "skipped": false
+                    },
+                    {
+                      "title": "PRD-012 - Alterar Descrição do Produto",
+                      "fullTitle": "Produto - PRD Produto - Cenários Positivos Alteração de Produto(s) PRD-012 - Alterar Descrição do Produto",
+                      "timedOut": false,
+                      "duration": 509,
+                      "state": "passed",
+                      "speed": "slow",
+                      "pass": true,
+                      "fail": false,
+                      "pending": false,
+                      "context": null,
+                      "code": "const resposta = await request(url)\n   .put(`/produtos/${id_produto}`)\n   .set(\"Content-Type\", \"application/json\")\n   .set(\"Accept\", \"application/json\")\n   .set(\"authorization\", token)\n   .send({\n           descricao: 'Teclado'\n   }) \nexpect(resposta.headers[\"content-type\"]).to.match(/json/);\nexpect(resposta.status).to.equal(400);\nexpect(resposta.body.nome).to.equal('nome é obrigatório');\nexpect(resposta.body.preco).to.equal('preco é obrigatório');\nexpect(resposta.body.quantidade).to.equal('quantidade é obrigatório');",
+                      "err": {},
+                      "uuid": "7db73735-85a4-48f4-98b9-ea9b1eb08f21",
+                      "parentUUID": "32bbb6e3-d7c3-4171-8914-68e8527d2428",
                       "isHook": false,
                       "skipped": false
                     }
                   ],
                   "suites": [],
                   "passes": [
-                    "6d54d87b-2260-455b-8c3b-e92b2c877492"
+                    "134a62b5-cf53-479d-b2f1-27837c00867c",
+                    "b06abbef-ddca-4950-9b51-b7ad78eac3fa",
+                    "a37afb92-0376-4d83-90fa-3a042c6a6771",
+                    "7db73735-85a4-48f4-98b9-ea9b1eb08f21"
                   ],
                   "failures": [],
                   "pending": [],
                   "skipped": [],
-                  "duration": 384,
+                  "duration": 1826,
                   "root": false,
                   "rootEmpty": false,
-                  "_timeout": 20000
+                  "_timeout": 40000
                 }
               ],
               "passes": [],
@@ -341,10 +398,10 @@
               "duration": 0,
               "root": false,
               "rootEmpty": false,
-              "_timeout": 20000
+              "_timeout": 40000
             },
             {
-              "uuid": "4df3221f-0282-4e95-93c0-6ae5832263b9",
+              "uuid": "9377d692-d108-435a-b2a8-201bacf15031",
               "title": "Produto - Cenários Negativos",
               "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/produto.test.js",
               "file": "/tests/tests/produto.test.js",
@@ -355,7 +412,7 @@
                   "title": "USR-000 - Validar retorno do token JWT/autorização",
                   "fullTitle": "Produto - PRD Produto - Cenários Negativos USR-000 - Validar retorno do token JWT/autorização",
                   "timedOut": false,
-                  "duration": 347,
+                  "duration": 518,
                   "state": "passed",
                   "speed": "slow",
                   "pass": true,
@@ -364,23 +421,23 @@
                   "context": null,
                   "code": "const response = await request(url)\n    .post('/login')\n    .set(\"Content-Type\", \"application/json\")\n    .set(\"accept\", \"application/json\")\n    .send({\n          email: 'fulano@qa.com',\n          password: 'teste'\n    })\n expect(response.headers[\"content-type\"]).to.match(/json/);\n expect(response.status).to.equal(200);\n expect(response.body).to.have.property('authorization');\n expect(response.body.message).to.equal('Login realizado com sucesso');\n token = response.body.authorization;\n console.log('O valor do token é: ' + token);",
                   "err": {},
-                  "uuid": "393dd1e1-4852-4b13-8d30-67188f42073f",
-                  "parentUUID": "4df3221f-0282-4e95-93c0-6ae5832263b9",
+                  "uuid": "f50ca936-50bb-49f9-ae79-59c9c24e480a",
+                  "parentUUID": "9377d692-d108-435a-b2a8-201bacf15031",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "393dd1e1-4852-4b13-8d30-67188f42073f"
+                "f50ca936-50bb-49f9-ae79-59c9c24e480a"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 347,
+              "duration": 518,
               "root": false,
               "rootEmpty": false,
-              "_timeout": 20000
+              "_timeout": 40000
             }
           ],
           "passes": [],
@@ -390,7 +447,7 @@
           "duration": 0,
           "root": false,
           "rootEmpty": false,
-          "_timeout": 20000
+          "_timeout": 40000
         }
       ],
       "passes": [],
@@ -400,7 +457,7 @@
       "duration": 0,
       "root": true,
       "rootEmpty": true,
-      "_timeout": 20000
+      "_timeout": 40000
     }
   ],
   "meta": {

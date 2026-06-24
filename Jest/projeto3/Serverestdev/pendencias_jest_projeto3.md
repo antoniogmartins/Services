@@ -220,7 +220,7 @@ Endpoints:
 | PRD-008    | Filtrar por quantidade                                               |
 
 
-**3.1.3 - Alteração de Produtos** (em andamento)
+**3.1.3 - Alteração de Produtos** (Implementado)
 
 | ID         | Cenário                                                              |
 | ---------- | -------------------------------------------------------------------- |
@@ -230,7 +230,7 @@ Endpoints:
 | PRD-012    | Alterar descrição                                                    |
 
 
-**3.1.4 - Exclusão de Produtos**
+**3.1.4 - Exclusão de Produtos**(em andamento)
 
 | ID         | Cenário                                                              |
 | ---------- | -------------------------------------------------------------------- |

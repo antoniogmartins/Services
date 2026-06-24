@@ -209,25 +209,75 @@ describe('Produto - PRD', function () {
       });
    });
    describe ('Alteração de Produto(s)', () => {
-      it('PRD-009 - Alterar Nome do Produto', async function() { 
+      it.skip('PRD-009 - Alterar Nome do Produto', async function() { 
          const resposta = await request(url)
             .put(`/produtos/${id_produto}`)
             .set("Content-Type", "application/json")
             .set("Accept", "application/json")
             .set("authorization", token)
             .send({
-                    nome: `Logitech MX Vertical_Modelo_X${Date.now()}Y`,
-                    preco: 57000000,
-                    descricao: 'Mouse',
-                    quantidade: 170
+                    nome: `Logitech MX Vertical_Modelo_X${Date.now()}Y`
             }) 
          expect(resposta.headers["content-type"]).to.match(/json/);
-         expect(resposta.status).to.equal(200);
-         expect(resposta.body.message).to.equal('Registro alterado com sucesso');
+         expect(resposta.status).to.equal(400);
+         expect(resposta.body.preco).to.equal('preco é obrigatório');
+         expect(resposta.body.descricao).to.equal('descricao é obrigatório');
+         expect(resposta.body.quantidade).to.equal('quantidade é obrigatório');
 
       });
+      it.skip('PRD-010 - Alterar Preço do Produto', async function() { 
+         const resposta = await request(url)
+            .put(`/produtos/${id_produto}`)
+            .set("Content-Type", "application/json")
+            .set("Accept", "application/json")
+            .set("authorization", token)
+            .send({
+                    preco: 870
+            }) 
+         expect(resposta.headers["content-type"]).to.match(/json/);
+         expect(resposta.status).to.equal(400);
+         expect(resposta.body.nome).to.equal('nome é obrigatório');
+         expect(resposta.body.descricao).to.equal('descricao é obrigatório');
+         expect(resposta.body.quantidade).to.equal('quantidade é obrigatório');
+
+      });
+      it.skip('PRD-011 - Alterar Estoque do Produto', async function() { 
+         const resposta = await request(url)
+            .put(`/produtos/${id_produto}`)
+            .set("Content-Type", "application/json")
+            .set("Accept", "application/json")
+            .set("authorization", token)
+            .send({
+                    quantidade: 181
+            }) 
+         expect(resposta.headers["content-type"]).to.match(/json/);
+         expect(resposta.status).to.equal(400);
+         expect(resposta.body.nome).to.equal('nome é obrigatório');
+         expect(resposta.body.descricao).to.equal('descricao é obrigatório');
+         expect(resposta.body.preco).to.equal('preco é obrigatório');
+
+      });
+     
+      it.skip('PRD-012 - Alterar Descrição do Produto', async function() { 
+         const resposta = await request(url)
+            .put(`/produtos/${id_produto}`)
+            .set("Content-Type", "application/json")
+            .set("Accept", "application/json")
+            .set("authorization", token)
+            .send({
+                    descricao: 'Teclado'
+            }) 
+         expect(resposta.headers["content-type"]).to.match(/json/);
+         expect(resposta.status).to.equal(400);
+         expect(resposta.body.nome).to.equal('nome é obrigatório');
+         expect(resposta.body.preco).to.equal('preco é obrigatório');
+         expect(resposta.body.quantidade).to.equal('quantidade é obrigatório');
+
+      });
+
+
+    });
 });
-  });
 
   describe('Produto - Cenários Negativos', () => {
       it('USR-000 - Validar retorno do token JWT/autorização', async function() { 

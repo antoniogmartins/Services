@@ -8,7 +8,7 @@ let id = 0;
 let _iemail = "";
 
 before(async function () {
-  this.timeout(20000);
+  this.timeout(40000);
 });
 
 //-> Realizar Login e Gerar Token

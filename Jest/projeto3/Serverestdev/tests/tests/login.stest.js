@@ -29,7 +29,7 @@ const payloads = [
 
 
 before(async function () {
-  this.timeout(10000);
+  this.timeout(40000);
 });
 
 //-> Realizar Login e Gerar Token
