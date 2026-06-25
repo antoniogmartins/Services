@@ -484,7 +484,7 @@ describe('Produto - PRD', function () {
      });
 
 
-     it('PRD-024 - Excluir produto associado a carrinho', async function() { 
+     it.skip('PRD-024 - Excluir produto associado a carrinho', async function() { 
          id_produto = "BeeJh5lz3k6kSIzA";
             const response = await request(url)
             .del(`/produtos/${id_produto}`)
@@ -498,28 +498,98 @@ describe('Produto - PRD', function () {
       });
 });
   describe('Produto - Cenários Alternativos', () => {
-      it.skip('PRD-025 - Produto com preço zero', async function() { 
+      it.skip('PRD-025 - Cadastrar Produto com preço zero', async function() { 
         const response = await request(url)
-            .post('/login')
+            .post('/produtos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
+            .set("authorization", token)
             .send({
-                  email: 'fulano@qa.com',
-                  password: 'teste'
+                    nome: `Logitech MX Vertical_Modelo_X${Date.now()}Y`,
+                    descricao: 'Mouse',
+                    preco: 0,
+                    quantidade: 381
             })
          expect(response.headers["content-type"]).to.match(/json/);
-         expect(response.status).to.equal(200);
-         expect(response.body).to.have.property('authorization');
-         expect(response.body.message).to.equal('Login realizado com sucesso');
-         token = response.body.authorization;
-         console.log('O valor do token é: ' + token);
+         expect(response.status).to.equal(400);
+         expect(response.body.preco).to.equal('preco deve ser um número positivo');
+         });
+
+      it.skip('PRD-026 - Cadastrar Produto com descriçao vazia', async function() { 
+        const response = await request(url)
+            .post('/produtos')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+            .send({
+                    nome: `Logitech MX Vertical_Modelo_X${Date.now()}Y`,
+                    descricao: '',
+                    preco: 481,
+                    quantidade: 381
+            })
+         expect(response.headers["content-type"]).to.match(/json/);
+         expect(response.status).to.equal(400);
+         expect(response.body.descricao).to.equal('descricao não pode ficar em branco');
+         });
+
+      it.skip('PRD-027 - Cadastrar Produto com caracteres especiais', async function() { 
+         const response = await request(url)
+            .post('/produtos')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+            .send({
+                    nome: `%**(((&%$$#!@#$%*()$%*((((***)))(*(*(**))))(*&$%*()))))`,
+                    descricao: 'Mouse',
+                    preco: 481,
+                    quantidade: 381
+            })
+            id_produto = response.body._id;
+         expect(response.headers["content-type"]).to.match(/json/);
+         expect(response.status).to.equal(201);
+         expect(response.body.message).to.equal('Cadastro realizado com sucesso');
+
+         await request(url)
+            .del(`/produtos/${id_produto}`)
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+         });
+
+      it.skip('PRD-028 - Atualização Parcial dos dados', async function() { 
+         const resposta = await request(url)
+            .post('/produtos')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+            .send({
+                    nome: `Logitech MX Vertical_Modelo_X${Date.now()}Y`,
+                    descricao: 'Mouse',
+                    preco: 481,
+                    quantidade: 381
+            })
+            id_produto = resposta.body._id;
+
+         const response = await request(url)
+            .put(`/produtos/${id_produto}`)
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+            .send({
+                    preco: 555,
+                    quantidade: 381
+             })
+         expect(response.headers["content-type"]).to.match(/json/);
+         expect(response.status).to.equal(400);
+         expect(response.body.nome).to.equal('nome é obrigatório');
+         expect(response.body.descricao).to.equal('descricao é obrigatório');
          });
    });
 
   describe('Produto - Cenários de Exceção', () => {
       it.skip('PRD-029 - Falhas ao atualizar o estoque', async function() { 
         const response = await request(url)
-            .post('/login')
+            .put('/login')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
             .send({

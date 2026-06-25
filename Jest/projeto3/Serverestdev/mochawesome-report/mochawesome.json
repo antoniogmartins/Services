@@ -1,16 +1,16 @@
 {
   "stats": {
     "suites": 9,
-    "tests": 28,
-    "passes": 3,
-    "pending": 24,
-    "failures": 1,
-    "start": "2026-06-25T10:27:16.194Z",
-    "end": "2026-06-25T10:27:17.831Z",
-    "duration": 1637,
-    "testsRegistered": 28,
-    "passPercent": 75,
-    "pendingPercent": 85.71428571428571,
+    "tests": 31,
+    "passes": 4,
+    "pending": 27,
+    "failures": 0,
+    "start": "2026-06-25T11:06:32.300Z",
+    "end": "2026-06-25T11:06:34.494Z",
+    "duration": 2194,
+    "testsRegistered": 31,
+    "passPercent": 100,
+    "pendingPercent": 87.09677419354838,
     "other": 0,
     "hasOther": false,
     "skipped": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "749f1117-8bbd-447a-b95d-c0541d41c108",
+      "uuid": "e8ac6c39-a246-40bb-84ca-0e292863abf3",
       "title": "",
       "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/produto.test.js",
       "file": "/tests/tests/produto.test.js",
@@ -27,7 +27,7 @@
           "title": "\"before all\" hook in \"{root}\"",
           "fullTitle": "\"before all\" hook in \"{root}\"",
           "timedOut": false,
-          "duration": 0,
+          "duration": 1,
           "state": null,
           "speed": null,
           "pass": false,
@@ -36,8 +36,8 @@
           "context": null,
           "code": "this.timeout(40000);",
           "err": {},
-          "uuid": "0e443455-80b9-47a3-9c92-f29d3df5f980",
-          "parentUUID": "749f1117-8bbd-447a-b95d-c0541d41c108",
+          "uuid": "62144668-82f5-46f0-b877-63d6ddcbde81",
+          "parentUUID": "e8ac6c39-a246-40bb-84ca-0e292863abf3",
           "isHook": true,
           "skipped": false
         }
@@ -46,7 +46,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "02c116eb-c68a-4622-86f8-508f0ff87659",
+          "uuid": "8ce0ac34-3b60-436a-8ea3-174c602ea015",
           "title": "Produto - PRD",
           "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/produto.test.js",
           "file": "/tests/tests/produto.test.js",
@@ -55,7 +55,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "44cdfc35-fe15-42ea-9a26-5b68807d469c",
+              "uuid": "6e857698-2435-46c6-a90a-233bb702feb1",
               "title": "Produto - Cenários Positivos",
               "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/produto.test.js",
               "file": "/tests/tests/produto.test.js",
@@ -64,7 +64,7 @@
               "tests": [],
               "suites": [
                 {
-                  "uuid": "7d06ad25-f60b-4fdb-9a94-379d49c23ed0",
+                  "uuid": "f93af069-b85e-460b-93a3-86a7d7cedea3",
                   "title": "Cadastro de Produto(s)",
                   "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/produto.test.js",
                   "file": "/tests/tests/produto.test.js",
@@ -75,7 +75,7 @@
                       "title": "USR-000 - Validar retorno do token JWT/autorização",
                       "fullTitle": "Produto - PRD Produto - Cenários Positivos Cadastro de Produto(s) USR-000 - Validar retorno do token JWT/autorização",
                       "timedOut": false,
-                      "duration": 401,
+                      "duration": 507,
                       "state": "passed",
                       "speed": "slow",
                       "pass": true,
@@ -84,8 +84,8 @@
                       "context": null,
                       "code": "const response = await request(url)\n    .post('/login')\n    .set(\"Content-Type\", \"application/json\")\n    .set(\"accept\", \"application/json\")\n    .send({\n          email: 'fulano@qa.com',\n          password: 'teste'\n    })\n expect(response.headers[\"content-type\"]).to.match(/json/);\n expect(response.status).to.equal(200);\n expect(response.body).to.have.property('authorization');\n expect(response.body.message).to.equal('Login realizado com sucesso');\n token = response.body.authorization;\n console.log('O valor do token é: ' + token);",
                       "err": {},
-                      "uuid": "49ff7465-951d-4e0f-8a36-6bf83db60894",
-                      "parentUUID": "7d06ad25-f60b-4fdb-9a94-379d49c23ed0",
+                      "uuid": "3e4178df-2c67-4109-a62c-bd1d3ed7fa5e",
+                      "parentUUID": "f93af069-b85e-460b-93a3-86a7d7cedea3",
                       "isHook": false,
                       "skipped": false
                     },
@@ -93,7 +93,7 @@
                       "title": "USR-000 - Validar geração do ID do usuario",
                       "fullTitle": "Produto - PRD Produto - Cenários Positivos Cadastro de Produto(s) USR-000 - Validar geração do ID do usuario",
                       "timedOut": false,
-                      "duration": 398,
+                      "duration": 441,
                       "state": "passed",
                       "speed": "slow",
                       "pass": true,
@@ -102,8 +102,8 @@
                       "context": null,
                       "code": "const response = await request(url)\n    .post('/usuarios')\n    .set(\"Content-Type\", \"application/json\")\n    .set(\"accept\", \"application/json\")\n    .set(\"authorization\", token)\n    .send({\n             nome: 'Maria Delfina',\n             email: `Maria${Date.now()}y@qa.com.br`,\n             password: 'teste',\n             administrador: 'false'\n    })\n    id_usuario = response.body._id;\n    console.log('O valor do id é: ' + id_usuario);\n expect(response.status).to.equal(201);\n expect(response.body).to.have.property('_id');",
                       "err": {},
-                      "uuid": "5b829205-4caf-4828-ac3b-c42a2399a486",
-                      "parentUUID": "7d06ad25-f60b-4fdb-9a94-379d49c23ed0",
+                      "uuid": "76330cee-6ad5-4dd5-8ba2-c4dda08b933d",
+                      "parentUUID": "f93af069-b85e-460b-93a3-86a7d7cedea3",
                       "isHook": false,
                       "skipped": false
                     },
@@ -120,8 +120,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "0ef5cc93-0f20-4e3d-a6c1-c7f3080ff12e",
-                      "parentUUID": "7d06ad25-f60b-4fdb-9a94-379d49c23ed0",
+                      "uuid": "955a30ca-78bf-4292-aabb-bd4fcb6de3a3",
+                      "parentUUID": "f93af069-b85e-460b-93a3-86a7d7cedea3",
                       "isHook": false,
                       "skipped": false
                     },
@@ -138,8 +138,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "01d343bd-8337-42e2-855f-91788b096a9e",
-                      "parentUUID": "7d06ad25-f60b-4fdb-9a94-379d49c23ed0",
+                      "uuid": "55c57ff7-2e22-437c-bbcc-be94d1110072",
+                      "parentUUID": "f93af069-b85e-460b-93a3-86a7d7cedea3",
                       "isHook": false,
                       "skipped": false
                     },
@@ -156,8 +156,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "5c5d9997-89ef-42ca-9257-40cc3061949d",
-                      "parentUUID": "7d06ad25-f60b-4fdb-9a94-379d49c23ed0",
+                      "uuid": "b3c73d7e-4d7c-42e8-b5dd-9053f468d1d0",
+                      "parentUUID": "f93af069-b85e-460b-93a3-86a7d7cedea3",
                       "isHook": false,
                       "skipped": false
                     },
@@ -165,7 +165,7 @@
                       "title": "PRD-004 - Validar geração do ID do produto",
                       "fullTitle": "Produto - PRD Produto - Cenários Positivos Cadastro de Produto(s) PRD-004 - Validar geração do ID do produto",
                       "timedOut": false,
-                      "duration": 405,
+                      "duration": 413,
                       "state": "passed",
                       "speed": "slow",
                       "pass": true,
@@ -174,32 +174,32 @@
                       "context": null,
                       "code": "const response = await request(url)\n    .post('/produtos')\n    .set(\"Content-Type\", \"application/json\")\n    .set(\"accept\", \"application/json\")\n    .set(\"authorization\", token)\n    .send({\n            nome: `Logitech MX Vertical_Modelo_X${Date.now()}Y`,\n            preco: 470,\n            descricao: 'Mouse',\n            quantidade: 381\n    })\n    id_produto = response.body._id;\n    console.log('O valor do id é: ' + id_produto);\n    expect(response.status).to.equal(201);\n    expect(response.body).to.have.property('_id');\n    expect(response.body.message).to.equal('Cadastro realizado com sucesso');",
                       "err": {},
-                      "uuid": "1034454e-68ca-4b61-bfbe-fbd2c3444e4c",
-                      "parentUUID": "7d06ad25-f60b-4fdb-9a94-379d49c23ed0",
+                      "uuid": "800db935-b44d-478b-823f-b4c3bd8100d5",
+                      "parentUUID": "f93af069-b85e-460b-93a3-86a7d7cedea3",
                       "isHook": false,
                       "skipped": false
                     }
                   ],
                   "suites": [],
                   "passes": [
-                    "49ff7465-951d-4e0f-8a36-6bf83db60894",
-                    "5b829205-4caf-4828-ac3b-c42a2399a486",
-                    "1034454e-68ca-4b61-bfbe-fbd2c3444e4c"
+                    "3e4178df-2c67-4109-a62c-bd1d3ed7fa5e",
+                    "76330cee-6ad5-4dd5-8ba2-c4dda08b933d",
+                    "800db935-b44d-478b-823f-b4c3bd8100d5"
                   ],
                   "failures": [],
                   "pending": [
-                    "0ef5cc93-0f20-4e3d-a6c1-c7f3080ff12e",
-                    "01d343bd-8337-42e2-855f-91788b096a9e",
-                    "5c5d9997-89ef-42ca-9257-40cc3061949d"
+                    "955a30ca-78bf-4292-aabb-bd4fcb6de3a3",
+                    "55c57ff7-2e22-437c-bbcc-be94d1110072",
+                    "b3c73d7e-4d7c-42e8-b5dd-9053f468d1d0"
                   ],
                   "skipped": [],
-                  "duration": 1204,
+                  "duration": 1361,
                   "root": false,
                   "rootEmpty": false,
                   "_timeout": 40000
                 },
                 {
-                  "uuid": "606bb599-6197-4ba0-9abd-e32b2098e891",
+                  "uuid": "ab38a395-93a1-4cc2-a4cf-c8d3caf8a1cc",
                   "title": "Consulta de Produto(s)",
                   "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/produto.test.js",
                   "file": "/tests/tests/produto.test.js",
@@ -219,8 +219,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "12d6b288-6bca-46a5-96b4-1de4716c56c6",
-                      "parentUUID": "606bb599-6197-4ba0-9abd-e32b2098e891",
+                      "uuid": "ed0c63a7-d8be-4f4f-9027-d8213151b882",
+                      "parentUUID": "ab38a395-93a1-4cc2-a4cf-c8d3caf8a1cc",
                       "isHook": false,
                       "skipped": false
                     },
@@ -237,8 +237,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "bd501de2-08ff-4a28-ba1f-e42ffe01228b",
-                      "parentUUID": "606bb599-6197-4ba0-9abd-e32b2098e891",
+                      "uuid": "e1fcb5ce-6aee-4918-a02b-2687510ff00f",
+                      "parentUUID": "ab38a395-93a1-4cc2-a4cf-c8d3caf8a1cc",
                       "isHook": false,
                       "skipped": false
                     },
@@ -255,8 +255,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "6b573c36-c375-4f7f-831d-867cca90b476",
-                      "parentUUID": "606bb599-6197-4ba0-9abd-e32b2098e891",
+                      "uuid": "802cc664-60e9-48e6-80eb-e616dbee9919",
+                      "parentUUID": "ab38a395-93a1-4cc2-a4cf-c8d3caf8a1cc",
                       "isHook": false,
                       "skipped": false
                     },
@@ -273,8 +273,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "efc00da3-7b78-4837-a1bb-4e7eabc727f7",
-                      "parentUUID": "606bb599-6197-4ba0-9abd-e32b2098e891",
+                      "uuid": "a6c4268c-f156-4bd3-b876-d3b390a459a1",
+                      "parentUUID": "ab38a395-93a1-4cc2-a4cf-c8d3caf8a1cc",
                       "isHook": false,
                       "skipped": false
                     }
@@ -283,10 +283,10 @@
                   "passes": [],
                   "failures": [],
                   "pending": [
-                    "12d6b288-6bca-46a5-96b4-1de4716c56c6",
-                    "bd501de2-08ff-4a28-ba1f-e42ffe01228b",
-                    "6b573c36-c375-4f7f-831d-867cca90b476",
-                    "efc00da3-7b78-4837-a1bb-4e7eabc727f7"
+                    "ed0c63a7-d8be-4f4f-9027-d8213151b882",
+                    "e1fcb5ce-6aee-4918-a02b-2687510ff00f",
+                    "802cc664-60e9-48e6-80eb-e616dbee9919",
+                    "a6c4268c-f156-4bd3-b876-d3b390a459a1"
                   ],
                   "skipped": [],
                   "duration": 0,
@@ -295,7 +295,7 @@
                   "_timeout": 40000
                 },
                 {
-                  "uuid": "5b5a03ab-7557-4c06-91a1-51134799c213",
+                  "uuid": "e1b60c96-771c-4744-97cb-c4f4cd71b503",
                   "title": "Alteração de Produto(s)",
                   "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/produto.test.js",
                   "file": "/tests/tests/produto.test.js",
@@ -315,8 +315,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "1184219e-cafc-4529-a303-91b78e74b68f",
-                      "parentUUID": "5b5a03ab-7557-4c06-91a1-51134799c213",
+                      "uuid": "0f537e3a-1db3-42ab-a3c6-80fb252c22a3",
+                      "parentUUID": "e1b60c96-771c-4744-97cb-c4f4cd71b503",
                       "isHook": false,
                       "skipped": false
                     },
@@ -333,8 +333,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "43347bec-7f4b-4e2a-ba3b-661099512961",
-                      "parentUUID": "5b5a03ab-7557-4c06-91a1-51134799c213",
+                      "uuid": "890af42b-0a5f-4571-9adc-15eb984ced51",
+                      "parentUUID": "e1b60c96-771c-4744-97cb-c4f4cd71b503",
                       "isHook": false,
                       "skipped": false
                     },
@@ -351,8 +351,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "b2750704-55b8-4913-b57b-2b8a0dc3fd7a",
-                      "parentUUID": "5b5a03ab-7557-4c06-91a1-51134799c213",
+                      "uuid": "665b9e78-6402-4166-be7e-e891b8afc54b",
+                      "parentUUID": "e1b60c96-771c-4744-97cb-c4f4cd71b503",
                       "isHook": false,
                       "skipped": false
                     },
@@ -369,8 +369,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "1a211329-c28b-40d6-98de-9dbc41544591",
-                      "parentUUID": "5b5a03ab-7557-4c06-91a1-51134799c213",
+                      "uuid": "482b009a-a46f-4f0e-83f2-a6412ebe3f44",
+                      "parentUUID": "e1b60c96-771c-4744-97cb-c4f4cd71b503",
                       "isHook": false,
                       "skipped": false
                     }
@@ -379,10 +379,10 @@
                   "passes": [],
                   "failures": [],
                   "pending": [
-                    "1184219e-cafc-4529-a303-91b78e74b68f",
-                    "43347bec-7f4b-4e2a-ba3b-661099512961",
-                    "b2750704-55b8-4913-b57b-2b8a0dc3fd7a",
-                    "1a211329-c28b-40d6-98de-9dbc41544591"
+                    "0f537e3a-1db3-42ab-a3c6-80fb252c22a3",
+                    "890af42b-0a5f-4571-9adc-15eb984ced51",
+                    "665b9e78-6402-4166-be7e-e891b8afc54b",
+                    "482b009a-a46f-4f0e-83f2-a6412ebe3f44"
                   ],
                   "skipped": [],
                   "duration": 0,
@@ -391,7 +391,7 @@
                   "_timeout": 40000
                 },
                 {
-                  "uuid": "06290a79-4507-4e82-9f57-fe1de770be5e",
+                  "uuid": "2f438dc9-7075-4b9a-8825-ffebe0a879d7",
                   "title": "Exclusão de Produto(s)",
                   "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/produto.test.js",
                   "file": "/tests/tests/produto.test.js",
@@ -411,8 +411,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "e94efb98-e1e5-4153-8e60-dc05d7533fb8",
-                      "parentUUID": "06290a79-4507-4e82-9f57-fe1de770be5e",
+                      "uuid": "6ab6b61d-43ae-42fe-bba5-8eca092a5767",
+                      "parentUUID": "2f438dc9-7075-4b9a-8825-ffebe0a879d7",
                       "isHook": false,
                       "skipped": false
                     },
@@ -429,8 +429,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "14e308d8-9ce1-4362-b41a-c66c25d8ffba",
-                      "parentUUID": "06290a79-4507-4e82-9f57-fe1de770be5e",
+                      "uuid": "22dc96b0-bacd-4b32-95ce-7c9c9732b355",
+                      "parentUUID": "2f438dc9-7075-4b9a-8825-ffebe0a879d7",
                       "isHook": false,
                       "skipped": false
                     }
@@ -439,8 +439,8 @@
                   "passes": [],
                   "failures": [],
                   "pending": [
-                    "e94efb98-e1e5-4153-8e60-dc05d7533fb8",
-                    "14e308d8-9ce1-4362-b41a-c66c25d8ffba"
+                    "6ab6b61d-43ae-42fe-bba5-8eca092a5767",
+                    "22dc96b0-bacd-4b32-95ce-7c9c9732b355"
                   ],
                   "skipped": [],
                   "duration": 0,
@@ -459,7 +459,7 @@
               "_timeout": 40000
             },
             {
-              "uuid": "df1b61bd-6e45-4069-bec7-1d7d156500cf",
+              "uuid": "9168630b-6dc8-40bd-909c-f9d7f358cdb0",
               "title": "Produto - Cenários Negativos",
               "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/produto.test.js",
               "file": "/tests/tests/produto.test.js",
@@ -479,8 +479,8 @@
                   "context": null,
                   "code": "",
                   "err": {},
-                  "uuid": "04aa463a-b4ff-488d-a7c9-4e8b61526d9f",
-                  "parentUUID": "df1b61bd-6e45-4069-bec7-1d7d156500cf",
+                  "uuid": "c9077f15-3836-4588-8c28-58d28e60f221",
+                  "parentUUID": "9168630b-6dc8-40bd-909c-f9d7f358cdb0",
                   "isHook": false,
                   "skipped": false
                 },
@@ -497,8 +497,8 @@
                   "context": null,
                   "code": "",
                   "err": {},
-                  "uuid": "92313f14-55af-4a91-ad4d-29391219434a",
-                  "parentUUID": "df1b61bd-6e45-4069-bec7-1d7d156500cf",
+                  "uuid": "0076cf91-c3a6-49da-96fb-39324b85687e",
+                  "parentUUID": "9168630b-6dc8-40bd-909c-f9d7f358cdb0",
                   "isHook": false,
                   "skipped": false
                 },
@@ -515,8 +515,8 @@
                   "context": null,
                   "code": "",
                   "err": {},
-                  "uuid": "12ade692-beef-4839-b37c-5aed18b7acda",
-                  "parentUUID": "df1b61bd-6e45-4069-bec7-1d7d156500cf",
+                  "uuid": "650df8b8-bbe7-48bd-9bb6-7cd1ff664e1e",
+                  "parentUUID": "9168630b-6dc8-40bd-909c-f9d7f358cdb0",
                   "isHook": false,
                   "skipped": false
                 },
@@ -533,8 +533,8 @@
                   "context": null,
                   "code": "",
                   "err": {},
-                  "uuid": "5946f2c8-35d2-4a27-af0c-26506f48249b",
-                  "parentUUID": "df1b61bd-6e45-4069-bec7-1d7d156500cf",
+                  "uuid": "05da3ca9-2274-4a4c-a284-a36e0011012d",
+                  "parentUUID": "9168630b-6dc8-40bd-909c-f9d7f358cdb0",
                   "isHook": false,
                   "skipped": false
                 },
@@ -551,8 +551,8 @@
                   "context": null,
                   "code": "",
                   "err": {},
-                  "uuid": "f491f069-f248-413a-bb72-f8316cdb502d",
-                  "parentUUID": "df1b61bd-6e45-4069-bec7-1d7d156500cf",
+                  "uuid": "4cd7327e-a3ec-4460-9c96-83ee2ef0d6c0",
+                  "parentUUID": "9168630b-6dc8-40bd-909c-f9d7f358cdb0",
                   "isHook": false,
                   "skipped": false
                 },
@@ -569,8 +569,8 @@
                   "context": null,
                   "code": "",
                   "err": {},
-                  "uuid": "da3557be-dacf-488f-9945-8935e97ba52f",
-                  "parentUUID": "df1b61bd-6e45-4069-bec7-1d7d156500cf",
+                  "uuid": "2f674c15-7ff6-4fbf-b603-6b42773c0fc1",
+                  "parentUUID": "9168630b-6dc8-40bd-909c-f9d7f358cdb0",
                   "isHook": false,
                   "skipped": false
                 },
@@ -587,8 +587,8 @@
                   "context": null,
                   "code": "",
                   "err": {},
-                  "uuid": "25eff464-1dd4-4734-ba6d-9a2c4247ce5c",
-                  "parentUUID": "df1b61bd-6e45-4069-bec7-1d7d156500cf",
+                  "uuid": "d1fd5a01-943d-4584-a3f0-57568519f18e",
+                  "parentUUID": "9168630b-6dc8-40bd-909c-f9d7f358cdb0",
                   "isHook": false,
                   "skipped": false
                 },
@@ -605,8 +605,8 @@
                   "context": null,
                   "code": "",
                   "err": {},
-                  "uuid": "4048de21-dea7-491d-b747-495d65c11404",
-                  "parentUUID": "df1b61bd-6e45-4069-bec7-1d7d156500cf",
+                  "uuid": "b549e9ad-3298-4506-9c35-63142ac0f03e",
+                  "parentUUID": "9168630b-6dc8-40bd-909c-f9d7f358cdb0",
                   "isHook": false,
                   "skipped": false
                 },
@@ -623,67 +623,14 @@
                   "context": null,
                   "code": "",
                   "err": {},
-                  "uuid": "a4fff307-57bd-4a94-8e24-5d5c9f176033",
-                  "parentUUID": "df1b61bd-6e45-4069-bec7-1d7d156500cf",
+                  "uuid": "b3b6464f-e56f-495c-a032-e6533d99ac36",
+                  "parentUUID": "9168630b-6dc8-40bd-909c-f9d7f358cdb0",
                   "isHook": false,
                   "skipped": false
                 },
                 {
                   "title": "PRD-024 - Excluir produto associado a carrinho",
                   "fullTitle": "Produto - PRD Produto - Cenários Negativos PRD-024 - Excluir produto associado a carrinho",
-                  "timedOut": false,
-                  "duration": 408,
-                  "state": "failed",
-                  "speed": null,
-                  "pass": false,
-                  "fail": true,
-                  "pending": false,
-                  "context": null,
-                  "code": "id_produto = \"BeeJh5lz3k6kSIzA\";\n   const response = await request(url)\n   .del(`/produtos/${id_produto}`)\n   .set(\"Content-Type\", \"application/json\")\n   .set(\"Accept\", \"application/json\")\n   .set(\"authorization\", token)\n \n   expect(response.status).to.equal(400);\n   expect(response.body.message).to.equal('Não é permitido excluir produto que faz parte de carrinho');\n   expect(response.body.idCarrinhos[0]).to.equal('qbMqntef4iTOwWfg1');",
-                  "err": {
-                    "message": "AssertionError: expected 'qbMqntef4iTOwWfg' to equal 'qbMqntef4iTOwWfg1'",
-                    "estack": "AssertionError: expected 'qbMqntef4iTOwWfg' to equal 'qbMqntef4iTOwWfg1'\n    at Context.<anonymous> (tests/tests/produto.test.js:497:53)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)",
-                    "diff": "- qbMqntef4iTOwWfg\n+ qbMqntef4iTOwWfg1\n"
-                  },
-                  "uuid": "09ddbea4-accc-4ad5-9566-4a453890366e",
-                  "parentUUID": "df1b61bd-6e45-4069-bec7-1d7d156500cf",
-                  "isHook": false,
-                  "skipped": false
-                }
-              ],
-              "suites": [],
-              "passes": [],
-              "failures": [
-                "09ddbea4-accc-4ad5-9566-4a453890366e"
-              ],
-              "pending": [
-                "04aa463a-b4ff-488d-a7c9-4e8b61526d9f",
-                "92313f14-55af-4a91-ad4d-29391219434a",
-                "12ade692-beef-4839-b37c-5aed18b7acda",
-                "5946f2c8-35d2-4a27-af0c-26506f48249b",
-                "f491f069-f248-413a-bb72-f8316cdb502d",
-                "da3557be-dacf-488f-9945-8935e97ba52f",
-                "25eff464-1dd4-4734-ba6d-9a2c4247ce5c",
-                "4048de21-dea7-491d-b747-495d65c11404",
-                "a4fff307-57bd-4a94-8e24-5d5c9f176033"
-              ],
-              "skipped": [],
-              "duration": 408,
-              "root": false,
-              "rootEmpty": false,
-              "_timeout": 40000
-            },
-            {
-              "uuid": "9d17777a-54be-4f5e-b9d0-80d0a4a6455f",
-              "title": "Produto - Cenários Alternativos",
-              "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/produto.test.js",
-              "file": "/tests/tests/produto.test.js",
-              "beforeHooks": [],
-              "afterHooks": [],
-              "tests": [
-                {
-                  "title": "PRD-025 - Produto com preço zero",
-                  "fullTitle": "Produto - PRD Produto - Cenários Alternativos PRD-025 - Produto com preço zero",
                   "timedOut": false,
                   "duration": 0,
                   "state": "pending",
@@ -694,8 +641,8 @@
                   "context": null,
                   "code": "",
                   "err": {},
-                  "uuid": "fda9cd06-c53a-48e0-a128-41c1ebdc10d9",
-                  "parentUUID": "9d17777a-54be-4f5e-b9d0-80d0a4a6455f",
+                  "uuid": "de8a768b-8a1c-44b8-ae6b-74997564f741",
+                  "parentUUID": "9168630b-6dc8-40bd-909c-f9d7f358cdb0",
                   "isHook": false,
                   "skipped": false
                 }
@@ -704,7 +651,16 @@
               "passes": [],
               "failures": [],
               "pending": [
-                "fda9cd06-c53a-48e0-a128-41c1ebdc10d9"
+                "c9077f15-3836-4588-8c28-58d28e60f221",
+                "0076cf91-c3a6-49da-96fb-39324b85687e",
+                "650df8b8-bbe7-48bd-9bb6-7cd1ff664e1e",
+                "05da3ca9-2274-4a4c-a284-a36e0011012d",
+                "4cd7327e-a3ec-4460-9c96-83ee2ef0d6c0",
+                "2f674c15-7ff6-4fbf-b603-6b42773c0fc1",
+                "d1fd5a01-943d-4584-a3f0-57568519f18e",
+                "b549e9ad-3298-4506-9c35-63142ac0f03e",
+                "b3b6464f-e56f-495c-a032-e6533d99ac36",
+                "de8a768b-8a1c-44b8-ae6b-74997564f741"
               ],
               "skipped": [],
               "duration": 0,
@@ -713,7 +669,104 @@
               "_timeout": 40000
             },
             {
-              "uuid": "0759889a-e586-4998-9040-6cf1f4473906",
+              "uuid": "6e0401b3-e617-4153-af85-554e6fcbf6d6",
+              "title": "Produto - Cenários Alternativos",
+              "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/produto.test.js",
+              "file": "/tests/tests/produto.test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "PRD-025 - Cadastrar Produto com preço zero",
+                  "fullTitle": "Produto - PRD Produto - Cenários Alternativos PRD-025 - Cadastrar Produto com preço zero",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": "pending",
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": true,
+                  "context": null,
+                  "code": "",
+                  "err": {},
+                  "uuid": "d75df6c1-0df3-493f-ad29-5400474b3c3e",
+                  "parentUUID": "6e0401b3-e617-4153-af85-554e6fcbf6d6",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "PRD-026 - Cadastrar Produto com descriçao vazia",
+                  "fullTitle": "Produto - PRD Produto - Cenários Alternativos PRD-026 - Cadastrar Produto com descriçao vazia",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": "pending",
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": true,
+                  "context": null,
+                  "code": "",
+                  "err": {},
+                  "uuid": "9ce8977b-daf9-415a-984f-b4af23b33f04",
+                  "parentUUID": "6e0401b3-e617-4153-af85-554e6fcbf6d6",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "PRD-027 - Cadastrar Produto com caracteres especiais",
+                  "fullTitle": "Produto - PRD Produto - Cenários Alternativos PRD-027 - Cadastrar Produto com caracteres especiais",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": "pending",
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": true,
+                  "context": null,
+                  "code": "",
+                  "err": {},
+                  "uuid": "3b317f0e-a33d-4416-beca-e6e0b5d0aa3d",
+                  "parentUUID": "6e0401b3-e617-4153-af85-554e6fcbf6d6",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "PRD-028 - Atualização Parcial dos dados",
+                  "fullTitle": "Produto - PRD Produto - Cenários Alternativos PRD-028 - Atualização Parcial dos dados",
+                  "timedOut": false,
+                  "duration": 808,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const resposta = await request(url)\n   .post('/produtos')\n   .set(\"Content-Type\", \"application/json\")\n   .set(\"accept\", \"application/json\")\n   .set(\"authorization\", token)\n   .send({\n           nome: `Logitech MX Vertical_Modelo_X${Date.now()}Y`,\n           descricao: 'Mouse',\n           preco: 481,\n           quantidade: 381\n   })\n   id_produto = resposta.body._id;\nconst response = await request(url)\n   .put(`/produtos/${id_produto}`)\n   .set(\"Content-Type\", \"application/json\")\n   .set(\"accept\", \"application/json\")\n   .set(\"authorization\", token)\n   .send({\n           preco: 555,\n           quantidade: 381\n    })\nexpect(response.headers[\"content-type\"]).to.match(/json/);\nexpect(response.status).to.equal(400);\nexpect(response.body.nome).to.equal('nome é obrigatório');\nexpect(response.body.descricao).to.equal('descricao é obrigatório');",
+                  "err": {},
+                  "uuid": "e546fc88-30a1-4a32-97a8-41ba88b61215",
+                  "parentUUID": "6e0401b3-e617-4153-af85-554e6fcbf6d6",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "e546fc88-30a1-4a32-97a8-41ba88b61215"
+              ],
+              "failures": [],
+              "pending": [
+                "d75df6c1-0df3-493f-ad29-5400474b3c3e",
+                "9ce8977b-daf9-415a-984f-b4af23b33f04",
+                "3b317f0e-a33d-4416-beca-e6e0b5d0aa3d"
+              ],
+              "skipped": [],
+              "duration": 808,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 40000
+            },
+            {
+              "uuid": "a96adb2c-fb44-4172-b84c-15d844727a87",
               "title": "Produto - Cenários de Exceção",
               "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/produto.test.js",
               "file": "/tests/tests/produto.test.js",
@@ -733,8 +786,8 @@
                   "context": null,
                   "code": "",
                   "err": {},
-                  "uuid": "e3589fbf-b4b5-4420-ac16-89f43ee52c7f",
-                  "parentUUID": "0759889a-e586-4998-9040-6cf1f4473906",
+                  "uuid": "0422f1a4-5ef5-436e-bf8b-6dfe4ce039e1",
+                  "parentUUID": "a96adb2c-fb44-4172-b84c-15d844727a87",
                   "isHook": false,
                   "skipped": false
                 }
@@ -743,7 +796,7 @@
               "passes": [],
               "failures": [],
               "pending": [
-                "e3589fbf-b4b5-4420-ac16-89f43ee52c7f"
+                "0422f1a4-5ef5-436e-bf8b-6dfe4ce039e1"
               ],
               "skipped": [],
               "duration": 0,

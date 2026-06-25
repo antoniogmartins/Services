@@ -18,7 +18,7 @@ Endpoints:
 
 -> Realizar Login e Gerar Token
 
-**1.1 - Cenários Positivos** (Implementado)
+**1.1 - Cenários Positivos** 
 
 | ID         | Cenário                                                       |
 | ---------- | ------------------------------------------------------------- |
@@ -28,7 +28,7 @@ Endpoints:
 | LGN-004    | Utilizar token gerado em chamadas autenticadas                |
 
 
-**1.2 - Cenários Negativos** (Implementado)
+**1.2 - Cenários Negativos**
 
 | ID         | Cenário                                                       |
 | ---------- | ------------------------------------------------------------- |
@@ -41,7 +41,7 @@ Endpoints:
 | LGN-011    | Login com caracteres especiais maliciosos (SQL Injection/XSS) |
 
 
-**1.3 - Cenários Alternativos** (Implementado)
+**1.3 - Cenários Alternativos** 
 
 | ID         | Cenário                                                       |
 | ---------- | ------------------------------------------------------------- |
@@ -49,7 +49,7 @@ Endpoints:
 | LGN-013    | Login com espaços antes/depois do email                       |
 
 
-**1.4 - Cenários de Exceção** (Implementado)
+**1.4 - Cenários de Exceção** 
 
 | ID         | Cenário                                                       |
 | ---------- | ------------------------------------------------------------- |
@@ -80,7 +80,7 @@ Endpoints:
 
 **2.1 - Cenários Positivos**
 
-**2.1.1 - Cadastro de Usuário** (Implementado)
+**2.1.1 - Cadastro de Usuário** 
 
 | ID         | Cenário                                                       |
 | ---------- | ------------------------------------------------------------- |
@@ -91,7 +91,7 @@ Endpoints:
 | USR-005    | Validar persistência dos dados cadastrados                    |
 
 
-**2.1.2 - Consulta de Usuário** (Implementado)
+**2.1.2 - Consulta de Usuário** 
 
 | ID         | Cenário                                                       |
 | ---------- | ------------------------------------------------------------- |
@@ -100,7 +100,7 @@ Endpoints:
 | USR-008    | Validar filtros de listagem (se suportados)                   |
 
 
-**2.1.3 - Alteração de Usuário**(Implementado)
+**2.1.3 - Alteração de Usuário**
 
 | ID         | Cenário                                                       |
 | ---------- | ------------------------------------------------------------- |
@@ -110,7 +110,7 @@ Endpoints:
 | USR-012    | Alterar todos os campos                                       |
 
 
-**2.1.4 - Exclusão de Usuário**(Implementado)
+**2.1.4 - Exclusão de Usuário**
 
 | ID         | Cenário                                                       |
 | ---------- | ------------------------------------------------------------- |
@@ -122,7 +122,7 @@ Endpoints:
 
 **2.2 - Cenários Negativos**
 
-**2.2.1 - Cadastro Usuarios**(Implementado)
+**2.2.1 - Cadastro Usuarios**
 
 | ID         | Cenário                                                       |
 | ---------- | ------------------------------------------------------------- |
@@ -136,8 +136,7 @@ Endpoints:
 | USR-023    | Cadastrar usuário com campos nulos                            |
 
 
-**2.2.2 - Consulta Usuarios**(Implementado)
-
+**2.2.2 - Consulta Usuarios**
 | ID         | Cenário                                                       |
 | ---------- | ------------------------------------------------------------- |
 | USR-024    | Buscar usuário inexistente                                    |
@@ -145,7 +144,7 @@ Endpoints:
 | USR-026    | Buscar usuário com ID vazio                                   |
 
 
-**2.2.3 - Alteração Usuarios**(Implementado)
+**2.2.3 - Alteração Usuarios**
 
 | ID         | Cenário                                                              |
 | ---------- | -------------------------------------------------------------------- |
@@ -155,7 +154,7 @@ Endpoints:
 | USR-030    | Alterar enviando payload inválido                                    |
 
 
-**2.2.4 - Exclusão Usuarios**(Implementado)
+**2.2.4 - Exclusão Usuarios**
 
 | ID         | Cenário                                                              |
 | ---------- | -------------------------------------------------------------------- |
@@ -164,7 +163,7 @@ Endpoints:
 | USR-033    | Excluir usuário vinculado a regras de negócio que impeçam remoção    |
 
 
-**2.3 - Cenários Alternativos**(Implementado)
+**2.3 - Cenários Alternativos**
 
 | ID         | Cenário                                                              |
 | ---------- | -------------------------------------------------------------------- |
@@ -174,7 +173,7 @@ Endpoints:
 | USR-037    | Cadastro de usuarios com administrador=true e administrador=false    |
 
 
-**2.4 - Cenários Exceção**(Implementado)
+**2.4 - Cenários Exceção**
 
 | ID         | Cenário                                                              |
 | ---------- | -------------------------------------------------------------------- |
@@ -200,7 +199,7 @@ Endpoints:
 
 **3.1 - Cenários Positivos**
 
-**3.1.1 - Cadastro de Produtos** (Implementado)
+**3.1.1 - Cadastro de Produtos** 
 
 | ID         | Cenário                                                              |
 | ---------- | -------------------------------------------------------------------- |
@@ -210,7 +209,7 @@ Endpoints:
 | PRD-004    | Validar geração do ID do produto                                     |
 
 
-**3.1.2 - Consulta de Produtos** (Implementado)
+**3.1.2 - Consulta de Produtos** 
 
 | ID         | Cenário                                                              |
 | ---------- | -------------------------------------------------------------------- |
@@ -220,7 +219,7 @@ Endpoints:
 | PRD-008    | Filtrar por quantidade                                               |
 
 
-**3.1.3 - Alteração de Produtos** (Implementado)
+**3.1.3 - Alteração de Produtos** 
 
 | ID         | Cenário                                                              |
 | ---------- | -------------------------------------------------------------------- |
@@ -230,7 +229,7 @@ Endpoints:
 | PRD-012    | Alterar descrição                                                    |
 
 
-**3.1.4 - Exclusão de Produtos**(Implementado)
+**3.1.4 - Exclusão de Produtos**
 
 | ID         | Cenário                                                              |
 | ---------- | -------------------------------------------------------------------- |
@@ -238,7 +237,7 @@ Endpoints:
 | PRD-014    | Confirmar remoção após exclusão                                      |
 
 
-**3.2 - Cenários Negativos**(Implementado)
+**3.2 - Cenários Negativos**
 
 | ID         | Cenário                                                              |
 | ---------- | -------------------------------------------------------------------- |
@@ -254,7 +253,7 @@ Endpoints:
 | PRD-024    | Excluir produto associado a carrinho                                 |
 
 
-**3.3 - Cenários Alternativos**(em andamento)
+**3.3 - Cenários Alternativos**
 
 | ID         | Cenário                                                              |
 | ---------- | -------------------------------------------------------------------- |
@@ -264,7 +263,7 @@ Endpoints:
 | PRD-028    | Atualização parcial dos dados                                        |
 
 
-**3.3 - Cenários de Exceção**
+**3.4 - Cenários de Exceção** (em andamento)
 
 | ID         | Cenário                                                              |
 | ---------- | -------------------------------------------------------------------- |
