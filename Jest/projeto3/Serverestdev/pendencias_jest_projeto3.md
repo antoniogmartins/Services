@@ -230,7 +230,7 @@ Endpoints:
 | PRD-012    | Alterar descrição                                                    |
 
 
-**3.1.4 - Exclusão de Produtos**(em andamento)
+**3.1.4 - Exclusão de Produtos**(Implementado)
 
 | ID         | Cenário                                                              |
 | ---------- | -------------------------------------------------------------------- |
@@ -238,7 +238,7 @@ Endpoints:
 | PRD-014    | Confirmar remoção após exclusão                                      |
 
 
-**3.2 - Cenários Negativos**
+**3.2 - Cenários Negativos**(Implementado)
 
 | ID         | Cenário                                                              |
 | ---------- | -------------------------------------------------------------------- |
@@ -254,13 +254,13 @@ Endpoints:
 | PRD-024    | Excluir produto associado a carrinho                                 |
 
 
-**3.3 - Cenários Alternativos**
+**3.3 - Cenários Alternativos**(em andamento)
 
 | ID         | Cenário                                                              |
 | ---------- | -------------------------------------------------------------------- |
-| PRD-025    | Produto com preço zero                                               |
-| PRD-026    | Produto com descrição vazia                                          |
-| PRD-027    | Produto com caracteres especiais                                     |
+| PRD-025    | Cadastrar Produto com preço zero                                     |
+| PRD-026    | Cadastrar Produto com descrição vazia                                |
+| PRD-027    | Cadastrar Produto com caracteres especiais                           |
 | PRD-028    | Atualização parcial dos dados                                        |
 
 
