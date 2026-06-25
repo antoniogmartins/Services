@@ -5,12 +5,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>RestAssuredAPITesting_BDD_PRoject</groupId>
-	<artifactId>RestAssuredAPITesting_BDD_PRoject</artifactId>
+	<groupId>RestAssuredAPITesting_Bdd_Project</groupId>
+	<artifactId>RestAssuredAPITesting_Bdd_Project</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>RestAssuredAPITesting_BDD_PRoject</name>
+	<name>RestAssuredAPITesting_Bdd_Project</name>
 	<url>http://www.example.com</url>
 
 	<properties>

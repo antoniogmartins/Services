@@ -43,7 +43,8 @@ public class Demo_Get_Request {
 		         .statusLine("HTTP/1.1 200 OK")
 //		         .assertThat().body("collectionName[1]", equalTo("celular"))
 		         .assertThat().body("collectionName", hasItem("celular"))
-		        .assertThat().body(matchesJsonSchemaInClasspath("schemas/collections-schema.json"));
+		        .assertThat().body(matchesJsonSchemaInClasspath("schemas/collections-schema.json"))
+		        ;
 		    
 		    
 		    System.out.println(resposta.asPrettyString());
@@ -60,7 +61,7 @@ public class Demo_Get_Request {
 		    Response resposta  = 
 		    given()
 		       .header("x-api-key", "4f7dfc0d-c810-4189-b0c9-da03bea5c317")
-		     //  .header("Content-type", "Application/Json")
+		       .header("Content-type", "Application/Json")
 		    
 		    .when()
 		        .get (baseURI + "collections");
@@ -72,7 +73,8 @@ public class Demo_Get_Request {
 		         .statusLine("HTTP/1.1 200 OK")
 //		         .assertThat().body("collectionName[1]", equalTo("celular"))
 		         .assertThat().body("collectionName", hasItem("celular"))
-		        .assertThat().body(matchesJsonSchemaInClasspath("schemas/collections-schema.json"));
+		         .assertThat().body(matchesJsonSchemaInClasspath("schemas/collections-schema.json"))
+		         ;
 		    
 		    
 		    System.out.println(resposta.asPrettyString());
@@ -87,7 +89,7 @@ public class Demo_Get_Request {
 		    
 		    Response resposta  = 
 		    given()
-		       .header("x-api-key", "4f7dfc0d-c810-4189-b0c9-da03bea5c318")
+		       .header("x-api-key", "4f7dfc0d-c810-4189-b0c9-da03bea5c319")
 		       .header("Content-type", "Application/Json")
 		    
 		    .when()
@@ -96,7 +98,8 @@ public class Demo_Get_Request {
 		    resposta.
 		         then()
 		         .statusCode(403)
-		         .body("message", containsString("Invalid API key"));
+		         .body(containsString("Invalid API key"))
+		         ;
 	                            		 
 	 }
 }
