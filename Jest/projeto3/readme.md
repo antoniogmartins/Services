@@ -263,7 +263,7 @@ Endpoints:
 | PRD-028    | Atualização parcial dos dados                                        |
 
 
-**3.4 - Cenários de Exceção** (em andamento)
+**3.4 - Cenários de Exceção** 
 
 | ID         | Cenário                                                              |
 | ---------- | -------------------------------------------------------------------- |
@@ -288,7 +288,7 @@ Endpoints:
 -> Cancelar compra
 
 
-**4.1 - Cenários Positivos**
+**4.1 - Cenários Positivos** (em andamento)
 
 **4.1.1 - Adicionar produto ao Carrinho de compras**
 
