@@ -37,7 +37,7 @@ before(async function () {
 
 describe('Login - LGN', function () {
     describe ('Login - Cenários Positivos', () => {
-      it.skip('LGN-001 - Realizar login com email e senha válidos', async function() { 
+      it('LGN-001 - Realizar login com email e senha válidos', async function() { 
         const response = await request(url)
             .post('/login')
             .set("Content-Type", "application/json")
@@ -51,7 +51,7 @@ describe('Login - LGN', function () {
          expect(response.body.message).to.equal('Login realizado com sucesso');
          });
 
-      it.skip('LGN-002 - Validar retorno do token JWT/autorização', async function() { 
+      it('LGN-002 - Validar retorno do token JWT/autorização', async function() { 
         const response = await request(url)
             .post('/login')
             .set("Content-Type", "application/json")
@@ -69,7 +69,7 @@ describe('Login - LGN', function () {
 
      
 
-      it.skip('LGN-003 - Validar estrutura da resposta de autenticação', async function() { 
+      it('LGN-003 - Validar estrutura da resposta de autenticação', async function() { 
         const response = await request(url)
             .post('/login')
             .set("Content-Type", "application/json")
@@ -94,7 +94,7 @@ describe('Login - LGN', function () {
 
        });
 
-      it.skip('LGN-004 - Utilizar token gerado em chamadas autenticadas', async function() { 
+      it('LGN-004 - Utilizar token gerado em chamadas autenticadas', async function() { 
         before(async () => {
         const loginResponse = await request(baseURL)
             .post('/login')
@@ -106,7 +106,7 @@ describe('Login - LGN', function () {
         token = loginResponse.body.authorization;
        });
 
-      it.skip('LGN-004 - Deve permitir cadastrar produto utilizando token válido', async () => {
+      it('LGN-004 - Deve permitir cadastrar produto utilizando token válido', async () => {
 
         const response = await request(baseURL)
             .post('/produtos')
@@ -124,7 +124,7 @@ describe('Login - LGN', function () {
   });
 }); 
 describe ('Login - Cenários Negativos', () => {
-      it.skip('LGN-005 - Realizar login com senha incorreta', async function() { 
+      it('LGN-005 - Realizar login com senha incorreta', async function() { 
         const response = await request(url)
             .post('/login')
             .set("Content-Type", "application/json")
@@ -138,7 +138,7 @@ describe ('Login - Cenários Negativos', () => {
          expect(response.body.message).to.equal('Email e/ou senha inválidos');
          });
 
-      it.skip('LGN-006 - Realizar login com email inexistente', async function() { 
+      it('LGN-006 - Realizar login com email inexistente', async function() { 
         const response = await request(url)
             .post('/login')
             .set("Content-Type", "application/json")
@@ -152,7 +152,7 @@ describe ('Login - Cenários Negativos', () => {
          expect(response.body.message).to.equal('Email e/ou senha inválidos');
          });
 
-      it.skip('LGN-007 - Realizar login com email vazio', async function() { 
+      it('LGN-007 - Realizar login com email vazio', async function() { 
         const response = await request(url)
             .post('/login')
             .set("Content-Type", "application/json")
@@ -166,7 +166,7 @@ describe ('Login - Cenários Negativos', () => {
          expect(response.body.email).to.equal('email não pode ficar em branco');
          });
       
-      it.skip('LGN-008 - Realizar login com senha vazia', async function() { 
+      it('LGN-008 - Realizar login com senha vazia', async function() { 
         const response = await request(url)
             .post('/login')
             .set("Content-Type", "application/json")
@@ -180,7 +180,7 @@ describe ('Login - Cenários Negativos', () => {
          expect(response.body.password).to.equal('password não pode ficar em branco');
          });
 
-      it.skip('LGN-009 - Realizar login sem enviar o body', async function() { 
+      it('LGN-009 - Realizar login sem enviar o body', async function() { 
         const response = await request(url)
             .post('/login')
             .set("Content-Type", "application/json")
@@ -192,7 +192,7 @@ describe ('Login - Cenários Negativos', () => {
          expect(response.body).has.property('password').to.equal('password é obrigatório');
          });
 
-      it.skip('LGN-010 - Realizar login com formato inválido de email', async function() { 
+      it('LGN-010 - Realizar login com formato inválido de email', async function() { 
         const response = await request(url)
             .post('/login')
             .set("Content-Type", "application/json")
@@ -206,7 +206,7 @@ describe ('Login - Cenários Negativos', () => {
          expect(response.body).has.property('email').to.equal('email deve ser um email válido');
          });
 
-      it.skip('LGN-011.1 - Login com caracteres especiais maliciosos (SQL Injection/XSS)', async function() {
+      it('LGN-011.1 - Login com caracteres especiais maliciosos (SQL Injection/XSS)', async function() {
 
          const response = await request(url)
               .post('/login')
@@ -222,7 +222,7 @@ describe ('Login - Cenários Negativos', () => {
          expect(response.body).to.have.property('email').that.matches(/(Email e\/ou senha inválidos|email deve ser um email válido)/);
          });
 
-      it.skip('LGN-011.2 - Realizar login com caracteres especiais inválidos', async function() {
+      it('LGN-011.2 - Realizar login com caracteres especiais inválidos', async function() {
 
          const response = await request(url)
               .post('/login')
@@ -239,7 +239,7 @@ describe ('Login - Cenários Negativos', () => {
          expect(response.body).to.have.property('email').that.matches(/(Email e\/ou senha inválidos|email deve ser um email válido)/);
          });
 
-      it.skip('LGN-011.3 - Realizar login com payload semelhante a XSS', async function() {
+      it('LGN-011.3 - Realizar login com payload semelhante a XSS', async function() {
 
          const response = await request(url)
               .post('/login')
@@ -257,7 +257,7 @@ describe ('Login - Cenários Negativos', () => {
          });
 
 
-      it.skip('LGN-011.4 - Realizar login com script no campo senha', async function() {
+      it('LGN-011.4 - Realizar login com script no campo senha', async function() {
 
          const response = await request(url)
               .post('/login')
@@ -275,7 +275,7 @@ describe ('Login - Cenários Negativos', () => {
          });
 
      payloads.forEach((payload, index) => {
-     it.skip('LGN-011.5 - Realizar login com uso de Data Driven Test${index + 1}', async function() {
+     it('LGN-011.5 - Realizar login com uso de Data Driven Test${index + 1}', async function() {
 
             const response = await request(url)
               .post('/login')
@@ -291,7 +291,7 @@ describe ('Login - Cenários Negativos', () => {
         });
 }); 
 describe ('Login - Cenários Alternativos', () => {
-      it.skip('LGN-012 - Realizar login com leetras maiusculas/minusculas no email', async function() { 
+      it('LGN-012 - Realizar login com leetras maiusculas/minusculas no email', async function() { 
         const response = await request(url)
             .post('/login')
             .set("Content-Type", "application/json")
@@ -306,7 +306,7 @@ describe ('Login - Cenários Alternativos', () => {
          });
 
 
-    it.skip('LGN-013 - Realizar login com espaços antes e depois do email', async function() { 
+    it('LGN-013 - Realizar login com espaços antes e depois do email', async function() { 
         const response = await request(url)
             .post('/login')
             .set("Content-Type", "application/json")
@@ -322,7 +322,7 @@ describe ('Login - Cenários Alternativos', () => {
     });
  
 describe ('Login - Cenários de Exceção', () => {
-     it.skip('LGN-014 - Falha interna do servidor durante autenticação', async function() { 
+     it('LGN-014 - Falha interna do servidor durante autenticação', async function() { 
 
       console.log('LGN-014 - Falha interna do servidor durante autenticação - Erro 500 - Internal Server Error');
       console.log('Esse cenário é mais adequado para ser testado manualmente ou utilizando ferramentas de teste de carga/estresse para simular falhas no servidor.');
@@ -348,7 +348,7 @@ describe ('Login - Cenários de Exceção', () => {
          expect(response.body.message).to.equal('Login realizado com sucesso');
          });
 
-      it.skip('LGN-015.2 - Validar que a resposta veio dentro de um tempo aceitável', async function() { 
+      it('LGN-015.2 - Validar que a resposta veio dentro de um tempo aceitável', async function() { 
         const response = await request(url)
             .post('/login')
             .timeout({
@@ -372,7 +372,7 @@ describe ('Login - Cenários de Exceção', () => {
          expect(tempoResposta).to.be.lessThan(15000);
       });
 
-      it.skip('LGN-016.1 - Validar os Serviços de Autenticação Indisponiveis', async function() { 
+      it('LGN-016.1 - Validar os Serviços de Autenticação Indisponiveis', async function() { 
         const response = await request(url)
             .post('/login')
             .set("Content-Type", "application/json")
@@ -384,7 +384,7 @@ describe ('Login - Cenários de Exceção', () => {
          expect(response.status).to.equal(200);
          });
 
-       it.skip('LGN-016.2 - Validar Serviços de Autenticação ao utilizar uma url invalida', async function() { 
+       it('LGN-016.2 - Validar Serviços de Autenticação ao utilizar uma url invalida', async function() { 
         
         try {
         const response = await request('https://servidor-inexistente.dev')
@@ -404,7 +404,7 @@ describe ('Login - Cenários de Exceção', () => {
 
                 });
          
-         it.skip('LGN-016.3 - Validar Serviços de Autenticação ao Simular um Timeout ', async function() { 
+         it('LGN-016.3 - Validar Serviços de Autenticação ao Simular um Timeout ', async function() { 
 
          try{
          const response = await request(url)
@@ -425,5 +425,3 @@ describe ('Login - Cenários de Exceção', () => {
         
  });
 });
-
-
