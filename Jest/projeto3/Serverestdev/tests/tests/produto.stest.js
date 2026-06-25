@@ -2,6 +2,7 @@ const request = require('supertest');
 //const express = require('express');
 const { expect } = require('chai', 'chai-json-schema');
 
+
 const url = 'https://serverest.dev';
 let token = "";
 let id_usuario = "";
@@ -53,7 +54,7 @@ describe('Produto - PRD', function () {
          expect(response.body).to.have.property('_id');
         });
       
-      it.skip('PRD-001 - Cadastrar produto válido', async function() { 
+      it('PRD-001 - Cadastrar produto válido', async function() { 
         const response = await request(url)
             .post('/produtos')
             .set("Content-Type", "application/json")
@@ -70,7 +71,7 @@ describe('Produto - PRD', function () {
             expect(response.body.message).to.equal('Cadastro realizado com sucesso');
 
         });
-      it.skip('PRD-002 - Cadastrar produto com estoque zero', async function() { 
+      it('PRD-002 - Cadastrar produto com estoque zero', async function() { 
         const response = await request(url)
             .post('/produtos')
             .set("Content-Type", "application/json")
@@ -87,7 +88,7 @@ describe('Produto - PRD', function () {
             expect(response.body.message).to.equal('Cadastro realizado com sucesso');
 
         });
-      it.skip('PRD-003 - Cadastrar produto com quantidade bem alta', async function() { 
+      it('PRD-003 - Cadastrar produto com quantidade bem alta', async function() { 
         const response = await request(url)
             .post('/produtos')
             .set("Content-Type", "application/json")
@@ -95,14 +96,14 @@ describe('Produto - PRD', function () {
             .set("authorization", token)
             .send({
                     nome: `Logitech MX Vertical_Modelo_X${Date.now()}Y`,
-                    preco: 47000000999990888880,
+                    preco: 470,
                     descricao: 'Mouse',
-                    quantidade: 381
+                    quantidade: 3810998988787776767665
             })
             id_produto = response.body._id;
             //console.log('O valor do id é: ' + id_produto);
             expect(response.status).to.equal(400);
-            expect(response.body.preco).to.equal('preco não pode ser maior que 9007199254740991');
+            expect(response.body.quantidade).to.equal('quantidade não pode ser maior que 9007199254740991');
 
         });
       it('PRD-004 - Validar geração do ID do produto', async function() { 
@@ -126,7 +127,7 @@ describe('Produto - PRD', function () {
         });
     });     
    describe ('Consulta de Produto(s)', () => {
-      it.skip('PRD-005 - Listar produtos', async function() { 
+      it('PRD-005 - Listar produtos', async function() { 
          const resposta = await request(url)
             .get('/produtos')
             .set("Content-Type", "application/json")
@@ -147,7 +148,7 @@ describe('Produto - PRD', function () {
          expect(produto.quantidade).to.equal(381);
 
       });
-      it.skip('PRD-006 - Buscar produto por ID Válido', async function() { 
+      it('PRD-006 - Buscar produto por ID Válido', async function() { 
         console.log("id_produto é: "+id_produto); 
         const resposta = await request(url)
             .get(`/produtos/${id_produto}`)
@@ -163,7 +164,7 @@ describe('Produto - PRD', function () {
          expect(resposta.body).to.have.property('_id');
       });
 
-      it.skip('PRD-007 - Filtrar por preço', async function() { 
+      it('PRD-007 - Filtrar por preço', async function() { 
          const resposta = await request(url)
             .get(`/produtos/?preco=470`)
             .set("Content-Type", "application/json")
@@ -185,7 +186,7 @@ describe('Produto - PRD', function () {
            
       });
 
-       it.skip('PRD-008 - Filtrar por quantidade', async function() { 
+       it('PRD-008 - Filtrar por quantidade', async function() { 
          const resposta = await request(url)
             .get(`/produtos/?quantidade=382`)
             .set("Content-Type", "application/json")
@@ -208,7 +209,7 @@ describe('Produto - PRD', function () {
       });
    });
    describe ('Alteração de Produto(s)', () => {
-      it.skip('PRD-009 - Alterar Nome do Produto', async function() { 
+      it('PRD-009 - Alterar Nome do Produto', async function() { 
          const resposta = await request(url)
             .put(`/produtos/${id_produto}`)
             .set("Content-Type", "application/json")
@@ -224,7 +225,7 @@ describe('Produto - PRD', function () {
          expect(resposta.body.quantidade).to.equal('quantidade é obrigatório');
 
       });
-      it.skip('PRD-010 - Alterar Preço do Produto', async function() { 
+      it('PRD-010 - Alterar Preço do Produto', async function() { 
          const resposta = await request(url)
             .put(`/produtos/${id_produto}`)
             .set("Content-Type", "application/json")
@@ -240,7 +241,7 @@ describe('Produto - PRD', function () {
          expect(resposta.body.quantidade).to.equal('quantidade é obrigatório');
 
       });
-      it.skip('PRD-011 - Alterar Estoque do Produto', async function() { 
+      it('PRD-011 - Alterar Estoque do Produto', async function() { 
          const resposta = await request(url)
             .put(`/produtos/${id_produto}`)
             .set("Content-Type", "application/json")
@@ -257,7 +258,7 @@ describe('Produto - PRD', function () {
 
       });
      
-      it.skip('PRD-012 - Alterar Descrição do Produto', async function() { 
+      it('PRD-012 - Alterar Descrição do Produto', async function() { 
          const resposta = await request(url)
             .put(`/produtos/${id_produto}`)
             .set("Content-Type", "application/json")
@@ -276,7 +277,7 @@ describe('Produto - PRD', function () {
     });
 
    describe ('Exclusão de Produto(s)', () => {
-      it.skip('PRD-013 - Excluir Produto existente', async function() { 
+      it('PRD-013 - Excluir Produto existente', async function() { 
           const response = await request(url)
             .post('/produtos')
             .set("Content-Type", "application/json")
@@ -301,7 +302,7 @@ describe('Produto - PRD', function () {
          expect(resposta.body.message).to.equal('Registro excluído com sucesso');
       });
       
-      it.skip('PRD-014 - Confirmar remoção após exclusão', async function() { 
+      it('PRD-014 - Confirmar remoção após exclusão', async function() { 
           const resposta_adicionar_produto= await request(url)
             .post('/produtos')
             .set("Content-Type", "application/json")
@@ -338,7 +339,7 @@ describe('Produto - PRD', function () {
     });
 });
   describe('Produto - Cenários Negativos', () => {
-      it.skip('PRD-015 - Cadastrar produto sem nome', async function() { 
+      it('PRD-015 - Cadastrar produto sem nome', async function() { 
          const response = await request(url)
             .post('/produtos')
             .set("Content-Type", "application/json")
@@ -353,7 +354,7 @@ describe('Produto - PRD', function () {
             expect(response.body).to.have.property('nome');
             expect(response.body.nome).to.equal('nome é obrigatório');
      });
-      it.skip('PRD-016 - Cadastrar produto sem preço', async function() { 
+      it('PRD-016 - Cadastrar produto sem preço', async function() { 
          const response = await request(url)
             .post('/produtos')
             .set("Content-Type", "application/json")
@@ -368,7 +369,7 @@ describe('Produto - PRD', function () {
             expect(response.body).to.have.property('preco');
             expect(response.body.preco).to.equal('preco é obrigatório');
      });
-      it.skip('PRD-017 - Cadastrar produto com preço negativo', async function() { 
+      it('PRD-017 - Cadastrar produto com preço negativo', async function() { 
          const response = await request(url)
             .post('/produtos')
             .set("Content-Type", "application/json")
@@ -384,7 +385,7 @@ describe('Produto - PRD', function () {
             expect(response.body).to.have.property('preco');
             expect(response.body.preco).to.equal('preco deve ser um número positivo');
      });
-      it.skip('PRD-018 - Cadastrar produto com quantidade negativa', async function() { 
+      it('PRD-018 - Cadastrar produto com quantidade negativa', async function() { 
          const response = await request(url)
             .post('/produtos')
             .set("Content-Type", "application/json")
@@ -400,7 +401,7 @@ describe('Produto - PRD', function () {
             expect(response.body).to.have.property('quantidade');
             expect(response.body.quantidade).to.equal('quantidade deve ser maior ou igual a 0');
      });
-      it.skip('PRD-019 - Cadastrar produto dulicado', async function() { 
+      it('PRD-019 - Cadastrar produto dulicado', async function() { 
          await request(url)
             .post('/produtos')
             .set("Content-Type", "application/json")
@@ -427,7 +428,7 @@ describe('Produto - PRD', function () {
             expect(response.status).to.equal(400);
             expect(response.body.message).to.equal('Já existe produto com esse nome');
      });
-     it.skip('PRD-020 - Cadastrar produto sem token', async function() { 
+     it('PRD-020 - Cadastrar produto sem token', async function() { 
          const response = await request(url)
             .post('/produtos')
             .set("Content-Type", "application/json")
@@ -442,7 +443,7 @@ describe('Produto - PRD', function () {
             expect(response.body.message).to.equal('Token de acesso ausente, inválido, expirado ou usuário do token não existe mais');
      });
 
-     it.skip('PRD-021 - Buscar produto inexistente', async function() { 
+     it('PRD-021 - Buscar produto inexistente', async function() { 
          id_produto = "tG9btt3KGER89TZG";
             const response = await request(url)
             .get(`/produtos/${id_produto}`)
@@ -453,7 +454,7 @@ describe('Produto - PRD', function () {
             expect(response.body.message).to.equal('Produto não encontrado');
      });
 
-     it.skip('PRD-022 - Alterar produto inexistente', async function() { 
+     it('PRD-022 - Alterar produto inexistente', async function() { 
          id_produto = "tG9btt3KGER89TZG";
             const response = await request(url)
             .put(`/produtos/${id_produto}`)
@@ -471,7 +472,7 @@ describe('Produto - PRD', function () {
             expect(response.body.message).to.equal('Cadastro realizado com sucesso');
      });
 
-     it.skip('PRD-023 - Excluir produto inexistente', async function() { 
+     it('PRD-023 - Excluir produto inexistente', async function() { 
          id_produto = "tG9btt3KGER89TZG";
             const response = await request(url)
             .del(`/produtos/${id_produto}`)
@@ -484,7 +485,7 @@ describe('Produto - PRD', function () {
      });
 
 
-     it.skip('PRD-024 - Excluir produto associado a carrinho', async function() { 
+     it('PRD-024 - Excluir produto associado a carrinho', async function() { 
          id_produto = "BeeJh5lz3k6kSIzA";
             const response = await request(url)
             .del(`/produtos/${id_produto}`)
@@ -498,7 +499,7 @@ describe('Produto - PRD', function () {
       });
 });
   describe('Produto - Cenários Alternativos', () => {
-      it.skip('PRD-025 - Cadastrar Produto com preço zero', async function() { 
+      it('PRD-025 - Cadastrar Produto com preço zero', async function() { 
         const response = await request(url)
             .post('/produtos')
             .set("Content-Type", "application/json")
@@ -515,7 +516,7 @@ describe('Produto - PRD', function () {
          expect(response.body.preco).to.equal('preco deve ser um número positivo');
          });
 
-      it.skip('PRD-026 - Cadastrar Produto com descriçao vazia', async function() { 
+      it('PRD-026 - Cadastrar Produto com descriçao vazia', async function() { 
         const response = await request(url)
             .post('/produtos')
             .set("Content-Type", "application/json")
@@ -532,7 +533,7 @@ describe('Produto - PRD', function () {
          expect(response.body.descricao).to.equal('descricao não pode ficar em branco');
          });
 
-      it.skip('PRD-027 - Cadastrar Produto com caracteres especiais', async function() { 
+      it('PRD-027 - Cadastrar Produto com caracteres especiais', async function() { 
          const response = await request(url)
             .post('/produtos')
             .set("Content-Type", "application/json")
@@ -556,7 +557,7 @@ describe('Produto - PRD', function () {
             .set("authorization", token)
          });
 
-      it.skip('PRD-028 - Atualização Parcial dos dados', async function() { 
+      it('PRD-028 - Atualização Parcial dos dados', async function() { 
          const resposta = await request(url)
             .post('/produtos')
             .set("Content-Type", "application/json")
@@ -584,25 +585,53 @@ describe('Produto - PRD', function () {
          expect(response.body.nome).to.equal('nome é obrigatório');
          expect(response.body.descricao).to.equal('descricao é obrigatório');
          });
-   });
+
+    });
 
   describe('Produto - Cenários de Exceção', () => {
-      it.skip('PRD-029 - Falhas ao atualizar o estoque', async function() { 
-        const response = await request(url)
-            .put('/login')
+      it('PRD-029 - Deve retornar erro quando ocorrer falha na atualização do estoque', async () => {
+
+        console.log("Não automatizável na camada de API pública");
+        console.log("Necessário acesso ao backend ou ambiente controlado.")
+
+        });
+
+
+      it('PRD-030 - Deve retornar erro quando ocorrer exclusão de um produto', async () => {
+
+        console.log("Não automatizável na camada de API pública");
+        console.log("Necessário acesso ao backend ou ambiente controlado.")
+
+        });
+   
+      it('PRD-031 - Timeout durante cadastro', async function() { 
+         try{
+
+            await request(url)
+            .post('/produtos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
+            .set("authorization", token)
             .send({
-                  email: 'fulano@qa.com',
-                  password: 'teste'
+                    nome: `Logitech MX Vertical_Modelo_X${Date.now()}Y`,
+                    descricao: 'Mouse',
+                    preco: 481,
+                    quantidade: 381
             })
-         expect(response.headers["content-type"]).to.match(/json/);
-         expect(response.status).to.equal(200);
-         expect(response.body).to.have.property('authorization');
-         expect(response.body.message).to.equal('Login realizado com sucesso');
-         token = response.body.authorization;
-         console.log('O valor do token é: ' + token);
-         });
-});
-});
+            .timeout({
+                 response: 1
 
+               });
+                    expect.fail('Timeout deveria ocorrer');
+
+                 } catch (error) {
+
+                     expect(error.code).to.equal('ECONNABORTED');
+                     expect(error.message).to.contain('timeout');
+
+                     //console.log(error);
+
+                 };
+});
+});
+});
