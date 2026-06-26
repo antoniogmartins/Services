@@ -301,7 +301,7 @@ Endpoints:
 | CAR-005    | Validar cálculo da quantidade total                                  |
 
 
-**4.1.2 - Consultar Carrinho de compras**
+**4.1.2 - Consultar Carrinho de compras** (em andamento)
 
 | ID         | Cenário                                                              |
 | ---------- | -------------------------------------------------------------------- |

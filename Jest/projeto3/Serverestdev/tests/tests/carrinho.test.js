@@ -7,6 +7,8 @@ let token = "";
 let id_usuario = 0;
 let id_produto = 0;
 let id_produto_plus = 0;
+let id_carrinho = 0;
+
 let _iemail = "";
 
 before(async function () {
@@ -258,16 +260,16 @@ describe('Carrinho - CAR', function () {
          
            const carrinhos = consultarprodutonocarrinho.body.carrinhos[0];
            const somaQuantidades = carrinhos.produtos.reduce(
-                (total, produto) => {return total + produto.quantidade;}, 0);
+                (total, produto) => {return total + produto.quantidade;}, 0, 0);
 
+        // console.log(carrinhos.quantidadeTotal);
+        // console.log(somaQuantidades);
+               
          expect(carrinhos.quantidadeTotal).to.equal(somaQuantidades);
 
-         console.log(carrinhos.quantidadeTotal);
-         console.log(somaQuantidades);
-        
         });
 
-        it.skip('CAR-005 - Validar cálculo do valor total do carrinho', async function() { 
+      it.skip('CAR-005 - Validar cálculo do valor total do carrinho', async function() { 
         
         await request(url)
             .del('/carrinhos/concluir-compra')
@@ -336,10 +338,149 @@ describe('Carrinho - CAR', function () {
            const somaPrecoTotal = carrinhos.produtos.reduce(
                 (total, produto) => {return total + (produto.quantidade * produto.precoUnitario);}, 0);
 
-         expect(carrinhos.precoTotal).to.equal(somaPrecoTotal);
-
          //console.log(carrinhos.precoTotal);
          //console.log(somaPrecoTotal);
+
+         expect(carrinhos.precoTotal).to.equal(somaPrecoTotal);
+        });
+
+      it('CAR-006 - Listar carrinhos', async function() { 
+        
+          const consultarcarrinho = await request(url)
+            .get('/carrinhos')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+ 
+         //console.log(consultarprodutonocarrinho.body);
+         expect(consultarcarrinho.status).to.equal(200);
+
+         if (consultarcarrinho.body.quantidade == 0){
+
+            expect(consultarcarrinho.body.quantidade).to.equal(0);
+             expect(consultarcarrinho.body.carrinhos).to.equal(null);
+
+
+
+         } else if (consultarcarrinho.body.quantidade > 0){
+
+            await request(url)
+            .del('/carrinhos/concluir-compra')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+
+        const adicionarproduto = await request(url)
+            .post('/produtos')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+            .send({
+                    nome: `Logitech MX Vertical_Modelo_X${Date.now()}Y`,
+                    preco: 100,
+                    descricao: 'Mouse',
+                    quantidade: 301
+                 });
+            id_produto = adicionarproduto.body._id;
+
+        const adicionarprodutoaocarrinho = await request(url)
+            .post('/carrinhos')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+            .send({
+                     produtos: [
+                {
+                         idProduto: `${id_produto}`,
+                         quantidade: 1
+                }
+                              ]
+                });        
+            
+              id_carrinho= adicionarprodutoaocarrinho.body._id;
+         console.log('id carrinho1: '+id_carrinho);
+         //parei
+         const carrinhos = consultarcarrinho.body.carrinhos[0];
+
+         console.log('id carrinho2: '+carrinhos._id);
+         
+         expect(carrinhos._id).to.equal(id_carrinho);
+         expect(carrinhos.produtos[0].quantidade).to.equal(1);
+         expect(carrinhos.produtos[0].precoUnitario).to.equal(100);
+
+        //ou
+
+         const produto = carrinhos.produtos.find((p) => p.idProduto === id_produto);
+         expect(produto.idProduto).to.equal(id_produto);
+         expect(produto.quantidade).to.equal(1);
+         expect(produto.precoUnitario).to.equal(100);
+
+          
+         }    
+
+
+
+         
+        });
+
+         it.skip('CAR-007 - Buscar carriho por Id Válido', async function() { 
+        
+         await request(url)
+            .del('/carrinhos/concluir-compra')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+        
+        const adicionarproduto = await request(url)
+            .post('/produtos')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+            .send({
+                    nome: `Logitech MX Vertical_Modelo_X${Date.now()}Y`,
+                    preco: 100,
+                    descricao: 'Mouse',
+                    quantidade: 301
+                 });
+            id_produto = adicionarproduto.body._id;
+
+        const adicionarprodutoaocarrinho = await request(url)
+            .post('/carrinhos')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+            .send({
+                     produtos: [
+                {
+                         idProduto: `${id_produto}`,
+                         quantidade: 1
+                }
+                              ]
+                });   
+                id_carrinho = adicionarprodutoaocarrinho._id;     
+            
+        const consultarcarrinho = await request(url)
+            .get('/carrinhos')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+ 
+         //console.log(consultarprodutonocarrinho.body);
+         expect(consultarcarrinho.status).to.equal(200);
+
+         const carrinhos = consultarcarrinho.body.carrinhos[0];
+         
+         console.log(carrinhos.produtos[0].idProduto);
+         expect(carrinhos.produtos[0].idProduto).to.equal(id_produto);
+         expect(carrinhos.produtos[0].quantidade).to.equal(1);
+         expect(carrinhos.produtos[0].precoUnitario).to.equal(100);
+
+        //ou
+
+         const produto = carrinhos.produtos.find((p) => p.idProduto === id_produto);
+         expect(produto.idProduto).to.equal(id_produto);
+         expect(produto.quantidade).to.equal(1);
+         expect(produto.precoUnitario).to.equal(100);
          
         });
 
