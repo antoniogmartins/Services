@@ -87,6 +87,7 @@ Cada documento possui uma responsabilidade específica, evitando duplicidade de 
 
 ```text
 QA REST API Test Designer/
+
 │
 ├── README.md
 │
