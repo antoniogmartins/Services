@@ -46,20 +46,31 @@ A ferramenta analisa contratos de API (OpenAPI/Swagger, endpoints, métodos HTTP
 ## 📂 Estrutura do Projeto
 
 ```
-QA-REST-API-Test-Designer/
-├── app/
-│   ├── main.py               # Ponto de entrada da aplicação
-│   ├── designer.py           # Lógica de geração de testes com IA
-│   ├── parser.py             # Parser de especificações OpenAPI/Swagger
-│   └── models.py             # Modelos de dados (Pydantic)
-├── tests/
-│   ├── features/             # Cenários Gherkin gerados
-│   └── test_generated.py     # Testes gerados automaticamente
-├── examples/
-│   └── sample_spec.yaml      # Exemplo de especificação OpenAPI
-├── requirements.txt
-├── .env.example
-└── README.md
+QA REST API Test Designer/
+│
+├── README.md
+├── Arquitetura.md
+├── Glossário.md
+├── CHANGELOG.md
+├── ROADMAP.md
+├── 01 - Skill.md
+├── 02 - Guia de Utilização.md
+├── 03 - Prompt Mestre.md
+├── 04 - Templates
+│   ├── Template de Saída.md
+│   ├── Template Gherkin.md
+│   ├── Template Matriz de Riscos.md
+│   ├── Template Relatório Executivo.md
+│   └── Template Análise por Endpoint.md
+├── 05 - Configuração.md
+├── 06 - Exemplos
+│   ├── Exemplo de Entrada.md
+│   └── Exemplo de Saída.md
+└── docs
+    ├── FAQ.md
+    ├── Boas Práticas.md
+    └── Guia de Evolução.md
+
 ```
 
 ---
