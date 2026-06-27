@@ -84,12 +84,13 @@
 							{
 								"key": "Authorization",
 								"value": "{{token}}",
-								"type": "text"
+								"type": "text",
+								"disabled": true
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"nome\": \"SHIBIRUBA\",\n  \"email\": \"marly@qa.com.br\",\n  \"password\": \"teste\",\n  \"administrador\": \"true\"\n}"
+							"raw": "{\n                     \"nome\": \"Marta Josefina\",\n                     \"email\": \"xxpto@gmail.com\",\n                     \"password\": \"teste\",\n                     \"administrador\": \"false\"\n}"
 						},
 						"url": "{{hostname}}/usuarios"
 					},
@@ -105,7 +106,35 @@
 								"value": "application/json"
 							}
 						],
-						"url": "{{hostname}}/usuarios/0nbnjnkMyRgOkttM"
+						"url": "{{hostname}}/usuarios/0uxuPY0cbmQhpEz1"
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar por Usuario Query",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{hostname}}/usuarios?email=fulano@qa.com",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"usuarios"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "fulano@qa.com"
+								}
+							]
+						}
 					},
 					"response": []
 				},
@@ -119,7 +148,7 @@
 								"value": "application/json"
 							}
 						],
-						"url": "{{hostname}}/usuarios/0nbnjnkMyRgOkttM"
+						"url": "{{hostname}}/usuarios/0uxuPY0cbmQhpEz1"
 					},
 					"response": []
 				},
@@ -139,9 +168,9 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"nome\": \"Fulano da Silva\",\n  \"email\": \"beltran11o@qa.com.br\",\n  \"password\": \"teste\",\n  \"administrador\": \"true\"\n}"
+							"raw": "{\n  \"nome\": \"Fulano da Silva\",\n  \"email\": \"fulano112@qa.com\",\n  \"password\": \"teste\",\n  \"administrador\": \"true\"\n}"
 						},
-						"url": "{{hostname}}/usuarios/0uxuPY0cbmQhpEz1"
+						"url": "{{hostname}}/usuarios/3OKEWr8cQqkxJQqT1"
 					},
 					"response": []
 				}
@@ -160,25 +189,7 @@
 								"value": "application/json"
 							}
 						],
-						"url": {
-							"raw": "{{hostname}}/produtos?preco=470&quantidade=0",
-							"host": [
-								"{{hostname}}"
-							],
-							"path": [
-								"produtos"
-							],
-							"query": [
-								{
-									"key": "preco",
-									"value": "470"
-								},
-								{
-									"key": "quantidade",
-									"value": "0"
-								}
-							]
-						}
+						"url": "{{hostname}}/produtos"
 					},
 					"response": []
 				},
@@ -202,7 +213,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"nome\": \"Logitech MX Vertical20\",\n  \"preco\": 470,\n  \"descricao\": \"Mouse\",\n  \"quantidade\": 381\n}"
+							"raw": "{\n  \"nome\": \"Logitech MX Vertical_Modelo_X{{$timestamp}}Y\",\n  \"preco\": 10,\n  \"descricao\": \"Mouse\",\n  \"quantidade\": 38109\n}"
 						},
 						"url": "{{hostname}}/produtos"
 					},
@@ -218,7 +229,7 @@
 								"value": "application/json"
 							}
 						],
-						"url": "{{hostname}}/produtos/DI3fyPoBHaIMCx0J"
+						"url": "{{hostname}}/produtos/0snTH1xe3CWjL53K"
 					},
 					"response": []
 				},
@@ -260,9 +271,9 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"nome\": \"Logitech MX Vertica2l\",\n  \"preco\": 470,\n  \"descricao\": \"Mouse\",\n  \"quantidade\": 381\n}"
+							"raw": "{\n\n  \"preco\": 470,\n\n  \"quantidade\": 381\n}"
 						},
-						"url": "{{hostname}}/produtos/DI3fyPoBHaIMCx0J"
+						"url": "{{hostname}}/produtos/KQ5tfYhW22lzBr2N"
 					},
 					"response": []
 				}
@@ -281,8 +292,22 @@
 								"value": "application/json"
 							}
 						],
+						"url": "{{hostname}}/carrinhos"
+					},
+					"response": []
+				},
+				{
+					"name": "FIltrar Carrinho",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							}
+						],
 						"url": {
-							"raw": "{{hostname}}/carrinhos?precoTotal=179070&quantidadeTotal=381",
+							"raw": "{{hostname}}/carrinhos?precoTotal=6180&quantidadeTotal=3",
 							"host": [
 								"{{hostname}}"
 							],
@@ -292,11 +317,39 @@
 							"query": [
 								{
 									"key": "precoTotal",
-									"value": "179070"
+									"value": "6180"
 								},
 								{
 									"key": "quantidadeTotal",
-									"value": "381"
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Carrinho por Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{hostname}}/carrinhos?_id=5YVRts5wAoskjD9g",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"carrinhos"
+							],
+							"query": [
+								{
+									"key": "_id",
+									"value": "5YVRts5wAoskjD9g"
 								}
 							]
 						}
@@ -323,7 +376,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"produtos\": [\n    {\n      \"idProduto\": \"7ctsVpHMPgEcyRF8\",\n      \"quantidade\": 381\n    }\n  ]\n}"
+							"raw": "{\n  \"produtos\": [   \n    {\n      \"idProduto\": \"tmP3o4lEATzscn3v\",\n      \"quantidade\": 1\n    }\n  ]\n}"
 						},
 						"url": "{{hostname}}/carrinhos"
 					},
@@ -339,7 +392,7 @@
 								"value": "application/json"
 							}
 						],
-						"url": "{{hostname}}/carrinhos/3maMcNrDfG9O9b5J"
+						"url": "{{hostname}}/carrinhos/RcJjdd7md6AlfjlJ"
 					},
 					"response": []
 				},
@@ -357,7 +410,7 @@
 								"value": "{{token}}"
 							}
 						],
-						"url": "{{hostname}}/carrinhos/concluir-compra"
+						"url": "{{hostname}}/carrinhos/concluir-compra/"
 					},
 					"response": []
 				},

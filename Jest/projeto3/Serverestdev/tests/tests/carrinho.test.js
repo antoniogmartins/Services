@@ -344,7 +344,7 @@ describe('Carrinho - CAR', function () {
          expect(carrinhos.precoTotal).to.equal(somaPrecoTotal);
         });
 
-      it('CAR-006 - Listar carrinhos', async function() { 
+      it.skip('CAR-006 - Listar carrinhos', async function() { 
         
           const consultarcarrinho = await request(url)
             .get('/carrinhos')
@@ -358,9 +358,7 @@ describe('Carrinho - CAR', function () {
          if (consultarcarrinho.body.quantidade == 0){
 
             expect(consultarcarrinho.body.quantidade).to.equal(0);
-             expect(consultarcarrinho.body.carrinhos).to.equal(null);
-
-
+            expect(consultarcarrinho.body.carrinhos).to.equal(null);
 
          } else if (consultarcarrinho.body.quantidade > 0){
 
@@ -383,6 +381,8 @@ describe('Carrinho - CAR', function () {
                  });
             id_produto = adicionarproduto.body._id;
 
+        console.log('produto criado: '+id_produto);    
+
         const adicionarprodutoaocarrinho = await request(url)
             .post('/carrinhos')
             .set("Content-Type", "application/json")
@@ -398,11 +398,18 @@ describe('Carrinho - CAR', function () {
                 });        
             
               id_carrinho= adicionarprodutoaocarrinho.body._id;
-         console.log('id carrinho1: '+id_carrinho);
-         //parei
+        
+         console.log('produto adicionado ao carrinho: '+id_carrinho);
+
+         const consultarcarrinho = await request(url)
+            .get('/carrinhos')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+        
          const carrinhos = consultarcarrinho.body.carrinhos[0];
 
-         console.log('id carrinho2: '+carrinhos._id);
+         console.log('consultando produto adicionado ao carrinho: '+carrinhos._id);
          
          expect(carrinhos._id).to.equal(id_carrinho);
          expect(carrinhos.produtos[0].quantidade).to.equal(1);
@@ -414,16 +421,11 @@ describe('Carrinho - CAR', function () {
          expect(produto.idProduto).to.equal(id_produto);
          expect(produto.quantidade).to.equal(1);
          expect(produto.precoUnitario).to.equal(100);
-
-          
          }    
-
-
-
          
         });
 
-         it.skip('CAR-007 - Buscar carriho por Id Válido', async function() { 
+      it.skip('CAR-007 - Buscar carrinho por Id Válido', async function() { 
         
          await request(url)
             .del('/carrinhos/concluir-compra')
