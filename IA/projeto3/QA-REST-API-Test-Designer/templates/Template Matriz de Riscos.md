@@ -1,0 +1,2 @@
+| Endpoint | Regra | Risco | Cenário |
+|---|---|---|---|
