@@ -129,6 +129,8 @@ Template Matriz de Riscos.md
 
 Anexe o contrato da API.
 
+Tanto o Collection quanto o environment
+
 São aceitos:
 
 * Swagger JSON
