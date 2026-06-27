@@ -425,14 +425,30 @@ describe('Carrinho - CAR', function () {
          
         });
 
-      it.skip('CAR-007 - Buscar carrinho por Id Válido', async function() { 
+      it('CAR-007 - Buscar carrinho por Id Válido', async function() { 
         
-         await request(url)
+        const consultarcarrinho = await request(url)
+            .get('/carrinhos')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+ 
+         //console.log(consultarprodutonocarrinho.body);
+         expect(consultarcarrinho.status).to.equal(200);
+
+         if (consultarcarrinho.body.quantidade == 0){
+
+            expect(consultarcarrinho.body.quantidade).to.equal(0);
+            expect(consultarcarrinho.body.carrinhos).to.equal(null);
+
+         } else if (consultarcarrinho.body.quantidade > 0){
+
+            await request(url)
             .del('/carrinhos/concluir-compra')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
             .set("authorization", token)
-        
+
         const adicionarproduto = await request(url)
             .post('/produtos')
             .set("Content-Type", "application/json")
@@ -446,6 +462,8 @@ describe('Carrinho - CAR', function () {
                  });
             id_produto = adicionarproduto.body._id;
 
+        console.log('produto criado: '+id_produto);    
+
         const adicionarprodutoaocarrinho = await request(url)
             .post('/carrinhos')
             .set("Content-Type", "application/json")
@@ -458,22 +476,23 @@ describe('Carrinho - CAR', function () {
                          quantidade: 1
                 }
                               ]
-                });   
-                id_carrinho = adicionarprodutoaocarrinho._id;     
+                });        
             
-        const consultarcarrinho = await request(url)
-            .get('/carrinhos')
+              id_carrinho= adicionarprodutoaocarrinho.body._id;
+        
+         console.log('produto adicionado ao carrinho: '+id_carrinho);
+
+         const consultarcarrinho = await request(url)
+            .get(`/carrinhos/?_id=&{id_carrinho}`)
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
             .set("authorization", token)
- 
-         //console.log(consultarprodutonocarrinho.body);
-         expect(consultarcarrinho.status).to.equal(200);
-
+        
          const carrinhos = consultarcarrinho.body.carrinhos[0];
+
+         console.log('consultando produto adicionado ao carrinho: '+carrinhos._id);
          
-         console.log(carrinhos.produtos[0].idProduto);
-         expect(carrinhos.produtos[0].idProduto).to.equal(id_produto);
+         expect(carrinhos._id).to.equal(id_carrinho);
          expect(carrinhos.produtos[0].quantidade).to.equal(1);
          expect(carrinhos.produtos[0].precoUnitario).to.equal(100);
 
@@ -483,6 +502,7 @@ describe('Carrinho - CAR', function () {
          expect(produto.idProduto).to.equal(id_produto);
          expect(produto.quantidade).to.equal(1);
          expect(produto.precoUnitario).to.equal(100);
+         }    
          
         });
 
