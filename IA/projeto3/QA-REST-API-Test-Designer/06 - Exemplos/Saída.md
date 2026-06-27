@@ -14,7 +14,7 @@
 | --------------- | --------------------------------- |
 | API             | ServeRest                         |
 | Collection      | ServeRest.postman_collection.json |
-| Data da análise | 15/01/2026                        |
+| Data da análise | 15/06/2026                        |
 | Analista        | QA REST API Test Designer         |
 | Versão do Skill | 1.0                               |
 

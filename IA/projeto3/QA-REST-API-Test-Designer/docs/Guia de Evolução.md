@@ -312,7 +312,7 @@ Toda implementação deverá seguir as diretrizes descritas neste documento para
 
 | Versão | Data       | Autor              | Descrição                           |
 | ------ | ---------- | ------------------ | ----------------------------------- |
-| 1.0.0  | DD/MM/AAAA | Antonio G. Martins | Criação inicial do Guia de Evolução |
+| 1.0.0  | 27/06/2026 | Antonio G. Martins | Criação inicial do Guia de Evolução |
 
 ---
 

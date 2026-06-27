@@ -33,7 +33,7 @@ Exemplo:
 
 ## [1.0.0] - Versão Inicial
 
-**Data:** DD/MM/AAAA
+**Data:** 27/06/2026
 
 ### Adicionado
 
@@ -131,7 +131,7 @@ Exemplo:
 
 | Versão | Data       | Autor              | Tipo    | Descrição                    |
 | ------ | ---------- | ------------------ | ------- | ---------------------------- |
-| 1.0.0  | DD/MM/AAAA | Antonio G. Martins | Criação | Primeira versão do framework |
+| 1.0.0  | 27/06/2026 | Antonio G. Martins | Criação | Primeira versão do framework |
 
 ---
 

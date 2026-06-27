@@ -314,10 +314,10 @@ Then deverá retornar "<status>"
 
 Examples:
 
-| nome | email | status |
-|------|-------|--------|
-| João | joao@email.com | 201 |
-| Maria | maria@email.com | 201 |
+| nome  | email           | status |
+|-------|-----------------|--------|
+| João  | joao@email.com  | 201    |
+| Maria | maria@email.com | 201    |
 ```
 
 ---

@@ -344,7 +344,7 @@ Este Skill destina-se a:
 | Nome            | QA REST API Test Designer |
 | Versão          | 1.0                       |
 | Autor           | Antonio G. Martins        |
-| Data de criação | 27.06.26                 |
+| Data de criação | 27.06.26                  |
 | Status          | Ativo                     |
 
 ---

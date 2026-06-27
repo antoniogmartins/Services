@@ -310,7 +310,7 @@ A adoção destas boas práticas contribui para:
 
 | Versão | Data       | Autor              | Descrição                                     |
 | ------ | ---------- | ------------------ | --------------------------------------------- |
-| 1.0.0  | DD/MM/AAAA | Antonio G. Martins | Criação inicial do documento de Boas Práticas |
+| 1.0.0  | 27/06/2026 | Antonio G. Martins | Criação inicial do documento de Boas Práticas |
 
 ---
 

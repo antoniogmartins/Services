@@ -398,5 +398,5 @@ Suíte de Testes
 
 | Versão | Data      | Autor              | Alteração                             |
 | ------ | --------- | ------------------ | ------------------------------------- |
-| 1.0    | A definir | Antonio G. Martins | Criação inicial do Guia de Utilização |
+| 1.0    | 27.06.26  | Antonio G. Martins | Criação inicial do Guia de Utilização |
 

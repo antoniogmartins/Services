@@ -18,17 +18,17 @@ Seu objetivo é garantir que diferentes colaboradores obtenham resultados consis
 
 # 2. Informações Gerais
 
-| Item | Valor |
-|------|--------|
-| Nome | QA REST API Test Designer |
-| Versão | 1.0 |
-| Domínio | Engenharia de Qualidade |
-| Especialidade | APIs REST |
-| Idioma | Português (Brasil) |
-| Formato da saída | Markdown |
-| Público-alvo | QA, Testers, Analistas de Qualidade, Desenvolvedores |
-| Tipo | Skill Corporativo |
-| Status | Produção |
+| Item             | Valor                                                |
+|------------------|------------------------------------------------------|
+| Nome             | QA REST API Test Designer                            |
+| Versão           | 1.0                                                  |
+| Domínio          | Engenharia de Qualidade                              |
+| Especialidade    | APIs REST                                            |
+| Idioma           | Português (Brasil)                                   |
+| Formato da saída | Markdown                                             |
+| Público-alvo     | QA, Testers, Analistas de Qualidade, Desenvolvedores |
+| Tipo             | Skill Corporativo                                    |
+| Status           | Produção                                             |
 
 ---
 
@@ -38,12 +38,12 @@ O Skill pode ser utilizado em diferentes plataformas de IA Generativa.
 
 Modelos recomendados:
 
-| Plataforma | Modelo recomendado |
-|------------|--------------------|
-| ChatGPT | GPT-5.5 ou superior |
-| Microsoft Copilot | Enterprise |
-| Claude | Claude Sonnet ou Opus |
-| Gemini | Gemini Advanced |
+| Plataforma        | Modelo recomendado    |
+|-------------------|-----------------------|
+| ChatGPT           | GPT-5.5 ou superior   |
+| Microsoft Copilot | Enterprise            |
+| Claude            | Claude Sonnet ou Opus |
+| Gemini            | Gemini Advanced       |
 
 Independentemente da plataforma, utilizar sempre o Prompt Mestre fornecido neste Skill.
 
@@ -345,6 +345,6 @@ Recomenda-se:
 
 # 17. Histórico de Configuração
 
-| Versão | Data | Responsável | Alteração |
-|---------|------|-------------|-----------|
-| 1.0 | A definir | Antonio G. Martins | Criação inicial |
+| Versão  | Data      | Responsável        | Alteração       |
+|---------|-----------|--------------------|-----------------|
+| 1.0     | 27.06.26  | Antonio G. Martins | Criação inicial |

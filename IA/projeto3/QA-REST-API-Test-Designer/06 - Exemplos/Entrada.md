@@ -257,13 +257,13 @@ Relatório executivo
 
 Antes de executar o Skill, verificar:
 
-| Item | Obrigatório | Status |
-|------|-------------|--------|
-| Collection Postman | Sim | ☐ |
-| Swagger/OpenAPI | Não | ☐ |
-| Documentação funcional | Não | ☐ |
-| Requisitos de negócio | Não | ☐ |
-| Critérios de aceitação | Não | ☐ |
+| Item | Obrigatório         | Status  |
+|------|---------------------|---------|
+| Collection Postman         | Sim | ☐ |
+| Swagger/OpenAPI            | Não | ☐ |
+| Documentação funcional     | Não | ☐ |
+| Requisitos de negócio      | Não | ☐ |
+| Critérios de aceitação     | Não | ☐ |
 | Casos de testes existentes | Não | ☐ |
 
 ---

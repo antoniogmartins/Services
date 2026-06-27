@@ -281,7 +281,7 @@ Sugere-se seguir o processo de governança do framework:
 
 | Versão | Data       | Autor              | Descrição              |
 | ------ | ---------- | ------------------ | ---------------------- |
-| 1.0.0  | DD/MM/AAAA | Antonio G. Martins | Criação inicial do FAQ |
+| 1.0.0  | 27/06/2026 | Antonio G. Martins | Criação inicial do FAQ |
 
 ---
 
