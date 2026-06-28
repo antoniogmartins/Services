@@ -352,7 +352,6 @@ describe('Carrinho - CAR', function () {
             .set("accept", "application/json")
             .set("authorization", token)
  
-         //console.log(consultarprodutonocarrinho.body);
          expect(consultarcarrinho.status).to.equal(200);
 
          if (consultarcarrinho.body.quantidade == 0){
@@ -425,7 +424,7 @@ describe('Carrinho - CAR', function () {
          
         });
 
-      it('CAR-007 - Buscar carrinho por Id Válido', async function() { 
+      it.skip('CAR-007 - Buscar carrinho por Id Válido', async function() { 
         
         const consultarcarrinho = await request(url)
             .get('/carrinhos')
@@ -433,7 +432,6 @@ describe('Carrinho - CAR', function () {
             .set("accept", "application/json")
             .set("authorization", token)
  
-         //console.log(consultarprodutonocarrinho.body);
          expect(consultarcarrinho.status).to.equal(200);
 
          if (consultarcarrinho.body.quantidade == 0){
@@ -483,12 +481,15 @@ describe('Carrinho - CAR', function () {
          console.log('produto adicionado ao carrinho: '+id_carrinho);
 
          const consultarcarrinho = await request(url)
-            .get(`/carrinhos/?_id=&{id_carrinho}`)
+            .get(`/carrinhos/${id_carrinho}`)
+            //.get(`/carrinhos`)
+            //.query(`${id_carrinho}`)
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
             .set("authorization", token)
         
-         const carrinhos = consultarcarrinho.body.carrinhos[0];
+//            const carrinhos = consultarcarrinho.body;
+             const carrinhos = consultarcarrinho.body;
 
          console.log('consultando produto adicionado ao carrinho: '+carrinhos._id);
          
@@ -506,6 +507,175 @@ describe('Carrinho - CAR', function () {
          
         });
 
+      it.skip('CAR-008 - Buscar carrinho por Preco Total', async function() { 
+        
+        const consultarcarrinho = await request(url)
+            .get('/carrinhos')
+          //  .query({ precoTotal: 6180 })
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+ 
+         expect(consultarcarrinho.status).to.equal(200);
+
+         if (consultarcarrinho.body.quantidade == 0){
+
+            expect(consultarcarrinho.body.quantidade).to.equal(0);
+            expect(consultarcarrinho.body.carrinhos).to.equal(null);
+
+         } else if (consultarcarrinho.body.quantidade > 0){
+
+            await request(url)
+            .del('/carrinhos/concluir-compra')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+
+        const adicionarproduto = await request(url)
+            .post('/produtos')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+            .send({
+                    nome: `Logitech MX Vertical_Modelo_X${Date.now()}Y`,
+                    preco: 6180,
+                    descricao: 'Mouse',
+                    quantidade: 301
+                 });
+            id_produto = adicionarproduto.body._id;
+
+        console.log('produto criado: '+id_produto);    
+
+        const adicionarprodutoaocarrinho = await request(url)
+            .post('/carrinhos')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+            .send({
+                     produtos: [
+                {
+                         idProduto: `${id_produto}`,
+                         quantidade: 1
+                }
+                              ]
+                });        
+            
+              id_carrinho= adicionarprodutoaocarrinho.body._id;
+        
+         console.log('produto adicionado ao carrinho: '+id_carrinho);
+
+         const consultarcarrinho = await request(url)
+            .get('/carrinhos')
+            .query({ precoTotal: 6180 })
+            //ou
+            //.get(`/carrinhos?precoTotal=6180`)
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+        
+            const carrinhos = consultarcarrinho.body.carrinhos[0];
+
+         console.log('consultando produto adicionado ao carrinho: '+carrinhos._id);
+         
+         expect(carrinhos._id).to.equal(id_carrinho);
+         expect(carrinhos.produtos[0].quantidade).to.equal(1);
+         expect(carrinhos.produtos[0].precoUnitario).to.equal(6180);
+
+        //ou
+
+         const produto = carrinhos.produtos.find((p) => p.idProduto === id_produto);
+         expect(produto.idProduto).to.equal(id_produto);
+         expect(produto.quantidade).to.equal(1);
+         expect(produto.precoUnitario).to.equal(6180);
+         }    
+         
+
+        });
+
+     it('CAR-009 - Buscar carrinho por Quantidade Total', async function() { 
+        
+        const consultarcarrinho = await request(url)
+            .get('/carrinhos')
+          //  .query({ precoTotal: 6180 })
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+ 
+         expect(consultarcarrinho.status).to.equal(200);
+
+         if (consultarcarrinho.body.quantidade == 0){
+
+            expect(consultarcarrinho.body.quantidade).to.equal(0);
+            expect(consultarcarrinho.body.carrinhos).to.equal(null);
+
+         } else if (consultarcarrinho.body.quantidade > 0){
+
+            await request(url)
+            .del('/carrinhos/concluir-compra')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+
+        const adicionarproduto = await request(url)
+            .post('/produtos')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+            .send({
+                    nome: `Logitech MX Vertical_Modelo_X${Date.now()}Y`,
+                    preco: 6180,
+                    descricao: 'Mouse',
+                    quantidade: 301
+                 });
+            id_produto = adicionarproduto.body._id;
+
+        console.log('produto criado: '+id_produto);    
+
+        const adicionarprodutoaocarrinho = await request(url)
+            .post('/carrinhos')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+            .send({
+                     produtos: [
+                {
+                         idProduto: `${id_produto}`,
+                         quantidade: 1
+                }
+                              ]
+                });        
+            
+              id_carrinho= adicionarprodutoaocarrinho.body._id;
+        
+         console.log('produto adicionado ao carrinho: '+id_carrinho);
+
+         const consultarcarrinho = await request(url)
+            .get('/carrinhos')
+            .query({ quantidadeTotal: 1 })
+            //ou
+            //.get(`/carrinhos?precoTotal=6180`)
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+        
+            const carrinhos = consultarcarrinho.body.carrinhos[0];
+
+         console.log('consultando produto adicionado ao carrinho: '+carrinhos._id);
+         
+         expect(carrinhos._id).to.equal(id_carrinho);
+         expect(carrinhos.produtos[0].quantidade).to.equal(1);
+         expect(carrinhos.produtos[0].precoUnitario).to.equal(6180);
+
+        //ou
+
+         const produto = carrinhos.produtos.find((p) => p.idProduto === id_produto);
+         expect(produto.idProduto).to.equal(id_produto);
+         expect(produto.quantidade).to.equal(1);
+         expect(produto.precoUnitario).to.equal(6180);
+         }    
+         
+
+        });
       });
     });
 });

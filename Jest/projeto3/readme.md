@@ -301,7 +301,7 @@ Endpoints:
 | CAR-005    | Validar cálculo da quantidade total                                  |
 
 
-**4.1.2 - Consultar Carrinho de compras**
+**4.1.2 - Consultar Carrinho de compras** 
 
 | ID         | Cenário                                                              |
 | ---------- | -------------------------------------------------------------------- |
@@ -311,7 +311,7 @@ Endpoints:
 | CAR-009    | Filtrar por quantidade total                                         |
 
 
-**4.1.3 - Concluir Compra e Atualizar Estoque**
+**4.1.3 - Concluir Compra e Atualizar Estoque** (em andamento)
 
 | ID         | Cenário                                                              |
 | ---------- | -------------------------------------------------------------------- |
@@ -377,7 +377,6 @@ Endpoints:
 
 
 Essa suíte cobre os cenários funcionais principais, validações de negócio, segurança, autorização, integridade de dados e fluxos críticos da API Serverest.
-
 ---
 
 ## Boas Práticas Aplicadas
