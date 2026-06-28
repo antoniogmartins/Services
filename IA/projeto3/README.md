@@ -47,30 +47,49 @@ A ferramenta analisa contratos de API (OpenAPI/Swagger, endpoints, métodos HTTP
 
 ```
 QA REST API Test Designer/
+
 │
 ├── README.md
+│
 ├── Arquitetura.md
-├── Glossário.md
+│
+├── Glossario.md
+│
 ├── CHANGELOG.md
+│
 ├── ROADMAP.md
+│
+├── INSTALL.md
+│
 ├── 01 - Skill.md
+│
 ├── 02 - Guia de Utilização.md
+│
 ├── 03 - Prompt Mestre.md
+│
 ├── 04 - Templates
 │   ├── Template de Saída.md
 │   ├── Template Gherkin.md
 │   ├── Template Matriz de Riscos.md
 │   ├── Template Relatório Executivo.md
 │   └── Template Análise por Endpoint.md
+│
 ├── 05 - Configuração.md
+│
 ├── 06 - Exemplos
 │   ├── Exemplo de Entrada.md
 │   └── Exemplo de Saída.md
+│
+├── 07 - Collections/
+│   ├── serverest.postman_collection.json
+│
+├── 08 - Environments/
+│   ├── serverest.environment.json
+│
 └── docs
     ├── FAQ.md
     ├── Boas Práticas.md
     └── Guia de Evolução.md
-
 ```
 
 ---

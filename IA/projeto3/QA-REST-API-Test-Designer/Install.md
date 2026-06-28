@@ -52,7 +52,7 @@ QA REST API Test Designer/
 │
 ├── Arquitetura.md
 │
-├── Glossário.md
+├── Glossario.md
 │
 ├── CHANGELOG.md
 │
