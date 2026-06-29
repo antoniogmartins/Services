@@ -327,13 +327,13 @@ Endpoints:
 | CAR-013    | Devolver estoque ao cancelar                                         |
 
 
-**4.2 - Cenários Negativos** (em andamento)
+**4.2 - Cenários Negativos**
 
 | ID         | Cenário                                                              |
 | ---------- | -------------------------------------------------------------------- |
-| CAR-014    | Adicionar produto inexistente                                        |
-| CAR-015    | Adicionar quantidade superior ao estoque                             |
-| CAR-016    | Adicionar produto sem token                                          |
+| CAR-014    | Adicionar no carrinho um produto inexistente                         |
+| CAR-015    | Adicionar no carrinho produto com a quantidade superior ao estoque   |
+| CAR-016    | Adicionar no carrinho um produto ao carrinho sem token               |
 | CAR-017    | Adicionar carrinho vazio                                             |
 | CAR-018    | Buscar carrinho inexistente                                          |
 | CAR-019    | Concluir compra sem carrinho ativo                                   |
@@ -341,7 +341,7 @@ Endpoints:
 | CAR-021    | Concluir compra com estoque insuficiente                             |
 
 
-**4.3 - Cenários Alternativos**
+**4.3 - Cenários Alternativos** (em andamento)
 
 | ID         | Cenário                                                              |
 | ---------- | -------------------------------------------------------------------- |

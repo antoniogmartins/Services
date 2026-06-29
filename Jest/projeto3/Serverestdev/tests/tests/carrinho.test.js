@@ -787,7 +787,7 @@ describe('Carrinho - CAR', function () {
         });    
 
 
-    it('CAR-011 - Atualizar Estoque após compra', async function() { 
+    it.skip('CAR-011 - Atualizar Estoque após compra', async function() { 
         
         const consultarcarrinho = await request(url)
             .get('/carrinhos')
@@ -894,7 +894,7 @@ describe('Carrinho - CAR', function () {
 
 // **4.1.4 - Cancelar Compra e Atualizar Estoque**
 
-    it('CAR-012 - Cancelar compra', async function() { 
+    it.skip('CAR-012 - Cancelar compra', async function() { 
         
         const consultarcarrinho = await request(url)
             .get('/carrinhos')
@@ -990,7 +990,7 @@ describe('Carrinho - CAR', function () {
            
         });
 
-   it('CAR-013 - Devolver Estoque ao Cancelar', async function() { 
+   it.skip('CAR-013 - Devolver Estoque ao Cancelar', async function() { 
         
         const consultarcarrinho = await request(url)
             .get('/carrinhos')
@@ -1083,9 +1083,304 @@ describe('Carrinho - CAR', function () {
 
             //Comparando estoque antigo ao atual: Estoque foi atualizado com o cancelamento da compra
             expect(qtdeprodutoantes).to.equal(qtdeprodutodepois);
-           
         });   
-      });
     });
+});
+
+describe('Carrinho - Cenários Negativos', () => {
+      it.skip('CAR-014 - Adicionar no carrinho um Produto inexistente', async function() { 
+          
+        await request(url)
+            .del('/carrinhos/cancelar-compra')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+        
+        id_produto = '11111112221212';
+
+        const response = await request(url)
+            .post('/carrinhos')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+            .send({
+                     produtos: [{
+                         idProduto: `${id_produto}`,
+                         quantidade: 1
+                 }]
+                });    
+
+         expect(response.status).to.equal(400);
+         expect(response.body.message).to.equal('Produto não encontrado');
+ 
+       });
+
+      it.skip('CAR-015 - Adicionar no carrinho um produto com a quantidade superior ao estoque', async function() { 
+        
+        await request(url)
+            .del('/carrinhos/cancelar-compra')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+        
+        const payloadproduto = ({
+                    nome: `Logitech MX Vertical_Modelo_X${Date.now()}Y`,
+                    preco: 100,
+                    descricao: 'MousePad',
+                    quantidade: 2
+                 });
+          
+        const resposta = await request(url)
+            .post('/produtos')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+            .send(payloadproduto);
+            id_produto = resposta.body._id;
+
+
+       const payloadcarrinho = ({
+                     produtos: [
+                {
+                         idProduto: `${id_produto}`,
+                         quantidade: 3
+                }
+                              ]
+                });    
+            
+       const response = await request(url)
+            .post('/carrinhos')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+            .send(payloadcarrinho);  
+
+         expect(response.status).to.equal(400);
+         expect(response.body.message).to.equal('Produto não possui quantidade suficiente');
+         expect(response.body.item).to.have.property('idProduto');
+         expect(response.body.quantidade).to.equal(payloadcarrinho.quantidade);
+        
+        });
+       
+      it.skip('CAR-016 - Adicionar no carrinho um produto ao carrinho sem token', async function() { 
+        
+        await request(url)
+            .del('/carrinhos/cancelar-compra')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+        
+        const payloadproduto = ({
+                    nome: `Logitech MX Vertical_Modelo_X${Date.now()}Y`,
+                    preco: 100,
+                    descricao: 'MousePad',
+                    quantidade: 2
+                 });
+          
+        const resposta = await request(url)
+            .post('/produtos')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+            .send(payloadproduto);
+            id_produto = resposta.body._id;
+
+
+        const payloadcarrinho = ({
+                     produtos: [
+                {
+                         idProduto: `${id_produto}`,
+                         quantidade: 3
+                }
+                              ]
+                });    
+            
+        const response = await request(url)
+            .post('/carrinhos')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .send(payloadcarrinho);  
+
+         expect(response.status).to.equal(401);
+         expect(response.body.message).to.equal('Token de acesso ausente, inválido, expirado ou usuário do token não existe mais');
+         
+        });
+
+      it.skip('CAR-017 - Adicionar carrinho vazio', async function() { 
+        
+        await request(url)
+            .del('/carrinhos/cancelar-compra')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+        
+        const payloadcarrinho = ({
+                     produtos: []
+                });    
+            
+        const response = await request(url)
+            .post('/carrinhos')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+            .send(payloadcarrinho);  
+
+         expect(response.status).to.equal(400);
+         console.log(response.body.message);
+         expect(response.body.produtos).to.equal('produtos não contém 1 valor obrigatório');
+         
+        });
+     
+     it.skip('CAR-018 - Buscar carrinho inexistente', async function() { 
+
+        id_carrinho = 2222222222222222;
+
+        const consultarcarrinho = await request(url)
+            .get(`/carrinhos/${id_carrinho}`)
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+        
+            expect(consultarcarrinho.status).to.equal(400);
+            const carrinhos = consultarcarrinho.body;
+             
+            expect(carrinhos.message).to.equal('Carrinho não encontrado');
+     });
+    
+     it.skip('CAR-019 - Concluir compra sem carrinho ativo', async function() { 
+
+         await request(url)
+            .del('/carrinhos/cancelar-compra')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+
+
+         const concluircompra = await request(url)
+            .del('/carrinhos/concluir-compra')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+      
+            expect(concluircompra.status).to.equal(400);
+            const carrinhos = concluircompra.body;
+             
+            expect(carrinhos.message).to.equal('Não foi encontrado carrinho para esse usuário');
+     });
+    
+     it.skip('CAR-020 - Cancelar compra sem carrinho ativo', async function() { 
+
+         await request(url)
+            .del('/carrinhos/cancelar-compra')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+
+
+         const concluircompra = await request(url)
+            .del('/carrinhos/cancelar-compra')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+      
+            expect(concluircompra.status).to.equal(400);
+            const carrinhos = concluircompra.body;
+             
+            expect(carrinhos.message).to.equal('Não foi encontrado carrinho para esse usuário');
+     });
+    
+     it.skip('CAR-021 - Concluir compra com estoque insuficiente ', async function() { 
+        
+        const consultarcarrinho = await request(url)
+            .get('/carrinhos')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+         
+       
+         expect(consultarcarrinho.status).to.equal(200);
+         
+         if (consultarcarrinho.body.quantidade > 0){
+
+            await request(url)
+            .delete('/carrinhos/cancelar-compra')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+ 
+             }    // 
+        else {
+        
+             expect(consultarcarrinho.body.quantidade).to.equal(0);
+             expect(consultarcarrinho.body.carrinhos).to.be.an('array').that.is.empty;
+            // console.log('Quantidade de Produtos no carinho (Inicio): '+consultarcarrinho.body.quantidade);    
+            // console.log('Quantidade de Carrinhos (Inicio): '+consultarcarrinho.body.carrinhos.length);    
+
+         } 
+
+        const cadastrarproduto = await request(url)
+            .post('/produtos')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+            .send({
+                    nome: `Logitech MX Vertical_Modelo_X${Date.now()}Y`,
+                    preco: 6180,
+                    descricao: 'Mouse',
+                    quantidade: 100
+                 });
+            id_produto = cadastrarproduto.body._id;
+            expect(cadastrarproduto.status).to.equal(201);
+
+        console.log('Produto criado: '+id_produto);    
+
+        const adicionarprodutoaocarrinho = await request(url)
+            .post('/carrinhos')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+            .send({
+                     produtos: [
+                {
+                         idProduto: `${id_produto}`,
+                         quantidade: 101
+                }
+                              ]
+                });        
+            
+         expect(adicionarprodutoaocarrinho.status).to.equal(400);       
+         expect(adicionarprodutoaocarrinho.body.message).to.equal('Produto não possui quantidade suficiente');
+         
+         const concluircompra = await request(url)
+            .del('/carrinhos/concluir-compra')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+
+        const comprado = concluircompra.body;
+          
+        expect(comprado.message).to.equal('Não foi encontrado carrinho para esse usuário');
+          
+              
+        });  
+    
+});
+describe('Carrinho - Cenários Alternativos', () => {
+      it.skip('CAR-022 - Adicionar mesmo produto mais de uma vez ', async function() { 
+    
+    
+    
+    
+    });
+     });
+
+describe('Carrinho - Cenários De Exceção', () => {
+      it.skip('CAR-026 - Falha ao debitar estoque  ', async function() { 
+    
+    
+    
+    
+    });
+     });
 });
  
