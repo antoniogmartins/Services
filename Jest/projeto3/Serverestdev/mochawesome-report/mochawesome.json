@@ -1,16 +1,16 @@
 {
   "stats": {
     "suites": 3,
-    "tests": 11,
-    "passes": 3,
-    "pending": 8,
+    "tests": 15,
+    "passes": 5,
+    "pending": 10,
     "failures": 0,
-    "start": "2026-06-28T12:09:39.527Z",
-    "end": "2026-06-28T12:09:42.465Z",
-    "duration": 2938,
-    "testsRegistered": 11,
+    "start": "2026-06-29T14:12:47.813Z",
+    "end": "2026-06-29T14:12:57.211Z",
+    "duration": 9398,
+    "testsRegistered": 15,
     "passPercent": 100,
-    "pendingPercent": 72.72727272727273,
+    "pendingPercent": 66.66666666666666,
     "other": 0,
     "hasOther": false,
     "skipped": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "5d83ebc0-03dc-4d66-a9b4-504b717fdfc5",
+      "uuid": "de18fed9-0d5b-4f44-8f77-70b03e4562ad",
       "title": "",
       "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/carrinho.test.js",
       "file": "/tests/tests/carrinho.test.js",
@@ -36,8 +36,8 @@
           "context": null,
           "code": "this.timeout(40000);",
           "err": {},
-          "uuid": "488a7574-89db-4f69-b791-316fcfdd57e4",
-          "parentUUID": "5d83ebc0-03dc-4d66-a9b4-504b717fdfc5",
+          "uuid": "b2443295-1599-4c4d-b8b1-1c51c9b0ab78",
+          "parentUUID": "de18fed9-0d5b-4f44-8f77-70b03e4562ad",
           "isHook": true,
           "skipped": false
         }
@@ -46,7 +46,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "e92b1452-71e6-4ed9-b2fb-5f406fe1acfc",
+          "uuid": "5b20aaaf-565a-4895-84d8-8a23000df634",
           "title": "Carrinho - CAR",
           "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/carrinho.test.js",
           "file": "/tests/tests/carrinho.test.js",
@@ -55,7 +55,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "6f9c38a8-8095-4662-9868-fd38bfbf7937",
+              "uuid": "4fc23526-f2d4-4555-a363-f3baafffd6c5",
               "title": "Carrinho - Cenários Positivos",
               "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/carrinho.test.js",
               "file": "/tests/tests/carrinho.test.js",
@@ -64,7 +64,7 @@
               "tests": [],
               "suites": [
                 {
-                  "uuid": "2dd0cfb8-b5e3-41bd-b6a1-7cdd3cfe7188",
+                  "uuid": "30db7302-5b2e-448a-a343-b377340ecdd4",
                   "title": "Adicionar produto ao Carrinho de Compras",
                   "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/carrinho.test.js",
                   "file": "/tests/tests/carrinho.test.js",
@@ -75,7 +75,7 @@
                       "title": "USR-000 - Validar retorno do token JWT/autorização",
                       "fullTitle": "Carrinho - CAR Carrinho - Cenários Positivos Adicionar produto ao Carrinho de Compras USR-000 - Validar retorno do token JWT/autorização",
                       "timedOut": false,
-                      "duration": 478,
+                      "duration": 491,
                       "state": "passed",
                       "speed": "slow",
                       "pass": true,
@@ -84,8 +84,8 @@
                       "context": null,
                       "code": "const response = await request(url)\n    .post('/login')\n    .set(\"Content-Type\", \"application/json\")\n    .set(\"accept\", \"application/json\")\n    .send({\n          email: 'fulano@qa.com',\n          password: 'teste'\n    })\n expect(response.headers[\"content-type\"]).to.match(/json/);\n expect(response.status).to.equal(200);\n expect(response.body).to.have.property('authorization');\n expect(response.body.message).to.equal('Login realizado com sucesso');\n token = response.body.authorization;\n console.log('O valor do token é: ' + token);",
                       "err": {},
-                      "uuid": "ad70d956-cc86-4810-bed9-da8999b93588",
-                      "parentUUID": "2dd0cfb8-b5e3-41bd-b6a1-7cdd3cfe7188",
+                      "uuid": "f038d8f3-6d5a-4a97-bdcb-4b426edeea5b",
+                      "parentUUID": "30db7302-5b2e-448a-a343-b377340ecdd4",
                       "isHook": false,
                       "skipped": false
                     },
@@ -93,7 +93,7 @@
                       "title": "PRD-000 - Validar geração do ID do produto",
                       "fullTitle": "Carrinho - CAR Carrinho - Cenários Positivos Adicionar produto ao Carrinho de Compras PRD-000 - Validar geração do ID do produto",
                       "timedOut": false,
-                      "duration": 398,
+                      "duration": 402,
                       "state": "passed",
                       "speed": "slow",
                       "pass": true,
@@ -102,8 +102,8 @@
                       "context": null,
                       "code": "const response = await request(url)\n    .post('/produtos')\n    .set(\"Content-Type\", \"application/json\")\n    .set(\"accept\", \"application/json\")\n    .set(\"authorization\", token)\n    .send({\n            nome: `Logitech MX Vertical_Modelo_X${Date.now()}Y`,\n            preco: 470,\n            descricao: 'Mouse',\n            quantidade: 381\n    })\n    id_produto = response.body._id;\n    console.log('O valor do id é: ' + id_produto);\n    expect(response.status).to.equal(201);\n    expect(response.body).to.have.property('_id');\n    expect(response.body.message).to.equal('Cadastro realizado com sucesso');",
                       "err": {},
-                      "uuid": "ebd529b4-4c67-49e8-846a-1f20ca9df31a",
-                      "parentUUID": "2dd0cfb8-b5e3-41bd-b6a1-7cdd3cfe7188",
+                      "uuid": "bf2c7fe7-2ee0-4d4d-b9e4-bb80eb7f28f2",
+                      "parentUUID": "30db7302-5b2e-448a-a343-b377340ecdd4",
                       "isHook": false,
                       "skipped": false
                     },
@@ -120,8 +120,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "b84aa84c-f089-476f-9c39-7d22da85c9fd",
-                      "parentUUID": "2dd0cfb8-b5e3-41bd-b6a1-7cdd3cfe7188",
+                      "uuid": "67d6933a-62cd-4a84-88b4-64d9850ac027",
+                      "parentUUID": "30db7302-5b2e-448a-a343-b377340ecdd4",
                       "isHook": false,
                       "skipped": false
                     },
@@ -138,8 +138,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "0880501d-8e4f-4627-8a15-49674c47b5c5",
-                      "parentUUID": "2dd0cfb8-b5e3-41bd-b6a1-7cdd3cfe7188",
+                      "uuid": "1b64c82b-7743-4f7e-b5eb-212d2cd63e36",
+                      "parentUUID": "30db7302-5b2e-448a-a343-b377340ecdd4",
                       "isHook": false,
                       "skipped": false
                     },
@@ -156,8 +156,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "9dc03046-8ec6-46dc-84a7-9afb26f3d3c2",
-                      "parentUUID": "2dd0cfb8-b5e3-41bd-b6a1-7cdd3cfe7188",
+                      "uuid": "c56c1c1f-698e-46cb-a943-60647f33fc7d",
+                      "parentUUID": "30db7302-5b2e-448a-a343-b377340ecdd4",
                       "isHook": false,
                       "skipped": false
                     },
@@ -174,8 +174,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "86e0c97b-dcce-41ed-9cea-6d96f5530b56",
-                      "parentUUID": "2dd0cfb8-b5e3-41bd-b6a1-7cdd3cfe7188",
+                      "uuid": "8948e456-01ae-4af8-a100-ff2304e4d324",
+                      "parentUUID": "30db7302-5b2e-448a-a343-b377340ecdd4",
                       "isHook": false,
                       "skipped": false
                     },
@@ -192,8 +192,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "ca8a619f-58c7-4de2-87e0-4379d0fb4090",
-                      "parentUUID": "2dd0cfb8-b5e3-41bd-b6a1-7cdd3cfe7188",
+                      "uuid": "c630d414-0aa3-462a-a64a-effa3feda7d5",
+                      "parentUUID": "30db7302-5b2e-448a-a343-b377340ecdd4",
                       "isHook": false,
                       "skipped": false
                     },
@@ -210,8 +210,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "34adb881-4f16-4d20-98f7-f6ea6eba0c80",
-                      "parentUUID": "2dd0cfb8-b5e3-41bd-b6a1-7cdd3cfe7188",
+                      "uuid": "4b106d95-2251-4635-bf10-4ad9e1a7a947",
+                      "parentUUID": "30db7302-5b2e-448a-a343-b377340ecdd4",
                       "isHook": false,
                       "skipped": false
                     },
@@ -228,8 +228,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "e328fbc0-7d60-488a-bd3e-8f87de9bee81",
-                      "parentUUID": "2dd0cfb8-b5e3-41bd-b6a1-7cdd3cfe7188",
+                      "uuid": "b306da78-589c-4b6b-8c40-bed1b20d12f0",
+                      "parentUUID": "30db7302-5b2e-448a-a343-b377340ecdd4",
                       "isHook": false,
                       "skipped": false
                     },
@@ -246,8 +246,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "64b82aa6-614e-457c-a672-e88da32776dd",
-                      "parentUUID": "2dd0cfb8-b5e3-41bd-b6a1-7cdd3cfe7188",
+                      "uuid": "482ac38d-8695-4016-be71-3e9236eacaf5",
+                      "parentUUID": "30db7302-5b2e-448a-a343-b377340ecdd4",
                       "isHook": false,
                       "skipped": false
                     },
@@ -255,43 +255,119 @@
                       "title": "CAR-009 - Buscar carrinho por Quantidade Total",
                       "fullTitle": "Carrinho - CAR Carrinho - Cenários Positivos Adicionar produto ao Carrinho de Compras CAR-009 - Buscar carrinho por Quantidade Total",
                       "timedOut": false,
-                      "duration": 2042,
+                      "duration": 0,
+                      "state": "pending",
+                      "speed": null,
+                      "pass": false,
+                      "fail": false,
+                      "pending": true,
+                      "context": null,
+                      "code": "",
+                      "err": {},
+                      "uuid": "79772690-cac9-4c4f-ac86-0cbc01c47c8b",
+                      "parentUUID": "30db7302-5b2e-448a-a343-b377340ecdd4",
+                      "isHook": false,
+                      "skipped": false
+                    },
+                    {
+                      "title": "CAR-010 - Concluir Compra com sucesso",
+                      "fullTitle": "Carrinho - CAR Carrinho - Cenários Positivos Adicionar produto ao Carrinho de Compras CAR-010 - Concluir Compra com sucesso",
+                      "timedOut": false,
+                      "duration": 0,
+                      "state": "pending",
+                      "speed": null,
+                      "pass": false,
+                      "fail": false,
+                      "pending": true,
+                      "context": null,
+                      "code": "",
+                      "err": {},
+                      "uuid": "69b767ad-42a6-4b16-b309-a630c635049d",
+                      "parentUUID": "30db7302-5b2e-448a-a343-b377340ecdd4",
+                      "isHook": false,
+                      "skipped": false
+                    },
+                    {
+                      "title": "CAR-011 - Atualizar Estoque após compra",
+                      "fullTitle": "Carrinho - CAR Carrinho - Cenários Positivos Adicionar produto ao Carrinho de Compras CAR-011 - Atualizar Estoque após compra",
+                      "timedOut": false,
+                      "duration": 2962,
                       "state": "passed",
                       "speed": "slow",
                       "pass": true,
                       "fail": false,
                       "pending": false,
                       "context": null,
-                      "code": "const consultarcarrinho = await request(url)\n    .get('/carrinhos')\n  //  .query({ precoTotal: 6180 })\n    .set(\"Content-Type\", \"application/json\")\n    .set(\"accept\", \"application/json\")\n    .set(\"authorization\", token)\n \n expect(consultarcarrinho.status).to.equal(200);\n if (consultarcarrinho.body.quantidade == 0){\n    expect(consultarcarrinho.body.quantidade).to.equal(0);\n    expect(consultarcarrinho.body.carrinhos).to.equal(null);\n } else if (consultarcarrinho.body.quantidade > 0){\n    await request(url)\n    .del('/carrinhos/concluir-compra')\n    .set(\"Content-Type\", \"application/json\")\n    .set(\"accept\", \"application/json\")\n    .set(\"authorization\", token)\nconst adicionarproduto = await request(url)\n    .post('/produtos')\n    .set(\"Content-Type\", \"application/json\")\n    .set(\"accept\", \"application/json\")\n    .set(\"authorization\", token)\n    .send({\n            nome: `Logitech MX Vertical_Modelo_X${Date.now()}Y`,\n            preco: 6180,\n            descricao: 'Mouse',\n            quantidade: 301\n         });\n    id_produto = adicionarproduto.body._id;\nconsole.log('produto criado: '+id_produto);    \nconst adicionarprodutoaocarrinho = await request(url)\n    .post('/carrinhos')\n    .set(\"Content-Type\", \"application/json\")\n    .set(\"accept\", \"application/json\")\n    .set(\"authorization\", token)\n    .send({\n             produtos: [\n        {\n                 idProduto: `${id_produto}`,\n                 quantidade: 1\n        }\n                      ]\n        });        \n    \n      id_carrinho= adicionarprodutoaocarrinho.body._id;\n\n console.log('produto adicionado ao carrinho: '+id_carrinho);\n const consultarcarrinho = await request(url)\n    .get('/carrinhos')\n    .query({ quantidadeTotal: 1 })\n    //ou\n    //.get(`/carrinhos?precoTotal=6180`)\n    .set(\"Content-Type\", \"application/json\")\n    .set(\"accept\", \"application/json\")\n    .set(\"authorization\", token)\n\n    const carrinhos = consultarcarrinho.body.carrinhos[0];\n console.log('consultando produto adicionado ao carrinho: '+carrinhos._id);\n \n expect(carrinhos._id).to.equal(id_carrinho);\n expect(carrinhos.produtos[0].quantidade).to.equal(1);\n expect(carrinhos.produtos[0].precoUnitario).to.equal(6180);\n//ou\n const produto = carrinhos.produtos.find((p) => p.idProduto === id_produto);\n expect(produto.idProduto).to.equal(id_produto);\n expect(produto.quantidade).to.equal(1);\n expect(produto.precoUnitario).to.equal(6180);\n }",
+                      "code": "const consultarcarrinho = await request(url)\n    .get('/carrinhos')\n    .set(\"Content-Type\", \"application/json\")\n    .set(\"accept\", \"application/json\")\n    .set(\"authorization\", token)\n \n       \n expect(consultarcarrinho.status).to.equal(200);\n \n if (consultarcarrinho.body.quantidade > 0){\n    await request(url)\n    .delete('/carrinhos/cancelar-compra')\n    .set(\"Content-Type\", \"application/json\")\n    .set(\"accept\", \"application/json\")\n    .set(\"authorization\", token)\n \n     }    // \nelse {\n\n     expect(consultarcarrinho.body.quantidade).to.equal(0);\n     expect(consultarcarrinho.body.carrinhos).to.be.an('array').that.is.empty;\n     console.log('Quantidade de Produtos no carinho (Inicio): '+consultarcarrinho.body.quantidade);    \n     console.log('Quantidade de Carrinhos (Inicio): '+consultarcarrinho.body.carrinhos.length);    \n } \nconst cadastrarproduto = await request(url)\n    .post('/produtos')\n    .set(\"Content-Type\", \"application/json\")\n    .set(\"accept\", \"application/json\")\n    .set(\"authorization\", token)\n    .send({\n            nome: `Logitech MX Vertical_Modelo_X${Date.now()}Y`,\n            preco: 6180,\n            descricao: 'Mouse',\n            quantidade: 100\n         });\n    id_produto = cadastrarproduto.body._id;\n    console.log('Produto criado: '+id_produto);    \nconst consultarprodutocadastradoantes = await request(url)\n    .get(`/produtos/${id_produto}`)     \n    .set(\"Content-Type\", \"application/json\")\n    .set(\"accept\", \"application/json\")\n    .set(\"authorization\", token)\n    qtdeprodutoantes = consultarprodutocadastradoantes.body.quantidade;\n    console.log('Qtde de Produtos (Antes de adicionar ao carrinho): ' + qtdeprodutoantes);   \nconst adicionarprodutoaocarrinho = await request(url)\n    .post('/carrinhos')\n    .set(\"Content-Type\", \"application/json\")\n    .set(\"accept\", \"application/json\")\n    .set(\"authorization\", token)\n    .send({\n             produtos: [\n        {\n                 idProduto: `${id_produto}`,\n                 quantidade: 99\n        }\n                      ]\n        });        \n    \nconst carrinhos = adicionarprodutoaocarrinho.body;\n id_carrinho= carrinhos._id;\n\n console.log('Produto adicionado ao carrinho: '+id_carrinho);\n expect(carrinhos.message).to.equal('Cadastro realizado com sucesso');\nconst consultarprodutocadastradoaposadicionaraocarrinho = await request(url)\n    .get(`/produtos/${id_produto}`)     \n    .set(\"Content-Type\", \"application/json\")\n    .set(\"accept\", \"application/json\")\n    .set(\"authorization\", token)\n    qtdeprodutoaposadicionaraocarrinho = consultarprodutocadastradoaposadicionaraocarrinho.body.quantidade;\n    console.log('Qtde de Produtos (Após adicionar ao carrinho): ' + qtdeprodutoaposadicionaraocarrinho);   \n \nconst concluircompra = await request(url)\n    .del('/carrinhos/concluir-compra')\n    .set(\"Content-Type\", \"application/json\")\n    .set(\"accept\", \"application/json\")\n    .set(\"authorization\", token)\nconst conclusaodacompra = concluircompra.body;\n  \nexpect(conclusaodacompra.message).to.equal('Registro excluído com sucesso');\n  \nconst consultarprodutoadicionadodepois = await request(url)\n    .get(`/produtos/${id_produto}`)   \n    .set(\"Content-Type\", \"application/json\")\n    .set(\"accept\", \"application/json\")\n    .set(\"authorization\", token)\n    qtdeprodutodepois = consultarprodutoadicionadodepois.body.quantidade;\n    console.log('Qtde de Produtos (Depois de adicionar ao carrinho e cancelar a compra): ' + qtdeprodutodepois);   \n    //Comparando estoque antigo ao atual: Estoque foi atualizado com o cancelamento da compra\n    expect(qtdeprodutodepois).to.equal(qtdeprodutoaposadicionaraocarrinho);",
                       "err": {},
-                      "uuid": "c4ce374b-917c-41ba-8188-e12eb2ad880b",
-                      "parentUUID": "2dd0cfb8-b5e3-41bd-b6a1-7cdd3cfe7188",
+                      "uuid": "99a129d7-6aa2-4a94-bfbe-12d7bb0a814c",
+                      "parentUUID": "30db7302-5b2e-448a-a343-b377340ecdd4",
+                      "isHook": false,
+                      "skipped": false
+                    },
+                    {
+                      "title": "CAR-012 - Cancelar compra",
+                      "fullTitle": "Carrinho - CAR Carrinho - Cenários Positivos Adicionar produto ao Carrinho de Compras CAR-012 - Cancelar compra",
+                      "timedOut": false,
+                      "duration": 2964,
+                      "state": "passed",
+                      "speed": "slow",
+                      "pass": true,
+                      "fail": false,
+                      "pending": false,
+                      "context": null,
+                      "code": "const consultarcarrinho = await request(url)\n    .get('/carrinhos')\n    .set(\"Content-Type\", \"application/json\")\n    .set(\"accept\", \"application/json\")\n    .set(\"authorization\", token)\n \n       \n expect(consultarcarrinho.status).to.equal(200);\n \n if (consultarcarrinho.body.quantidade > 0){\n    await request(url)\n    .delete('/carrinhos/cancelar-compra')\n    .set(\"Content-Type\", \"application/json\")\n    .set(\"accept\", \"application/json\")\n    .set(\"authorization\", token)\n \n     }    // \nelse {\n\n     expect(consultarcarrinho.body.quantidade).to.equal(0);\n     expect(consultarcarrinho.body.carrinhos).to.be.an('array').that.is.empty;\n     console.log('Quantidade de Produtos no carinho (Inicio): '+consultarcarrinho.body.quantidade);    \n     console.log('Quantidade de Carrinhos (Inicio): '+consultarcarrinho.body.carrinhos.length);    \n } \nconst cadastrarproduto = await request(url)\n    .post('/produtos')\n    .set(\"Content-Type\", \"application/json\")\n    .set(\"accept\", \"application/json\")\n    .set(\"authorization\", token)\n    .send({\n            nome: `Logitech MX Vertical_Modelo_X${Date.now()}Y`,\n            preco: 6180,\n            descricao: 'Mouse',\n            quantidade: 100\n         });\n    id_produto = cadastrarproduto.body._id;\n    console.log('Produto criado: '+id_produto);    \nconst consultarprodutocadastradoantes = await request(url)\n    .get(`/produtos/${id_produto}`)     \n    .set(\"Content-Type\", \"application/json\")\n    .set(\"accept\", \"application/json\")\n    .set(\"authorization\", token)\n    qtdeprodutoantes = consultarprodutocadastradoantes.body.quantidade;\n    console.log('Qtde de Produtos (Antes de adicionar ao carrinho): ' + qtdeprodutoantes);   \nconst adicionarprodutoaocarrinho = await request(url)\n    .post('/carrinhos')\n    .set(\"Content-Type\", \"application/json\")\n    .set(\"accept\", \"application/json\")\n    .set(\"authorization\", token)\n    .send({\n             produtos: [\n        {\n                 idProduto: `${id_produto}`,\n                 quantidade: 99\n        }\n                      ]\n        });        \n    \nconst carrinhos = adicionarprodutoaocarrinho.body;\n id_carrinho= carrinhos._id;\n\n console.log('Produto adicionado ao carrinho: '+id_carrinho);\n expect(carrinhos.message).to.equal('Cadastro realizado com sucesso');\n \nconst cancelarcompra = await request(url)\n    .del('/carrinhos/cancelar-compra')\n    .set(\"Content-Type\", \"application/json\")\n    .set(\"accept\", \"application/json\")\n    .set(\"authorization\", token)\nconst cancelado = cancelarcompra.body;\n  \nexpect(cancelado.message).to.equal('Registro excluído com sucesso. Estoque dos produtos reabastecido');\nconst consultarprodutodepoisdecanceladocompra = await request(url)\n    .get(`/produtos/${id_produto}`)     \n    .set(\"Content-Type\", \"application/json\")\n    .set(\"accept\", \"application/json\")\n    .set(\"authorization\", token)\n    qtdeprodutodepois = consultarprodutodepoisdecanceladocompra.body.quantidade;\n    console.log('Qtde de Produtos (Depois de cancelar compra): ' + qtdeprodutodepois);   \n    //Comparando estoque antigo ao atual: Estoque foi atualizado com o cancelamento da compra\n    expect(qtdeprodutoantes).to.equal(qtdeprodutodepois);",
+                      "err": {},
+                      "uuid": "6897697a-09c0-4829-a36f-f16c5e720dfa",
+                      "parentUUID": "30db7302-5b2e-448a-a343-b377340ecdd4",
+                      "isHook": false,
+                      "skipped": false
+                    },
+                    {
+                      "title": "CAR-013 - Devolver Estoque ao Cancelar",
+                      "fullTitle": "Carrinho - CAR Carrinho - Cenários Positivos Adicionar produto ao Carrinho de Compras CAR-013 - Devolver Estoque ao Cancelar",
+                      "timedOut": false,
+                      "duration": 2555,
+                      "state": "passed",
+                      "speed": "slow",
+                      "pass": true,
+                      "fail": false,
+                      "pending": false,
+                      "context": null,
+                      "code": "const consultarcarrinho = await request(url)\n    .get('/carrinhos')\n    .set(\"Content-Type\", \"application/json\")\n    .set(\"accept\", \"application/json\")\n    .set(\"authorization\", token)\n \n       \n expect(consultarcarrinho.status).to.equal(200);\n \n if (consultarcarrinho.body.quantidade > 0){\n    await request(url)\n    .delete('/carrinhos/cancelar-compra')\n    .set(\"Content-Type\", \"application/json\")\n    .set(\"accept\", \"application/json\")\n    .set(\"authorization\", token)\n \n     }    // \nelse {\n\n     expect(consultarcarrinho.body.quantidade).to.equal(0);\n     expect(consultarcarrinho.body.carrinhos).to.be.an('array').that.is.empty;\n     console.log('Quantidade de Produtos no carinho (Inicio): '+consultarcarrinho.body.quantidade);    \n     console.log('Quantidade de Carrinhos (Inicio): '+consultarcarrinho.body.carrinhos.length);    \n } \nconst cadastrarproduto = await request(url)\n    .post('/produtos')\n    .set(\"Content-Type\", \"application/json\")\n    .set(\"accept\", \"application/json\")\n    .set(\"authorization\", token)\n    .send({\n            nome: `Logitech MX Vertical_Modelo_X${Date.now()}Y`,\n            preco: 6180,\n            descricao: 'Mouse',\n            quantidade: 100\n         });\n    id_produto = cadastrarproduto.body._id;\n    console.log('Produto criado: '+id_produto);    \nconst consultarprodutocadastradoantes = await request(url)\n    .get(`/produtos/${id_produto}`)     \n    .set(\"Content-Type\", \"application/json\")\n    .set(\"accept\", \"application/json\")\n    .set(\"authorization\", token)\n    qtdeprodutoantes = consultarprodutocadastradoantes.body.quantidade;\n    console.log('Qtde de Produtos (Antes de adicionar ao carrinho): ' + qtdeprodutoantes);   \nconst adicionarprodutoaocarrinho = await request(url)\n    .post('/carrinhos')\n    .set(\"Content-Type\", \"application/json\")\n    .set(\"accept\", \"application/json\")\n    .set(\"authorization\", token)\n    .send({\n             produtos: [\n        {\n                 idProduto: `${id_produto}`,\n                 quantidade: 99\n        }\n                      ]\n        });        \n    \nconst carrinhos = adicionarprodutoaocarrinho.body;\n id_carrinho= carrinhos._id;\n\n console.log('Produto adicionado ao carrinho: '+id_carrinho);\n expect(carrinhos.message).to.equal('Cadastro realizado com sucesso');\n \nconst cancelarcompra = await request(url)\n    .del('/carrinhos/cancelar-compra')\n    .set(\"Content-Type\", \"application/json\")\n    .set(\"accept\", \"application/json\")\n    .set(\"authorization\", token)\nconst cancelado = cancelarcompra.body;\n  \nexpect(cancelado.message).to.equal('Registro excluído com sucesso. Estoque dos produtos reabastecido');\n  \nconst consultarprodutoadicionadodepois = await request(url)\n    .get(`/produtos/${id_produto}`)   \n    .set(\"Content-Type\", \"application/json\")\n    .set(\"accept\", \"application/json\")\n    .set(\"authorization\", token)\n    qtdeprodutodepois = consultarprodutoadicionadodepois.body.quantidade;\n    console.log('Qtde de Produtos (Depois de adicionar ao carrinho e cancelar a compra): ' + qtdeprodutodepois);   \n    //Comparando estoque antigo ao atual: Estoque foi atualizado com o cancelamento da compra\n    expect(qtdeprodutoantes).to.equal(qtdeprodutodepois);",
+                      "err": {},
+                      "uuid": "8c4700a5-54fb-4885-99e4-c5aca6435f7f",
+                      "parentUUID": "30db7302-5b2e-448a-a343-b377340ecdd4",
                       "isHook": false,
                       "skipped": false
                     }
                   ],
                   "suites": [],
                   "passes": [
-                    "ad70d956-cc86-4810-bed9-da8999b93588",
-                    "ebd529b4-4c67-49e8-846a-1f20ca9df31a",
-                    "c4ce374b-917c-41ba-8188-e12eb2ad880b"
+                    "f038d8f3-6d5a-4a97-bdcb-4b426edeea5b",
+                    "bf2c7fe7-2ee0-4d4d-b9e4-bb80eb7f28f2",
+                    "99a129d7-6aa2-4a94-bfbe-12d7bb0a814c",
+                    "6897697a-09c0-4829-a36f-f16c5e720dfa",
+                    "8c4700a5-54fb-4885-99e4-c5aca6435f7f"
                   ],
                   "failures": [],
                   "pending": [
-                    "b84aa84c-f089-476f-9c39-7d22da85c9fd",
-                    "0880501d-8e4f-4627-8a15-49674c47b5c5",
-                    "9dc03046-8ec6-46dc-84a7-9afb26f3d3c2",
-                    "86e0c97b-dcce-41ed-9cea-6d96f5530b56",
-                    "ca8a619f-58c7-4de2-87e0-4379d0fb4090",
-                    "34adb881-4f16-4d20-98f7-f6ea6eba0c80",
-                    "e328fbc0-7d60-488a-bd3e-8f87de9bee81",
-                    "64b82aa6-614e-457c-a672-e88da32776dd"
+                    "67d6933a-62cd-4a84-88b4-64d9850ac027",
+                    "1b64c82b-7743-4f7e-b5eb-212d2cd63e36",
+                    "c56c1c1f-698e-46cb-a943-60647f33fc7d",
+                    "8948e456-01ae-4af8-a100-ff2304e4d324",
+                    "c630d414-0aa3-462a-a64a-effa3feda7d5",
+                    "4b106d95-2251-4635-bf10-4ad9e1a7a947",
+                    "b306da78-589c-4b6b-8c40-bed1b20d12f0",
+                    "482ac38d-8695-4016-be71-3e9236eacaf5",
+                    "79772690-cac9-4c4f-ac86-0cbc01c47c8b",
+                    "69b767ad-42a6-4b16-b309-a630c635049d"
                   ],
                   "skipped": [],
-                  "duration": 2918,
+                  "duration": 9374,
                   "root": false,
                   "rootEmpty": false,
-                  "_timeout": 40000
+                  "_timeout": 50000
                 }
               ],
               "passes": [],
@@ -301,7 +377,7 @@
               "duration": 0,
               "root": false,
               "rootEmpty": false,
-              "_timeout": 40000
+              "_timeout": 50000
             }
           ],
           "passes": [],
@@ -311,7 +387,7 @@
           "duration": 0,
           "root": false,
           "rootEmpty": false,
-          "_timeout": 40000
+          "_timeout": 50000
         }
       ],
       "passes": [],
@@ -321,7 +397,7 @@
       "duration": 0,
       "root": true,
       "rootEmpty": true,
-      "_timeout": 40000
+      "_timeout": 50000
     }
   ],
   "meta": {

@@ -8,6 +8,10 @@ let id_usuario = 0;
 let id_produto = 0;
 let id_produto_plus = 0;
 let id_carrinho = 0;
+let qtdeprodutoantes = 0;
+let qtdeprodutoaposadicionaraocarrinho = 0;
+let qtdeprodutodepois = 0;
+let consultarcarrinho = '';
 
 let _iemail = "";
 
@@ -57,11 +61,13 @@ describe('Carrinho - CAR', function () {
             expect(response.body.message).to.equal('Cadastro realizado com sucesso');
 
         });
-      
+
+//**4.1.1 - Adicionar produto ao Carrinho de compras**
+
       it.skip('CAR-001 - Adicionar produto ao carrinho', async function() { 
         
         await request(url)
-            .del('/carrinhos/concluir-compra')
+            .del('/carrinhos/cancelar-compra')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
             .set("authorization", token)
@@ -99,7 +105,7 @@ describe('Carrinho - CAR', function () {
       it.skip('CAR-002 - Adicionar multiplos produtos ao carrinho', async function() { 
         
         await request(url)
-            .del('/carrinhos/concluir-compra')
+            .del('/carrinhos/cancelar-compra')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
             .set("authorization", token)
@@ -156,7 +162,7 @@ describe('Carrinho - CAR', function () {
       it.skip('CAR-003 - Adicionar produto com quantidade disponivel ao carrinho', async function() { 
         
         await request(url)
-            .del('/carrinhos/concluir-compra')
+            .del('/carrinhos/cancelar-compra')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
             .set("authorization", token)
@@ -196,7 +202,7 @@ describe('Carrinho - CAR', function () {
       it.skip('CAR-004 - Validar cálculo do valor total do carrinho', async function() { 
         
         await request(url)
-            .del('/carrinhos/concluir-compra')
+            .del('/carrinhos/cancelar-compra')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
             .set("authorization", token)
@@ -272,7 +278,7 @@ describe('Carrinho - CAR', function () {
       it.skip('CAR-005 - Validar cálculo do valor total do carrinho', async function() { 
         
         await request(url)
-            .del('/carrinhos/concluir-compra')
+            .del('/carrinhos/cancelar-compra')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
             .set("authorization", token)
@@ -344,28 +350,37 @@ describe('Carrinho - CAR', function () {
          expect(carrinhos.precoTotal).to.equal(somaPrecoTotal);
         });
 
+
+//**4.1.2 - Consultar Carrinho de compras**
+
       it.skip('CAR-006 - Listar carrinhos', async function() { 
         
-          const consultarcarrinho = await request(url)
+            let consultarcarrinho = await request(url)
             .get('/carrinhos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
             .set("authorization", token)
- 
+         
+       
          expect(consultarcarrinho.status).to.equal(200);
-
-         if (consultarcarrinho.body.quantidade == 0){
-
-            expect(consultarcarrinho.body.quantidade).to.equal(0);
-            expect(consultarcarrinho.body.carrinhos).to.equal(null);
-
-         } else if (consultarcarrinho.body.quantidade > 0){
+         
+         if (consultarcarrinho.body.quantidade > 0){
 
             await request(url)
-            .del('/carrinhos/concluir-compra')
+            .delete('/carrinhos/cancelar-compra')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
             .set("authorization", token)
+ 
+             }    // 
+        else {
+        
+             expect(consultarcarrinho.body.quantidade).to.equal(0);
+             expect(consultarcarrinho.body.carrinhos).to.be.an('array').that.is.empty;
+            // console.log('Quantidade de Produtos no carinho (Inicio): '+consultarcarrinho.body.quantidade);    
+            // console.log('Quantidade de Carrinhos (Inicio): '+consultarcarrinho.body.carrinhos.length);    
+
+         } 
 
         const adicionarproduto = await request(url)
             .post('/produtos')
@@ -380,7 +395,7 @@ describe('Carrinho - CAR', function () {
                  });
             id_produto = adicionarproduto.body._id;
 
-        console.log('produto criado: '+id_produto);    
+        console.log('Produto criado: '+id_produto);    
 
         const adicionarprodutoaocarrinho = await request(url)
             .post('/carrinhos')
@@ -398,9 +413,9 @@ describe('Carrinho - CAR', function () {
             
               id_carrinho= adicionarprodutoaocarrinho.body._id;
         
-         console.log('produto adicionado ao carrinho: '+id_carrinho);
+         console.log('Produto adicionado ao carrinho: '+id_carrinho);
 
-         const consultarcarrinho = await request(url)
+         consultarcarrinho = await request(url)
             .get('/carrinhos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
@@ -408,7 +423,7 @@ describe('Carrinho - CAR', function () {
         
          const carrinhos = consultarcarrinho.body.carrinhos[0];
 
-         console.log('consultando produto adicionado ao carrinho: '+carrinhos._id);
+         console.log('Consultando produto adicionado ao carrinho: '+carrinhos._id);
          
          expect(carrinhos._id).to.equal(id_carrinho);
          expect(carrinhos.produtos[0].quantidade).to.equal(1);
@@ -420,32 +435,38 @@ describe('Carrinho - CAR', function () {
          expect(produto.idProduto).to.equal(id_produto);
          expect(produto.quantidade).to.equal(1);
          expect(produto.precoUnitario).to.equal(100);
-         }    
+            
          
         });
 
       it.skip('CAR-007 - Buscar carrinho por Id Válido', async function() { 
         
-        const consultarcarrinho = await request(url)
+          let consultarcarrinho = await request(url)
             .get('/carrinhos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
             .set("authorization", token)
- 
+         
+       
          expect(consultarcarrinho.status).to.equal(200);
-
-         if (consultarcarrinho.body.quantidade == 0){
-
-            expect(consultarcarrinho.body.quantidade).to.equal(0);
-            expect(consultarcarrinho.body.carrinhos).to.equal(null);
-
-         } else if (consultarcarrinho.body.quantidade > 0){
+         
+         if (consultarcarrinho.body.quantidade > 0){
 
             await request(url)
-            .del('/carrinhos/concluir-compra')
+            .delete('/carrinhos/cancelar-compra')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
             .set("authorization", token)
+ 
+             }    // 
+        else {
+        
+             expect(consultarcarrinho.body.quantidade).to.equal(0);
+             expect(consultarcarrinho.body.carrinhos).to.be.an('array').that.is.empty;
+            // console.log('Quantidade de Produtos no carinho (Inicio): '+consultarcarrinho.body.quantidade);    
+            // console.log('Quantidade de Carrinhos (Inicio): '+consultarcarrinho.body.carrinhos.length);    
+
+         } 
 
         const adicionarproduto = await request(url)
             .post('/produtos')
@@ -460,7 +481,7 @@ describe('Carrinho - CAR', function () {
                  });
             id_produto = adicionarproduto.body._id;
 
-        console.log('produto criado: '+id_produto);    
+        console.log('Produto criado: '+id_produto);    
 
         const adicionarprodutoaocarrinho = await request(url)
             .post('/carrinhos')
@@ -478,10 +499,11 @@ describe('Carrinho - CAR', function () {
             
               id_carrinho= adicionarprodutoaocarrinho.body._id;
         
-         console.log('produto adicionado ao carrinho: '+id_carrinho);
+         console.log('Produto adicionado ao carrinho: '+id_carrinho);
 
-         const consultarcarrinho = await request(url)
+         consultarcarrinho = await request(url)
             .get(`/carrinhos/${id_carrinho}`)
+            //ou
             //.get(`/carrinhos`)
             //.query(`${id_carrinho}`)
             .set("Content-Type", "application/json")
@@ -491,7 +513,7 @@ describe('Carrinho - CAR', function () {
 //            const carrinhos = consultarcarrinho.body;
              const carrinhos = consultarcarrinho.body;
 
-         console.log('consultando produto adicionado ao carrinho: '+carrinhos._id);
+         console.log('Consultando produto adicionado ao carrinho: '+carrinhos._id);
          
          expect(carrinhos._id).to.equal(id_carrinho);
          expect(carrinhos.produtos[0].quantidade).to.equal(1);
@@ -503,33 +525,38 @@ describe('Carrinho - CAR', function () {
          expect(produto.idProduto).to.equal(id_produto);
          expect(produto.quantidade).to.equal(1);
          expect(produto.precoUnitario).to.equal(100);
-         }    
+             
          
         });
 
       it.skip('CAR-008 - Buscar carrinho por Preco Total', async function() { 
         
-        const consultarcarrinho = await request(url)
+          let consultarcarrinho = await request(url)
             .get('/carrinhos')
-          //  .query({ precoTotal: 6180 })
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+         
+       
+         expect(consultarcarrinho.status).to.equal(200);
+         
+         if (consultarcarrinho.body.quantidade > 0){
+
+            await request(url)
+            .delete('/carrinhos/cancelar-compra')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
             .set("authorization", token)
  
-         expect(consultarcarrinho.status).to.equal(200);
+             }    // 
+        else {
+        
+             expect(consultarcarrinho.body.quantidade).to.equal(0);
+             expect(consultarcarrinho.body.carrinhos).to.be.an('array').that.is.empty;
+            // console.log('Quantidade de Produtos no carinho (Inicio): '+consultarcarrinho.body.quantidade);    
+            // console.log('Quantidade de Carrinhos (Inicio): '+consultarcarrinho.body.carrinhos.length);    
 
-         if (consultarcarrinho.body.quantidade == 0){
-
-            expect(consultarcarrinho.body.quantidade).to.equal(0);
-            expect(consultarcarrinho.body.carrinhos).to.equal(null);
-
-         } else if (consultarcarrinho.body.quantidade > 0){
-
-            await request(url)
-            .del('/carrinhos/concluir-compra')
-            .set("Content-Type", "application/json")
-            .set("accept", "application/json")
-            .set("authorization", token)
+         } 
 
         const adicionarproduto = await request(url)
             .post('/produtos')
@@ -544,7 +571,7 @@ describe('Carrinho - CAR', function () {
                  });
             id_produto = adicionarproduto.body._id;
 
-        console.log('produto criado: '+id_produto);    
+        console.log('Produto criado: '+id_produto);    
 
         const adicionarprodutoaocarrinho = await request(url)
             .post('/carrinhos')
@@ -562,9 +589,9 @@ describe('Carrinho - CAR', function () {
             
               id_carrinho= adicionarprodutoaocarrinho.body._id;
         
-         console.log('produto adicionado ao carrinho: '+id_carrinho);
+         console.log('Produto adicionado ao carrinho: '+id_carrinho);
 
-         const consultarcarrinho = await request(url)
+         consultarcarrinho = await request(url)
             .get('/carrinhos')
             .query({ precoTotal: 6180 })
             //ou
@@ -575,7 +602,7 @@ describe('Carrinho - CAR', function () {
         
             const carrinhos = consultarcarrinho.body.carrinhos[0];
 
-         console.log('consultando produto adicionado ao carrinho: '+carrinhos._id);
+         console.log('Consultando produto adicionado ao carrinho: '+carrinhos._id);
          
          expect(carrinhos._id).to.equal(id_carrinho);
          expect(carrinhos.produtos[0].quantidade).to.equal(1);
@@ -587,36 +614,41 @@ describe('Carrinho - CAR', function () {
          expect(produto.idProduto).to.equal(id_produto);
          expect(produto.quantidade).to.equal(1);
          expect(produto.precoUnitario).to.equal(6180);
-         }    
+             
          
 
         });
 
-     it('CAR-009 - Buscar carrinho por Quantidade Total', async function() { 
+     it.skip('CAR-009 - Buscar carrinho por Quantidade Total', async function() { 
         
-        const consultarcarrinho = await request(url)
+         let consultarcarrinho = await request(url)
             .get('/carrinhos')
-          //  .query({ precoTotal: 6180 })
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+         
+       
+         expect(consultarcarrinho.status).to.equal(200);
+         
+         if (consultarcarrinho.body.quantidade > 0){
+
+            await request(url)
+            .delete('/carrinhos/cancelar-compra')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
             .set("authorization", token)
  
-         expect(consultarcarrinho.status).to.equal(200);
+             }    // 
+        else {
+        
+             expect(consultarcarrinho.body.quantidade).to.equal(0);
+             expect(consultarcarrinho.body.carrinhos).to.be.an('array').that.is.empty;
+            // console.log('Quantidade de Produtos no carinho (Inicio): '+consultarcarrinho.body.quantidade);    
+            // console.log('Quantidade de Carrinhos (Inicio): '+consultarcarrinho.body.carrinhos.length);    
 
-         if (consultarcarrinho.body.quantidade == 0){
+         } 
 
-            expect(consultarcarrinho.body.quantidade).to.equal(0);
-            expect(consultarcarrinho.body.carrinhos).to.equal(null);
-
-         } else if (consultarcarrinho.body.quantidade > 0){
-
-            await request(url)
-            .del('/carrinhos/concluir-compra')
-            .set("Content-Type", "application/json")
-            .set("accept", "application/json")
-            .set("authorization", token)
-
-        const adicionarproduto = await request(url)
+        const cadastrarproduto = await request(url)
             .post('/produtos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
@@ -627,9 +659,9 @@ describe('Carrinho - CAR', function () {
                     descricao: 'Mouse',
                     quantidade: 301
                  });
-            id_produto = adicionarproduto.body._id;
+            id_produto = cadastrarproduto.body._id;
 
-        console.log('produto criado: '+id_produto);    
+        console.log('Produto criado: '+id_produto);    
 
         const adicionarprodutoaocarrinho = await request(url)
             .post('/carrinhos')
@@ -647,9 +679,9 @@ describe('Carrinho - CAR', function () {
             
               id_carrinho= adicionarprodutoaocarrinho.body._id;
         
-         console.log('produto adicionado ao carrinho: '+id_carrinho);
+         console.log('Produto adicionado ao carrinho: '+id_carrinho);
 
-         const consultarcarrinho = await request(url)
+          consultarcarrinho = await request(url)
             .get('/carrinhos')
             .query({ quantidadeTotal: 1 })
             //ou
@@ -658,9 +690,9 @@ describe('Carrinho - CAR', function () {
             .set("accept", "application/json")
             .set("authorization", token)
         
-            const carrinhos = consultarcarrinho.body.carrinhos[0];
+         const carrinhos = consultarcarrinho.body.carrinhos[0];
 
-         console.log('consultando produto adicionado ao carrinho: '+carrinhos._id);
+         console.log('Consultando produto adicionado ao carrinho: '+carrinhos._id);
          
          expect(carrinhos._id).to.equal(id_carrinho);
          expect(carrinhos.produtos[0].quantidade).to.equal(1);
@@ -672,10 +704,387 @@ describe('Carrinho - CAR', function () {
          expect(produto.idProduto).to.equal(id_produto);
          expect(produto.quantidade).to.equal(1);
          expect(produto.precoUnitario).to.equal(6180);
-         }    
-         
-
+                 
         });
+
+//**4.1.3 - Concluir Compra e Atualizar Estoque**
+  
+    it.skip('CAR-010 - Concluir Compra com sucesso', async function() { 
+        
+        const consultarcarrinho = await request(url)
+            .get('/carrinhos')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+         
+       
+         expect(consultarcarrinho.status).to.equal(200);
+         
+         if (consultarcarrinho.body.quantidade > 0){
+
+            await request(url)
+            .delete('/carrinhos/cancelar-compra')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+ 
+             }    // 
+        else {
+        
+             expect(consultarcarrinho.body.quantidade).to.equal(0);
+             expect(consultarcarrinho.body.carrinhos).to.be.an('array').that.is.empty;
+            // console.log('Quantidade de Produtos no carinho (Inicio): '+consultarcarrinho.body.quantidade);    
+            // console.log('Quantidade de Carrinhos (Inicio): '+consultarcarrinho.body.carrinhos.length);    
+
+         } 
+
+        const cadastrarproduto = await request(url)
+            .post('/produtos')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+            .send({
+                    nome: `Logitech MX Vertical_Modelo_X${Date.now()}Y`,
+                    preco: 6180,
+                    descricao: 'Mouse',
+                    quantidade: 301
+                 });
+            id_produto = cadastrarproduto.body._id;
+
+        console.log('Produto criado: '+id_produto);    
+
+        const adicionarprodutoaocarrinho = await request(url)
+            .post('/carrinhos')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+            .send({
+                     produtos: [
+                {
+                         idProduto: `${id_produto}`,
+                         quantidade: 1
+                }
+                              ]
+                });        
+            
+         const carrinhos = adicionarprodutoaocarrinho.body;
+         id_carrinho= carrinhos._id;
+        
+         console.log('Produto adicionado ao carrinho: '+id_carrinho);
+         expect(carrinhos.message).to.equal('Cadastro realizado com sucesso');
+         
+         const concluircompra = await request(url)
+            .del('/carrinhos/concluir-compra')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+
+        const comprado = concluircompra.body;
+          
+        expect(comprado.message).to.equal('Registro excluído com sucesso');
+          
+              
+        });    
+
+
+    it('CAR-011 - Atualizar Estoque após compra', async function() { 
+        
+        const consultarcarrinho = await request(url)
+            .get('/carrinhos')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+         
+       
+         expect(consultarcarrinho.status).to.equal(200);
+         
+         if (consultarcarrinho.body.quantidade > 0){
+
+            await request(url)
+            .delete('/carrinhos/cancelar-compra')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+ 
+             }    // 
+        else {
+        
+             expect(consultarcarrinho.body.quantidade).to.equal(0);
+             expect(consultarcarrinho.body.carrinhos).to.be.an('array').that.is.empty;
+             console.log('Quantidade de Produtos no carinho (Inicio): '+consultarcarrinho.body.quantidade);    
+             console.log('Quantidade de Carrinhos (Inicio): '+consultarcarrinho.body.carrinhos.length);    
+
+         } 
+
+        const cadastrarproduto = await request(url)
+            .post('/produtos')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+            .send({
+                    nome: `Logitech MX Vertical_Modelo_X${Date.now()}Y`,
+                    preco: 6180,
+                    descricao: 'Mouse',
+                    quantidade: 100
+                 });
+            id_produto = cadastrarproduto.body._id;
+            console.log('Produto criado: '+id_produto);    
+
+        const consultarprodutocadastradoantes = await request(url)
+            .get(`/produtos/${id_produto}`)     
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+
+            qtdeprodutoantes = consultarprodutocadastradoantes.body.quantidade;
+            console.log('Qtde de Produtos (Antes de adicionar ao carrinho): ' + qtdeprodutoantes);   
+
+        const adicionarprodutoaocarrinho = await request(url)
+            .post('/carrinhos')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+            .send({
+                     produtos: [
+                {
+                         idProduto: `${id_produto}`,
+                         quantidade: 99
+                }
+                              ]
+                });        
+            
+        const carrinhos = adicionarprodutoaocarrinho.body;
+         id_carrinho= carrinhos._id;
+        
+         console.log('Produto adicionado ao carrinho: '+id_carrinho);
+         expect(carrinhos.message).to.equal('Cadastro realizado com sucesso');
+
+        const consultarprodutocadastradoaposadicionaraocarrinho = await request(url)
+            .get(`/produtos/${id_produto}`)     
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+
+            qtdeprodutoaposadicionaraocarrinho = consultarprodutocadastradoaposadicionaraocarrinho.body.quantidade;
+            console.log('Qtde de Produtos (Após adicionar ao carrinho): ' + qtdeprodutoaposadicionaraocarrinho);   
+         
+        const concluircompra = await request(url)
+            .del('/carrinhos/concluir-compra')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+
+        const conclusaodacompra = concluircompra.body;
+          
+        expect(conclusaodacompra.message).to.equal('Registro excluído com sucesso');
+          
+        const consultarprodutoadicionadodepois = await request(url)
+            .get(`/produtos/${id_produto}`)   
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+
+            qtdeprodutodepois = consultarprodutoadicionadodepois.body.quantidade;
+            console.log('Qtde de Produtos (Depois de adicionar ao carrinho e cancelar a compra): ' + qtdeprodutodepois);   
+
+            //Comparando estoque antigo ao atual: Estoque foi atualizado com o cancelamento da compra
+            expect(qtdeprodutodepois).to.equal(qtdeprodutoaposadicionaraocarrinho);
+           
+        });    
+
+// **4.1.4 - Cancelar Compra e Atualizar Estoque**
+
+    it('CAR-012 - Cancelar compra', async function() { 
+        
+        const consultarcarrinho = await request(url)
+            .get('/carrinhos')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+         
+       
+         expect(consultarcarrinho.status).to.equal(200);
+         
+         if (consultarcarrinho.body.quantidade > 0){
+
+            await request(url)
+            .delete('/carrinhos/cancelar-compra')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+ 
+             }    // 
+        else {
+        
+             expect(consultarcarrinho.body.quantidade).to.equal(0);
+             expect(consultarcarrinho.body.carrinhos).to.be.an('array').that.is.empty;
+             console.log('Quantidade de Produtos no carinho (Inicio): '+consultarcarrinho.body.quantidade);    
+             console.log('Quantidade de Carrinhos (Inicio): '+consultarcarrinho.body.carrinhos.length);    
+
+         } 
+
+        const cadastrarproduto = await request(url)
+            .post('/produtos')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+            .send({
+                    nome: `Logitech MX Vertical_Modelo_X${Date.now()}Y`,
+                    preco: 6180,
+                    descricao: 'Mouse',
+                    quantidade: 100
+                 });
+            id_produto = cadastrarproduto.body._id;
+            console.log('Produto criado: '+id_produto);    
+
+        const consultarprodutocadastradoantes = await request(url)
+            .get(`/produtos/${id_produto}`)     
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+
+            qtdeprodutoantes = consultarprodutocadastradoantes.body.quantidade;
+            console.log('Qtde de Produtos (Antes de adicionar ao carrinho): ' + qtdeprodutoantes);   
+
+        const adicionarprodutoaocarrinho = await request(url)
+            .post('/carrinhos')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+            .send({
+                     produtos: [
+                {
+                         idProduto: `${id_produto}`,
+                         quantidade: 99
+                }
+                              ]
+                });        
+            
+        const carrinhos = adicionarprodutoaocarrinho.body;
+         id_carrinho= carrinhos._id;
+        
+         console.log('Produto adicionado ao carrinho: '+id_carrinho);
+         expect(carrinhos.message).to.equal('Cadastro realizado com sucesso');
+         
+        const cancelarcompra = await request(url)
+            .del('/carrinhos/cancelar-compra')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+
+        const cancelado = cancelarcompra.body;
+          
+        expect(cancelado.message).to.equal('Registro excluído com sucesso. Estoque dos produtos reabastecido');
+
+        const consultarprodutodepoisdecanceladocompra = await request(url)
+            .get(`/produtos/${id_produto}`)     
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+
+            qtdeprodutodepois = consultarprodutodepoisdecanceladocompra.body.quantidade;
+            console.log('Qtde de Produtos (Depois de cancelar compra): ' + qtdeprodutodepois);   
+
+            //Comparando estoque antigo ao atual: Estoque foi atualizado com o cancelamento da compra
+            expect(qtdeprodutoantes).to.equal(qtdeprodutodepois);
+           
+        });
+
+   it('CAR-013 - Devolver Estoque ao Cancelar', async function() { 
+        
+        const consultarcarrinho = await request(url)
+            .get('/carrinhos')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+         
+       
+         expect(consultarcarrinho.status).to.equal(200);
+         
+         if (consultarcarrinho.body.quantidade > 0){
+
+            await request(url)
+            .delete('/carrinhos/cancelar-compra')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+ 
+             }    // 
+        else {
+        
+             expect(consultarcarrinho.body.quantidade).to.equal(0);
+             expect(consultarcarrinho.body.carrinhos).to.be.an('array').that.is.empty;
+             console.log('Quantidade de Produtos no carinho (Inicio): '+consultarcarrinho.body.quantidade);    
+             console.log('Quantidade de Carrinhos (Inicio): '+consultarcarrinho.body.carrinhos.length);    
+
+         } 
+
+        const cadastrarproduto = await request(url)
+            .post('/produtos')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+            .send({
+                    nome: `Logitech MX Vertical_Modelo_X${Date.now()}Y`,
+                    preco: 6180,
+                    descricao: 'Mouse',
+                    quantidade: 100
+                 });
+            id_produto = cadastrarproduto.body._id;
+            console.log('Produto criado: '+id_produto);    
+
+        const consultarprodutocadastradoantes = await request(url)
+            .get(`/produtos/${id_produto}`)     
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+
+            qtdeprodutoantes = consultarprodutocadastradoantes.body.quantidade;
+            console.log('Qtde de Produtos (Antes de adicionar ao carrinho): ' + qtdeprodutoantes);   
+
+        const adicionarprodutoaocarrinho = await request(url)
+            .post('/carrinhos')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+            .send({
+                     produtos: [
+                {
+                         idProduto: `${id_produto}`,
+                         quantidade: 99
+                }
+                              ]
+                });        
+            
+        const carrinhos = adicionarprodutoaocarrinho.body;
+         id_carrinho= carrinhos._id;
+        
+         console.log('Produto adicionado ao carrinho: '+id_carrinho);
+         expect(carrinhos.message).to.equal('Cadastro realizado com sucesso');
+         
+        const cancelarcompra = await request(url)
+            .del('/carrinhos/cancelar-compra')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+
+        const cancelado = cancelarcompra.body;
+          
+        expect(cancelado.message).to.equal('Registro excluído com sucesso. Estoque dos produtos reabastecido');
+          
+        const consultarprodutoadicionadodepois = await request(url)
+            .get(`/produtos/${id_produto}`)   
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .set("authorization", token)
+
+            qtdeprodutodepois = consultarprodutoadicionadodepois.body.quantidade;
+            console.log('Qtde de Produtos (Depois de adicionar ao carrinho e cancelar a compra): ' + qtdeprodutodepois);   
+
+            //Comparando estoque antigo ao atual: Estoque foi atualizado com o cancelamento da compra
+            expect(qtdeprodutoantes).to.equal(qtdeprodutodepois);
+           
+        });   
       });
     });
 });

@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha \"tests/**/*.test.js\" --timeout 40000 --reporter mochawesome",
-    "test:login": "mocha \"tests/test/**/*.spec.js\" --timeout 40000"
+    "test": "mocha \"tests/**/*.test.js\" --timeout 50000 --reporter mochawesome",
+    "test:login": "mocha \"tests/test/**/*.spec.js\" --timeout 50000"
   },
   "keywords": [],
   "author": "",

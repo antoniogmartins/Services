@@ -301,7 +301,7 @@ Endpoints:
 | CAR-005    | Validar cálculo da quantidade total                                  |
 
 
-**4.1.2 - Consultar Carrinho de compras** (em andamento)
+**4.1.2 - Consultar Carrinho de compras**
 
 | ID         | Cenário                                                              |
 | ---------- | -------------------------------------------------------------------- |
@@ -311,7 +311,7 @@ Endpoints:
 | CAR-009    | Filtrar por quantidade total                                         |
 
 
-**4.1.3 - Concluir Compra e Atualizar Estoque**
+**4.1.3 - Concluir Compra e Atualizar Estoque** 
 
 | ID         | Cenário                                                              |
 | ---------- | -------------------------------------------------------------------- |
@@ -319,7 +319,7 @@ Endpoints:
 | CAR-011    | Atualizar estoque após compra                                        |
 
 
-**4.1.4 - Cancelar Compra e Atualizar Estoque**
+**4.1.4 - Cancelar Compra e Atualizar Estoque** 
 
 | ID         | Cenário                                                              |
 | ---------- | -------------------------------------------------------------------- |
@@ -327,7 +327,7 @@ Endpoints:
 | CAR-013    | Devolver estoque ao cancelar                                         |
 
 
-**4.2 - Cenários Negativos**
+**4.2 - Cenários Negativos** (em andamento)
 
 | ID         | Cenário                                                              |
 | ---------- | -------------------------------------------------------------------- |
