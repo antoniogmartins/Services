@@ -1,0 +1,193 @@
+{
+	"info": {
+		"_postman_id": "72b3f4ea-533c-451b-a561-982e61cf0ae8",
+		"name": "JsonPlaceHolder",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "11476541",
+		"_collection_link": "https://contact-lisst.postman.co/workspace/Contact-List-Documentation~33856deb-d59a-46d4-b666-f9b378f67e40/collection/11476541-72b3f4ea-533c-451b-a561-982e61cf0ae8?action=share&source=collection_link&creator=11476541"
+	},
+	"item": [
+		{
+			"name": "Buscar recurso",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{hosting}}/posts/1"
+			},
+			"response": []
+		},
+		{
+			"name": "LIstar todos recursos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{hosting}}/posts"
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar Recurso",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-type",
+						"value": "application/json; charset=UTF-8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 1,\n    \"title\": \"foo\",\n    \"body\": \"bar\",\n    \"userId\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{hosting}}/posts"
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar Pontual Recurso",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-type",
+						"value": "application/json; charset=UTF-8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"foo\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{hosting}}/posts/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Criar  Recurso",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-type",
+						"value": "application/json; charset=UTF-8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"foo\",\n    \"body\": \"bar\",\n    \"userId\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{hosting}}/posts"
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar Recurso",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-type",
+						"value": "application/json; charset=UTF-8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{hosting}}/posts/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Filtrar Recurso",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-type",
+						"value": "application/json; charset=UTF-8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{hosting}}/posts?userId=1",
+					"host": [
+						"{{hosting}}"
+					],
+					"path": [
+						"posts"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Hierarquia dos Recursos",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-type",
+						"value": "application/json; charset=UTF-8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{hosting}}/posts/1/comments"
+			},
+			"response": []
+		}
+	]
+}

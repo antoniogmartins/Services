@@ -1,0 +1,79 @@
+{
+	"info": {
+		"_postman_id": "b8355a2e-6a43-4edd-90be-2c3571716ff9",
+		"name": "FakeStoreAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "11476541",
+		"_collection_link": "https://contact-lisst.postman.co/workspace/Contact-List-Documentation~33856deb-d59a-46d4-b666-f9b378f67e40/collection/11476541-b8355a2e-6a43-4edd-90be-2c3571716ff9?action=share&source=collection_link&creator=11476541"
+	},
+	"item": [
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Buscar por produto",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{hostname}}/products/{{id}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Listagem de todos produtos Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{hostname}}/products"
+					},
+					"response": []
+				},
+				{
+					"name": "Adicionar produto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"id\": 0,\n\"title\": \"Produto 1\",\n\"price\": 10.11,\n\"description\": \"Tv Sharp 12\",\n\"category\": \"Televisor\",\n\"image\": \"http://www.televisor.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{hostname}}/products"
+					},
+					"response": []
+				},
+				{
+					"name": "Alterar um produto",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Updated Product\", \n    \"price\": 39.99\n}"
+						},
+						"url": "{{hostname}}/products/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar um produto",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{hostname}}/products/1"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

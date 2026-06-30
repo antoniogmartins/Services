@@ -1,0 +1,20 @@
+{
+	"info": {
+		"_postman_id": "63c43244-5604-441b-94ff-caed69ade24e",
+		"name": "DummyJson",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "11476541",
+		"_collection_link": "https://contact-lisst.postman.co/workspace/Contact-List-Documentation~33856deb-d59a-46d4-b666-f9b378f67e40/collection/11476541-63c43244-5604-441b-94ff-caed69ade24e?action=share&source=collection_link&creator=11476541"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://dummyjson.com"
+			},
+			"response": []
+		}
+	]
+}

@@ -345,8 +345,8 @@ Endpoints:
 
 | ID         | Cenário                                                              |
 | ---------- | -------------------------------------------------------------------- |
-| CAR-022    | Adicionar mesmo produto mais de uma vez                              |
-| CAR-023    | Adicionar produto com quantidade igual ao estoque                    |
+| CAR-022    | Adicionar mesmo produto no carrinho mais de uma vez                  |
+| CAR-023    | Adicionar produto no carrinho com quantidade igual ao estoque        |
 | CAR-024    | Comprar todos os itens disponíveis                                   |
 | CAR-025    | Carrinho contendo apenas um item                                     |
 

@@ -1,16 +1,16 @@
 {
   "stats": {
     "suites": 6,
-    "tests": 25,
-    "passes": 2,
-    "pending": 23,
+    "tests": 28,
+    "passes": 4,
+    "pending": 24,
     "failures": 0,
-    "start": "2026-06-29T17:04:44.721Z",
-    "end": "2026-06-29T17:04:45.949Z",
-    "duration": 1228,
-    "testsRegistered": 25,
+    "start": "2026-06-30T20:48:35.575Z",
+    "end": "2026-06-30T20:48:41.781Z",
+    "duration": 6206,
+    "testsRegistered": 28,
     "passPercent": 100,
-    "pendingPercent": 92,
+    "pendingPercent": 85.71428571428571,
     "other": 0,
     "hasOther": false,
     "skipped": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "43c195fb-2a29-484d-955e-9c15d0807ad1",
+      "uuid": "776cb3be-7b0c-4070-b067-78ae2e94a9d1",
       "title": "",
       "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/carrinho.test.js",
       "file": "/tests/tests/carrinho.test.js",
@@ -36,8 +36,8 @@
           "context": null,
           "code": "this.timeout(40000);",
           "err": {},
-          "uuid": "67900397-94f7-4ab9-82b7-1b48061991e1",
-          "parentUUID": "43c195fb-2a29-484d-955e-9c15d0807ad1",
+          "uuid": "15d8b2d3-b79d-4b2c-b0d6-43ba128c81dd",
+          "parentUUID": "776cb3be-7b0c-4070-b067-78ae2e94a9d1",
           "isHook": true,
           "skipped": false
         }
@@ -46,7 +46,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "34f5047f-94b7-40a5-8f79-768fdb899d64",
+          "uuid": "01238702-30f8-484c-9417-a067ac6220fc",
           "title": "Carrinho - CAR",
           "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/carrinho.test.js",
           "file": "/tests/tests/carrinho.test.js",
@@ -55,7 +55,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "f39bcb81-2fd4-43c6-adc5-2615cf92e4e2",
+              "uuid": "271bf6f7-7e22-4478-a6a5-1a5ec902d90d",
               "title": "Carrinho - Cenários Positivos",
               "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/carrinho.test.js",
               "file": "/tests/tests/carrinho.test.js",
@@ -64,7 +64,7 @@
               "tests": [],
               "suites": [
                 {
-                  "uuid": "43c4d3a3-9abe-4805-a82e-6cc1292fa240",
+                  "uuid": "daf81e9c-a264-4f15-9803-004bbd58e623",
                   "title": "Adicionar produto ao Carrinho de Compras",
                   "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/carrinho.test.js",
                   "file": "/tests/tests/carrinho.test.js",
@@ -75,7 +75,7 @@
                       "title": "USR-000 - Validar retorno do token JWT/autorização",
                       "fullTitle": "Carrinho - CAR Carrinho - Cenários Positivos Adicionar produto ao Carrinho de Compras USR-000 - Validar retorno do token JWT/autorização",
                       "timedOut": false,
-                      "duration": 715,
+                      "duration": 697,
                       "state": "passed",
                       "speed": "slow",
                       "pass": true,
@@ -84,8 +84,8 @@
                       "context": null,
                       "code": "const response = await request(url)\n    .post('/login')\n    .set(\"Content-Type\", \"application/json\")\n    .set(\"accept\", \"application/json\")\n    .send({\n          email: 'fulano@qa.com',\n          password: 'teste'\n    })\n expect(response.headers[\"content-type\"]).to.match(/json/);\n expect(response.status).to.equal(200);\n expect(response.body).to.have.property('authorization');\n expect(response.body.message).to.equal('Login realizado com sucesso');\n token = response.body.authorization;\n console.log('O valor do token é: ' + token);",
                       "err": {},
-                      "uuid": "7363ab00-f7c6-4712-a276-95c22514aee7",
-                      "parentUUID": "43c4d3a3-9abe-4805-a82e-6cc1292fa240",
+                      "uuid": "5bc5481b-77c8-4a58-8e43-a93076f23847",
+                      "parentUUID": "daf81e9c-a264-4f15-9803-004bbd58e623",
                       "isHook": false,
                       "skipped": false
                     },
@@ -93,7 +93,7 @@
                       "title": "PRD-000 - Validar geração do ID do produto",
                       "fullTitle": "Carrinho - CAR Carrinho - Cenários Positivos Adicionar produto ao Carrinho de Compras PRD-000 - Validar geração do ID do produto",
                       "timedOut": false,
-                      "duration": 492,
+                      "duration": 484,
                       "state": "passed",
                       "speed": "slow",
                       "pass": true,
@@ -102,8 +102,8 @@
                       "context": null,
                       "code": "const response = await request(url)\n    .post('/produtos')\n    .set(\"Content-Type\", \"application/json\")\n    .set(\"accept\", \"application/json\")\n    .set(\"authorization\", token)\n    .send({\n            nome: `Logitech MX Vertical_Modelo_X${Date.now()}Y`,\n            preco: 470,\n            descricao: 'Mouse',\n            quantidade: 381\n    })\n    id_produto = response.body._id;\n    console.log('O valor do id é: ' + id_produto);\n    expect(response.status).to.equal(201);\n    expect(response.body).to.have.property('_id');\n    expect(response.body.message).to.equal('Cadastro realizado com sucesso');",
                       "err": {},
-                      "uuid": "62647423-5066-4dfb-b63d-ee4ff7f88a41",
-                      "parentUUID": "43c4d3a3-9abe-4805-a82e-6cc1292fa240",
+                      "uuid": "fd1b8770-a6ac-4db2-a894-9bfd64d2f2ee",
+                      "parentUUID": "daf81e9c-a264-4f15-9803-004bbd58e623",
                       "isHook": false,
                       "skipped": false
                     },
@@ -120,8 +120,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "d3da6d78-5af5-4771-b041-2bea1cecfdd8",
-                      "parentUUID": "43c4d3a3-9abe-4805-a82e-6cc1292fa240",
+                      "uuid": "5db4dc76-6be0-45be-8a67-2b27489acb26",
+                      "parentUUID": "daf81e9c-a264-4f15-9803-004bbd58e623",
                       "isHook": false,
                       "skipped": false
                     },
@@ -138,8 +138,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "75e8064c-dc86-4bec-8913-edfa4572b31b",
-                      "parentUUID": "43c4d3a3-9abe-4805-a82e-6cc1292fa240",
+                      "uuid": "4ddb35fb-6156-4b48-ad58-197a4b9a5b15",
+                      "parentUUID": "daf81e9c-a264-4f15-9803-004bbd58e623",
                       "isHook": false,
                       "skipped": false
                     },
@@ -156,8 +156,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "e45866af-de9b-464f-b3b1-e35deb6a3d6a",
-                      "parentUUID": "43c4d3a3-9abe-4805-a82e-6cc1292fa240",
+                      "uuid": "3586ee45-dcd0-4ae0-8543-dc228d5d77b7",
+                      "parentUUID": "daf81e9c-a264-4f15-9803-004bbd58e623",
                       "isHook": false,
                       "skipped": false
                     },
@@ -174,8 +174,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "fc0fc574-a4bc-4e64-afd9-5043db39d13d",
-                      "parentUUID": "43c4d3a3-9abe-4805-a82e-6cc1292fa240",
+                      "uuid": "3aaa273b-7681-4419-8e74-50e19a164d2d",
+                      "parentUUID": "daf81e9c-a264-4f15-9803-004bbd58e623",
                       "isHook": false,
                       "skipped": false
                     },
@@ -192,8 +192,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "f52956f4-278d-4b8c-a727-e11930f3fb89",
-                      "parentUUID": "43c4d3a3-9abe-4805-a82e-6cc1292fa240",
+                      "uuid": "010565ed-b642-4abe-85d6-0a3746e18e78",
+                      "parentUUID": "daf81e9c-a264-4f15-9803-004bbd58e623",
                       "isHook": false,
                       "skipped": false
                     },
@@ -210,8 +210,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "e75acf9d-b916-4960-98a0-f64212934dc6",
-                      "parentUUID": "43c4d3a3-9abe-4805-a82e-6cc1292fa240",
+                      "uuid": "1ec3d14e-4c74-4a68-98c2-db9d6b4fa5e8",
+                      "parentUUID": "daf81e9c-a264-4f15-9803-004bbd58e623",
                       "isHook": false,
                       "skipped": false
                     },
@@ -228,8 +228,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "64aeb855-9b1a-4ac9-908e-f864ea3471d2",
-                      "parentUUID": "43c4d3a3-9abe-4805-a82e-6cc1292fa240",
+                      "uuid": "3c764c54-95cd-47da-a463-5f03cae4d153",
+                      "parentUUID": "daf81e9c-a264-4f15-9803-004bbd58e623",
                       "isHook": false,
                       "skipped": false
                     },
@@ -246,8 +246,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "745bb544-a888-47a4-95fd-56c4df344cd3",
-                      "parentUUID": "43c4d3a3-9abe-4805-a82e-6cc1292fa240",
+                      "uuid": "0c01e338-11d0-4563-bade-f7f5e2a60bb0",
+                      "parentUUID": "daf81e9c-a264-4f15-9803-004bbd58e623",
                       "isHook": false,
                       "skipped": false
                     },
@@ -264,8 +264,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "f42b8d9a-d5bd-4508-bbec-ef741b43b6f1",
-                      "parentUUID": "43c4d3a3-9abe-4805-a82e-6cc1292fa240",
+                      "uuid": "0b4d7b1a-5c85-4d39-a0ca-2cd257412084",
+                      "parentUUID": "daf81e9c-a264-4f15-9803-004bbd58e623",
                       "isHook": false,
                       "skipped": false
                     },
@@ -282,8 +282,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "e779baf7-aab7-4e8e-a801-bdf9adde9344",
-                      "parentUUID": "43c4d3a3-9abe-4805-a82e-6cc1292fa240",
+                      "uuid": "4e2aeac4-2229-4419-be88-d641fa8ba9f8",
+                      "parentUUID": "daf81e9c-a264-4f15-9803-004bbd58e623",
                       "isHook": false,
                       "skipped": false
                     },
@@ -300,8 +300,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "7dda86ea-280f-4a9c-8d48-1303377170e5",
-                      "parentUUID": "43c4d3a3-9abe-4805-a82e-6cc1292fa240",
+                      "uuid": "d999577d-9f16-4b48-a247-a9ea22a401d9",
+                      "parentUUID": "daf81e9c-a264-4f15-9803-004bbd58e623",
                       "isHook": false,
                       "skipped": false
                     },
@@ -318,8 +318,8 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "661e20c4-17c4-4b4d-90ad-03433839f942",
-                      "parentUUID": "43c4d3a3-9abe-4805-a82e-6cc1292fa240",
+                      "uuid": "69f50487-e4f5-4bde-8268-1cd934400cfc",
+                      "parentUUID": "daf81e9c-a264-4f15-9803-004bbd58e623",
                       "isHook": false,
                       "skipped": false
                     },
@@ -336,35 +336,35 @@
                       "context": null,
                       "code": "",
                       "err": {},
-                      "uuid": "49a0c22c-f4ec-4dde-a479-57bc11f1ff9d",
-                      "parentUUID": "43c4d3a3-9abe-4805-a82e-6cc1292fa240",
+                      "uuid": "fe4cb4ea-e7dd-4f2b-972f-80c0fd01761b",
+                      "parentUUID": "daf81e9c-a264-4f15-9803-004bbd58e623",
                       "isHook": false,
                       "skipped": false
                     }
                   ],
                   "suites": [],
                   "passes": [
-                    "7363ab00-f7c6-4712-a276-95c22514aee7",
-                    "62647423-5066-4dfb-b63d-ee4ff7f88a41"
+                    "5bc5481b-77c8-4a58-8e43-a93076f23847",
+                    "fd1b8770-a6ac-4db2-a894-9bfd64d2f2ee"
                   ],
                   "failures": [],
                   "pending": [
-                    "d3da6d78-5af5-4771-b041-2bea1cecfdd8",
-                    "75e8064c-dc86-4bec-8913-edfa4572b31b",
-                    "e45866af-de9b-464f-b3b1-e35deb6a3d6a",
-                    "fc0fc574-a4bc-4e64-afd9-5043db39d13d",
-                    "f52956f4-278d-4b8c-a727-e11930f3fb89",
-                    "e75acf9d-b916-4960-98a0-f64212934dc6",
-                    "64aeb855-9b1a-4ac9-908e-f864ea3471d2",
-                    "745bb544-a888-47a4-95fd-56c4df344cd3",
-                    "f42b8d9a-d5bd-4508-bbec-ef741b43b6f1",
-                    "e779baf7-aab7-4e8e-a801-bdf9adde9344",
-                    "7dda86ea-280f-4a9c-8d48-1303377170e5",
-                    "661e20c4-17c4-4b4d-90ad-03433839f942",
-                    "49a0c22c-f4ec-4dde-a479-57bc11f1ff9d"
+                    "5db4dc76-6be0-45be-8a67-2b27489acb26",
+                    "4ddb35fb-6156-4b48-ad58-197a4b9a5b15",
+                    "3586ee45-dcd0-4ae0-8543-dc228d5d77b7",
+                    "3aaa273b-7681-4419-8e74-50e19a164d2d",
+                    "010565ed-b642-4abe-85d6-0a3746e18e78",
+                    "1ec3d14e-4c74-4a68-98c2-db9d6b4fa5e8",
+                    "3c764c54-95cd-47da-a463-5f03cae4d153",
+                    "0c01e338-11d0-4563-bade-f7f5e2a60bb0",
+                    "0b4d7b1a-5c85-4d39-a0ca-2cd257412084",
+                    "4e2aeac4-2229-4419-be88-d641fa8ba9f8",
+                    "d999577d-9f16-4b48-a247-a9ea22a401d9",
+                    "69f50487-e4f5-4bde-8268-1cd934400cfc",
+                    "fe4cb4ea-e7dd-4f2b-972f-80c0fd01761b"
                   ],
                   "skipped": [],
-                  "duration": 1207,
+                  "duration": 1181,
                   "root": false,
                   "rootEmpty": false,
                   "_timeout": 50000
@@ -380,7 +380,7 @@
               "_timeout": 50000
             },
             {
-              "uuid": "4b0bc071-6895-4ef4-b5e4-dc95e9790f2b",
+              "uuid": "9c3d708c-ed04-4400-b07e-d268c0f7dc79",
               "title": "Carrinho - Cenários Negativos",
               "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/carrinho.test.js",
               "file": "/tests/tests/carrinho.test.js",
@@ -400,8 +400,8 @@
                   "context": null,
                   "code": "",
                   "err": {},
-                  "uuid": "03c0c152-99b5-458d-9808-d449f8db00b4",
-                  "parentUUID": "4b0bc071-6895-4ef4-b5e4-dc95e9790f2b",
+                  "uuid": "16e61d71-1244-4ef8-be61-99927a7d1c99",
+                  "parentUUID": "9c3d708c-ed04-4400-b07e-d268c0f7dc79",
                   "isHook": false,
                   "skipped": false
                 },
@@ -418,8 +418,8 @@
                   "context": null,
                   "code": "",
                   "err": {},
-                  "uuid": "254840a7-4c1d-43c2-a2dd-1f475556ea76",
-                  "parentUUID": "4b0bc071-6895-4ef4-b5e4-dc95e9790f2b",
+                  "uuid": "ca539bac-6d84-428d-829b-368827ea3b0f",
+                  "parentUUID": "9c3d708c-ed04-4400-b07e-d268c0f7dc79",
                   "isHook": false,
                   "skipped": false
                 },
@@ -436,8 +436,8 @@
                   "context": null,
                   "code": "",
                   "err": {},
-                  "uuid": "87f19529-a284-487f-b008-668ad53ef6e8",
-                  "parentUUID": "4b0bc071-6895-4ef4-b5e4-dc95e9790f2b",
+                  "uuid": "1a4ce2a7-64d3-4744-b714-2691079117bb",
+                  "parentUUID": "9c3d708c-ed04-4400-b07e-d268c0f7dc79",
                   "isHook": false,
                   "skipped": false
                 },
@@ -454,8 +454,8 @@
                   "context": null,
                   "code": "",
                   "err": {},
-                  "uuid": "b76dedc8-c003-4d74-a733-8e5a543d76b3",
-                  "parentUUID": "4b0bc071-6895-4ef4-b5e4-dc95e9790f2b",
+                  "uuid": "5dc95d5c-5cc2-470f-9af1-f0e088ba0a5f",
+                  "parentUUID": "9c3d708c-ed04-4400-b07e-d268c0f7dc79",
                   "isHook": false,
                   "skipped": false
                 },
@@ -472,8 +472,8 @@
                   "context": null,
                   "code": "",
                   "err": {},
-                  "uuid": "4c2f15d4-1b5e-45c1-a335-879d59e06ce2",
-                  "parentUUID": "4b0bc071-6895-4ef4-b5e4-dc95e9790f2b",
+                  "uuid": "fb42f5b0-a187-4383-b949-fa2b647acecd",
+                  "parentUUID": "9c3d708c-ed04-4400-b07e-d268c0f7dc79",
                   "isHook": false,
                   "skipped": false
                 },
@@ -490,8 +490,8 @@
                   "context": null,
                   "code": "",
                   "err": {},
-                  "uuid": "a6482160-a951-4eab-8ed0-059ddb27ccf8",
-                  "parentUUID": "4b0bc071-6895-4ef4-b5e4-dc95e9790f2b",
+                  "uuid": "a5e73e8d-268a-46af-af7c-57132d103466",
+                  "parentUUID": "9c3d708c-ed04-4400-b07e-d268c0f7dc79",
                   "isHook": false,
                   "skipped": false
                 },
@@ -508,8 +508,8 @@
                   "context": null,
                   "code": "",
                   "err": {},
-                  "uuid": "16b6845a-3ad1-4e3b-a757-a11698fc3619",
-                  "parentUUID": "4b0bc071-6895-4ef4-b5e4-dc95e9790f2b",
+                  "uuid": "a528ff04-6c24-436f-bf62-80dfd45eba39",
+                  "parentUUID": "9c3d708c-ed04-4400-b07e-d268c0f7dc79",
                   "isHook": false,
                   "skipped": false
                 },
@@ -526,8 +526,8 @@
                   "context": null,
                   "code": "",
                   "err": {},
-                  "uuid": "8544a3b1-d0c5-4a1b-9fdc-cb8bafa4423a",
-                  "parentUUID": "4b0bc071-6895-4ef4-b5e4-dc95e9790f2b",
+                  "uuid": "b55bd395-5261-4d8a-8db7-052e1f09bc81",
+                  "parentUUID": "9c3d708c-ed04-4400-b07e-d268c0f7dc79",
                   "isHook": false,
                   "skipped": false
                 }
@@ -536,14 +536,14 @@
               "passes": [],
               "failures": [],
               "pending": [
-                "03c0c152-99b5-458d-9808-d449f8db00b4",
-                "254840a7-4c1d-43c2-a2dd-1f475556ea76",
-                "87f19529-a284-487f-b008-668ad53ef6e8",
-                "b76dedc8-c003-4d74-a733-8e5a543d76b3",
-                "4c2f15d4-1b5e-45c1-a335-879d59e06ce2",
-                "a6482160-a951-4eab-8ed0-059ddb27ccf8",
-                "16b6845a-3ad1-4e3b-a757-a11698fc3619",
-                "8544a3b1-d0c5-4a1b-9fdc-cb8bafa4423a"
+                "16e61d71-1244-4ef8-be61-99927a7d1c99",
+                "ca539bac-6d84-428d-829b-368827ea3b0f",
+                "1a4ce2a7-64d3-4744-b714-2691079117bb",
+                "5dc95d5c-5cc2-470f-9af1-f0e088ba0a5f",
+                "fb42f5b0-a187-4383-b949-fa2b647acecd",
+                "a5e73e8d-268a-46af-af7c-57132d103466",
+                "a528ff04-6c24-436f-bf62-80dfd45eba39",
+                "b55bd395-5261-4d8a-8db7-052e1f09bc81"
               ],
               "skipped": [],
               "duration": 0,
@@ -552,7 +552,7 @@
               "_timeout": 50000
             },
             {
-              "uuid": "6b250488-ecfd-4b49-89fc-277c89ff7e8f",
+              "uuid": "d3096e6b-1c34-431f-acec-4c3f15929fd1",
               "title": "Carrinho - Cenários Alternativos",
               "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/carrinho.test.js",
               "file": "/tests/tests/carrinho.test.js",
@@ -560,8 +560,8 @@
               "afterHooks": [],
               "tests": [
                 {
-                  "title": "CAR-022 - Adicionar mesmo produto mais de uma vez ",
-                  "fullTitle": "Carrinho - CAR Carrinho - Cenários Alternativos CAR-022 - Adicionar mesmo produto mais de uma vez ",
+                  "title": "CAR-022 - Adicionar no carrinho o mesmo produto mais de uma vez",
+                  "fullTitle": "Carrinho - CAR Carrinho - Cenários Alternativos CAR-022 - Adicionar no carrinho o mesmo produto mais de uma vez",
                   "timedOut": false,
                   "duration": 0,
                   "state": "pending",
@@ -572,26 +572,84 @@
                   "context": null,
                   "code": "",
                   "err": {},
-                  "uuid": "02b512cc-f698-470a-9d36-7238a85b2acb",
-                  "parentUUID": "6b250488-ecfd-4b49-89fc-277c89ff7e8f",
+                  "uuid": "6764fb4a-b50d-461f-bc00-102064dfc296",
+                  "parentUUID": "d3096e6b-1c34-431f-acec-4c3f15929fd1",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "CAR-023 - Adicionar produto no carrinho com quantidade igual ao estoque",
+                  "fullTitle": "Carrinho - CAR Carrinho - Cenários Alternativos CAR-023 - Adicionar produto no carrinho com quantidade igual ao estoque",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": "pending",
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": true,
+                  "context": null,
+                  "code": "",
+                  "err": {},
+                  "uuid": "f919e098-2fd3-4473-afd0-825854e99f10",
+                  "parentUUID": "d3096e6b-1c34-431f-acec-4c3f15929fd1",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "CAR-024.1 - Comprar todos os itens disponíveis",
+                  "fullTitle": "Carrinho - CAR Carrinho - Cenários Alternativos CAR-024.1 - Comprar todos os itens disponíveis",
+                  "timedOut": false,
+                  "duration": 1427,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const consultarcarrinho = await request(url)\n        .get('/carrinhos')\n        .set(\"Content-Type\", \"application/json\")\n        .set(\"accept\", \"application/json\")\n        .set(\"authorization\", token)\n     \n     expect(consultarcarrinho.status).to.equal(200);\n     \n     if (consultarcarrinho.body.quantidade = 0){\n         expect(consultarcarrinho.body.quantidade).to.equal(0);\n         expect(consultarcarrinho.body.carrinhos).to.be.an('array').that.is.empty;\n        // console.log('Quantidade de Produtos no carinho (Inicio): '+consultarcarrinho.body.quantidade);    \n        // console.log('Quantidade de Carrinhos (Inicio): '+consultarcarrinho.body.carrinhos.length);    \n     const produtos = [\n     {\n         key: `Notebook`,\n         nome: `Notebook${Date.now()}`,\n         preco: 3500,\n         descricao: \"Notebook\",\n         quantidade: 8\n     },\n     {\n         key: `Mouse`,\n         nome: `Mouse${Date.now()}`,\n         preco: 80,\n         descricao: \"Mouse\",\n         quantidade: 20\n     },\n     {\n         key: `Monitor`,\n         nome: `Monitor${Date.now()}`,\n         preco: 1200,\n         descricao: \"Monitor\",\n         quantidade: 5\n      }\n     ];\n         //const idsProdutos = {};\n         const produtosCriados = {};\n         for (const produto of produtos) {\n         const {key, ...bodyProduto} = produto;\n         const cadastrarproduto = await request(url)\n         .post('/produtos')\n         .set(\"Content-Type\", \"application/json\")\n         .set(\"accept\", \"application/json\")\n         .set('authorization', token)\n         .send(bodyProduto);\n         \n           // idsProdutos[produto.nome] = response.body._id; \n               produtosCriados[produto.key] = {\n               id: cadastrarproduto.body._id, \n               nome: bodyProduto.nome,\n               descricao: bodyProduto.descricao,\n               preco: bodyProduto.preco,\n               quantidade: bodyProduto.quantidade\n            };\n            console.log(JSON.stringify(cadastrarproduto.body, null, 2));\n            //id_produto = cadastrarproduto.body._id;\n            expect(cadastrarproduto.status).to.equal(201);\n           // console.log('Produto criado: '+id_produto);    \n         }\n         const idProdutoNotebook = produtosCriados.Notebook.id;\n         const idProdutoMouse = produtosCriados.Mouse.id;\n         const idProdutoMonitor = produtosCriados.Monitor.id;\n    \n         const QtdeNotebook = produtosCriados.Notebook.quantidade;\n         const QtdeMouse = produtosCriados.Mouse.quantidade;\n         const QtdeMonitor = produtosCriados.Monitor.quantidade;\n        \n         console.log('O id do notebook é: '+idProdutoNotebook) ;\n         console.log('A quantidade do notebook é: '+QtdeNotebook) ;\n         //console.log('o id do mouse é: '+idMouse) ;\n         //console.log('o id do monitor é: '+idMonitor) ;\n        const adicionarprodutoaocarrinho = await request(url)\n        .post('/carrinhos')\n        .set(\"Content-Type\", \"application/json\")\n        .set(\"accept\", \"application/json\")\n        .set(\"authorization\", token)\n        .send({\n                 produtos: [\n                      {\n                          idProduto: `${idProdutoNotebook}`,\n                          quantidade: QtdeNotebook\n                      }\n                          ]\n            });    \n         console.log(\n                     'body: ',\n                      JSON.stringify(adicionarprodutoaocarrinho.body, null, 2)\n                );  \n        expect(adicionarprodutoaocarrinho.status).to.equal(201);       \n        expect(adicionarprodutoaocarrinho.body.message).to.equal('Cadastro realizado com sucesso');\n     }  else  {\n      /*  const concluircompra = await request(url)\n        .del('/carrinhos/concluir-compra')\n        .set(\"Content-Type\", \"application/json\")\n        .set(\"accept\", \"application/json\")\n        .set(\"authorization\", token)\n      */\n         const response = await request(url)\n             .get('/produtos')\n             .set(\"Content-Type\", \"application/json\")\n             .set(\"accept\", \"application/json\")\n             .set(\"authorization\", token);\n         const produtos = response.body;\n         const listadeprodutos = produtos.produtos;\n         if (produtos.quantidade > 0) {\n            const bodyCarrinho = {\n              produtos: listadeprodutos.map(produto => ({\n                  idProduto: produto._id,\n                  quantidade: produto.quantidade\n                              }))\n         };\n       \n         const adicionarprodutoaocarrinho = await request(url)\n        .post('/carrinhos')\n        .set(\"Content-Type\", \"application/json\")\n        .set(\"accept\", \"application/json\")\n        .set(\"authorization\", token)\n        .send(bodyCarrinho);    \n        console.log(adicionarprodutoaocarrinho.body);\n        expect(adicionarprodutoaocarrinho.body.message).to.equal('Não é permitido ter mais de 1 carrinho');\n         }\n\n \n        }",
+                  "err": {},
+                  "uuid": "cb21a964-ef34-45c5-a691-65e5935bd538",
+                  "parentUUID": "d3096e6b-1c34-431f-acec-4c3f15929fd1",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "CAR-024.2 - Comprar todos os itens disponíveis (refinado)",
+                  "fullTitle": "Carrinho - CAR Carrinho - Cenários Alternativos CAR-024.2 - Comprar todos os itens disponíveis (refinado)",
+                  "timedOut": false,
+                  "duration": 3575,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const concluircompra = await request(url)\n             .del('/carrinhos/concluir-compra')\n             .set(\"Content-Type\", \"application/json\")\n             .set(\"accept\", \"application/json\")\n             .set(\"authorization\", token)\n   \n         const cancelarcompra = await request(url)\n             .del('/carrinhos/cancelar-compra')\n             .set(\"Content-Type\", \"application/json\")\n             .set(\"accept\", \"application/json\")\n             .set(\"authorization\", token)\n          const produtos = [\n     {\n         nome: `Notebook${Date.now()}`,\n         preco: 3500,\n         descricao: \"Notebook\",\n         quantidade: 8\n     },\n     {\n         nome: `Mouse${Date.now()}`,\n         preco: 80,\n         descricao: \"Mouse\",\n         quantidade: 20\n     },\n     {\n         nome: `Monitor${Date.now()}`,\n         preco: 1200,\n         descricao: \"Monitor\",\n         quantidade: 5\n      }\n     ];    \n     const produtosComId = [];\n     for (const produto of produtos) {\n     const cadastrarproduto = await request(url)\n         .post('/produtos')\n         .set(\"Content-Type\", \"application/json\")\n         .set(\"accept\", \"application/json\")\n         .set('authorization', token)\n         .send(produto);\n             \n     //   console.log(cadastrarproduto.status);\n     //   console.log(cadastrarproduto.body);\n        console.log('Cadastrando Produtos: ',JSON.stringify(cadastrarproduto.body, null, 2));\n      //   console.log(produtos[0]);\n          produtosComId.push({\n              idProduto: cadastrarproduto.body._id,\n              quantidade: produto.quantidade\n          });\n        }\n        \n        console.log('Montando o body de produtos com Id: ',JSON.stringify(produtosComId, null, 2));\n         const bodyCarrinho = {\n              produtos: produtosComId\n              };\n         \n       console.log('Listagem de Produtos a serem inseridos no carrinho: ',JSON.stringify(bodyCarrinho, null, 2));\n \n         const adicionarprodutoaocarrinho = await request(url)\n           .post('/carrinhos')\n           .set(\"Content-Type\", \"application/json\")\n           .set(\"accept\", \"application/json\")\n           .set(\"authorization\", token)\n           .send(bodyCarrinho);  \n        console.log('Adicionando Produtos ao Carrinho: ',JSON.stringify(adicionarprodutoaocarrinho.body, null, 2));\n        expect(adicionarprodutoaocarrinho.body.message).to.equal('Cadastro realizado com sucesso');\n        console.log('Id do Carrinho gerado:', adicionarprodutoaocarrinho.body._id);",
+                  "err": {},
+                  "uuid": "dc90dda0-86fd-48a2-ab30-3a7c17199952",
+                  "parentUUID": "d3096e6b-1c34-431f-acec-4c3f15929fd1",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
-              "passes": [],
+              "passes": [
+                "cb21a964-ef34-45c5-a691-65e5935bd538",
+                "dc90dda0-86fd-48a2-ab30-3a7c17199952"
+              ],
               "failures": [],
               "pending": [
-                "02b512cc-f698-470a-9d36-7238a85b2acb"
+                "6764fb4a-b50d-461f-bc00-102064dfc296",
+                "f919e098-2fd3-4473-afd0-825854e99f10"
               ],
               "skipped": [],
-              "duration": 0,
+              "duration": 5002,
               "root": false,
               "rootEmpty": false,
               "_timeout": 50000
             },
             {
-              "uuid": "026b0456-e531-43ea-b77f-529a6b818fb8",
+              "uuid": "4c8e067f-c9d4-4db7-8b81-d6dd38a9b366",
               "title": "Carrinho - Cenários De Exceção",
               "fullFile": "/home/antonio/Downloads/Treinamento/Treino/Git Hub/Services/Jest/projeto3/Serverestdev/tests/tests/carrinho.test.js",
               "file": "/tests/tests/carrinho.test.js",
@@ -611,8 +669,8 @@
                   "context": null,
                   "code": "",
                   "err": {},
-                  "uuid": "614f8bac-92bc-4fa1-aa9e-bd8ec78bbe66",
-                  "parentUUID": "026b0456-e531-43ea-b77f-529a6b818fb8",
+                  "uuid": "53ec7160-c984-4d3c-964a-14d5827c5cd6",
+                  "parentUUID": "4c8e067f-c9d4-4db7-8b81-d6dd38a9b366",
                   "isHook": false,
                   "skipped": false
                 }
@@ -621,7 +679,7 @@
               "passes": [],
               "failures": [],
               "pending": [
-                "614f8bac-92bc-4fa1-aa9e-bd8ec78bbe66"
+                "53ec7160-c984-4d3c-964a-14d5827c5cd6"
               ],
               "skipped": [],
               "duration": 0,
