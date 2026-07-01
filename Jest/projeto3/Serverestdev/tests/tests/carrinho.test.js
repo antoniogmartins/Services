@@ -1720,7 +1720,7 @@ describe('Carrinho - Cenários Alternativos', () => {
          //   console.log(cadastrarproduto.status);
          //   console.log(cadastrarproduto.body);
 
-            console.log('Cadastrando Produtos: ',JSON.stringify(cadastrarproduto.body, null, 2));
+        //    console.log('Cadastrando Produtos: ',JSON.stringify(cadastrarproduto.body, null, 2));
 
           //   console.log(produtos[0]);
               produtosComId.push({
@@ -1729,13 +1729,13 @@ describe('Carrinho - Cenários Alternativos', () => {
               });
             }
             
-            console.log('Montando o body de produtos com Id: ',JSON.stringify(produtosComId, null, 2));
+         //   console.log('Montando o body de produtos com Id: ',JSON.stringify(produtosComId, null, 2));
 
              const bodyCarrinho = {
                   produtos: produtosComId
                   };
              
-           console.log('Listagem de Produtos a serem inseridos no carrinho: ',JSON.stringify(bodyCarrinho, null, 2));
+       //    console.log('Listagem de Produtos a serem inseridos no carrinho: ',JSON.stringify(bodyCarrinho, null, 2));
  
              const adicionarprodutoaocarrinho = await request(url)
                .post('/carrinhos')
@@ -1744,18 +1744,222 @@ describe('Carrinho - Cenários Alternativos', () => {
                .set("authorization", token)
                .send(bodyCarrinho);  
 
-            console.log('Adicionando Produtos ao Carrinho: ',JSON.stringify(adicionarprodutoaocarrinho.body, null, 2));
+      //      console.log('Adicionando Produtos ao Carrinho: ',JSON.stringify(adicionarprodutoaocarrinho.body, null, 2));
             expect(adicionarprodutoaocarrinho.body.message).to.equal('Cadastro realizado com sucesso');
             console.log('Id do Carrinho gerado:', adicionarprodutoaocarrinho.body._id);
 });
+
+    it.skip('CAR-025 - Carrinho contendo apenas um item', async function() { 
+    
+         const concluircompra = await request(url)
+                 .del('/carrinhos/concluir-compra')
+                 .set("Content-Type", "application/json")
+                 .set("accept", "application/json")
+                 .set("authorization", token)
+
+         const produto =       {
+                                   nome: `Notebook${Date.now()}`,
+                                   preco: 3500,
+                                   descricao: 'Notebook',
+                                   quantidade: 8
+                                };    
+
+         const cadastrarproduto = await request(url)
+             .post('/produtos')
+             .set("Content-Type", "application/json")
+             .set("accept", "application/json")
+             .set('authorization', token)
+             .send(produto);
+                 
+       //     console.log('Cadastrando Produtos: ',JSON.stringify(cadastrarproduto.body, null, 2));
+            expect(cadastrarproduto.status).to.equal(201);
+
+             const bodyCarrinho = {
+                produtos:[
+                 {
+                      idProduto: cadastrarproduto.body._id,
+                      quantidade: produto.quantidade
+                  }
+                ]
+               };
+             
+          //  console.log('Listagem de Produtos a serem inseridos no carrinho: ',JSON.stringify(bodyCarrinho, null, 2));
+ 
+             const adicionarprodutoaocarrinho = await request(url)
+                 .post('/carrinhos')
+                 .set("Content-Type", "application/json")
+                 .set("accept", "application/json")
+                 .set("authorization", token)
+                 .send(bodyCarrinho);  
+
+         //   console.log('Adicionando Produtos ao Carrinho: ',JSON.stringify(adicionarprodutoaocarrinho.body, null, 2));
+            expect(adicionarprodutoaocarrinho.body.message).to.equal('Cadastro realizado com sucesso');
+        //    console.log('Id do Carrinho gerado:', adicionarprodutoaocarrinho.body._id);
+});
+
+
+
 });
 
 describe('Carrinho - Cenários De Exceção', () => {
-      it.skip('CAR-026 - Falha ao debitar estoque  ', async function() { 
+      it.skip('CAR-026.1 - Falha ao debitar estoque - Qtde maior que o estoque', async function() { 
+
+         const cancelarcompra = await request(url)
+                 .del('/carrinhos/cancelar-compra')
+                 .set("Content-Type", "application/json")
+                 .set("accept", "application/json")
+                 .set("authorization", token)
     
- 
+         const produto =       {
+                                   nome: `Notebook${Date.now()}`,
+                                   preco: 3500,
+                                   descricao: 'Notebook',
+                                   quantidade: 2
+                                };    
 
+         const cadastrarproduto = await request(url)
+             .post('/produtos')
+             .set("Content-Type", "application/json")
+             .set("accept", "application/json")
+             .set('authorization', token)
+             .send(produto);
+                 
+       //     console.log('Cadastrando Produtos: ',JSON.stringify(cadastrarproduto.body, null, 2));
+            expect(cadastrarproduto.status).to.equal(201);
 
+             const bodyCarrinho = {
+                produtos:[
+                 {
+                      idProduto: cadastrarproduto.body._id,
+                      quantidade: 3
+                  }
+                ]
+               };
+  
+      
+
+             const adicionarprodutoaocarrinho = await request(url)
+                 .post('/carrinhos')
+                 .set("Content-Type", "application/json")
+                 .set("accept", "application/json")
+                 .set("authorization", token)
+                 .send(bodyCarrinho);  
+
+           // console.log('Adicionando Produtos ao Carrinho: ',JSON.stringify(adicionarprodutoaocarrinho.body, null, 2));
+            expect(bodyCarrinho.produtos[0].quantidade).not.to.equal(produto.quantidade);
+            expect(adicionarprodutoaocarrinho.body.message).to.equal('Produto não possui quantidade suficiente');
     });
+
+      it.skip('CAR-026.2 - Falha ao debitar estoque - Produto Inexistente', async function() { 
+
+             const cancelarcompra = await request(url)
+                 .del('/carrinhos/cancelar-compra')
+                 .set("Content-Type", "application/json")
+                 .set("accept", "application/json")
+                 .set("authorization", token)
+    
+             const produto =       {
+                                   nome: `Notebook${Date.now()}`,
+                                   preco: 3500,
+                                   descricao: 'Notebook',
+                                   quantidade: 2
+                                };    
+
+             const cadastrarproduto = await request(url)
+                .post('/produtos')
+                .set("Content-Type", "application/json")
+                .set("accept", "application/json")
+                .set('authorization', token)
+                .send(produto);
+                 
+       //     console.log('Cadastrando Produtos: ',JSON.stringify(cadastrarproduto.body, null, 2));
+            expect(cadastrarproduto.status).to.equal(201);
+
+             const bodyCarrinho = {
+                produtos:[
+                 {
+                      idProduto: cadastrarproduto.body._id+1,  // Simulando produto inexistente
+                      quantidade: 3
+                  }
+                ]
+               };   
+
+             const adicionarprodutoaocarrinho = await request(url)
+                 .post('/carrinhos')
+                 .set("Content-Type", "application/json")
+                 .set("accept", "application/json")
+                 .set("authorization", token)
+                 .send(bodyCarrinho);  
+
+         //  console.log('Produto Não Encontrado: ',JSON.stringify(adicionarprodutoaocarrinho.body, null, 2));
+           
+           expect(adicionarprodutoaocarrinho.body.message).to.equal('Produto não encontrado');
+           expect(adicionarprodutoaocarrinho.body.item.idProduto).to.equal(bodyCarrinho.produtos[0].idProduto);
+           expect(adicionarprodutoaocarrinho.body.item.quantidade).to.equal(bodyCarrinho.produtos[0].quantidade);
+           expect(adicionarprodutoaocarrinho.body.item.index).to.equal(0);
+        });
+
+      it.skip('CAR-026.3 - Falha ao debitar estoque - Produto Removido antes da compra', async function() { 
+
+             const cancelarcompra = await request(url)
+                 .del('/carrinhos/cancelar-compra')
+                 .set("Content-Type", "application/json")
+                 .set("accept", "application/json")
+                 .set("authorization", token)
+    
+             const produto =       {
+                                   nome: `Notebook${Date.now()}`,
+                                   preco: 3500,
+                                   descricao: 'Notebook',
+                                   quantidade: 4
+                                };    
+
+             const cadastrarproduto = await request(url)
+                 .post('/produtos')
+                 .set("Content-Type", "application/json")
+                 .set("accept", "application/json")
+                 .set('authorization', token)
+                 .send(produto);
+                 
+       //     console.log('Cadastrando Produtos: ',JSON.stringify(cadastrarproduto.body, null, 2));
+            expect(cadastrarproduto.status).to.equal(201);
+            id_produto = cadastrarproduto.body._id;
+
+             const bodyCarrinho = {
+                produtos:[
+                 {
+                      idProduto: cadastrarproduto.body._id,  // Simulando produto inexistente
+                      quantidade: 3
+                  }
+                ]
+               };   
+
+             const adicionarprodutoaocarrinho = await request(url)
+                 .post('/carrinhos')
+                 .set("Content-Type", "application/json")
+                 .set("accept", "application/json")
+                 .set("authorization", token)
+                 .send(bodyCarrinho);  
+
+          //  console.log(JSON.stringify(adicionarprodutoaocarrinho.body, null, 2))
+
+             const resposta = await request(url)
+                 .del(`/produtos/${id_produto}`)
+                 .set("Content-Type", "application/json")
+                 .set("Accept", "application/json")
+                 .set("authorization", token)
+
+           // console.log(JSON.stringify(resposta.body, null, 2))
+             expect(resposta.status).to.equal(400);
+             expect(resposta.body.message).to.equal('Não é permitido excluir produto que faz parte de carrinho');
+
+        });
+
+        it.skip('CAR-027 - Falha ao concluir compra após pagamento', async function() { 
+        
+              console.log("Não será possível implementar literalmente esse cenário usando apenas a API pública");
+              console.log("do ServeRest, porque a regra de negócio não existe na aplicação.")
+      
+        });
      });
 });

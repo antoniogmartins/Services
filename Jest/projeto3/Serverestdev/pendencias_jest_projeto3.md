@@ -341,7 +341,7 @@ Endpoints:
 | CAR-021    | Concluir compra com estoque insuficiente                             |
 
 
-**4.3 - Cenários Alternativos** (em andamento)
+**4.3 - Cenários Alternativos** 
 
 | ID         | Cenário                                                              |
 | ---------- | -------------------------------------------------------------------- |
@@ -351,14 +351,32 @@ Endpoints:
 | CAR-025    | Carrinho contendo apenas um item                                     |
 
 
-**4.4 - Cenários de Exceção**
+**4.4 - Cenários de Exceção** (em andamento)
 
-| ID         | Cenário                                                              |
-| ---------- | -------------------------------------------------------------------- |
-| CAR-026    | Falha ao debitar estoque                                             |
-| CAR-027    | Falha ao concluir compra após pagamento                              |
-| CAR-028    | Inconsistência de estoque concorrente                                |
-| CAR-029    | Erro interno ao cancelar compra                                      |
+| ID         | Cenário                                                                      |
+| ---------- | ---------------------------------------------------------------------------- |
+| CAR-026    | Falha ao debitar estoque (substituidos pelo CAR-026.1, CAR-026.2, CAR-026.3  |
+  
+  **** O ServeRest é uma API de treinamento e não possui um endpoint ou mecanismo para 
+       simular uma falha interna no débito de estoque. 
+       Você não consegue, por exemplo, forçar um erro de banco ou interromper a 
+       atualização do estoque apenas usando a API pública.
+
+| CAR-026.1  | -> Falha ao debitar estoque - Qtde maior que o estoque                       |
+| CAR-026.2  | -> Falha ao debitar estoque - Produto inexistente                            |
+| CAR-026.3  | -> Falha ao debitar estoque - Produto Removido do carrinho antes da compra   |
+
+| CAR-027    | Falha ao concluir compra após pagamento                                      |
+
+   *** Não será possível implementar literalmente esse cenário usando apenas a API pública 
+       do ServeRest, porque a regra de negócio não existe na aplicação.
+
+| CAR-028    | Inconsistência de estoque concorrente                                        |
+| CAR-029    | Erro interno ao cancelar compra                                              |
+
+
+Você pode validar os cenários que impedem o débito do estoque, que são as regras de negócio expostas
+
 
 
 **5. TESTES E2E (Fluxos completos)**
