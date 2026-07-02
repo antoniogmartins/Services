@@ -3,7 +3,9 @@ const request = require('supertest');
 const { expect } = require('chai', 'chai-json-schema');
 
 const url = 'https://serverest.dev';
-let token = "";
+let token1 = "";
+let token2 = "";
+let payloadusuario = '';
 let id_usuario = 0;
 let id_produto = 0;
 let id_produto_plus = 0;
@@ -19,14 +21,14 @@ before(async function () {
   this.timeout(40000);
 });
 
-//-> Realizar Login e Gerar Token
+//-> Realizar Login e Gerar token1
 //**1.1 - Cenários Positivos**
 
 describe('Carrinho - CAR', function () {
   describe('Carrinho - Cenários Positivos', () => {
     describe ('Adicionar produto ao Carrinho de Compras', () => {
-      it('USR-000 - Validar retorno do token JWT/autorização', async function() { 
-        const response = await request(url)
+      it('USR-000 - Validar retorno do token1 JWT/autorização', async function() { 
+        const resposta1 = await request(url)
             .post('/login')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
@@ -34,12 +36,57 @@ describe('Carrinho - CAR', function () {
                   email: 'fulano@qa.com',
                   password: 'teste'
             })
-         expect(response.headers["content-type"]).to.match(/json/);
-         expect(response.status).to.equal(200);
-         expect(response.body).to.have.property('authorization');
-         expect(response.body.message).to.equal('Login realizado com sucesso');
-         token = response.body.authorization;
-         console.log('O valor do token é: ' + token);
+         expect(resposta1.headers["content-type"]).to.match(/json/);
+         expect(resposta1.status).to.equal(200);
+         expect(resposta1.body).to.have.property('authorization');
+         expect(resposta1.body.message).to.equal('Login realizado com sucesso');
+         token1 = resposta1.body.authorization;
+         console.log('O valor do token1 é: ' + token1);
+     });
+
+      it('USR-000 - Cadastrar usuário2 como administrador', async function() { 
+
+         payloadusuario = {
+               nome: 'Fulana',
+               email: `usuario${Date.now()}@qa.com.br`,
+               password: 'teste',
+               administrador: 'true'
+              };
+
+
+
+        const response = await request(url)
+            .post('/usuarios')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .send(payloadusuario)
+            expect(response.status).to.equal(201);
+                 
+                  // Validação da estrutura
+            expect(response.headers["content-type"]).to.match(/json/);
+            expect(response.body).to.have.property('message');
+            expect(response.body).to.have.property('_id');
+            expect(response.body).to.have.all.keys(['message', '_id']);
+            console.log('Email: '+ payloadusuario.email);
+            expect(response.body).to.have.property('message').equal('Cadastro realizado com sucesso');
+        });
+
+ 
+      it('USR-000 - Validar retorno do token2 do usuario 2 JWT/autorização', async function() { 
+        const resposta2 = await request(url)
+            .post('/login')
+            .set("Content-Type", "application/json")
+            .set("accept", "application/json")
+            .send({
+                  email: payloadusuario.email,
+                  password: 'teste'
+            })
+         expect(resposta2.headers["content-type"]).to.match(/json/);
+         expect(resposta2.status).to.equal(200);
+         expect(resposta2.body).to.have.property('authorization');
+         expect(resposta2.body.message).to.equal('Login realizado com sucesso');
+         token2 = resposta2.body.authorization;
+         console.log('O valor do token2 é: ' + token2);
          });
 
       it('PRD-000 - Validar geração do ID do produto', async function() { 
@@ -47,7 +94,7 @@ describe('Carrinho - CAR', function () {
             .post('/produtos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
             .send({
                     nome: `Logitech MX Vertical_Modelo_X${Date.now()}Y`,
                     preco: 470,
@@ -64,19 +111,19 @@ describe('Carrinho - CAR', function () {
 
 //**4.1.1 - Adicionar produto ao Carrinho de compras**
 
-      it.skip('CAR-001 - Adicionar produto ao carrinho', async function() { 
+      it('CAR-001 - Adicionar produto ao carrinho', async function() { 
         
         await request(url)
             .del('/carrinhos/cancelar-compra')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
         
         const resposta = await request(url)
             .post('/produtos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
             .send({
                     nome: `Logitech MX Vertical_Modelo_X${Date.now()}Y`,
                     preco: 470,
@@ -89,7 +136,7 @@ describe('Carrinho - CAR', function () {
             .post('/carrinhos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
             .send({
                      produtos: [{
                          idProduto: `${id_produto}`,
@@ -102,19 +149,19 @@ describe('Carrinho - CAR', function () {
          expect(response.body).to.have.property('_id');
         });
  
-      it.skip('CAR-002 - Adicionar multiplos produtos ao carrinho', async function() { 
+      it('CAR-002 - Adicionar multiplos produtos ao carrinho', async function() { 
         
         await request(url)
             .del('/carrinhos/cancelar-compra')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
         
         const resposta = await request(url)
             .post('/produtos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
             .send({
                     nome: `Logitech MX Vertical_Modelo_X${Date.now()}Y`,
                     preco: 100,
@@ -127,7 +174,7 @@ describe('Carrinho - CAR', function () {
             .post('/produtos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
             .send({
                     nome: `Logitech MX Vertical_Modelo_X${Date.now()}Y`,
                     preco: 200,
@@ -140,7 +187,7 @@ describe('Carrinho - CAR', function () {
             .post('/carrinhos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
             .send({
                      produtos: [
                 {
@@ -159,19 +206,19 @@ describe('Carrinho - CAR', function () {
          expect(response.body).to.have.property('_id');
         });
 
-      it.skip('CAR-003 - Adicionar produto com quantidade disponivel ao carrinho', async function() { 
+      it('CAR-003 - Adicionar produto com quantidade disponivel ao carrinho', async function() { 
         
         await request(url)
             .del('/carrinhos/cancelar-compra')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
         
         const resposta = await request(url)
             .post('/produtos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
             .send({
                     nome: `Logitech MX Vertical_Modelo_X${Date.now()}Y`,
                     preco: 100,
@@ -184,7 +231,7 @@ describe('Carrinho - CAR', function () {
             .post('/carrinhos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
             .send({
                      produtos: [
                 {
@@ -199,19 +246,19 @@ describe('Carrinho - CAR', function () {
          expect(response.body).to.have.property('_id');
         });
 
-      it.skip('CAR-004 - Validar cálculo do valor total do carrinho', async function() { 
+      it('CAR-004 - Validar cálculo do valor total do carrinho', async function() { 
         
         await request(url)
             .del('/carrinhos/cancelar-compra')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
         
         const adicionarproduto1 = await request(url)
             .post('/produtos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
             .send({
                     nome: `Logitech MX Vertical_Modelo_X${Date.now()}Y`,
                     preco: 100,
@@ -224,7 +271,7 @@ describe('Carrinho - CAR', function () {
             .post('/produtos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
             .send({
                     nome: `Logitech MX Vertical_Modelo_X${Date.now()}Y`,
                     preco: 200,
@@ -237,7 +284,7 @@ describe('Carrinho - CAR', function () {
             .post('/carrinhos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
             .send({
                      produtos: [
                 {
@@ -259,7 +306,7 @@ describe('Carrinho - CAR', function () {
             .get('/carrinhos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
 
          //console.log(consultarprodutonocarrinho.body);
          expect(consultarprodutonocarrinho.status).to.equal(200);
@@ -275,19 +322,19 @@ describe('Carrinho - CAR', function () {
 
         });
 
-      it.skip('CAR-005 - Validar cálculo do valor total do carrinho', async function() { 
+      it('CAR-005 - Validar cálculo do valor total do carrinho', async function() { 
         
         await request(url)
             .del('/carrinhos/cancelar-compra')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
         
         const adicionarproduto1 = await request(url)
             .post('/produtos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
             .send({
                     nome: `Logitech MX Vertical_Modelo_X${Date.now()}Y`,
                     preco: 100,
@@ -300,7 +347,7 @@ describe('Carrinho - CAR', function () {
             .post('/produtos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
             .send({
                     nome: `Logitech MX Vertical_Modelo_X${Date.now()}Y`,
                     preco: 200,
@@ -313,7 +360,7 @@ describe('Carrinho - CAR', function () {
             .post('/carrinhos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
             .send({
                      produtos: [
                 {
@@ -335,7 +382,7 @@ describe('Carrinho - CAR', function () {
             .get('/carrinhos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
 
          //console.log(consultarprodutonocarrinho.body);
          expect(consultarprodutonocarrinho.status).to.equal(200);
@@ -349,17 +396,18 @@ describe('Carrinho - CAR', function () {
 
          expect(carrinhos.precoTotal).to.equal(somaPrecoTotal);
         });
-
+    });
 
 //**4.1.2 - Consultar Carrinho de compras**
-
-      it.skip('CAR-006 - Listar carrinhos', async function() { 
+    describe ('Consultar Carrinho de compras', () => {
+  
+      it('CAR-006 - Listar carrinhos', async function() { 
         
             let consultarcarrinho = await request(url)
             .get('/carrinhos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
          
        
          expect(consultarcarrinho.status).to.equal(200);
@@ -370,7 +418,7 @@ describe('Carrinho - CAR', function () {
             .delete('/carrinhos/cancelar-compra')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
  
              }    // 
         else {
@@ -386,7 +434,7 @@ describe('Carrinho - CAR', function () {
             .post('/produtos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
             .send({
                     nome: `Logitech MX Vertical_Modelo_X${Date.now()}Y`,
                     preco: 100,
@@ -401,7 +449,7 @@ describe('Carrinho - CAR', function () {
             .post('/carrinhos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
             .send({
                      produtos: [
                 {
@@ -419,7 +467,7 @@ describe('Carrinho - CAR', function () {
             .get('/carrinhos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
         
          const carrinhos = consultarcarrinho.body.carrinhos[0];
 
@@ -439,13 +487,13 @@ describe('Carrinho - CAR', function () {
          
         });
 
-      it.skip('CAR-007 - Buscar carrinho por Id Válido', async function() { 
+      it('CAR-007 - Buscar carrinho por Id Válido', async function() { 
         
           let consultarcarrinho = await request(url)
             .get('/carrinhos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
          
        
          expect(consultarcarrinho.status).to.equal(200);
@@ -456,7 +504,7 @@ describe('Carrinho - CAR', function () {
             .delete('/carrinhos/cancelar-compra')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
  
              }    // 
         else {
@@ -472,7 +520,7 @@ describe('Carrinho - CAR', function () {
             .post('/produtos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
             .send({
                     nome: `Logitech MX Vertical_Modelo_X${Date.now()}Y`,
                     preco: 100,
@@ -487,7 +535,7 @@ describe('Carrinho - CAR', function () {
             .post('/carrinhos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
             .send({
                      produtos: [
                 {
@@ -508,7 +556,7 @@ describe('Carrinho - CAR', function () {
             //.query(`${id_carrinho}`)
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
         
 //            const carrinhos = consultarcarrinho.body;
              const carrinhos = consultarcarrinho.body;
@@ -529,13 +577,13 @@ describe('Carrinho - CAR', function () {
          
         });
 
-      it.skip('CAR-008 - Buscar carrinho por Preco Total', async function() { 
+      it('CAR-008 - Buscar carrinho por Preco Total', async function() { 
         
           let consultarcarrinho = await request(url)
             .get('/carrinhos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
          
        
          expect(consultarcarrinho.status).to.equal(200);
@@ -546,7 +594,7 @@ describe('Carrinho - CAR', function () {
             .delete('/carrinhos/cancelar-compra')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
  
              }    // 
         else {
@@ -562,7 +610,7 @@ describe('Carrinho - CAR', function () {
             .post('/produtos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
             .send({
                     nome: `Logitech MX Vertical_Modelo_X${Date.now()}Y`,
                     preco: 6180,
@@ -577,7 +625,7 @@ describe('Carrinho - CAR', function () {
             .post('/carrinhos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
             .send({
                      produtos: [
                 {
@@ -598,7 +646,7 @@ describe('Carrinho - CAR', function () {
             //.get(`/carrinhos?precoTotal=6180`)
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
         
             const carrinhos = consultarcarrinho.body.carrinhos[0];
 
@@ -614,18 +662,16 @@ describe('Carrinho - CAR', function () {
          expect(produto.idProduto).to.equal(id_produto);
          expect(produto.quantidade).to.equal(1);
          expect(produto.precoUnitario).to.equal(6180);
-             
-         
-
+  
         });
 
-     it.skip('CAR-009 - Buscar carrinho por Quantidade Total', async function() { 
+     it('CAR-009 - Buscar carrinho por Quantidade Total', async function() { 
         
          let consultarcarrinho = await request(url)
             .get('/carrinhos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
          
        
          expect(consultarcarrinho.status).to.equal(200);
@@ -636,7 +682,7 @@ describe('Carrinho - CAR', function () {
             .delete('/carrinhos/cancelar-compra')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
  
              }    // 
         else {
@@ -652,7 +698,7 @@ describe('Carrinho - CAR', function () {
             .post('/produtos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
             .send({
                     nome: `Logitech MX Vertical_Modelo_X${Date.now()}Y`,
                     preco: 6180,
@@ -667,7 +713,7 @@ describe('Carrinho - CAR', function () {
             .post('/carrinhos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
             .send({
                      produtos: [
                 {
@@ -688,7 +734,7 @@ describe('Carrinho - CAR', function () {
             //.get(`/carrinhos?precoTotal=6180`)
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
         
          const carrinhos = consultarcarrinho.body.carrinhos[0];
 
@@ -706,16 +752,17 @@ describe('Carrinho - CAR', function () {
          expect(produto.precoUnitario).to.equal(6180);
                  
         });
-
+    });
 //**4.1.3 - Concluir Compra e Atualizar Estoque**
-  
-    it.skip('CAR-010 - Concluir Compra com sucesso', async function() { 
+    describe ('Concluir Compra e Atualizar Estoque', () => {
+ 
+    it('CAR-010 - Concluir Compra com sucesso', async function() { 
         
         const consultarcarrinho = await request(url)
             .get('/carrinhos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
          
        
          expect(consultarcarrinho.status).to.equal(200);
@@ -726,7 +773,7 @@ describe('Carrinho - CAR', function () {
             .delete('/carrinhos/cancelar-compra')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
  
              }    // 
         else {
@@ -742,7 +789,7 @@ describe('Carrinho - CAR', function () {
             .post('/produtos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
             .send({
                     nome: `Logitech MX Vertical_Modelo_X${Date.now()}Y`,
                     preco: 6180,
@@ -757,7 +804,7 @@ describe('Carrinho - CAR', function () {
             .post('/carrinhos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
             .send({
                      produtos: [
                 {
@@ -777,7 +824,7 @@ describe('Carrinho - CAR', function () {
             .del('/carrinhos/concluir-compra')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
 
         const comprado = concluircompra.body;
           
@@ -787,13 +834,13 @@ describe('Carrinho - CAR', function () {
         });    
 
 
-    it.skip('CAR-011 - Atualizar Estoque após compra', async function() { 
+    it('CAR-011 - Atualizar Estoque após compra', async function() { 
         
         const consultarcarrinho = await request(url)
             .get('/carrinhos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
          
        
          expect(consultarcarrinho.status).to.equal(200);
@@ -804,7 +851,7 @@ describe('Carrinho - CAR', function () {
             .delete('/carrinhos/cancelar-compra')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
  
              }    // 
         else {
@@ -820,7 +867,7 @@ describe('Carrinho - CAR', function () {
             .post('/produtos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
             .send({
                     nome: `Logitech MX Vertical_Modelo_X${Date.now()}Y`,
                     preco: 6180,
@@ -834,7 +881,7 @@ describe('Carrinho - CAR', function () {
             .get(`/produtos/${id_produto}`)     
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
 
             qtdeprodutoantes = consultarprodutocadastradoantes.body.quantidade;
             console.log('Qtde de Produtos (Antes de adicionar ao carrinho): ' + qtdeprodutoantes);   
@@ -843,7 +890,7 @@ describe('Carrinho - CAR', function () {
             .post('/carrinhos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
             .send({
                      produtos: [
                 {
@@ -863,7 +910,7 @@ describe('Carrinho - CAR', function () {
             .get(`/produtos/${id_produto}`)     
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
 
             qtdeprodutoaposadicionaraocarrinho = consultarprodutocadastradoaposadicionaraocarrinho.body.quantidade;
             console.log('Qtde de Produtos (Após adicionar ao carrinho): ' + qtdeprodutoaposadicionaraocarrinho);   
@@ -872,7 +919,7 @@ describe('Carrinho - CAR', function () {
             .del('/carrinhos/concluir-compra')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
 
         const conclusaodacompra = concluircompra.body;
           
@@ -882,7 +929,7 @@ describe('Carrinho - CAR', function () {
             .get(`/produtos/${id_produto}`)   
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
 
             qtdeprodutodepois = consultarprodutoadicionadodepois.body.quantidade;
             console.log('Qtde de Produtos (Depois de adicionar ao carrinho e cancelar a compra): ' + qtdeprodutodepois);   
@@ -891,16 +938,17 @@ describe('Carrinho - CAR', function () {
             expect(qtdeprodutodepois).to.equal(qtdeprodutoaposadicionaraocarrinho);
            
         });    
-
+    });
+    describe('Cancelar Compra e Atualizar Estoque', () => {
 // **4.1.4 - Cancelar Compra e Atualizar Estoque**
 
-    it.skip('CAR-012 - Cancelar compra', async function() { 
+    it('CAR-012 - Cancelar compra', async function() { 
         
         const consultarcarrinho = await request(url)
             .get('/carrinhos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
          
        
          expect(consultarcarrinho.status).to.equal(200);
@@ -911,7 +959,7 @@ describe('Carrinho - CAR', function () {
             .delete('/carrinhos/cancelar-compra')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
  
              }    // 
         else {
@@ -927,7 +975,7 @@ describe('Carrinho - CAR', function () {
             .post('/produtos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
             .send({
                     nome: `Logitech MX Vertical_Modelo_X${Date.now()}Y`,
                     preco: 6180,
@@ -941,7 +989,7 @@ describe('Carrinho - CAR', function () {
             .get(`/produtos/${id_produto}`)     
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
 
             qtdeprodutoantes = consultarprodutocadastradoantes.body.quantidade;
             console.log('Qtde de Produtos (Antes de adicionar ao carrinho): ' + qtdeprodutoantes);   
@@ -950,7 +998,7 @@ describe('Carrinho - CAR', function () {
             .post('/carrinhos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
             .send({
                      produtos: [
                 {
@@ -970,7 +1018,7 @@ describe('Carrinho - CAR', function () {
             .del('/carrinhos/cancelar-compra')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
 
         const cancelado = cancelarcompra.body;
           
@@ -980,7 +1028,7 @@ describe('Carrinho - CAR', function () {
             .get(`/produtos/${id_produto}`)     
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
 
             qtdeprodutodepois = consultarprodutodepoisdecanceladocompra.body.quantidade;
             console.log('Qtde de Produtos (Depois de cancelar compra): ' + qtdeprodutodepois);   
@@ -990,13 +1038,13 @@ describe('Carrinho - CAR', function () {
            
         });
 
-   it.skip('CAR-013 - Devolver Estoque ao Cancelar', async function() { 
+   it('CAR-013 - Devolver Estoque ao Cancelar', async function() { 
         
         const consultarcarrinho = await request(url)
             .get('/carrinhos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
          
        
          expect(consultarcarrinho.status).to.equal(200);
@@ -1007,7 +1055,7 @@ describe('Carrinho - CAR', function () {
             .delete('/carrinhos/cancelar-compra')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
  
              }    // 
         else {
@@ -1023,7 +1071,7 @@ describe('Carrinho - CAR', function () {
             .post('/produtos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
             .send({
                     nome: `Logitech MX Vertical_Modelo_X${Date.now()}Y`,
                     preco: 6180,
@@ -1037,7 +1085,7 @@ describe('Carrinho - CAR', function () {
             .get(`/produtos/${id_produto}`)     
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
 
             qtdeprodutoantes = consultarprodutocadastradoantes.body.quantidade;
             console.log('Qtde de Produtos (Antes de adicionar ao carrinho): ' + qtdeprodutoantes);   
@@ -1046,7 +1094,7 @@ describe('Carrinho - CAR', function () {
             .post('/carrinhos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
             .send({
                      produtos: [
                 {
@@ -1066,7 +1114,7 @@ describe('Carrinho - CAR', function () {
             .del('/carrinhos/cancelar-compra')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
 
         const cancelado = cancelarcompra.body;
           
@@ -1076,7 +1124,7 @@ describe('Carrinho - CAR', function () {
             .get(`/produtos/${id_produto}`)   
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
 
             qtdeprodutodepois = consultarprodutoadicionadodepois.body.quantidade;
             console.log('Qtde de Produtos (Depois de adicionar ao carrinho e cancelar a compra): ' + qtdeprodutodepois);   
@@ -1084,17 +1132,17 @@ describe('Carrinho - CAR', function () {
             //Comparando estoque antigo ao atual: Estoque foi atualizado com o cancelamento da compra
             expect(qtdeprodutoantes).to.equal(qtdeprodutodepois);
         });   
-    });
 });
+  });
 
 describe('Carrinho - Cenários Negativos', () => {
-      it.skip('CAR-014 - Adicionar no carrinho um Produto inexistente', async function() { 
+      it('CAR-014 - Adicionar no carrinho um Produto inexistente', async function() { 
           
         await request(url)
             .del('/carrinhos/cancelar-compra')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
         
         id_produto = '11111112221212';
 
@@ -1102,7 +1150,7 @@ describe('Carrinho - Cenários Negativos', () => {
             .post('/carrinhos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
             .send({
                      produtos: [{
                          idProduto: `${id_produto}`,
@@ -1115,13 +1163,13 @@ describe('Carrinho - Cenários Negativos', () => {
  
        });
 
-      it.skip('CAR-015 - Adicionar no carrinho um produto com a quantidade superior ao estoque', async function() { 
+      it('CAR-015 - Adicionar no carrinho um produto com a quantidade superior ao estoque', async function() { 
         
         await request(url)
             .del('/carrinhos/cancelar-compra')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
         
         const payloadproduto = ({
                     nome: `Logitech MX Vertical_Modelo_X${Date.now()}Y`,
@@ -1134,7 +1182,7 @@ describe('Carrinho - Cenários Negativos', () => {
             .post('/produtos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
             .send(payloadproduto);
             id_produto = resposta.body._id;
 
@@ -1152,7 +1200,7 @@ describe('Carrinho - Cenários Negativos', () => {
             .post('/carrinhos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
             .send(payloadcarrinho);  
 
          expect(response.status).to.equal(400);
@@ -1162,13 +1210,13 @@ describe('Carrinho - Cenários Negativos', () => {
         
         });
        
-      it.skip('CAR-016 - Adicionar no carrinho um produto ao carrinho sem token', async function() { 
+      it('CAR-016 - Adicionar no carrinho um produto ao carrinho sem token1', async function() { 
         
         await request(url)
             .del('/carrinhos/cancelar-compra')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
         
         const payloadproduto = ({
                     nome: `Logitech MX Vertical_Modelo_X${Date.now()}Y`,
@@ -1181,7 +1229,7 @@ describe('Carrinho - Cenários Negativos', () => {
             .post('/produtos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
             .send(payloadproduto);
             id_produto = resposta.body._id;
 
@@ -1202,17 +1250,17 @@ describe('Carrinho - Cenários Negativos', () => {
             .send(payloadcarrinho);  
 
          expect(response.status).to.equal(401);
-         expect(response.body.message).to.equal('Token de acesso ausente, inválido, expirado ou usuário do token não existe mais');
+         expect(response.body.message).to.equal('token1 de acesso ausente, inválido, expirado ou usuário do token1 não existe mais');
          
         });
 
-      it.skip('CAR-017 - Adicionar carrinho vazio', async function() { 
+      it('CAR-017 - Adicionar carrinho vazio', async function() { 
         
         await request(url)
             .del('/carrinhos/cancelar-compra')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
         
         const payloadcarrinho = ({
                      produtos: []
@@ -1222,7 +1270,7 @@ describe('Carrinho - Cenários Negativos', () => {
             .post('/carrinhos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
             .send(payloadcarrinho);  
 
          expect(response.status).to.equal(400);
@@ -1231,7 +1279,7 @@ describe('Carrinho - Cenários Negativos', () => {
          
         });
      
-     it.skip('CAR-018 - Buscar carrinho inexistente', async function() { 
+     it('CAR-018 - Buscar carrinho inexistente', async function() { 
 
         id_carrinho = 2222222222222222;
 
@@ -1239,7 +1287,7 @@ describe('Carrinho - Cenários Negativos', () => {
             .get(`/carrinhos/${id_carrinho}`)
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
         
             expect(consultarcarrinho.status).to.equal(400);
             const carrinhos = consultarcarrinho.body;
@@ -1247,20 +1295,20 @@ describe('Carrinho - Cenários Negativos', () => {
             expect(carrinhos.message).to.equal('Carrinho não encontrado');
      });
     
-     it.skip('CAR-019 - Concluir compra sem carrinho ativo', async function() { 
+     it('CAR-019 - Concluir compra sem carrinho ativo', async function() { 
 
          await request(url)
             .del('/carrinhos/cancelar-compra')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
 
 
          const concluircompra = await request(url)
             .del('/carrinhos/concluir-compra')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
       
             expect(concluircompra.status).to.equal(400);
             const carrinhos = concluircompra.body;
@@ -1268,20 +1316,20 @@ describe('Carrinho - Cenários Negativos', () => {
             expect(carrinhos.message).to.equal('Não foi encontrado carrinho para esse usuário');
      });
     
-     it.skip('CAR-020 - Cancelar compra sem carrinho ativo', async function() { 
+     it('CAR-020 - Cancelar compra sem carrinho ativo', async function() { 
 
          await request(url)
             .del('/carrinhos/cancelar-compra')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
 
 
          const concluircompra = await request(url)
             .del('/carrinhos/cancelar-compra')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
       
             expect(concluircompra.status).to.equal(400);
             const carrinhos = concluircompra.body;
@@ -1289,13 +1337,13 @@ describe('Carrinho - Cenários Negativos', () => {
             expect(carrinhos.message).to.equal('Não foi encontrado carrinho para esse usuário');
      });
     
-     it.skip('CAR-021 - Concluir compra com estoque insuficiente ', async function() { 
+     it('CAR-021 - Concluir compra com estoque insuficiente ', async function() { 
         
         const consultarcarrinho = await request(url)
             .get('/carrinhos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
          
        
          expect(consultarcarrinho.status).to.equal(200);
@@ -1306,7 +1354,7 @@ describe('Carrinho - Cenários Negativos', () => {
             .delete('/carrinhos/cancelar-compra')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
  
              }    // 
         else {
@@ -1322,7 +1370,7 @@ describe('Carrinho - Cenários Negativos', () => {
             .post('/produtos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
             .send({
                     nome: `Logitech MX Vertical_Modelo_X${Date.now()}Y`,
                     preco: 6180,
@@ -1338,7 +1386,7 @@ describe('Carrinho - Cenários Negativos', () => {
             .post('/carrinhos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
             .send({
                      produtos: [
                 {
@@ -1355,7 +1403,7 @@ describe('Carrinho - Cenários Negativos', () => {
             .del('/carrinhos/concluir-compra')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
 
         const comprado = concluircompra.body;
         expect(concluircompra.status).to.equal(400);  
@@ -1366,13 +1414,13 @@ describe('Carrinho - Cenários Negativos', () => {
     
 });
 describe('Carrinho - Cenários Alternativos', () => {
-      it.skip('CAR-022 - Adicionar no carrinho o mesmo produto mais de uma vez', async function() { 
+      it('CAR-022 - Adicionar no carrinho o mesmo produto mais de uma vez', async function() { 
     
       const consultarcarrinho = await request(url)
             .get('/carrinhos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
          
          expect(consultarcarrinho.status).to.equal(200);
          
@@ -1382,7 +1430,7 @@ describe('Carrinho - Cenários Alternativos', () => {
             .delete('/carrinhos/cancelar-compra')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
  
              }    // 
         else {
@@ -1398,7 +1446,7 @@ describe('Carrinho - Cenários Alternativos', () => {
             .post('/produtos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
             .send({
                     nome: `Logitech MX Vertical_Modelo_X${Date.now()}Y`,
                     preco: 6180,
@@ -1414,7 +1462,7 @@ describe('Carrinho - Cenários Alternativos', () => {
             .post('/carrinhos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
             .send({
                      produtos: [
                 {
@@ -1436,20 +1484,20 @@ describe('Carrinho - Cenários Alternativos', () => {
             .del('/carrinhos/concluir-compra')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
 
         const comprado = concluircompra.body;
         expect(concluircompra.status).to.equal(400);  
         expect(comprado.message).to.equal('Não foi encontrado carrinho para esse usuário');
     });
 
-     it.skip('CAR-023 - Adicionar produto no carrinho com quantidade igual ao estoque', async function() { 
+     it('CAR-023 - Adicionar produto no carrinho com quantidade igual ao estoque', async function() { 
     
       const consultarcarrinho = await request(url)
             .get('/carrinhos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
          
          expect(consultarcarrinho.status).to.equal(200);
          
@@ -1459,7 +1507,7 @@ describe('Carrinho - Cenários Alternativos', () => {
             .delete('/carrinhos/cancelar-compra')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
  
              }    // 
         else {
@@ -1475,7 +1523,7 @@ describe('Carrinho - Cenários Alternativos', () => {
             .post('/produtos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
             .send({
                     nome: `Logitech MX Vertical_Modelo_X${Date.now()}Y`,
                     preco: 6180,
@@ -1491,7 +1539,7 @@ describe('Carrinho - Cenários Alternativos', () => {
             .post('/carrinhos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
             .send({
                      produtos: [
                 {
@@ -1508,7 +1556,7 @@ describe('Carrinho - Cenários Alternativos', () => {
             .del('/carrinhos/concluir-compra')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
 
         const comprado = concluircompra.body;
         
@@ -1516,13 +1564,13 @@ describe('Carrinho - Cenários Alternativos', () => {
         expect(comprado.message).to.equal('Registro excluído com sucesso');
     });
 
-     it.skip('CAR-024.1 - Comprar todos os itens disponíveis', async function() { 
+     it('CAR-024.1 - Comprar todos os itens disponíveis', async function() { 
     
       const consultarcarrinho = await request(url)
             .get('/carrinhos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
          
          expect(consultarcarrinho.status).to.equal(200);
          
@@ -1571,7 +1619,7 @@ describe('Carrinho - Cenários Alternativos', () => {
              .post('/produtos')
              .set("Content-Type", "application/json")
              .set("accept", "application/json")
-             .set('authorization', token)
+             .set('authorization', token1)
              .send(bodyProduto);
 
              
@@ -1609,7 +1657,7 @@ describe('Carrinho - Cenários Alternativos', () => {
             .post('/carrinhos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
             .send({
                      produtos: [
                           {
@@ -1633,13 +1681,13 @@ describe('Carrinho - Cenários Alternativos', () => {
             .del('/carrinhos/concluir-compra')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
           */
              const response = await request(url)
                  .get('/produtos')
                  .set("Content-Type", "application/json")
                  .set("accept", "application/json")
-                 .set("authorization", token);
+                 .set("authorization", token1);
 
              const produtos = response.body;
              const listadeprodutos = produtos.produtos;
@@ -1657,7 +1705,7 @@ describe('Carrinho - Cenários Alternativos', () => {
             .post('/carrinhos')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
+            .set("authorization", token1)
             .send(bodyCarrinho);    
 
             console.log(adicionarprodutoaocarrinho.body);
@@ -1669,19 +1717,19 @@ describe('Carrinho - Cenários Alternativos', () => {
             }
     });
 
-     it.skip('CAR-024.2 - Comprar todos os itens disponíveis (refinado)', async function() { 
+     it('CAR-024.2 - Comprar todos os itens disponíveis (refinado)', async function() { 
     
              const concluircompra = await request(url)
                  .del('/carrinhos/concluir-compra')
                  .set("Content-Type", "application/json")
                  .set("accept", "application/json")
-                 .set("authorization", token)
+                 .set("authorization", token1)
        
              const cancelarcompra = await request(url)
                  .del('/carrinhos/cancelar-compra')
                  .set("Content-Type", "application/json")
                  .set("accept", "application/json")
-                 .set("authorization", token)
+                 .set("authorization", token1)
 
               const produtos = [
 
@@ -1714,7 +1762,7 @@ describe('Carrinho - Cenários Alternativos', () => {
              .post('/produtos')
              .set("Content-Type", "application/json")
              .set("accept", "application/json")
-             .set('authorization', token)
+             .set('authorization', token1)
              .send(produto);
                  
          //   console.log(cadastrarproduto.status);
@@ -1741,7 +1789,7 @@ describe('Carrinho - Cenários Alternativos', () => {
                .post('/carrinhos')
                .set("Content-Type", "application/json")
                .set("accept", "application/json")
-               .set("authorization", token)
+               .set("authorization", token1)
                .send(bodyCarrinho);  
 
       //      console.log('Adicionando Produtos ao Carrinho: ',JSON.stringify(adicionarprodutoaocarrinho.body, null, 2));
@@ -1749,13 +1797,13 @@ describe('Carrinho - Cenários Alternativos', () => {
             console.log('Id do Carrinho gerado:', adicionarprodutoaocarrinho.body._id);
 });
 
-    it.skip('CAR-025 - Carrinho contendo apenas um item', async function() { 
+    it('CAR-025 - Carrinho contendo apenas um item', async function() { 
     
          const concluircompra = await request(url)
                  .del('/carrinhos/concluir-compra')
                  .set("Content-Type", "application/json")
                  .set("accept", "application/json")
-                 .set("authorization", token)
+                 .set("authorization", token1)
 
          const produto =       {
                                    nome: `Notebook${Date.now()}`,
@@ -1768,7 +1816,7 @@ describe('Carrinho - Cenários Alternativos', () => {
              .post('/produtos')
              .set("Content-Type", "application/json")
              .set("accept", "application/json")
-             .set('authorization', token)
+             .set('authorization', token1)
              .send(produto);
                  
        //     console.log('Cadastrando Produtos: ',JSON.stringify(cadastrarproduto.body, null, 2));
@@ -1789,7 +1837,7 @@ describe('Carrinho - Cenários Alternativos', () => {
                  .post('/carrinhos')
                  .set("Content-Type", "application/json")
                  .set("accept", "application/json")
-                 .set("authorization", token)
+                 .set("authorization", token1)
                  .send(bodyCarrinho);  
 
          //   console.log('Adicionando Produtos ao Carrinho: ',JSON.stringify(adicionarprodutoaocarrinho.body, null, 2));
@@ -1802,13 +1850,13 @@ describe('Carrinho - Cenários Alternativos', () => {
 });
 
 describe('Carrinho - Cenários De Exceção', () => {
-      it.skip('CAR-026.1 - Falha ao debitar estoque - Qtde maior que o estoque', async function() { 
+      it('CAR-026.1 - Falha ao debitar estoque - Qtde maior que o estoque', async function() { 
 
          const cancelarcompra = await request(url)
                  .del('/carrinhos/cancelar-compra')
                  .set("Content-Type", "application/json")
                  .set("accept", "application/json")
-                 .set("authorization", token)
+                 .set("authorization", token1)
     
          const produto =       {
                                    nome: `Notebook${Date.now()}`,
@@ -1821,7 +1869,7 @@ describe('Carrinho - Cenários De Exceção', () => {
              .post('/produtos')
              .set("Content-Type", "application/json")
              .set("accept", "application/json")
-             .set('authorization', token)
+             .set('authorization', token1)
              .send(produto);
                  
        //     console.log('Cadastrando Produtos: ',JSON.stringify(cadastrarproduto.body, null, 2));
@@ -1842,7 +1890,7 @@ describe('Carrinho - Cenários De Exceção', () => {
                  .post('/carrinhos')
                  .set("Content-Type", "application/json")
                  .set("accept", "application/json")
-                 .set("authorization", token)
+                 .set("authorization", token1)
                  .send(bodyCarrinho);  
 
            // console.log('Adicionando Produtos ao Carrinho: ',JSON.stringify(adicionarprodutoaocarrinho.body, null, 2));
@@ -1850,13 +1898,13 @@ describe('Carrinho - Cenários De Exceção', () => {
             expect(adicionarprodutoaocarrinho.body.message).to.equal('Produto não possui quantidade suficiente');
     });
 
-      it.skip('CAR-026.2 - Falha ao debitar estoque - Produto Inexistente', async function() { 
+      it('CAR-026.2 - Falha ao debitar estoque - Produto Inexistente', async function() { 
 
              const cancelarcompra = await request(url)
                  .del('/carrinhos/cancelar-compra')
                  .set("Content-Type", "application/json")
                  .set("accept", "application/json")
-                 .set("authorization", token)
+                 .set("authorization", token1)
     
              const produto =       {
                                    nome: `Notebook${Date.now()}`,
@@ -1869,7 +1917,7 @@ describe('Carrinho - Cenários De Exceção', () => {
                 .post('/produtos')
                 .set("Content-Type", "application/json")
                 .set("accept", "application/json")
-                .set('authorization', token)
+                .set('authorization', token1)
                 .send(produto);
                  
        //     console.log('Cadastrando Produtos: ',JSON.stringify(cadastrarproduto.body, null, 2));
@@ -1888,7 +1936,7 @@ describe('Carrinho - Cenários De Exceção', () => {
                  .post('/carrinhos')
                  .set("Content-Type", "application/json")
                  .set("accept", "application/json")
-                 .set("authorization", token)
+                 .set("authorization", token1)
                  .send(bodyCarrinho);  
 
          //  console.log('Produto Não Encontrado: ',JSON.stringify(adicionarprodutoaocarrinho.body, null, 2));
@@ -1899,13 +1947,13 @@ describe('Carrinho - Cenários De Exceção', () => {
            expect(adicionarprodutoaocarrinho.body.item.index).to.equal(0);
         });
 
-      it.skip('CAR-026.3 - Falha ao debitar estoque - Produto Removido antes da compra', async function() { 
+      it('CAR-026.3 - Falha ao debitar estoque - Produto Removido antes da compra', async function() { 
 
              const cancelarcompra = await request(url)
                  .del('/carrinhos/cancelar-compra')
                  .set("Content-Type", "application/json")
                  .set("accept", "application/json")
-                 .set("authorization", token)
+                 .set("authorization", token1)
     
              const produto =       {
                                    nome: `Notebook${Date.now()}`,
@@ -1918,7 +1966,7 @@ describe('Carrinho - Cenários De Exceção', () => {
                  .post('/produtos')
                  .set("Content-Type", "application/json")
                  .set("accept", "application/json")
-                 .set('authorization', token)
+                 .set('authorization', token1)
                  .send(produto);
                  
        //     console.log('Cadastrando Produtos: ',JSON.stringify(cadastrarproduto.body, null, 2));
@@ -1938,7 +1986,7 @@ describe('Carrinho - Cenários De Exceção', () => {
                  .post('/carrinhos')
                  .set("Content-Type", "application/json")
                  .set("accept", "application/json")
-                 .set("authorization", token)
+                 .set("authorization", token1)
                  .send(bodyCarrinho);  
 
           //  console.log(JSON.stringify(adicionarprodutoaocarrinho.body, null, 2))
@@ -1947,7 +1995,7 @@ describe('Carrinho - Cenários De Exceção', () => {
                  .del(`/produtos/${id_produto}`)
                  .set("Content-Type", "application/json")
                  .set("Accept", "application/json")
-                 .set("authorization", token)
+                 .set("authorization", token1)
 
            // console.log(JSON.stringify(resposta.body, null, 2))
              expect(resposta.status).to.equal(400);
@@ -1955,11 +2003,93 @@ describe('Carrinho - Cenários De Exceção', () => {
 
         });
 
-        it.skip('CAR-027 - Falha ao concluir compra após pagamento', async function() { 
+        it('CAR-027 - Falha ao concluir compra após pagamento', async function() { 
         
               console.log("Não será possível implementar literalmente esse cenário usando apenas a API pública");
               console.log("do ServeRest, porque a regra de negócio não existe na aplicação.")
       
         });
-     });
+       
+        it('CAR-028 - Inconsistência de estoque concorrente', async function() { 
+
+             const cancelarcompra = await request(url)
+                 .del('/carrinhos/cancelar-compra')
+                 .set("Content-Type", "application/json")
+                 .set("accept", "application/json")
+                 .set("authorization", token1)
+
+
+             const produto =       {
+                                   nome: `Notebook${Date.now()}`,
+                                   preco: 3500,
+                                   descricao: 'Notebook',
+                                   quantidade: 4
+                                };    
+
+             const cadastrarproduto = await request(url)
+                 .post('/produtos')
+                 .set("Content-Type", "application/json")
+                 .set("accept", "application/json")
+                 .set('authorization', token1)
+                 .send(produto);
+
+                 idproduto = cadastrarproduto.body._id;
+                 expect(cadastrarproduto.status).to.equal(201);
+
+        
+            const payloadcarrinho = {
+                    produtos: [{
+                           idProduto: `${idproduto}`,
+                           quantidade: 3
+                              }]
+            };
+            
+            const [res1, res2] = await Promise.all([
+                  request(url)
+                      .post('/carrinhos')
+                      .set("Content-Type", "application/json")
+                      .set("accept", "application/json")
+                      .set("authorization", token1)
+                      .send(payloadcarrinho),
+
+                  request(url)
+                     .post('/carrinhos')
+                     .set("Content-Type", "application/json")
+                     .set("accept", "application/json")
+                     .set("authorization", token2)
+                     .send(payloadcarrinho)
+           ]);
+                   
+                   console.log(res1.body);
+                   console.log(res2.body);
+
+                   //certifica que retornou 201 e 400, e depois será feita a ordenação (201,400)
+                   const status = [res1.status, res2.status].sort();
+
+                   expect(status).to.deep.equal([201, 400]);
+
+                   //certifica que retornou apenas um 201 e um 400, mas não importa a ordem
+                   const status1 = [res1.status, res2.status];
+
+                   expect(status1.filter(s => s === 201)).to.have.lengthOf(1);
+                   expect(status1.filter(s => s === 400)).to.have.lengthOf(1);
+
+                   //Validando as mensagens de retorno.
+
+                   const mensagens = [res1.body.message, res2.body.message];
+
+                   expect(mensagens).to.include("Cadastro realizado com sucesso");
+                   expect(mensagens).to.include("Produto não possui quantidade suficiente");
+        });
+        it('CAR-029 - Erro interno ao cancelar compra ', async function() { 
+        
+              console.log("Não é possivel validar um erro 500 ('Erro interno ao cancelar compra') utilizando");
+              console.log("apenas a API pública do ServeRest, porque esse comportamento não é exposto pela API ")
+              console.log("e não pode ser induzido pelo consumidor")
+
+        });
+
+});
+
+
 });

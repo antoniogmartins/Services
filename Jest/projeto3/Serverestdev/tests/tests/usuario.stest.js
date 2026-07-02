@@ -40,7 +40,6 @@ describe('Usuário - USU', function () {
             .post('/usuarios')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
             .send({
                      nome: 'João Mendes',
                      email: `usuario${Date.now()}y@qa.com.br`,
@@ -62,7 +61,6 @@ describe('Usuário - USU', function () {
             .post('/usuarios')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
             .send({
                      nome: 'João Mendes',
                      email: `usuario${Date.now()}y@qa.com.br`,
@@ -84,7 +82,6 @@ describe('Usuário - USU', function () {
             .post('/usuarios')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
             .send({
                      nome: 'Maria Delfina',
                      email: `Maria${Date.now()}y@qa.com.br`,
@@ -106,7 +103,6 @@ describe('Usuário - USU', function () {
             .post('/usuarios')
             .set("Content-Type", "application/json")
             .set("accept", "application/json")
-            .set("authorization", token)
             .send({
                      nome: 'Maria Delfina',
                      email: `Maria${Date.now()}y@qa.com.br`,

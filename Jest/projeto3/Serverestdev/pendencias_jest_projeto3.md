@@ -351,7 +351,7 @@ Endpoints:
 | CAR-025    | Carrinho contendo apenas um item                                     |
 
 
-**4.4 - Cenários de Exceção** (em andamento)
+**4.4 - Cenários de Exceção** 
 
 | ID         | Cenário                                                                      |
 | ---------- | ---------------------------------------------------------------------------- |
@@ -372,16 +372,29 @@ Endpoints:
        do ServeRest, porque a regra de negócio não existe na aplicação.
 
 | CAR-028    | Inconsistência de estoque concorrente                                        |
+
+  *** É quando 02 ou mais requisições, por meio de 02 usuarios distintos (tokens distintos)
+      tentam comprar o mesmo produto ao mesmo tempo, podendo gerar um estoque incorreto
+  *** É possivel validar os cenários que impedem o débito do estoque, que são as 
+      regras de negócio expostas
+
 | CAR-029    | Erro interno ao cancelar compra                                              |
 
+   *** Não é possivel validar um erro 500 ("Erro interno ao cancelar compra") utilizando 
+       apenas a API pública do ServeRest, porque esse comportamento não é exposto pela API 
+       e não pode ser induzido pelo consumidor.
 
-Você pode validar os cenários que impedem o débito do estoque, que são as regras de negócio expostas
-
+      * Para validar este cenário seria necessário:
+      * - ambiente controlado;
+      * - mocks/stubs;
+      * - feature flag;
+      * - endpoint de testes;
+      * - ou indução de falha no backend.
 
 
 **5. TESTES E2E (Fluxos completos)**
 
-**5.1 - Cenários E2E (Fluxos completos)**
+**5.1 - Cenários E2E (Fluxos completos)** (em andamento)
 
 | ID         | Cenário                                                                                 |
 | ---------- | --------------------------------------------------------------------------------------- |
