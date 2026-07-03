@@ -5,15 +5,15 @@ import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class buscar_LimitandSkipProdutos {
+public class listartodasCategorias {
 
     @Test
-    public static void buscarProduto() {
+    public static void listartodasCategorias() {
 
         Response resposta = given()
                 .baseUri("https://dummyjson.com")
                 .when()
-                .get("/products?limit=10&skip=10&select=title,price")
+                .get("/products/category-list")
                 .then()
                 .statusCode(200)
                 .extract()

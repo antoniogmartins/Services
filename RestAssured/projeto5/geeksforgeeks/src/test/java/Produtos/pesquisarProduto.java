@@ -5,11 +5,11 @@ import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class pesquisarProdutos {
+public class pesquisarProduto {
 
 
     @Test
-    public static void pesquisarProdutos() {
+    public static void pesquisarporProdutos() {
 
         Response resposta = given()
                 .baseUri("https://dummyjson.com")

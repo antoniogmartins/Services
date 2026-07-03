@@ -2,18 +2,17 @@ package Produtos;
 
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
+import static io.restassured.RestAssured.*;
 
-import static io.restassured.RestAssured.given;
-
-public class buscarProduto {
+public class buscartodosProdutos {
 
     @Test
-    public static void buscarporProduto() {
+    public static void buscartodosProdutos() {
 
         Response resposta = given()
                 .baseUri("https://dummyjson.com")
                 .when()
-                .get("/products/1")
+                .get("/products")
                 .then()
                 .statusCode(200)
                 .extract()
