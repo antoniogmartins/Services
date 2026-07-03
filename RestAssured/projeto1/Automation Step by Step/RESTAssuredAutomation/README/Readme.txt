@@ -2,7 +2,7 @@ Curso RestAssued Beginner Tutorials
 LInk: https://www.youtube.com/watch?v=m4kr3VOC124&list=PLhW3qG5bs-L8xPrBwDv66cTMlFNeUPdJx&index=3
 Autor: Automation Step BY Step
 
-Andamento: 4/15
+Andamento: 5/15
 
 Docs: https://rest-assured.io/docs
 
