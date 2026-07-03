@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class buscarProduto {
+public class buscarumProduto {
 
     @Test
     public static void buscarporProduto() {
