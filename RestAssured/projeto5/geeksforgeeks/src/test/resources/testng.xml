@@ -1,0 +1,26 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite de Testes API">
+
+    <test name="Testes Auth">
+        <packages>
+            <package name="Auth"/>
+        </packages>
+    </test>
+    <test name="Testes Carts">
+        <packages>
+            <package name="Carts"/>
+        </packages>
+    </test>
+    <test name="Testes Products">
+        <packages>
+            <package name="Produtos"/>
+        </packages>
+    </test>
+    <test name="Testes Recipies">
+        <packages>
+            <package name="Recipies"/>
+        </packages>
+    </test>
+
+</suite>

@@ -28,11 +28,5 @@ public class buscarusuariocorrente {
 
         System.out.println("Body: " + resposta.getBody().prettyPeek());
 
-//        String TokenPrimario = resposta.jsonPath().getString("accessToken");
-//        String TokenSecundario = resposta.jsonPath().getString("refreshToken");
-
-//        System.out.println("Acesstoken(Atualizado): " + TokenPrimario);
-//        System.out.println("RefreshToken(Atualizado): " + TokenSecundario);
-
     }
 }

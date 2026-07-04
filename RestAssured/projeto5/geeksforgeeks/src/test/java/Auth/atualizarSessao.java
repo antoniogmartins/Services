@@ -7,7 +7,7 @@ import static io.restassured.RestAssured.given;
 public class atualizarSessao {
 
     @Test
-    public void Refresh(){
+    public void refreshauthSession(){
 
     gerarToken auth = new gerarToken();
 
