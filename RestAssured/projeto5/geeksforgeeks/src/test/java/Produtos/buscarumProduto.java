@@ -21,7 +21,7 @@ public class buscarumProduto {
 
         System.out.println("Status Code: " + resposta.statusCode());
         System.out.println("Body: " + resposta.getBody().asString());
-        System.out.println("Body Formatado: " + resposta.prettyPeek());
+        System.out.println("Body Formatado: " + resposta.getBody().prettyPrint());
 
     }
 }

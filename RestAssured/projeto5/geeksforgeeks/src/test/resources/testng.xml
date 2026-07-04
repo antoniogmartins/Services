@@ -17,9 +17,9 @@
             <package name="Produtos"/>
         </packages>
     </test>
-    <test name="Testes Recipies">
+    <test name="Testes Recipes">
         <packages>
-            <package name="Recipies"/>
+            <package name="Recipes"/>
         </packages>
     </test>
 

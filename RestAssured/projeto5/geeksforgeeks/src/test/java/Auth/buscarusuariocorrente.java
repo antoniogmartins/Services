@@ -26,7 +26,7 @@ public class buscarusuariocorrente {
                 .extract()
                 .response();
 
-        System.out.println("Body: " + resposta.getBody().prettyPeek());
+        System.out.println("Body: " + resposta.getBody().prettyPrint());
 
     }
 }

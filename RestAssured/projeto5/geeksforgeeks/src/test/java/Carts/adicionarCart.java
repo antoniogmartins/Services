@@ -35,7 +35,7 @@ public class adicionarCart {
                     .extract()
                     .response();
 
-            System.out.println("Body: " + resposta.getBody().asPrettyString());
+            System.out.println("Body: " + resposta.getBody().prettyPrint());
             String id = resposta.jsonPath().getString("id");
             String title = resposta.jsonPath().getString("products.title[0]");
             System.out.println("Id: " + id);

@@ -1,19 +1,19 @@
-package Carts;
+package Recipes;
 
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class buscarumCart {
+public class buscarumRecipe {
 
     @Test
-    public static void buscarumCart() {
+    public static void buscarumRecipe() {
 
         Response resposta = given()
                 .baseUri("https://dummyjson.com")
                 .when()
-                .get("/carts/1")
+                .get("/recipes/1")
                 .then()
                 .statusCode(200)
                 .extract()

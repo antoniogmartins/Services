@@ -1,19 +1,19 @@
-package Recipies;
+package Recipes;
 
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class buscartodosRecipies {
+public class buscarLimitandSkipRecipes {
 
     @Test
-    public static void buscartodosRecipies() {
+    public static void buscarLimitandRecipes() {
 
         Response resposta = given()
                 .baseUri("https://dummyjson.com")
                 .when()
-                .get("/recipes")
+                .get("/recipes/1")
                 .then()
                 .statusCode(200)
                 .extract()
@@ -21,7 +21,7 @@ public class buscartodosRecipies {
 
         System.out.println("Status Code: " + resposta.statusCode());
         System.out.println("Body: " + resposta.getBody().asString());
-        System.out.println("Body Formatado: " + resposta.prettyPeek());
+        System.out.println("Body Formatado: " + resposta.getBody().prettyPrint());
 
     }
 }

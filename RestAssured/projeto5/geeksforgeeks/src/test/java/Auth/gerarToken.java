@@ -24,7 +24,7 @@ public class gerarToken {
             .extract()
             .response();
 
-    System.out.println("Body: " + resposta.getBody().asPrettyString());
+    System.out.println("Body: " + resposta.getBody().prettyPrint());
     String access = resposta.jsonPath().getString("accessToken");
     String refresh = resposta.jsonPath().getString("refreshToken");
     System.out.println("Acesstoken: " + access);

@@ -25,7 +25,7 @@ public class adicionarProduto {
                     .extract()
                     .response();
 
-            System.out.println("Body: " + resposta.getBody().asPrettyString());
+            System.out.println("Body: " + resposta.getBody().prettyPrint());
             String id = resposta.jsonPath().getString("id");
             String title = resposta.jsonPath().getString("title");
             System.out.println("Id: " + id);

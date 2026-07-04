@@ -25,7 +25,7 @@ public class atualizarSessao {
                     .extract()
                     .response();
 
-            System.out.println("Body: " + resposta.getBody().prettyPeek());
+            System.out.println("Body: " + resposta.getBody().prettyPrint());
 
             String TokenPrimario = resposta.jsonPath().getString("accessToken");
             String TokenSecundario = resposta.jsonPath().getString("refreshToken");
