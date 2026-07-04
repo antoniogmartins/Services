@@ -5,15 +5,20 @@ import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class buscarLimitandSkipRecipes {
+public class adicionarRecipe {
 
     @Test
-    public static void buscarLimitandSkipRecipes() {
+    public static void adicionarRecipe() {
+
+
+        String json = "{\"name\": \"Tasty Pizza\"}";
 
         Response resposta = given()
                 .baseUri("https://dummyjson.com")
+                .header("Content-Type", "application/json")
+                .body(json)
                 .when()
-                .get("/recipes?limit=10&skip=10&select=name,image")
+                .post("/recipes/add")
                 .then()
                 .statusCode(200)
                 .extract()

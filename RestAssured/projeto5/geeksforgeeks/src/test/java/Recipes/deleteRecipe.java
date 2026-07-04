@@ -5,15 +5,17 @@ import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class buscarLimitandSkipRecipes {
+public class deleteRecipe {
 
     @Test
-    public static void buscarLimitandSkipRecipes() {
+    public static void deleteRecipe() {
 
         Response resposta = given()
                 .baseUri("https://dummyjson.com")
+                .header("Content-Type", "application/json")
+                .body("{}")
                 .when()
-                .get("/recipes?limit=10&skip=10&select=name,image")
+                .delete("/recipes/1")
                 .then()
                 .statusCode(200)
                 .extract()
