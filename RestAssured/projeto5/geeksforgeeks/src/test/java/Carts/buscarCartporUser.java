@@ -5,15 +5,15 @@ import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class buscatodosCarts {
+public class buscarCartporUser {
 
     @Test
-    public static void buscartodosCarts() {
+    public static void buscarCartporUser() {
 
         Response resposta = given()
                 .baseUri("https://dummyjson.com")
                 .when()
-                .get("/carts")
+                .get("/carts/user/5")
                 .then()
                 .statusCode(200)
                 .extract()

@@ -9,9 +9,9 @@ public class atualizarSessao {
     @Test
     public void Refresh(){
 
-    logarGerarToken auth = new logarGerarToken();
+    gerarToken auth = new gerarToken();
 
-    String token = auth.loginUserToken();
+    String token = auth.login_usuarioesenha_validos();
 
             Response resposta = given()
                     .baseUri("https://dummyjson.com")

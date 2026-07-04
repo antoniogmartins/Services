@@ -5,14 +5,14 @@ import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class gerarTokenusuarioCorrente {
+public class buscarusuariocorrente {
 
     @Test
-    public void GerarTokenUsuario(){
+    public void buscarUsuarioCorrente(){
 
-        logarGerarToken auth = new logarGerarToken();
+        gerarToken auth = new gerarToken();
 
-        String token = auth.loginUserToken();
+        String token = auth.login_usuarioesenha_validos();
 
         Response resposta = given()
                 .baseUri("https://dummyjson.com")
@@ -28,11 +28,11 @@ public class gerarTokenusuarioCorrente {
 
         System.out.println("Body: " + resposta.getBody().prettyPeek());
 
-        String TokenPrimario = resposta.jsonPath().getString("accessToken");
-        String TokenSecundario = resposta.jsonPath().getString("refreshToken");
+//        String TokenPrimario = resposta.jsonPath().getString("accessToken");
+//        String TokenSecundario = resposta.jsonPath().getString("refreshToken");
 
-        System.out.println("Acesstoken(Atualizado): " + TokenPrimario);
-        System.out.println("RefreshToken(Atualizado): " + TokenSecundario);
+//        System.out.println("Acesstoken(Atualizado): " + TokenPrimario);
+//        System.out.println("RefreshToken(Atualizado): " + TokenSecundario);
 
     }
 }
