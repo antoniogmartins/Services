@@ -926,6 +926,411 @@
 						"url": "{{hostname}}/posts/tag-list"
 					},
 					"response": []
+				},
+				{
+					"name": "Get all posts by user id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{hostname}}/posts/user/5"
+					},
+					"response": []
+				},
+				{
+					"name": "Get post's comments",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"I am in love with someone.\",\n    \"userId\": 5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{hostname}}/posts/1/comments"
+					},
+					"response": []
+				},
+				{
+					"name": "Add a new post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"I am in love with someone.\",\n    \"userId\": 5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{hostname}}/posts/add"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a post",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{hostname}}/posts/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Update a post",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"I think I should shift to the moon\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{hostname}}/posts/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comments",
+			"item": [
+				{
+					"name": "Get all comments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{hostname}}/comments"
+					},
+					"response": []
+				},
+				{
+					"name": "Get a singles comment",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{hostname}}/comments/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Limit and skip comments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hostname}}/comments?limit=10&skip=10&select=body,postId",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"comments"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "skip",
+									"value": "10"
+								},
+								{
+									"key": "select",
+									"value": "body,postId"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all comments by post id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{hostname}}/comments/post/6"
+					},
+					"response": []
+				},
+				{
+					"name": "Add a new comment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"body\": \"This makes all sense to me!\",\n    \"postId\": 3,\n    \"userId\": 5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{hostname}}/comments/add"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a comment",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{hostname}}/comments/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Update a comment",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"body\": \"I think I should shift to the moon\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{hostname}}/comments/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Todos",
+			"item": [
+				{
+					"name": "Get all todos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{hostname}}/todos"
+					},
+					"response": []
+				},
+				{
+					"name": "Get a single todo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{hostname}}/todos/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Get a random todo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{hostname}}/todos/random"
+					},
+					"response": []
+				},
+				{
+					"name": "Limit and skip todos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hostname}}/todos?limit=3&skip=10",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"todos"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "3"
+								},
+								{
+									"key": "skip",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all todos by user id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{hostname}}/todos/user/5"
+					},
+					"response": []
+				},
+				{
+					"name": "Update a todo",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"completed\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{hostname}}/todos/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Add a new todo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"todo\": \"Use DummyJSON in the all projects\",\n    \"completed\": false,\n    \"userId\": 5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{hostname}}/todos/add"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a todo",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"todo\": \"Use DummyJSON in the all projects\",\n    \"completed\": false,\n    \"userId\": 5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{hostname}}/todos/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Quotes",
+			"item": [
+				{
+					"name": "Get all quotes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{hostname}}/quotes"
+					},
+					"response": []
+				},
+				{
+					"name": "Get a single quote",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{hostname}}/quotes/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Limit and skip quotes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hostname}}/quotes?limit=3&skip=10",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"quotes"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "3"
+								},
+								{
+									"key": "skip",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a random quote",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{hostname}}/quotes/random"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Mock",
+			"item": [
+				{
+					"name": "Mock HTTP Response",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{hostname}}/http/200"
+					},
+					"response": []
+				},
+				{
+					"name": "Custom HTTP Response",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{hostname}}/http/404/Hello_Peter"
+					},
+					"response": []
 				}
 			]
 		}
