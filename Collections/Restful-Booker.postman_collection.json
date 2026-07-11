@@ -1,0 +1,658 @@
+{
+  "info": {
+    "_postman_id": "79993f00-4d3a-4766-abbf-efff6b15a853",
+    "name": "Restful-Booker",
+    "description": "# Welcome to Restful-Booker!\n\n***Can you find all the bugs in this API?***\n\nWelcome to Restful-booker an API that you can use to learn more about API Testing or try out API testing tools against. Restful-booker is a **C**reate **R**ead **U**pdate **D**elete Web API that comes with authentication features and loaded with a bunch of bugs for you to explore.\n\n## Where is the API?\n\nYou can find the code for Restful-booker on GitHub here: [https://github.com/mwinteringham/restful-booker](https://github.com/mwinteringham/restful-booker)\n\nYou can find a deployed instance at [https://restful-booker.herokuapp.com/](https://restful-booker.herokuapp.com/)\n\nThe API comes pre-loaded with 10 records for you to work with **and resets itself every 10 minutes back to that default state.** It also comes with [detailed API documentation](https://restful-booker.herokuapp.com/apidoc/index.html) to help get you started with your API testing straight away.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "11476541",
+    "_collection_link": "https://go.postman.co/collection/92957-79993f00-4d3a-4766-abbf-efff6b15a853?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "/ping - HealthCheck",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{host}}/ping",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "ping"
+          ]
+        },
+        "description": "A simple GET request that informs us whether the API is up and running."
+      },
+      "response": []
+    },
+    {
+      "name": "/booking - GetBookingIds (Query all IDs)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{host}}/booking",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "booking"
+          ]
+        },
+        "description": "Requests the IDs for all existing bookings that exist within the API"
+      },
+      "response": []
+    },
+    {
+      "name": "/booking - GetBookingIds (Filter by name)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{host}}/booking?firstname={{$randomFirstName}}&lastname={{$randomLastName}}",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "booking"
+          ],
+          "query": [
+            {
+              "key": "firstname",
+              "value": "{{$randomFirstName}}"
+            },
+            {
+              "key": "lastname",
+              "value": "{{$randomLastName}}"
+            }
+          ]
+        },
+        "description": "Requests all Booking IDs that match the firstname AND lastname provided in the query string. You can also query by firstname or lastname alone."
+      },
+      "response": []
+    },
+    {
+      "name": "/booking - GetBookingIds (Filter by date)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{host}}/booking?checkin=2022-01-01&checkout=2022-01-31",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "booking"
+          ],
+          "query": [
+            {
+              "key": "checkin",
+              "value": "2022-01-01"
+            },
+            {
+              "key": "checkout",
+              "value": "2022-01-31"
+            }
+          ]
+        },
+        "description": "Requests all Booking IDs that are within the checkin AND checkout provided in the query string. You can also query by checking or checkout alone."
+      },
+      "response": []
+    },
+    {
+      "name": "/booking/:id - GetBooking",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{host}}/booking/1",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "booking",
+            "1"
+          ]
+        },
+        "description": "Requests a specific booking that exists within the API. To get a list of valid booking IDs using GetBookingIds calls."
+      },
+      "response": []
+    },
+    {
+      "name": "/booking - CreateBooking (JSON)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"firstname\" : \"Jim\",\n    \"lastname\" : \"Brown\",\n    \"totalprice\" : 111,\n    \"depositpaid\" : true,\n    \"bookingdates\" : {\n        \"checkin\" : \"2022-01-01\",\n        \"checkout\" : \"2022-01-10\"\n    },\n    \"additionalneeds\" : \"Breakfast\"\n}"
+        },
+        "url": {
+          "raw": "{{host}}/booking",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "booking"
+          ]
+        },
+        "description": "Request that allows you to create a Booking within the API. This request creates the booking using JSON."
+      },
+      "response": []
+    },
+    {
+      "name": "/booking - CreateBooking (XML)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "text/xml"
+          },
+          {
+            "key": "Accept",
+            "value": "application/xml",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<booking>\n    <firstname>Jim</firstname>\n    <lastname>Brown</lastname>\n    <totalprice>111</totalprice>\n    <depositpaid>true</depositpaid>\n    <bookingdates>\n      <checkin>2018-01-01</checkin>\n      <checkout>2019-01-01</checkout>\n    </bookingdates>\n    <additionalneeds>Breakfast</additionalneeds>\n  </booking>"
+        },
+        "url": {
+          "raw": "{{host}}/booking",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "booking"
+          ]
+        },
+        "description": "Request that allows you to create a Booking within the API. This request creates the booking using XML."
+      },
+      "response": []
+    },
+    {
+      "name": "/booking - CreateBooking (URL)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          },
+          {
+            "key": "Accept",
+            "value": "application/x-www-form-urlencoded",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "type": "text",
+              "key": "firstname",
+              "value": "Jim"
+            },
+            {
+              "type": "text",
+              "key": "lastname",
+              "value": "Brown"
+            },
+            {
+              "type": "text",
+              "key": "totalprice",
+              "value": "111"
+            },
+            {
+              "type": "text",
+              "key": "depositpaid",
+              "value": "true"
+            },
+            {
+              "type": "text",
+              "key": "bookingdates[checkin]",
+              "value": "2018-01-01"
+            },
+            {
+              "type": "text",
+              "key": "bookingdates[checkout]",
+              "value": "2018-01-02"
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{host}}/booking",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "booking"
+          ]
+        },
+        "description": "Request that allows you to create a Booking within the API. This request creates the booking using urlencoded."
+      },
+      "response": []
+    },
+    {
+      "name": "/auth - CreateToken",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"username\" : \"admin\",\n    \"password\" : \"password123\"\n}"
+        },
+        "url": {
+          "raw": "{{host}}/auth",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "auth"
+          ]
+        },
+        "description": "Sending a request to this endpoint will generate a token that can be used in the Cookie header for PUT /booking/{id} and DELETE /booking/{id}"
+      },
+      "response": []
+    },
+    {
+      "name": "/booking/:id - UpdateBooking (JSON)",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Cookie",
+            "value": "token=abc123",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"firstname\" : \"James\",\n    \"lastname\" : \"Brown\",\n    \"totalprice\" : 111,\n    \"depositpaid\" : true,\n    \"bookingdates\" : {\n        \"checkin\" : \"2018-01-01\",\n        \"checkout\" : \"2019-01-01\"\n    },\n    \"additionalneeds\" : \"Breakfast\"\n}"
+        },
+        "url": {
+          "raw": "{{host}}/booking/1",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "booking",
+            "1"
+          ]
+        },
+        "description": "Request that allows you to update a complete Booking within the API. This request updates the booking using JSON.\n\n**Authorisation**\n\nThis request requires you to be authorised. Which can be done in one of two ways:\n\n1.  **Basic Auth -** Create a basic authorization header using Basic Auth with the credentials admin/password123\n2.  **Cookie based -** Create a cookie header with the value `token=abc123`. To get a valid token, send a request to `POST /auth`"
+      },
+      "response": []
+    },
+    {
+      "name": "/booking/:id - UpdateBooking (XML)",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "text/xml"
+          },
+          {
+            "key": "Accept",
+            "value": "application/xml"
+          },
+          {
+            "key": "Cookie",
+            "value": "token=abc123",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<booking>\n    <firstname>James</firstname>\n    <lastname>Brown</lastname>\n    <totalprice>111</totalprice>\n    <depositpaid>true</depositpaid>\n    <bookingdates>\n      <checkin>2018-01-01</checkin>\n      <checkout>2019-01-01</checkout>\n    </bookingdates>\n    <additionalneeds>Breakfast</additionalneeds>\n  </booking>"
+        },
+        "url": {
+          "raw": "{{host}}/booking/1",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "booking",
+            "1"
+          ]
+        },
+        "description": "Request that allows you to update a complete Booking within the API. This request updates the booking using XML.\n\n**Authorisation**\n\nThis request requires you to be authorised. Which can be done in one of two ways:\n\n1.  **Basic Auth -** Create a basic authorization header using Basic Auth with the credentials admin/password123\n2.  **Cookie based -** Create a cookie header with the value `token=abc123`. To get a valid token, send a request to `POST /auth`"
+      },
+      "response": []
+    },
+    {
+      "name": "/booking/:id - UpdateBooking (URL)",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          },
+          {
+            "key": "Accept",
+            "value": "application/x-www-form-urlencoded"
+          },
+          {
+            "key": "Cookie",
+            "value": "token=abc123",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "type": "text",
+              "key": "firstname",
+              "value": "Jim"
+            },
+            {
+              "type": "text",
+              "key": "lastname",
+              "value": "Brown"
+            },
+            {
+              "type": "text",
+              "key": "totalprice",
+              "value": "111"
+            },
+            {
+              "type": "text",
+              "key": "depositpaid",
+              "value": "true"
+            },
+            {
+              "type": "text",
+              "key": "bookingdates[checkin]",
+              "value": "2018-01-01"
+            },
+            {
+              "type": "text",
+              "key": "bookingdates[checkout]",
+              "value": "2018-01-02"
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{host}}/booking/1",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "booking",
+            "1"
+          ]
+        },
+        "description": "Request that allows you to update a complete Booking within the API. This request updates the booking using URL.\n\n**Authorisation**\n\nThis request requires you to be authorised. Which can be done in one of two ways:\n\n1.  **Basic Auth -** Create a basic authorization header using Basic Auth with the credentials admin/password123\n2.  **Cookie based -** Create a cookie header with the value `token=abc123`. To get a valid token, send a request to `POST /auth`"
+      },
+      "response": []
+    },
+    {
+      "name": "/booking/:id - PartialUpdateBooking (JSON)",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Cookie",
+            "value": "token=abc123",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"firstname\" : \"James\",\n    \"lastname\" : \"Brown\"\n}"
+        },
+        "url": {
+          "raw": "{{host}}/booking/1",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "booking",
+            "1"
+          ]
+        },
+        "description": "Request that allows you to update a partial section of a Booking within the API. This request updates the booking using JSON.\n\n**Authorisation**\n\nThis request requires you to be authorised. Which can be done in one of two ways:\n\n1.  **Basic Auth -** Create a basic authorization header using Basic Auth with the credentials admin/password123\n2.  **Cookie based -** Create a cookie header with the value `token=abc123`. To get a valid token, send a request to `POST /auth`"
+      },
+      "response": []
+    },
+    {
+      "name": "/booking/:id - PartialUpdateBooking (XML)",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "text/xml"
+          },
+          {
+            "key": "Accept",
+            "value": "application/xml"
+          },
+          {
+            "key": "Cookie",
+            "value": "token=abc123",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<booking>\n    <firstname>James</firstname>\n    <lastname>Brown</lastname>\n  </booking>"
+        },
+        "url": {
+          "raw": "{{host}}/booking/1",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "booking",
+            "1"
+          ]
+        },
+        "description": "Request that allows you to update a partial section of a Booking within the API. This request updates the booking using XML.\n\n**Authorisation**\n\nThis request requires you to be authorised. Which can be done in one of two ways:\n\n1.  **Basic Auth -** Create a basic authorization header using Basic Auth with the credentials admin/password123\n2.  **Cookie based -** Create a cookie header with the value `token=abc123`. To get a valid token, send a request to `POST /auth`"
+      },
+      "response": []
+    },
+    {
+      "name": "/booking/:id - PartialUpdateBooking (URL)",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          },
+          {
+            "key": "Accept",
+            "value": "application/x-www-form-urlencoded"
+          },
+          {
+            "key": "Cookie",
+            "value": "token=abc123",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "type": "text",
+              "key": "firstname",
+              "value": "Jim"
+            },
+            {
+              "type": "text",
+              "key": "lastname",
+              "value": "Brown"
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{host}}/booking/1",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "booking",
+            "1"
+          ]
+        },
+        "description": "Request that allows you to update a partial section of a Booking within the API. This request updates the booking using URL.\n\n**Authorisation**\n\nThis request requires you to be authorised. Which can be done in one of two ways:\n\n1.  **Basic Auth -** Create a basic authorization header using Basic Auth with the credentials admin/password123\n2.  **Cookie based -** Create a cookie header with the value `token=abc123`. To get a valid token, send a request to `POST /auth`"
+      },
+      "response": []
+    },
+    {
+      "name": "/booking/:id - DeleteBooking",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Cookie",
+            "value": "token=abc123"
+          }
+        ],
+        "url": {
+          "raw": "{{host}}/booking/1",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "booking",
+            "1"
+          ]
+        },
+        "description": "Request that allows you to delete a Booking within the API.\n\n**Authorisation**\n\nThis request requires you to be authorised. Which can be done in one of two ways:\n\n1.  **Basic Auth -** Create a basic authorization header using Basic Auth with the credentials admin/password123\n2.  **Cookie based -** Create a cookie header with the value `token=abc123`. To get a valid token, send a request to `POST /auth`"
+      },
+      "response": []
+    }
+  ]
+}
