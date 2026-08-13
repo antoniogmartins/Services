@@ -8,7 +8,9 @@ public class CalculadoraTest{
         Calculadora calculadora = new Calculadora();
         calculadora.somaDoisNumeros();
         calculadora.subtraiDoisNumeros();
-        calculadora.multiplicaDoisNumeros(5, 3);
-        calculadora.divideDoisNumeros(10.5, 2.0);
+        calculadora.multiplicaDoisNumeros(5.55, 3);
+        calculadora.divideDoisNumeros(10.5, 0.0);
+        calculadora.divideDiferenteNumeros(10.5, 0.0);
+
     }
 }

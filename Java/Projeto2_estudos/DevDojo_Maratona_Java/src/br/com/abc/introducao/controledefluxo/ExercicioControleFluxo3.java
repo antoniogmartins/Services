@@ -1,4 +1,4 @@
-package br.com.abc.introducao.controledefLuxo;
+package br.com.abc.introducao.controledefluxo;
 
 public class ExercicioControleFluxo3 {
 
