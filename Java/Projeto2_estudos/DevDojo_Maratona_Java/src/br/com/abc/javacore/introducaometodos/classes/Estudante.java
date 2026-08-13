@@ -4,10 +4,10 @@ public class Estudante {
     private String nome;
     private int idade;
     private double[] notas;
-
+    private boolean situacao;
 
     public String getNome() {
-        return nome;
+        return this.nome;
     }
 
     public void setNome(String nome) {
@@ -15,7 +15,7 @@ public class Estudante {
     }
 
     public int getIdade() {
-        return idade;
+        return this.idade;
     }
 
     public void setIdade(int idade) {
@@ -23,12 +23,16 @@ public class Estudante {
     }
 
     public double[] getNotas() {
-        return notas;
+        return this.notas;
     }
 
     public void setNotas(double[] notas) {
         this.notas = notas;
     }
+    public boolean isSituacao() {
+        return this.situacao;
+    }
+
 
     public void media() {
         if (this.notas == null || this.notas.length == 0) {
@@ -36,14 +40,16 @@ public class Estudante {
             return;
         }else {
             double media = 0;
-            for (double nota : notas) {
+            for (double nota : this.notas) {
                 media += nota;
             }
-            media = media / notas.length;
+            media = media / this.notas.length;
             if (media >= 6) {
-                System.out.println("A média é " + media + " - Situação: Aprovado");
+                this.situacao = true;
+                System.out.println("A média é " + media + " - Situação: Aprovado? " + this.situacao);
             } else {
-                System.out.println("A média é " + media + " - Situação: Reprovado");
+                this.situacao = false;
+                System.out.println("A média é " + media + " - Situação: Aprovado? " + this.situacao);
             }
         }
     }

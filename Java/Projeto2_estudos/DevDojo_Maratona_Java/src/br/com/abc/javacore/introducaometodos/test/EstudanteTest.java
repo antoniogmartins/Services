@@ -9,12 +9,10 @@ public class EstudanteTest {
         Estudante estudante = new Estudante();
         estudante.setNome("João");
         estudante.setIdade(20);
-        estudante.setNotas(new double[]{0.0, 0.0, 0.0});
+        estudante.setNotas(new double[]{9.0, 9.0, 9.0});
         estudante.imprime();
         estudante.media();
-
-
-//        System.out.println("Status: " + status);
+        estudante.isSituacao();
 
 
 
