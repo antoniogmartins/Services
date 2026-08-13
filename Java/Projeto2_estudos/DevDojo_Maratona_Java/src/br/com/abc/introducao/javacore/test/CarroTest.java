@@ -4,7 +4,7 @@ import br.com.abc.introducao.javacore.classes.Carro;
 
 public class CarroTest {
 
-    static void main() {
+    public static void main(String[] args) {
         Carro carro = new Carro();
         carro.setModelo("Fusca");
         carro.setPlaca("ABC-1234");

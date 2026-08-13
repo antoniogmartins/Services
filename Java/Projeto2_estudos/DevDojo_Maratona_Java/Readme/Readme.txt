@@ -7,4 +7,4 @@ dia 07/08: 07 ao 11 - 4 aulas
 dia 09/08: 12 ao 14 - 2 aulas
 dia 10/08: 15       - 1 aua
 dia 11/08: 16 ao 22 - 6 aulas
-dia 12/08: 23 ao 26 - 3 aulas
+dia 12/08: 23 ao 29 - 5 aulas
