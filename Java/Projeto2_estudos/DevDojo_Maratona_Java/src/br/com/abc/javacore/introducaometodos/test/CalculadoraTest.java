@@ -12,5 +12,15 @@ public class CalculadoraTest{
         calculadora.divideDoisNumeros(10.5, 0.0);
         calculadora.divideDiferenteNumeros(10.5, 0.0);
 
+        int[] numeros = {1, 2, 3, 4, 5};
+        calculadora.somaArray(new int[]{1, 2, 3, 4, 5});
+
+        calculadora.somaArray(numeros);
+
+        //varargs
+        calculadora.somaVarArgs(1, 2, 3, 4, 5);
+        //ou
+        calculadora.somaVarArgs(numeros);
+
     }
 }

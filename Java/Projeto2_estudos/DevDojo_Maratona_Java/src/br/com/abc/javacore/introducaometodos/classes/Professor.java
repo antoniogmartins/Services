@@ -44,8 +44,16 @@ public class Professor {
         System.out.println(prof.getMatricula());
         System.out.println(prof.getRg());
         System.out.println(prof.getCpf());
+        prof.nome = "Outro nome";
+        System.out.println(prof.nome);
     }
 
+    public void imprime2() {
+        System.out.println(this.getNome());
+        System.out.println(this.getMatricula());
+        System.out.println(this.getRg());
+        System.out.println(this.getCpf());
+        }
 
 
 

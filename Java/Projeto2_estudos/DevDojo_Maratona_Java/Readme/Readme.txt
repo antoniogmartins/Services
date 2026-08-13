@@ -8,5 +8,6 @@ dia 09/08: 12 ao 14 - 3 aulas
 dia 10/08: 15       - 1 aua
 dia 11/08: 16 ao 22 - 7 aulas
 dia 12/08: 23 ao 31 - 9 aulas
-dia 13/08: 32 ao 33 - 2 aulas
+dia 13/08: 32 ao 37 - 6 aulas
 08:22 a
+dia 14/08: 3 ao  - 0 aulas
