@@ -1,4 +1,4 @@
-package br.com.abc.javacore.sobrecarga.metodos.classes;
+package br.com.abc.javacore.sobrecargametodos.classes;
 
 public class Funcionario {
     private String nome;

@@ -1,6 +1,6 @@
-package br.com.abc.javacore.sobrecargacostrutores.test;
+package br.com.abc.javacore.sobrecargaconstrutores.test;
 
-import br.com.abc.javacore.sobrecargacostrutores.classes.Estudante;
+import br.com.abc.javacore.sobrecargaconstrutores.classes.Estudante;
 
 public class EstudanteTest {
 

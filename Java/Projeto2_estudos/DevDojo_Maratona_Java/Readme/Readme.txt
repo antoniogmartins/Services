@@ -10,4 +10,4 @@ dia 11/08: 16 ao 22 - 7 aulas
 dia 12/08: 23 ao 31 - 9 aulas
 dia 13/08: 32 ao 40 - 9 aulas
 08:00 a
-dia 14/08: 41 ao  - 0 aulas
+dia 14/08: 41 ao 44 - 4 aulas

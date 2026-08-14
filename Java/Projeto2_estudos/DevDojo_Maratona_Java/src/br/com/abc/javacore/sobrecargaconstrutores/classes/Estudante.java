@@ -1,4 +1,4 @@
-package br.com.abc.javacore.sobrecargacostrutores.classes;
+package br.com.abc.javacore.sobrecargaconstrutores.classes;
 
 public class Estudante {
     private String nome;
