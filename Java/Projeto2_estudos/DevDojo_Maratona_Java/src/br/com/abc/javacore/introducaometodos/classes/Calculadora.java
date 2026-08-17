@@ -2,17 +2,17 @@ package br.com.abc.javacore.introducaometodos.classes;
 
 public class Calculadora {
 
-    public void somaDoisNumeros() {
+    public static void somaDoisNumeros() {
         System.out.println(10 + 10);
     }
 
-    public void subtraiDoisNumeros() {
+    public static void subtraiDoisNumeros() {
         System.out.println(10 - 5);
     }
-    public void multiplicaDoisNumeros(double num1, int num2) {
+    public static void multiplicaDoisNumeros(double num1, int num2) {
         System.out.println(num1 * num2);
     }
-    public double divideDoisNumeros(double num1, double num2) {
+    public static double divideDoisNumeros(double num1, double num2) {
         if(num2 != 0){
             return num1 / num2;
         } else {
@@ -20,7 +20,7 @@ public class Calculadora {
             return 0;
         }
     }
-    public void divideDiferenteNumeros(double num1, double num2) {
+    public static void divideDiferenteNumeros(double num1, double num2) {
         if(num2 != 0){
             System.out.println(num1 / num2);
             return;
@@ -29,7 +29,7 @@ public class Calculadora {
             return;
         }
     }
-    public void alteraDoisNumeros(int num1, int num2) {
+    public static void alteraDoisNumeros(int num1, int num2) {
         num1 = 99;
         num2 = 33;
         int soma = num1 + num2;
@@ -39,7 +39,7 @@ public class Calculadora {
         System.out.println("Soma: " + soma);
     }
 
-    public void somaArray(int[] numeros) {
+    public static void somaArray(int[] numeros) {
         int soma = 0;
         for (int num : numeros) {
             soma += num;
@@ -47,7 +47,7 @@ public class Calculadora {
         System.out.println("Soma do array: " + soma);
     }
 
-    public void somaVarArgs(int... numeros) {
+    public static void somaVarArgs(int... numeros) {
         int soma = 0;
         for (int num : numeros) {
             soma += num;

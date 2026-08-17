@@ -1,12 +1,12 @@
 package br.com.abc.javacore.blocodeinicializacao.test;
 
-import br.com.abc.javacore.blocodeinicializacao.classes.Client;
+import br.com.abc.javacore.blocodeinicializacao.classes.Cliente;
 
-public class ClientTest {
+public class ClienteTest {
 
     static void main() {
 
-        Client cliente = new Client();
+        Cliente cliente = new Cliente();
         System.out.println("Exibindo quantidade de parcelas possiveis: ");
         for (int parcela : cliente.getParcelas()) {
             System.out.print(parcela + " ");

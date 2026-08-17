@@ -4,7 +4,7 @@ public class Carro {
     private String nome;
     private String modelo;
     private double velocidadeMaxima;
-    public static double velocidadeLimite = 220 ;
+    private static double velocidadeLimite = 240;
 
     public Carro(String nome, String modelo, double velocidadeMaxima) {
         this.nome = nome;
@@ -35,6 +35,14 @@ public class Carro {
 
     public void setVelocidadeMaxima(double velocidadeMaxima) {
         this.velocidadeMaxima = velocidadeMaxima;
+    }
+
+    public static void setVelocidadeLimite(double velocidadeLimite) {
+          Carro.velocidadeLimite = velocidadeLimite;
+    }
+
+    public static double getVelocidadeLimite(){
+          return velocidadeLimite;
     }
 
 

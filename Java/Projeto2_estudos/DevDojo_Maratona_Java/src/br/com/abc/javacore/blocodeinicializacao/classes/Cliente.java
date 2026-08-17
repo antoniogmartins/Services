@@ -1,6 +1,6 @@
 package br.com.abc.javacore.blocodeinicializacao.classes;
 
-public class Client {
+public class Cliente {
     private int[] parcelas = {1,2,3,4,5,6,7,8,9,10};
     {
         System.out.println("Inside initialization block");
@@ -11,7 +11,7 @@ public class Client {
         }
     }
 
-   public Client() {
+   public Cliente() {
     }
 
 
