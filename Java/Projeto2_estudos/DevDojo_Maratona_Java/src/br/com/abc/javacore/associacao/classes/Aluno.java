@@ -19,10 +19,11 @@ public class Aluno {
         System.out.println("Nome do Aluno: "+ this.nome_aluno);
         System.out.println("Idade do Aluno: "+ this.idade);
         if(this.seminario !=null) {
-            System.out.println("Seminario: " + this.seminario.getTitulo());
+            System.out.println("Seminario inscrito: " + this.seminario.getTitulo());
         }else{
-            System.out.println("Aluno não esta inscrito no Seminario: ");
+            System.out.println("Aluno não esta inscrito no Seminario");
         }
+
     }
 
     public String getNome_aluno() {

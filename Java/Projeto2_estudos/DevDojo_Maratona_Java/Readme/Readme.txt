@@ -1,4 +1,4 @@
-Curso: DevDojo: Curso de br.com.abc.javacore.introducao Completo
+Curso: DevDojo: Curso de br.com.abc.introducao Completo
 Url: https://www.youtube.com/watch?v=g-_NSf0e0z8&list=PL62G310vn6nHrMr1tFLNOYP_c73m6nAzL&index=6
 
 Andamento: 11/210
@@ -12,4 +12,4 @@ dia 13/08: 32 ao 40 - 9 aulas
 08:00 a
 dia 14/08: 41 ao 44 - 4 aulas
 dia 15/08: 45 ao 50 - 6 aulas
-dia 16/08: 51 ao    - 1 aulas
+dia 19/08: 51 ao 56 - 6 aulas

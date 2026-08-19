@@ -24,10 +24,11 @@ public class AssociacaoTest {
         semArray[0] = sem;
         professor.setSeminario(semArray);
 
+        aluno.print();
         sem.print();
         professor.print();
 
-       // aluno.print();
+
 
 
 
