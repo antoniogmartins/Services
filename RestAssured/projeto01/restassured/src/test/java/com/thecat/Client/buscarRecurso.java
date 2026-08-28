@@ -3,24 +3,19 @@ package com.thecat.Client;
 import io.restassured.response.Response;
 import static io.restassured.RestAssured.*;
 
-public class cadastroClient {
+public class buscarRecurso {
 
     Response resposta;
-    public Response GetCadastro(){
+    public Response GetRecurso(){
 
            resposta =
                    given()
                            .contentType("application/json")
                                .when()
-                           .get(com.thecat.Config.config.host() + com.thecat.Config.config.hostCadastro())
+                           .get(com.thecat.Config.config.host() + com.thecat.Config.config.hostbuscarRecurso())
                                .then()
                                      .extract().response();
            return resposta;
     }
 
-    public void imprimirCadClient(){
-
-        System.out.println(resposta.asPrettyString());
-
-    }
 }
