@@ -1,4 +1,3 @@
-```yaml
 name: API Tests
 
 on:
@@ -25,6 +24,3 @@ jobs:
       - name: Run Maven tests
         run: mvn clean test
         working-directory: ./RestAssured/projeto01/restassured
-```
-
-
