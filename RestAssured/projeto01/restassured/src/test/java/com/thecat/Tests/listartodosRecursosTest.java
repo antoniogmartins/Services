@@ -5,14 +5,12 @@ import com.thecat.Relatorios.ImprmirRecursos;
 import com.thecat.Validator.validacoes;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
 
-public class listarRecursosTest {
+public class listartodosRecursosTest {
 
       @Test
-      public void getlistarRecursos(){
+      public void getlistartodosRecursos(){
 
           listartodosRecursos listartodosrecursos = new listartodosRecursos();
           validacoes validator = new validacoes();
@@ -23,11 +21,22 @@ public class listarRecursosTest {
           ImprmirRecursos relatorio = new ImprmirRecursos();
           relatorio.imprimirRecurso(resposta);
 
-          List<String> titles = resposta.jsonPath()
-                  .getList("title");
+          Integer quantidade_titulos = resposta.jsonPath()
+                  .getList("title")
+                  .size();
 
-          Integer quantidade = titles.size();
-          assertTrue(validator.listarecurso_quantidade_id(quantidade));
+          assertTrue(validator.listarecurso_quantidade_id(quantidade_titulos));
+
+          Integer qtde_userId = resposta.jsonPath()
+                  .getList("findAll { it.userId == 1 }")
+                  .size();
+          //System.out.println(qtde_userId);
+          assertTrue(validator.listartodosrecurso_qtd_userId(qtde_userId));
+
+
+
+
+
 
     }
 }

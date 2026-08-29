@@ -4,6 +4,9 @@ import com.thecat.Relatorios.ImprmirRecursos;
 import com.thecat.Validator.validacoes;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
+
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class buscarRecursoTest {
@@ -20,18 +23,27 @@ public class buscarRecursoTest {
           ImprmirRecursos relatorio = new ImprmirRecursos();
           relatorio.imprimirRecurso(resposta);
 
+          Integer id = resposta.jsonPath()
+                  .getInt("id");
+
           String titulo = resposta.jsonPath()
                   .getString("title");
 
           String corpo = resposta.jsonPath()
                   .getString("body");
 
-          Integer id = resposta.jsonPath()
-                          .getInt("id");
+          System.out.println(resposta.asString());
+
+          Integer quant_userId = resposta.jsonPath()
+                  .getMap("$")
+                  .containsKey("userId") ? 1 : 0;
+
+          System.out.println(quant_userId);
 
           assertEquals(id, validator.buscarecurso_id(id));
           assertEquals(titulo, validator.buscarecurso_Titulo(titulo));
           assertEquals(corpo, validator.buscarecurso_Corpo(corpo));
+          assertTrue(validator.buscarecurso_qtd_userId(quant_userId));
 
     }
 }

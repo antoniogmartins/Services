@@ -1,22 +1,25 @@
 package com.thecat.Tests;
 
-import com.thecat.Client.criarRecurso;
+import com.thecat.Client.atualizarRecurso;
+import com.thecat.Client.deletarRecurso;
 import com.thecat.Relatorios.ImprmirRecursos;
 import com.thecat.Validator.validacoes;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 
-public class criarRecursoTest {
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+public class atualizarRecursoTest {
 
       @Test
-      public void getcriarRecurso(){
+      public void atualizarRecurso(){
 
-          criarRecurso criarrecurso = new criarRecurso();
+          atualizarRecurso atualizarecurso = new atualizarRecurso();
           validacoes validator = new validacoes();
 
-          Response resposta = criarrecurso.GetRecurso();
-          assertEquals(201, resposta.statusCode());
+          Response resposta = atualizarecurso.atualizaRecurso();
+          assertEquals(200, resposta.statusCode());
 
           ImprmirRecursos relatorio = new ImprmirRecursos();
           relatorio.imprimirRecurso(resposta);
@@ -34,13 +37,17 @@ public class criarRecursoTest {
                   .getMap("$")
                   .containsKey("id") ? 1 : 0;
 
-        //  System.out.println(titulo);
-        //  System.out.println(quant_Id);
+//          System.out.println("titulo: "+titulo);
+//          System.out.println("corpo: "+corpo);
+//          System.out.println("userid: "+userId);
+//          System.out.println("quant: "+quant_Id);
 
-          assertEquals(userId, validator.criarecurso_userid(userId));
-          assertEquals(titulo, validator.criarecurso_Titulo(titulo));
-          assertEquals(corpo, validator.criarecurso_Corpo(corpo));
-          assertTrue(validator.criarecurso_id(quant_Id));
+          assertEquals(userId, validator.atualizarecurso_userid(userId));
+          assertEquals(titulo, validator.atualizarrecurso_Titulo(titulo));
+          assertEquals(corpo, validator.atualizarecurso_Corpo(corpo));
+          assertTrue(validator.atualizarecurso_id(quant_Id));
+
+
 
     }
 }

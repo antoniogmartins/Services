@@ -1,6 +1,7 @@
 package com.thecat.Tests;
 
 import com.thecat.Client.atualizarRecurso;
+import com.thecat.Client.deletarRecurso;
 import com.thecat.Relatorios.ImprmirRecursos;
 import com.thecat.Validator.validacoes;
 import io.restassured.response.Response;
@@ -9,42 +10,25 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class atualizarRecursoTest {
+public class deletarRecursoTest {
 
       @Test
-      public void putatualizarRecurso(){
+      public void deletarRecurso(){
 
-          atualizarRecurso atualizarecurso = new atualizarRecurso();
+          deletarRecurso deletarecurso = new deletarRecurso();
           validacoes validator = new validacoes();
 
-          Response resposta = atualizarecurso.PutatualizaRecurso();
+          Response resposta = deletarecurso.deletarRecurso();
           assertEquals(200, resposta.statusCode());
 
           ImprmirRecursos relatorio = new ImprmirRecursos();
           relatorio.imprimirRecurso(resposta);
 
-          String titulo = resposta.jsonPath()
-                  .getString("title");
-
-          String corpo = resposta.jsonPath()
-                  .getString("body");
-
-          String userId = resposta.jsonPath()
-                  .getString("userId");
-
-          int quant_Id = resposta.jsonPath()
+          Boolean quant_Id = resposta.jsonPath()
                   .getMap("$")
-                  .containsKey("id") ? 1 : 0;
+                  .isEmpty();
 
-//          System.out.println("titulo: "+titulo);
-//          System.out.println("corpo: "+corpo);
-//          System.out.println("userid: "+userId);
-//          System.out.println("quant: "+quant_Id);
-
-          assertEquals(userId, validator.atualizarecurso_userid(userId));
-          assertEquals(titulo, validator.atualizarrecurso_Titulo(titulo));
-          assertEquals(corpo, validator.atualizarecurso_Corpo(corpo));
-          assertTrue(validator.atualizarecurso_id(quant_Id));
+          assertTrue(validator.deletarecurso_id(quant_Id));
 
     }
 }

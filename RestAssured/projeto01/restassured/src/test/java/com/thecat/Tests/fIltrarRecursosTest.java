@@ -1,10 +1,7 @@
 package com.thecat.Tests;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
+import static org.junit.jupiter.api.Assertions.*;
 import com.thecat.Client.filtrarRecursos;
-import com.thecat.Client.listartodosRecursos;
 import com.thecat.Relatorios.ImprmirRecursos;
 import com.thecat.Validator.validacoes;
 import io.restassured.response.Response;
@@ -26,12 +23,19 @@ public class fIltrarRecursosTest {
         ImprmirRecursos relatorio = new ImprmirRecursos();
         relatorio.imprimirRecurso(resposta);
 
-        List<Integer> id = resposta.jsonPath()
-                .getList("id");
+        Integer quantidadeid = resposta.jsonPath()
+                .getList("id")
+                .size();
 
-        Integer quantidadeid = id.size();
         System.out.println(quantidadeid);
         assertTrue(validator.filtrarecurso_quantidade_id(quantidadeid));
+
+        Integer qtde_userId = resposta.jsonPath()
+                .getList("findAll { it.userId != 1 }")
+                .size();
+
+        System.out.println(qtde_userId);
+        assertTrue(validator.filtrarecurso_quantidade_userId(qtde_userId));
 
     }
 }

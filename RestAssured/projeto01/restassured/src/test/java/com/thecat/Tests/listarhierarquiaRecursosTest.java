@@ -1,33 +1,44 @@
 package com.thecat.Tests;
 
-import com.thecat.Client.listartodosRecursos;
-import com.thecat.Relatorios.ImprmirRecursos;
+import com.thecat.Client.listarhierarquiaRecursos;
 import com.thecat.Validator.validacoes;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
 
-public class listartodosRecursosTest {
+public class listarhierarquiaRecursosTest {
 
       @Test
-      public void getlistarRecursos(){
+      public void getlistarhierarquiaRecursos(){
 
-          listartodosRecursos listartodosrecursos = new listartodosRecursos();
+          listarhierarquiaRecursos listarhierarquiarecursos = new listarhierarquiaRecursos();
           validacoes validator = new validacoes();
 
-          Response resposta = listartodosrecursos.GetRecurso();
+          Response resposta = listarhierarquiarecursos.GethierarquiaRecursos();
           assertEquals(200, resposta.statusCode());
 
-          ImprmirRecursos relatorio = new ImprmirRecursos();
-          relatorio.imprimirRecurso(resposta);
+       //   ImprmirRecursos relatorio = new ImprmirRecursos();
+       //   relatorio.imprimirRecurso(resposta);
 
-          List<String> titles = resposta.jsonPath()
-                  .getList("title");
+          Integer qtde_names = resposta.jsonPath()
+                  .getList("names")
+                  .size();
 
-          Integer quantidade = titles.size();
-          assertTrue(validator.listarecurso_quantidade_id(quantidade));
+        //  System.out.println(qtde_names);
+          assertTrue(validator.listarhierarquiarecurso_names(qtde_names));
 
-    }
+          Integer qtde_emails = resposta.jsonPath()
+                  .getList("email")
+                  .size();
+
+        //  System.out.println(qtde_emails);
+          assertTrue(validator.listarhierarquiarecurso_email(qtde_emails));
+
+          Integer qtde_postId = resposta.jsonPath()
+                  .getList("findAll { it.postId == 1 }")
+                  .size();
+          //System.out.println(qtde_userId);
+          assertTrue(validator.listarhierarquiarecurso_postId(qtde_postId));
+
+      }
 }

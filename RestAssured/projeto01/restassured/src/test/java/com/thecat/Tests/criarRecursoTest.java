@@ -1,30 +1,25 @@
 package com.thecat.Tests;
-import com.thecat.Client.buscarRecurso;
+
+import com.thecat.Client.criarRecurso;
 import com.thecat.Relatorios.ImprmirRecursos;
 import com.thecat.Validator.validacoes;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
-
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
 
-public class buscarRecursoTest {
+public class criarRecursoTest {
 
       @Test
-      public void getbuscarRecurso(){
+      public void getcriarRecurso(){
 
-          buscarRecurso buscarRecurso = new buscarRecurso();
+          criarRecurso criarrecurso = new criarRecurso();
           validacoes validator = new validacoes();
 
-          Response resposta = buscarRecurso.GetRecurso();
-          assertEquals(200, resposta.statusCode());
+          Response resposta = criarrecurso.GetcriaRecurso();
+          assertEquals(201, resposta.statusCode());
 
           ImprmirRecursos relatorio = new ImprmirRecursos();
           relatorio.imprimirRecurso(resposta);
-
-          Integer id = resposta.jsonPath()
-                  .getInt("id");
 
           String titulo = resposta.jsonPath()
                   .getString("title");
@@ -32,16 +27,20 @@ public class buscarRecursoTest {
           String corpo = resposta.jsonPath()
                   .getString("body");
 
-          Integer quant_userId = resposta.jsonPath()
-                  .getList("userId")
-                  .size();
+          String userId = resposta.jsonPath()
+                  .getString("userId");
 
-        //  System.out.println(quant_userId);
+          int quant_Id = resposta.jsonPath()
+                  .getMap("$")
+                  .containsKey("id") ? 1 : 0;
 
-          assertEquals(id, validator.buscarecurso_id(id));
-          assertEquals(titulo, validator.buscarecurso_Titulo(titulo));
-          assertEquals(corpo, validator.buscarecurso_Corpo(corpo));
-          assertTrue(validator.buscarecurso_qtd_userId(quant_userId));
+        //  System.out.println(titulo);
+        //  System.out.println(quant_Id);
+
+          assertEquals(userId, validator.criarecurso_userid(userId));
+          assertEquals(titulo, validator.criarecurso_Titulo(titulo));
+          assertEquals(corpo, validator.criarecurso_Corpo(corpo));
+          assertTrue(validator.criarecurso_id(quant_Id));
 
     }
 }
