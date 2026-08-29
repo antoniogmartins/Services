@@ -1,39 +1,30 @@
 ```yaml
-name: API Tests - REST Assured
+name: API Tests
 
 on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
-  workflow_dispatch:
 
 jobs:
-  api-tests:
+  test:
+
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v6
 
-      - name: Setup Java 17
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Java
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '17'
-          cache: maven
 
-      - name: Run REST Assured tests
+      - name: Run Maven tests
         run: mvn clean test
         working-directory: ./RestAssured/projeto01/restassured
-
-      - name: Upload test results
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: rest-assured-test-results
-          path: ./RestAssured/projeto01/restassured/target/surefire-reports/
 ```
+
 
