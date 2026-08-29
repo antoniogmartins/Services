@@ -13,7 +13,7 @@ public class filtrarRecursos {
                    given()
                            .contentType("application/json")
                                .when()
-                           .get(com.thecat.Config.config.host() + com.thecat.Config.config.hostfiltrarRecursos())
+                           .get(com.thecat.Config.config.host() + com.thecat.Config.config.host_filtrarRecursos())
                                .then()
                                      .extract().response();
            return resposta;

@@ -13,7 +13,7 @@ public class listarhierarquiaRecursos {
                    given()
                            .contentType("application/json")
                                .when()
-                           .get(com.thecat.Config.config.host() + com.thecat.Config.config.hostlistar_hierarquia_Recursos())
+                           .get(com.thecat.Config.config.host() + com.thecat.Config.config.host_listar_hierarquia_Recursos())
                                .then()
                                      .extract().response();
            return resposta;

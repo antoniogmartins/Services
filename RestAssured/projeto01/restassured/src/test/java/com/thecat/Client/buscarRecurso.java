@@ -12,7 +12,7 @@ public class buscarRecurso {
                    given()
                            .contentType("application/json")
                                .when()
-                           .get(com.thecat.Config.config.host() + com.thecat.Config.config.hostbuscarRecurso())
+                           .get(com.thecat.Config.config.host() + com.thecat.Config.config.host_buscarRecurso())
                                .then()
                                      .extract().response();
            return resposta;

@@ -14,14 +14,14 @@ public class criarRecurso {
 
     Response resposta;
 
-    public Response GetRecurso(){
+    public Response GetcriaRecurso(){
 
            resposta =
                    given()
                            .contentType("application/json; charset=UTF-8")
                            .body(_body)
                                .when()
-                           .post(com.thecat.Config.config.host() + com.thecat.Config.config.hostcriar_Recurso())
+                           .post(com.thecat.Config.config.host() + com.thecat.Config.config.host_criar_Recurso())
                            .then()
                                      .extract().response();
            return resposta;
