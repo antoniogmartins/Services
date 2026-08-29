@@ -2,20 +2,16 @@ name: API Tests - REST Assured
 
 on:
 
-  # Executa quando houver push na branch principal
   push:
     branches:
       - main
 
-  # Executa nos Pull Requests direcionados para main
   pull_request:
     branches:
       - main
 
-  # Permite execução manual pelo GitHub
   workflow_dispatch:
 
-# Permissões mínimas necessárias
 permissions:
   contents: read
 
@@ -29,17 +25,9 @@ jobs:
 
     steps:
 
-      # ============================================================
-      # 1. CHECKOUT
-      # ============================================================
-
       - name: Checkout repository
         uses: actions/checkout@v5
 
-
-      # ============================================================
-      # 2. JAVA 17
-      # ============================================================
 
       - name: Setup Java 17
         uses: actions/setup-java@v5
@@ -49,82 +37,34 @@ jobs:
           cache: maven
 
 
-      # ============================================================
-      # 3. ENVIRONMENT INFORMATION
-      # ============================================================
-
       - name: Check Java version
         run: java -version
+
 
       - name: Check Maven version
         run: mvn -version
 
-
-      # ============================================================
-      # 4. VALIDATE MAVEN PROJECT
-      # ============================================================
 
       - name: Validate Maven project
         run: mvn validate
         working-directory: ./RestAssured/projeto01/restassured
 
 
-      # ============================================================
-      # 5. COMPILE TESTS
-      # ============================================================
-
       - name: Compile tests
         run: mvn test-compile
         working-directory: ./RestAssured/projeto01/restassured
 
-
-      # ============================================================
-      # 6. RUN API TESTS
-      # ============================================================
 
       - name: Run API tests
         run: mvn clean test
         working-directory: ./RestAssured/projeto01/restassured
 
 
-      # ============================================================
-      # 7. UPLOAD SUREFIRE REPORTS
-      # ============================================================
-
-      - name: Upload Surefire reports
-        if: always()
-        uses: actions/upload-artifact@v5
-        with:
-          name: surefire-test-reports
-          path: ./RestAssured/projeto01/restassured/target/surefire-reports/
-
-
-      # ============================================================
-      # 8. UPLOAD LOGS IF TESTS FAIL
-      # ============================================================
-
-      - name: Upload Maven logs
-        if: failure()
-        uses: actions/upload-artifact@v5
-        with:
-          name: maven-test-logs
-          path: ./RestAssured/projeto01/restassured/target/
-
-
-      # ============================================================
-      # 9. SUCCESS MESSAGE
-      # ============================================================
-
       - name: Tests completed successfully
         if: success()
         run: echo "API automation tests completed successfully."
 
 
-      # ============================================================
-      # 10. FAILURE MESSAGE
-      # ============================================================
-
       - name: Tests failed
         if: failure()
-        run: echo "API automation tests failed. Check the uploaded artifacts."
-
+        run: echo "API automation tests failed."
