@@ -34,15 +34,15 @@ jobs:
       # ============================================================
 
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
 
       # ============================================================
-      # 2. JAVA
+      # 2. JAVA 17
       # ============================================================
 
       - name: Setup Java 17
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: '17'
@@ -61,7 +61,7 @@ jobs:
 
 
       # ============================================================
-      # 4. VALIDATE PROJECT
+      # 4. VALIDATE MAVEN PROJECT
       # ============================================================
 
       - name: Validate Maven project
@@ -70,7 +70,7 @@ jobs:
 
 
       # ============================================================
-      # 5. COMPILE
+      # 5. COMPILE TESTS
       # ============================================================
 
       - name: Compile tests
@@ -79,7 +79,7 @@ jobs:
 
 
       # ============================================================
-      # 6. EXECUTE API TESTS
+      # 6. RUN API TESTS
       # ============================================================
 
       - name: Run API tests
@@ -88,37 +88,43 @@ jobs:
 
 
       # ============================================================
-      # 7. UPLOAD SUREFIRE REPORT
+      # 7. UPLOAD SUREFIRE REPORTS
       # ============================================================
 
       - name: Upload Surefire reports
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: surefire-test-reports
           path: ./RestAssured/projeto01/restassured/target/surefire-reports/
 
 
       # ============================================================
-      # 8. UPLOAD TEST LOGS
+      # 8. UPLOAD LOGS IF TESTS FAIL
       # ============================================================
 
       - name: Upload Maven logs
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: maven-test-logs
           path: ./RestAssured/projeto01/restassured/target/
 
 
       # ============================================================
-      # 9. FINAL STATUS
+      # 9. SUCCESS MESSAGE
       # ============================================================
 
-      - name: Tests completed
+      - name: Tests completed successfully
         if: success()
         run: echo "API automation tests completed successfully."
 
+
+      # ============================================================
+      # 10. FAILURE MESSAGE
+      # ============================================================
+
       - name: Tests failed
         if: failure()
-        run: echo "API automation tests failed. Check the test reports in Artifacts."
+        run: echo "API automation tests failed. Check the uploaded artifacts."
+
