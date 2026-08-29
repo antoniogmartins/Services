@@ -4,16 +4,16 @@ import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.given;
 
-public class listartodosRecursos {
+public class listarhierarquiaRecursos {
 
     Response resposta;
-    public Response GetRecurso(){
+    public Response GethierarquiaRecursos(){
 
            resposta =
                    given()
                            .contentType("application/json")
                                .when()
-                           .get(com.thecat.Config.config.host() + com.thecat.Config.config.hostlistartodosRecursos())
+                           .get(com.thecat.Config.config.host() + com.thecat.Config.config.hostlistar_hierarquia_Recursos())
                                .then()
                                      .extract().response();
            return resposta;
