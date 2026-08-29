@@ -1,4 +1,4 @@
-package com.thecat.Relatorios;
+package com.thecat.Impressao;
 
 import io.restassured.response.Response;
 

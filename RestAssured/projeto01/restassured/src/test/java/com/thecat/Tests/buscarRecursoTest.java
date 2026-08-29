@@ -1,11 +1,9 @@
 package com.thecat.Tests;
 import com.thecat.Client.buscarRecurso;
-import com.thecat.Relatorios.ImprmirRecursos;
+import com.thecat.Impressao.ImprmirRecursos;
 import com.thecat.Validator.validacoes;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
-
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
