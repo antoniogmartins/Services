@@ -42,16 +42,16 @@ public class buscarRecursoTest extends BaseTest {
           String corpoAtual = resposta.jsonPath()
                   .getString("body");
 
-          int quant_userId = resposta.jsonPath()
-                  .getMap("$")
-                  .containsKey("userId") ? 1 : 0;
-
+          int Id = resposta.jsonPath()
+               //   .getMap("$")
+               //   .containsKey("userId") ? 1 : 0;
+                       .getInt("id");
           //System.out.println(resposta.asString());
           //System.out.println(quant_userId);
-          assertTrue(validator.validarId(id, idRespostaAtual));
-          assertTrue(validator.validarTitulo(tituloEsperado, tituloAtual));
-          assertTrue(validator.validarCorpo(corpoEsperado,corpoAtual));
-          assertTrue(validator.buscarecurso_qtd_userId(quant_userId));
+          assertTrue(validator.validarNumero(id, idRespostaAtual));
+          assertTrue(validator.validarTexto(tituloEsperado, tituloAtual));
+          assertTrue(validator.validarTexto(corpoEsperado,corpoAtual));
+          assertTrue(validator.validarNumero(id,Id));
 
     }
 }

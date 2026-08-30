@@ -2,21 +2,14 @@ package com.thecat.Validator;
 
 public class validacoes {
 
-    public boolean validarTitulo(String resultado_Esperado, String resultado_Atual) {
-        return resultado_Esperado.equals(resultado_Atual);
-    }
-
-    public boolean validarId(int esperado, int atual) {
-        return esperado == atual;
-    }
-
-    public boolean validarCorpo(String esperado, String atual) {
+    public boolean validarTexto(String esperado, String atual) {
         return esperado.equals(atual);
     }
 
-    public boolean buscarecurso_qtd_userId(int quantidade_userId){
-         return quantidade_userId < 2;
+    public boolean validarNumero(int esperado, int atual) {
+        return esperado == atual;
     }
+
 
     public boolean listarecurso_quantidade_id(int quantidadeEsperada, int quantidadeAtual) {
         return quantidadeAtual == quantidadeEsperada;
