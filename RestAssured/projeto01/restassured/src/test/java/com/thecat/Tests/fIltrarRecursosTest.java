@@ -34,19 +34,18 @@ public class fIltrarRecursosTest extends BaseTest {
         Imprmir relatorio = new Imprmir();
         relatorio.imprimirRecurso(resposta);
 
-        Integer quantidadeid = resposta.jsonPath()
+        int quantidade_id = resposta.jsonPath()
                 .getList("id")
                 .size();
 
-        System.out.println(quantidadeid);
-        assertTrue(validator.filtrarecurso_quantidade_id(quantidadeid));
-
-        Integer quantidadeuserId = resposta.jsonPath()
+        //System.out.println(quantidadeid);
+        int quantidade_userId = resposta.jsonPath()
                 .getList("findAll { it.userId == " + userId + " }")
                 .size();
 
-      //  System.out.println(qtde_userId);
-        assertTrue(validator.filtrarecurso_quantidade_userId(quantidadeEsperada, quantidadeuserId));
+        //System.out.println(qtde_userId);
+        assertTrue(validator.filtrarecurso_quantidade_id(quantidadeEsperada, quantidade_id));
+        assertTrue(validator.filtrarecurso_quantidade_userId(quantidadeEsperada, quantidade_userId));
 
     }
 }

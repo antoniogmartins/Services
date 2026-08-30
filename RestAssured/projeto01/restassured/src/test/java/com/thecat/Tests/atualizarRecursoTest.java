@@ -3,49 +3,63 @@ package com.thecat.Tests;
 import com.thecat.Client.atualizarRecurso;
 import com.thecat.Config.BaseTest;
 import com.thecat.Impressao.Imprmir;
+import com.thecat.Utils.TestDataReader;
 import com.thecat.Validator.validacoes;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class atualizarRecursoTest extends BaseTest {
 
-      @Test
-      public void atualizarRecurso(){
+      static Stream<Arguments> dadosAtualizarRecurso() {
+         return TestDataReader.lerCSV(
+                "testdata/atualiza_recurso.csv"
+         );
+      }
+
+      @ParameterizedTest
+      @MethodSource("dadosAtualizarRecurso")
+      public void atualizarRecurso(int id, int statusEsperado, String titulo, String corpo, int userId){
 
           atualizarRecurso atualizarecurso = new atualizarRecurso();
           validacoes validator = new validacoes();
 
-          Response resposta = atualizarecurso.atualizaRecurso();
-          assertEquals(200, resposta.statusCode());
+          Response resposta = atualizarecurso.atualizaRecurso(id,titulo,corpo,userId);
+          assertEquals(statusEsperado, resposta.statusCode());
 
           Imprmir relatorio = new Imprmir();
           relatorio.imprimirRecurso(resposta);
 
-          String titulo = resposta.jsonPath()
+          String tituloAtual = resposta.jsonPath()
                   .getString("title");
 
-          String corpo = resposta.jsonPath()
+          String corpoAtual = resposta.jsonPath()
                   .getString("body");
 
-          String userId = resposta.jsonPath()
-                  .getString("userId");
+          int userIdAtual = resposta.jsonPath()
+                  .getInt("userId");
 
-          int quant_Id = resposta.jsonPath()
-                  .getMap("$")
-                  .containsKey("id") ? 1 : 0;
+          int idAtual = resposta.jsonPath()
+                  //.getMap("$")
+                  //.containsKey("id") ? 1 : 0;
+                  .getInt("id");
 
 //          System.out.println("titulo: "+titulo);
 //          System.out.println("corpo: "+corpo);
 //          System.out.println("userid: "+userId);
 //          System.out.println("quant: "+quant_Id);
 
-          assertEquals(userId, validator.atualizarecurso_userid(userId));
-          assertEquals(titulo, validator.atualizarrecurso_Titulo(titulo));
-          assertEquals(corpo, validator.atualizarecurso_Corpo(corpo));
-          assertTrue(validator.atualizarecurso_id(quant_Id));
+          assertTrue(validator.atualizarecurso_userid(userId, userIdAtual));
+          assertTrue(validator.atualizarecurso_Titulo(titulo, tituloAtual));
+          assertTrue(validator.atualizarecurso_Corpo(corpo, corpoAtual));
+          assertTrue(validator.atualizarecurso_id(id, idAtual));
 
 
 

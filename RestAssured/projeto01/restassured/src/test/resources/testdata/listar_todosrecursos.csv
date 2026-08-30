@@ -1,2 +1,2 @@
-statusEsperado
-200
+statusEsperado, quantidadetitulosEsperada, quantidadeuseridEsperada
+200, 100, 10

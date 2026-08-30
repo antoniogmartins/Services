@@ -23,11 +23,11 @@ public class deletarRecursoTest extends BaseTest {
           Imprmir relatorio = new Imprmir();
           relatorio.imprimirRecurso(resposta);
 
-          Boolean quant_Id = resposta.jsonPath()
+          boolean quantidade_Id = resposta.jsonPath()
                   .getMap("$")
                   .isEmpty();
 
-          assertTrue(validator.deletarecurso_id(quant_Id));
+          assertTrue(validator.deletarecurso_id(quantidade_Id));
 
     }
 }

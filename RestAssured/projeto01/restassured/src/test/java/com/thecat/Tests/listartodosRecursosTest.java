@@ -24,7 +24,7 @@ public class listartodosRecursosTest extends BaseTest {
     }
       @ParameterizedTest
       @MethodSource("dadosbuscartodosRecursos")
-      public void getlistartodosRecursos(int statusEsperado){
+      public void getlistartodosRecursos(int statusEsperado,int quantidadetitulosEsperada, int quantidadeuseridEsperada){
 
           listartodosRecursos listartodosrecursos = new listartodosRecursos();
           validacoes validator = new validacoes();
@@ -35,17 +35,18 @@ public class listartodosRecursosTest extends BaseTest {
           Imprmir relatorio = new Imprmir();
           relatorio.imprimirRecurso(resposta);
 
-          Integer quantidade_titulos = resposta.jsonPath()
+          int quantidade_titulos = resposta.jsonPath()
                   .getList("title")
                   .size();
 
-          assertTrue(validator.listarecurso_quantidade_id(quantidade_titulos));
-
-          Integer qtde_userId = resposta.jsonPath()
+          int quantidade_userId = resposta.jsonPath()
                   .getList("findAll { it.userId == 1 }")
                   .size();
-          //System.out.println(qtde_userId);
-          assertTrue(validator.listartodosrecurso_qtd_userId(qtde_userId));
+
+          System.out.println(quantidade_titulos);
+          System.out.println(quantidade_userId);
+          assertTrue(validator.listarecurso_quantidade_id(quantidade_titulos, quantidadetitulosEsperada));
+          assertTrue(validator.listartodosrecurso_qtd_userId(quantidade_userId, quantidadeuseridEsperada));
 
     }
 }

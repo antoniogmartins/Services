@@ -32,24 +32,21 @@ public class listarhierarquiaRecursosTest extends BaseTest {
        //   Imprmir relatorio = new Imprmir();
        //   relatorio.imprimirRecurso(resposta);
 
-          Integer qtde_names = resposta.jsonPath()
+          int quantidade_names = resposta.jsonPath()
                   .getList("names")
                   .size();
-
-        //  System.out.println(qtde_names);
-          assertTrue(validator.listarhierarquiarecurso_names(qtde_names));
-
-          Integer qtde_emails = resposta.jsonPath()
+          //  System.out.println(qtde_names);
+          int quantidade_emails = resposta.jsonPath()
                   .getList("email")
                   .size();
-
           //System.out.println(qtde_emails);
-          assertTrue(validator.listarhierarquiarecurso_email(qtde_emails));
-
-          Integer quantidadepostId = resposta.jsonPath()
+          int quantidadepostId = resposta.jsonPath()
                   .getList("findAll { it.postId == " + postId + " }")
                   .size();
           //System.out.println(quantidadepostId);
+
+          assertTrue(validator.listarhierarquiarecurso_names(quantidadeEsperada, quantidade_names));
+          assertTrue(validator.listarhierarquiarecurso_email(quantidadeEsperada, quantidade_emails));
           assertTrue(validator.listarhierarquiarecurso_postId(quantidadeEsperada, quantidadepostId));
 
       }

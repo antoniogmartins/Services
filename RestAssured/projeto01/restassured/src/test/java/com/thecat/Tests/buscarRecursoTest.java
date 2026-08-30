@@ -33,26 +33,24 @@ public class buscarRecursoTest extends BaseTest {
           Imprmir relatorio = new Imprmir();
           relatorio.imprimirRecurso(resposta);
 
-          Integer idResposta = resposta.jsonPath()
+          int idRespostaAtual = resposta.jsonPath()
                   .getInt("id");
 
-          String titulo = resposta.jsonPath()
+          String tituloAtual = resposta.jsonPath()
                   .getString("title");
 
-          String corpo = resposta.jsonPath()
+          String corpoAtual = resposta.jsonPath()
                   .getString("body");
 
-          System.out.println(resposta.asString());
-
-          Integer quant_userId = resposta.jsonPath()
+          int quant_userId = resposta.jsonPath()
                   .getMap("$")
                   .containsKey("userId") ? 1 : 0;
 
-          System.out.println(quant_userId);
-
-          assertTrue(validator.validarId(id, idResposta));
-          assertTrue(validator.validarTitulo(tituloEsperado, titulo));
-          assertTrue(validator.validarCorpo(corpoEsperado,corpo));
+          //System.out.println(resposta.asString());
+          //System.out.println(quant_userId);
+          assertTrue(validator.validarId(id, idRespostaAtual));
+          assertTrue(validator.validarTitulo(tituloEsperado, tituloAtual));
+          assertTrue(validator.validarCorpo(corpoEsperado,corpoAtual));
           assertTrue(validator.buscarecurso_qtd_userId(quant_userId));
 
     }
