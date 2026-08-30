@@ -21,7 +21,7 @@ public class atualizarRecurso {
                            .contentType("application/json; charset=UTF-8")
                            .body(_body)
                                .when()
-                           .put("posts/1")
+                           .put("/posts/1")
                            .then()
                                      .extract().response();
            return resposta;

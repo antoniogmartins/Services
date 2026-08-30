@@ -13,7 +13,7 @@ public class listarhierarquiaRecursos {
                    given()
                            .contentType("application/json")
                                .when()
-                           .get("posts/1/comments")
+                           .get("/posts/1/comments")
                                .then()
                                      .extract().response();
            return resposta;

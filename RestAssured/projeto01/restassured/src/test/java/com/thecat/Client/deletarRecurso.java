@@ -14,7 +14,7 @@ public class deletarRecurso {
                    given()
                            .contentType("application/json; charset=UTF-8")
                                .when()
-                           .delete("posts/1")
+                           .delete("/posts/1")
                            .then()
                                      .extract().response();
            return resposta;

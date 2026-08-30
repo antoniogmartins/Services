@@ -21,7 +21,7 @@ public class criarRecurso {
                            .contentType("application/json; charset=UTF-8")
                            .body(_body)
                                .when()
-                           .post("posts")
+                           .post("/posts")
                            .then()
                                      .extract().response();
            return resposta;

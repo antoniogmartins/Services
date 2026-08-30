@@ -12,7 +12,7 @@ public class buscarRecurso{
                    given()
                            .contentType("application/json")
                                .when()
-                           .get("posts/1")
+                           .get("/posts/1")
                                .then()
                                      .extract().response();
            return resposta;

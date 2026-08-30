@@ -13,7 +13,7 @@ public class filtrarRecursos {
                    given()
                            .contentType("application/json")
                                .when()
-                           .get("posts?userId=1")
+                           .get("/posts?userId=1")
                                .then()
                                      .extract().response();
            return resposta;

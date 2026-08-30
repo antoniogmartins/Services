@@ -13,7 +13,7 @@ public class listartodosRecursos {
                    given()
                            .contentType("application/json")
                                .when()
-                           .get("posts")
+                           .get("/posts")
                                .then()
                                      .extract().response();
            return resposta;
