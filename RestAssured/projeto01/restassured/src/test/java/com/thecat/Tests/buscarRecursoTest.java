@@ -4,25 +4,36 @@ import com.thecat.Config.BaseTest;
 import com.thecat.Impressao.Imprmir;
 import com.thecat.Validator.validacoes;
 import io.restassured.response.Response;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import com.thecat.Utils.TestDataReader;
+import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.params.provider.Arguments;
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class buscarRecursoTest extends BaseTest {
 
-      @Test
-      public void getbuscarRecurso(){
+    static Stream<Arguments> dadosBuscarRecurso() {
+        return TestDataReader.lerCSV(
+                "testdata/buscar_recurso.csv"
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("dadosBuscarRecurso")
+    public void getbuscarRecurso(int id, int statusEsperado, String tituloEsperado, String corpoEsperado){
 
           buscarRecurso buscarRecurso = new buscarRecurso();
           validacoes validator = new validacoes();
 
-          Response resposta = buscarRecurso.getRecurso();
-          assertEquals(200, resposta.statusCode());
+          Response resposta = buscarRecurso.getRecurso(id);
+          assertEquals(statusEsperado, resposta.statusCode());
 
           Imprmir relatorio = new Imprmir();
           relatorio.imprimirRecurso(resposta);
 
-          Integer id = resposta.jsonPath()
+          Integer idResposta = resposta.jsonPath()
                   .getInt("id");
 
           String titulo = resposta.jsonPath()
@@ -39,9 +50,9 @@ public class buscarRecursoTest extends BaseTest {
 
           System.out.println(quant_userId);
 
-          assertEquals(id, validator.buscarecurso_id(id));
-          assertEquals(titulo, validator.buscarecurso_Titulo(titulo));
-          assertEquals(corpo, validator.buscarecurso_Corpo(corpo));
+          assertTrue(validator.validarId(id, idResposta));
+          assertTrue(validator.validarTitulo(tituloEsperado, titulo));
+          assertTrue(validator.validarCorpo(corpoEsperado,corpo));
           assertTrue(validator.buscarecurso_qtd_userId(quant_userId));
 
     }
