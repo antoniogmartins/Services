@@ -3,31 +3,53 @@ package com.thecat.Tests;
 import com.thecat.Client.deletarRecurso;
 import com.thecat.Config.BaseTest;
 import com.thecat.Impressao.Imprmir;
+import com.thecat.Utils.TestDataReader;
 import com.thecat.Validator.validacoes;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class deletarRecursoTest extends BaseTest {
 
-      @Test
-      public void deletarRecurso(){
+     static Stream<Arguments> dadosDeletarRecurso() {
+        return TestDataReader.lerCSV(
+                "testdata/deletar_recurso.csv"
+        );
+      }
+
+      @ParameterizedTest
+      @MethodSource("dadosDeletarRecurso")
+      public void deletarRecurso(int id, int StatusEsperado, String ResultadoEsperado){
 
           deletarRecurso deletarecurso = new deletarRecurso();
           validacoes validator = new validacoes();
 
-          Response resposta = deletarecurso.deletarRecurso();
-          assertEquals(200, resposta.statusCode());
+          Response resposta = deletarecurso.deletarRecurso(id);
+          assertEquals(StatusEsperado, resposta.statusCode());
 
           Imprmir relatorio = new Imprmir();
           relatorio.imprimirRecurso(resposta);
 
-          boolean quantidade_Id = resposta.jsonPath()
-                  .getMap("$")
-                  .isEmpty();
+          String resultadoAtual = resposta.asString().trim();
 
-          assertTrue(validator.deletarecurso_id(quantidade_Id));
+          System.out.println("Esperado tamanho: " + ResultadoEsperado.length());
+          System.out.println("Atual tamanho: " + resultadoAtual.length());
+
+          System.out.println("Esperado bytes: " +
+                  java.util.Arrays.toString(ResultadoEsperado.getBytes()));
+
+          System.out.println("Atual bytes: " +
+                  java.util.Arrays.toString(resultadoAtual.getBytes()));
+
+
+          assertTrue(validator.deletarecurso_id(resultadoAtual, ResultadoEsperado));
 
     }
 }

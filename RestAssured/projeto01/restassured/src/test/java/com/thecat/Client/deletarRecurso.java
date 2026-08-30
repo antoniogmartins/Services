@@ -8,13 +8,13 @@ public class deletarRecurso {
 
     Response resposta;
 
-    public Response deletarRecurso(){
+    public Response deletarRecurso(int id){
 
            resposta =
                    given()
                            .contentType("application/json; charset=UTF-8")
                                .when()
-                           .delete("/posts/1")
+                           .delete("/posts/{id}", id)
                            .then()
                                      .extract().response();
            return resposta;

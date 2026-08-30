@@ -79,7 +79,7 @@ public class validacoes {
         return resultado_Esperado == resultado_Atual;
     }
 
-    public boolean deletarecurso_id(boolean quantidade){
-        return quantidade == true;
+    public boolean deletarecurso_id(String resultado_Esperado, String resultado_Atual){
+        return resultado_Atual.trim().equals(resultado_Esperado.trim());
     }
 }
