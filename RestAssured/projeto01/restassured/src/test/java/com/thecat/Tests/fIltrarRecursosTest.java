@@ -2,12 +2,13 @@ package com.thecat.Tests;
 
 import static org.junit.jupiter.api.Assertions.*;
 import com.thecat.Client.filtrarRecursos;
+import com.thecat.Config.BaseTest;
 import com.thecat.Impressao.Imprmir;
 import com.thecat.Validator.validacoes;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
 
-public class fIltrarRecursosTest {
+public class fIltrarRecursosTest extends BaseTest {
 
     @Test
     public void getfiltrarRecursos() {

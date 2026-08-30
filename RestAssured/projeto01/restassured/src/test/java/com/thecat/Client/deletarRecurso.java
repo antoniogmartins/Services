@@ -1,6 +1,5 @@
 package com.thecat.Client;
 
-import com.thecat.Config.config;
 import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.given;
@@ -15,8 +14,7 @@ public class deletarRecurso {
                    given()
                            .contentType("application/json; charset=UTF-8")
                                .when()
-                           .delete(config.host() + config.host_criar_Recurso()
-                                   + config.host_atualizar_deletar_Recurso())
+                           .delete("posts/1")
                            .then()
                                      .extract().response();
            return resposta;

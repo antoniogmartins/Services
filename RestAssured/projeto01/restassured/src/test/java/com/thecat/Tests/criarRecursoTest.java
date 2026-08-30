@@ -1,13 +1,14 @@
 package com.thecat.Tests;
 
 import com.thecat.Client.criarRecurso;
+import com.thecat.Config.BaseTest;
 import com.thecat.Impressao.Imprmir;
 import com.thecat.Validator.validacoes;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class criarRecursoTest {
+public class criarRecursoTest extends BaseTest {
 
       @Test
       public void getcriarRecurso(){

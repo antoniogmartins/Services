@@ -1,6 +1,5 @@
 package com.thecat.Client;
 
-import com.thecat.Config.config;
 import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.given;
@@ -14,7 +13,7 @@ public class listarhierarquiaRecursos {
                    given()
                            .contentType("application/json")
                                .when()
-                           .get(config.host() + config.host_listar_hierarquia_Recursos())
+                           .get("posts/1/comments")
                                .then()
                                      .extract().response();
            return resposta;

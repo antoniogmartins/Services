@@ -1,6 +1,7 @@
 package com.thecat.Tests;
 
 import com.thecat.Client.atualizarRecurso;
+import com.thecat.Config.BaseTest;
 import com.thecat.Impressao.Imprmir;
 import com.thecat.Validator.validacoes;
 import io.restassured.response.Response;
@@ -9,7 +10,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class atualizarRecursoTest {
+public class atualizarRecursoTest extends BaseTest {
 
       @Test
       public void atualizarRecurso(){

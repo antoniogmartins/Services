@@ -1,12 +1,13 @@
 package com.thecat.Tests;
 
 import com.thecat.Client.listarhierarquiaRecursos;
+import com.thecat.Config.BaseTest;
 import com.thecat.Validator.validacoes;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class listarhierarquiaRecursosTest {
+public class listarhierarquiaRecursosTest extends BaseTest {
 
       @Test
       public void getlistarhierarquiaRecursos(){

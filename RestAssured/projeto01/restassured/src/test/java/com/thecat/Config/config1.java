@@ -1,6 +1,6 @@
 package com.thecat.Config;
 
-public class config {
+public class config1 {
 
     private static final String base_url = "https://jsonplaceholder.typicode.com/";
     private static final String base_buscarecurso = "posts/1";

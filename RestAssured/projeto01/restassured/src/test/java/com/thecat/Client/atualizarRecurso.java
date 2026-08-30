@@ -21,8 +21,7 @@ public class atualizarRecurso {
                            .contentType("application/json; charset=UTF-8")
                            .body(_body)
                                .when()
-                           .put(com.thecat.Config.config.host() + com.thecat.Config.config.host_criar_Recurso()
-                                   + com.thecat.Config.config.host_atualizar_deletar_Recurso())
+                           .put("posts/1")
                            .then()
                                      .extract().response();
            return resposta;

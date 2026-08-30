@@ -1,6 +1,5 @@
 package com.thecat.Client;
 
-//import com.thecat.Config.config;
 import io.restassured.response.Response;
 import static io.restassured.RestAssured.*;
 

@@ -1,6 +1,5 @@
 package com.thecat.Client;
 
-import com.thecat.Config.config;
 import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.given;
@@ -22,7 +21,7 @@ public class criarRecurso {
                            .contentType("application/json; charset=UTF-8")
                            .body(_body)
                                .when()
-                           .post(config.host() + config.host_criar_Recurso())
+                           .post("posts")
                            .then()
                                      .extract().response();
            return resposta;

@@ -1,13 +1,14 @@
 package com.thecat.Tests;
 
 import com.thecat.Client.listartodosRecursos;
+import com.thecat.Config.BaseTest;
 import com.thecat.Impressao.Imprmir;
 import com.thecat.Validator.validacoes;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class listartodosRecursosTest {
+public class listartodosRecursosTest extends BaseTest {
 
       @Test
       public void getlistartodosRecursos(){
