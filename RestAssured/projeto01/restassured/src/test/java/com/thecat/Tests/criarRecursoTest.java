@@ -1,7 +1,7 @@
 package com.thecat.Tests;
 
 import com.thecat.Client.criarRecurso;
-import com.thecat.Impressao.ImprmirRecursos;
+import com.thecat.Impressao.Imprmir;
 import com.thecat.Validator.validacoes;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
@@ -18,7 +18,7 @@ public class criarRecursoTest {
           Response resposta = criarrecurso.GetcriaRecurso();
           assertEquals(201, resposta.statusCode());
 
-          ImprmirRecursos relatorio = new ImprmirRecursos();
+          Imprmir relatorio = new Imprmir();
           relatorio.imprimirRecurso(resposta);
 
           String titulo = resposta.jsonPath()

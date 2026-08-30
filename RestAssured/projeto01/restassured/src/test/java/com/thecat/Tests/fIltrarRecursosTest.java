@@ -2,7 +2,7 @@ package com.thecat.Tests;
 
 import static org.junit.jupiter.api.Assertions.*;
 import com.thecat.Client.filtrarRecursos;
-import com.thecat.Impressao.ImprmirRecursos;
+import com.thecat.Impressao.Imprmir;
 import com.thecat.Validator.validacoes;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
@@ -18,7 +18,7 @@ public class fIltrarRecursosTest {
         Response resposta = filtrarecursos.GetFiltrarRecurso();
         assertEquals(200, resposta.statusCode());
 
-        ImprmirRecursos relatorio = new ImprmirRecursos();
+        Imprmir relatorio = new Imprmir();
         relatorio.imprimirRecurso(resposta);
 
         Integer quantidadeid = resposta.jsonPath()

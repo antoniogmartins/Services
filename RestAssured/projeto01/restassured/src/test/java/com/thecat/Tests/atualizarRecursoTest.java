@@ -1,7 +1,7 @@
 package com.thecat.Tests;
 
 import com.thecat.Client.atualizarRecurso;
-import com.thecat.Impressao.ImprmirRecursos;
+import com.thecat.Impressao.Imprmir;
 import com.thecat.Validator.validacoes;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
@@ -20,7 +20,7 @@ public class atualizarRecursoTest {
           Response resposta = atualizarecurso.atualizaRecurso();
           assertEquals(200, resposta.statusCode());
 
-          ImprmirRecursos relatorio = new ImprmirRecursos();
+          Imprmir relatorio = new Imprmir();
           relatorio.imprimirRecurso(resposta);
 
           String titulo = resposta.jsonPath()

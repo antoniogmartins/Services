@@ -1,7 +1,7 @@
 package com.thecat.Tests;
 
 import com.thecat.Client.listartodosRecursos;
-import com.thecat.Impressao.ImprmirRecursos;
+import com.thecat.Impressao.Imprmir;
 import com.thecat.Validator.validacoes;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
@@ -18,7 +18,7 @@ public class listartodosRecursosTest {
           Response resposta = listartodosrecursos.GetRecurso();
           assertEquals(200, resposta.statusCode());
 
-          ImprmirRecursos relatorio = new ImprmirRecursos();
+          Imprmir relatorio = new Imprmir();
           relatorio.imprimirRecurso(resposta);
 
           Integer quantidade_titulos = resposta.jsonPath()

@@ -2,7 +2,7 @@ package com.thecat.Impressao;
 
 import io.restassured.response.Response;
 
-public class ImprmirRecursos {
+public class Imprmir {
 
     //Response resposta;
 

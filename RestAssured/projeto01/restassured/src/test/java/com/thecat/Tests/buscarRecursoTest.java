@@ -1,13 +1,14 @@
 package com.thecat.Tests;
 import com.thecat.Client.buscarRecurso;
-import com.thecat.Impressao.ImprmirRecursos;
+import com.thecat.Config.BaseTest;
+import com.thecat.Impressao.Imprmir;
 import com.thecat.Validator.validacoes;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class buscarRecursoTest {
+public class buscarRecursoTest extends BaseTest {
 
       @Test
       public void getbuscarRecurso(){
@@ -15,10 +16,10 @@ public class buscarRecursoTest {
           buscarRecurso buscarRecurso = new buscarRecurso();
           validacoes validator = new validacoes();
 
-          Response resposta = buscarRecurso.GetRecurso();
+          Response resposta = buscarRecurso.getRecurso();
           assertEquals(200, resposta.statusCode());
 
-          ImprmirRecursos relatorio = new ImprmirRecursos();
+          Imprmir relatorio = new Imprmir();
           relatorio.imprimirRecurso(resposta);
 
           Integer id = resposta.jsonPath()

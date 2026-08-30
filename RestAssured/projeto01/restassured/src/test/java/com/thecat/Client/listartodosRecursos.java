@@ -1,5 +1,6 @@
 package com.thecat.Client;
 
+import com.thecat.Config.config;
 import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.given;
@@ -13,7 +14,7 @@ public class listartodosRecursos {
                    given()
                            .contentType("application/json")
                                .when()
-                           .get(com.thecat.Config.config.host() + com.thecat.Config.config.host_listartodosRecursos())
+                           .get(config.host() + config.host_listartodosRecursos())
                                .then()
                                      .extract().response();
            return resposta;

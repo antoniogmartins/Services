@@ -1,7 +1,7 @@
 package com.thecat.Tests;
 
 import com.thecat.Client.deletarRecurso;
-import com.thecat.Impressao.ImprmirRecursos;
+import com.thecat.Impressao.Imprmir;
 import com.thecat.Validator.validacoes;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
@@ -20,7 +20,7 @@ public class deletarRecursoTest {
           Response resposta = deletarecurso.deletarRecurso();
           assertEquals(200, resposta.statusCode());
 
-          ImprmirRecursos relatorio = new ImprmirRecursos();
+          Imprmir relatorio = new Imprmir();
           relatorio.imprimirRecurso(resposta);
 
           Boolean quant_Id = resposta.jsonPath()

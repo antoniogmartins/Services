@@ -1,18 +1,19 @@
 package com.thecat.Client;
 
+//import com.thecat.Config.config;
 import io.restassured.response.Response;
 import static io.restassured.RestAssured.*;
 
-public class buscarRecurso {
+public class buscarRecurso{
 
     Response resposta;
-    public Response GetRecurso(){
+    public Response getRecurso(){
 
            resposta =
                    given()
                            .contentType("application/json")
                                .when()
-                           .get(com.thecat.Config.config.host() + com.thecat.Config.config.host_buscarRecurso())
+                           .get("posts/1")
                                .then()
                                      .extract().response();
            return resposta;

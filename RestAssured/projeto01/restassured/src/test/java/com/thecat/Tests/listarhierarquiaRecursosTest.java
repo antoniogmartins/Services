@@ -17,7 +17,7 @@ public class listarhierarquiaRecursosTest {
           Response resposta = listarhierarquiarecursos.GethierarquiaRecursos();
           assertEquals(200, resposta.statusCode());
 
-       //   ImprmirRecursos relatorio = new ImprmirRecursos();
+       //   Imprmir relatorio = new Imprmir();
        //   relatorio.imprimirRecurso(resposta);
 
           Integer qtde_names = resposta.jsonPath()
