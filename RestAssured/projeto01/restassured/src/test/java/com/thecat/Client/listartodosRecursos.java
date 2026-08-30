@@ -7,7 +7,7 @@ import static io.restassured.RestAssured.given;
 public class listartodosRecursos {
 
     Response resposta;
-    public Response GetRecurso(){
+    public Response getRecurso(){
 
            resposta =
                    given()

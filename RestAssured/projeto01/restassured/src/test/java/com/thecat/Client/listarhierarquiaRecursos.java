@@ -7,13 +7,13 @@ import static io.restassured.RestAssured.given;
 public class listarhierarquiaRecursos {
 
     Response resposta;
-    public Response GethierarquiaRecursos(){
+    public Response gethierarquiaRecursos(int postId){
 
            resposta =
                    given()
                            .contentType("application/json")
                                .when()
-                           .get("/posts/1/comments")
+                           .get("/posts/{postId}/comments", postId)
                                .then()
                                      .extract().response();
            return resposta;

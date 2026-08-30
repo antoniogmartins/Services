@@ -6,45 +6,49 @@ public class validacoes {
         return esperado.equals(atual);
     }
 
-    public boolean validarId(Integer esperado, Integer atual) {
-        return esperado.equals(atual);
+    public boolean validarId(int esperado, int atual) {
+        return esperado == atual;
     }
 
     public boolean validarCorpo(String esperado, String atual) {
         return esperado.equals(atual);
     }
 
-    public boolean buscarecurso_qtd_userId(Integer quantidade_userId){
+    public boolean buscarecurso_qtd_userId(int quantidade_userId){
          return quantidade_userId < 2;
     }
 
-    public boolean listarecurso_quantidade_id(Integer quantidade_id){
+    public boolean listarecurso_quantidade_id(int quantidade_id){
         return quantidade_id > 99;
     }
 
-    public boolean listartodosrecurso_qtd_userId(Integer quantidade_userId){
+    public boolean listartodosrecurso_qtd_userId(int quantidade_userId){
         return quantidade_userId > 9;
     }
 
-    public boolean filtrarecurso_quantidade_id(Integer quantidade_id){
+    public boolean filtrarecurso_quantidade_id(int quantidade_id){
         return quantidade_id > 9;
     }
 
-    public boolean filtrarecurso_quantidade_userId(Integer quantidade_userId){
-        return quantidade_userId < 1;
+    public boolean filtrarecurso_quantidade_userId(int quantidadeEsperada, int quantidadeAtual) {
+        return quantidadeAtual == quantidadeEsperada;
     }
 
-    public boolean listarhierarquiarecurso_names(Integer quantidade_name){
+    public boolean listarhierarquiarecurso_names(int quantidade_name){
         return quantidade_name > 4;
     }
 
-    public boolean listarhierarquiarecurso_email(Integer quantidade_email){
+    public boolean listarhierarquiarecurso_email(int quantidade_email){
         return quantidade_email > 4;
     }
 
-    public boolean listarhierarquiarecurso_postId(Integer quantidade_postId){
-        return quantidade_postId > 4;
+    public boolean listarhierarquiarecurso_postId(int quantidadeEsperada, int quantidadeAtual) {
+        return quantidadeAtual == quantidadeEsperada;
     }
+
+
+
+
 
     public String criarecurso_Titulo(String titulo){
         return titulo = "sunt aut facere repellat provident occaecati excepturi optio reprehenderit";
@@ -72,7 +76,7 @@ public class validacoes {
     public String atualizarecurso_userid(String userid){
         return userid = "1";
     }
-    public boolean atualizarecurso_id(Integer quantidade_id){
+    public boolean atualizarecurso_id(int quantidade_id){
         return quantidade_id < 2;
     }
     public boolean deletarecurso_id(boolean quantidade){

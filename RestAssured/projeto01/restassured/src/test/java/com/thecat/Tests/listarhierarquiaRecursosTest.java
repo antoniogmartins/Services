@@ -2,21 +2,32 @@ package com.thecat.Tests;
 
 import com.thecat.Client.listarhierarquiaRecursos;
 import com.thecat.Config.BaseTest;
+import com.thecat.Utils.TestDataReader;
 import com.thecat.Validator.validacoes;
 import io.restassured.response.Response;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+import java.util.stream.Stream;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class listarhierarquiaRecursosTest extends BaseTest {
 
-      @Test
-      public void getlistarhierarquiaRecursos(){
+    static Stream<Arguments> dadoslistarhierarquiaRecursos() {
+        return TestDataReader.lerCSV(
+                "testdata/listar_hierarquiarecursos.csv"
+        );
+    }
+    @ParameterizedTest
+    @MethodSource("dadoslistarhierarquiaRecursos")
+      public void getlistarhierarquiaRecursos(int postId, int StatusEsperado, int quantidadeEsperada){
 
           listarhierarquiaRecursos listarhierarquiarecursos = new listarhierarquiaRecursos();
           validacoes validator = new validacoes();
 
-          Response resposta = listarhierarquiarecursos.GethierarquiaRecursos();
-          assertEquals(200, resposta.statusCode());
+          Response resposta = listarhierarquiarecursos.gethierarquiaRecursos(postId);
+          assertEquals(StatusEsperado, resposta.statusCode());
 
        //   Imprmir relatorio = new Imprmir();
        //   relatorio.imprimirRecurso(resposta);
@@ -32,14 +43,14 @@ public class listarhierarquiaRecursosTest extends BaseTest {
                   .getList("email")
                   .size();
 
-        //  System.out.println(qtde_emails);
+          //System.out.println(qtde_emails);
           assertTrue(validator.listarhierarquiarecurso_email(qtde_emails));
 
-          Integer qtde_postId = resposta.jsonPath()
-                  .getList("findAll { it.postId == 1 }")
+          Integer quantidadepostId = resposta.jsonPath()
+                  .getList("findAll { it.postId == " + postId + " }")
                   .size();
-          //System.out.println(qtde_userId);
-          assertTrue(validator.listarhierarquiarecurso_postId(qtde_postId));
+          //System.out.println(quantidadepostId);
+          assertTrue(validator.listarhierarquiarecurso_postId(quantidadeEsperada, quantidadepostId));
 
       }
 }

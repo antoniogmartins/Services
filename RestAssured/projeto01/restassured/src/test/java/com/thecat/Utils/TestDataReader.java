@@ -47,27 +47,18 @@ public class TestDataReader {
 
             for (CSVRecord record : parser) {
 
-                int id = Integer.parseInt(
-                        record.get("id")
-                );
+                List<Object> valores = new ArrayList<>();
 
-                int statusEsperado = Integer.parseInt(
-                        record.get("statusEsperado")
-                );
+                for (String coluna : parser.getHeaderNames()) {
 
-                String tituloEsperado =
-                        record.get("tituloEsperado");
+                    String valor = record.get(coluna);
 
-                String corpoEsperado =
-                        record.get("corpoEsperado")
-                                .replace("\\n", "\n");
+                    valores.add(converterValor(valor));
+                }
 
                 dados.add(
                         Arguments.of(
-                                id,
-                                statusEsperado,
-                                tituloEsperado,
-                                corpoEsperado
+                                valores.toArray()
                         )
                 );
             }
@@ -82,4 +73,42 @@ public class TestDataReader {
 
         return dados.stream();
     }
+
+    private static Object converterValor(String valor) {
+
+        if (valor == null || valor.isBlank()) {
+            return "";
+        }
+
+        valor = valor.trim();
+
+        // Boolean
+        if (valor.equalsIgnoreCase("true")
+                || valor.equalsIgnoreCase("false")) {
+
+            return Boolean.parseBoolean(valor);
+        }
+
+        // Integer
+        try {
+            return Integer.parseInt(valor);
+        } catch (NumberFormatException ignored) {
+        }
+
+        // Long
+        try {
+            return Long.parseLong(valor);
+        } catch (NumberFormatException ignored) {
+        }
+
+        // Double
+        try {
+            return Double.parseDouble(valor);
+        } catch (NumberFormatException ignored) {
+        }
+
+        // String
+        return valor.replace("\\n", "\n");
+    }
 }
+
