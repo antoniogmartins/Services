@@ -35,19 +35,18 @@ public class listarhierarquiaRecursosTest extends BaseTest {
           int quantidade_names = resposta.jsonPath()
                   .getList("names")
                   .size();
-          //  System.out.println(qtde_names);
+
           int quantidade_emails = resposta.jsonPath()
                   .getList("email")
                   .size();
-          //System.out.println(qtde_emails);
+
           int quantidadepostId = resposta.jsonPath()
                   .getList("findAll { it.postId == " + postId + " }")
                   .size();
-          //System.out.println(quantidadepostId);
 
-          assertTrue(validator.listarhierarquiarecurso_names(quantidadeEsperada, quantidade_names));
-          assertTrue(validator.listarhierarquiarecurso_email(quantidadeEsperada, quantidade_emails));
-          assertTrue(validator.listarhierarquiarecurso_postId(quantidadeEsperada, quantidadepostId));
+          assertTrue(validator.validarNumero(quantidadeEsperada, quantidade_names));
+          assertTrue(validator.validarNumero(quantidadeEsperada, quantidade_emails));
+          assertTrue(validator.validarNumero(quantidadeEsperada, quantidadepostId));
 
       }
 }

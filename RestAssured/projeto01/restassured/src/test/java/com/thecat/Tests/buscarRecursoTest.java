@@ -30,11 +30,9 @@ public class buscarRecursoTest extends BaseTest {
           Response resposta = buscarRecurso.getRecurso(id);
           assertEquals(statusEsperado, resposta.statusCode());
 
-          Imprmir relatorio = new Imprmir();
-          relatorio.imprimirRecurso(resposta);
+    //      Imprmir relatorio = new Imprmir();
+    //      relatorio.imprimirRecurso(resposta);
 
-          int idRespostaAtual = resposta.jsonPath()
-                  .getInt("id");
 
           String tituloAtual = resposta.jsonPath()
                   .getString("title");
@@ -42,16 +40,12 @@ public class buscarRecursoTest extends BaseTest {
           String corpoAtual = resposta.jsonPath()
                   .getString("body");
 
-          int Id = resposta.jsonPath()
-               //   .getMap("$")
-               //   .containsKey("userId") ? 1 : 0;
-                       .getInt("id");
-          //System.out.println(resposta.asString());
-          //System.out.println(quant_userId);
-          assertTrue(validator.validarNumero(id, idRespostaAtual));
+          int IdAtual = resposta.jsonPath()
+                  .getInt("id");
+
+          assertTrue(validator.validarNumero(id,IdAtual));
           assertTrue(validator.validarTexto(tituloEsperado, tituloAtual));
           assertTrue(validator.validarTexto(corpoEsperado,corpoAtual));
-          assertTrue(validator.validarNumero(id,Id));
 
     }
 }

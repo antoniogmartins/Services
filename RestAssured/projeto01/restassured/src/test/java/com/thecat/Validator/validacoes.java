@@ -3,12 +3,13 @@ package com.thecat.Validator;
 public class validacoes {
 
     public boolean validarTexto(String esperado, String atual) {
-        return esperado.equals(atual);
+        return esperado.trim().equals(atual);
     }
 
     public boolean validarNumero(int esperado, int atual) {
         return esperado == atual;
     }
+
 
 
     public boolean listarecurso_quantidade_id(int quantidadeEsperada, int quantidadeAtual) {

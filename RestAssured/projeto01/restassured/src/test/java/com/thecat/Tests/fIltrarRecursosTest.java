@@ -31,19 +31,17 @@ public class fIltrarRecursosTest extends BaseTest {
         Response resposta = filtrarecursos.getFiltrarRecurso(userId);
         assertEquals(StatusEsperado, resposta.statusCode());
 
-        Imprmir relatorio = new Imprmir();
-        relatorio.imprimirRecurso(resposta);
+    //    Imprmir relatorio = new Imprmir();
+    //    relatorio.imprimirRecurso(resposta);
 
         int quantidade_id = resposta.jsonPath()
                 .getList("id")
                 .size();
 
-        //System.out.println(quantidadeid);
         int quantidade_userId = resposta.jsonPath()
                 .getList("findAll { it.userId == " + userId + " }")
                 .size();
 
-        //System.out.println(qtde_userId);
         assertTrue(validator.filtrarecurso_quantidade_id(quantidadeEsperada, quantidade_id));
         assertTrue(validator.filtrarecurso_quantidade_userId(quantidadeEsperada, quantidade_userId));
 

@@ -33,8 +33,8 @@ public class criarRecursoTest extends BaseTest {
           Response resposta = criarrecurso.getcriaRecurso(titulo, corpo, userId);
           assertEquals(statusEsperado, resposta.statusCode());
 
-          Imprmir relatorio = new Imprmir();
-          relatorio.imprimirRecurso(resposta);
+      //    Imprmir relatorio = new Imprmir();
+      //    relatorio.imprimirRecurso(resposta);
 
           String tituloAtual = resposta.jsonPath()
                   .getString("title");
@@ -46,17 +46,12 @@ public class criarRecursoTest extends BaseTest {
                   .getInt("userId");
 
           int idAtual = resposta.jsonPath()
-               //   .getMap("$")
-               //   .containsKey("id") ? 1 : 0;
-                       .getInt("id");
+                  .getInt("id");
 
-        //  System.out.println(titulo);
-        //  System.out.println(quant_Id);
-
-          assertTrue(validator.criarecurso_userid(userId, userIdAtual));
-          assertTrue(validator.criarecurso_Titulo(titulo, tituloAtual));
-          assertTrue(validator.criarecurso_Corpo(corpo, corpoAtual));
-          assertTrue(validator.criarecurso_Id(id, idAtual));
+          assertTrue(validator.validarNumero(userId, userIdAtual));
+          assertTrue(validator.validarTexto(titulo, tituloAtual));
+          assertTrue(validator.validarTexto(corpo, corpoAtual));
+          assertTrue(validator.validarNumero(id, idAtual));
 
     }
 }

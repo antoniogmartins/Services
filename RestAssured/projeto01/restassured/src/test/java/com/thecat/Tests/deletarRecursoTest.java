@@ -34,22 +34,12 @@ public class deletarRecursoTest extends BaseTest {
           Response resposta = deletarecurso.deletarRecurso(id);
           assertEquals(StatusEsperado, resposta.statusCode());
 
-          Imprmir relatorio = new Imprmir();
-          relatorio.imprimirRecurso(resposta);
+      //    Imprmir relatorio = new Imprmir();
+      //    relatorio.imprimirRecurso(resposta);
 
           String resultadoAtual = resposta.asString().trim();
 
-          System.out.println("Esperado tamanho: " + ResultadoEsperado.length());
-          System.out.println("Atual tamanho: " + resultadoAtual.length());
-
-          System.out.println("Esperado bytes: " +
-                  java.util.Arrays.toString(ResultadoEsperado.getBytes()));
-
-          System.out.println("Atual bytes: " +
-                  java.util.Arrays.toString(resultadoAtual.getBytes()));
-
-
-          assertTrue(validator.deletarecurso_id(resultadoAtual, ResultadoEsperado));
+          assertTrue(validator.validarTexto(resultadoAtual, ResultadoEsperado));
 
     }
 }

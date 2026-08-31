@@ -34,8 +34,8 @@ public class atualizarRecursoTest extends BaseTest {
           Response resposta = atualizarecurso.atualizaRecurso(id,titulo,corpo,userId);
           assertEquals(statusEsperado, resposta.statusCode());
 
-          Imprmir relatorio = new Imprmir();
-          relatorio.imprimirRecurso(resposta);
+     //     Imprmir relatorio = new Imprmir();
+     //     relatorio.imprimirRecurso(resposta);
 
           String tituloAtual = resposta.jsonPath()
                   .getString("title");
@@ -51,15 +51,10 @@ public class atualizarRecursoTest extends BaseTest {
                   //.containsKey("id") ? 1 : 0;
                   .getInt("id");
 
-//          System.out.println("titulo: "+titulo);
-//          System.out.println("corpo: "+corpo);
-//          System.out.println("userid: "+userId);
-//          System.out.println("quant: "+quant_Id);
-
-          assertTrue(validator.atualizarecurso_userid(userId, userIdAtual));
-          assertTrue(validator.atualizarecurso_Titulo(titulo, tituloAtual));
-          assertTrue(validator.atualizarecurso_Corpo(corpo, corpoAtual));
-          assertTrue(validator.atualizarecurso_id(id, idAtual));
+          assertTrue(validator.validarNumero(userId, userIdAtual));
+          assertTrue(validator.validarTexto(titulo, tituloAtual));
+          assertTrue(validator.validarTexto(corpo, corpoAtual));
+          assertTrue(validator.validarNumero(id, idAtual));
 
 
 

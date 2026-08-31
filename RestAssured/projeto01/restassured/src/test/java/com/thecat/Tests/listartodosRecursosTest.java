@@ -32,8 +32,8 @@ public class listartodosRecursosTest extends BaseTest {
           Response resposta = listartodosrecursos.getRecurso();
           assertEquals(statusEsperado, resposta.statusCode());
 
-          Imprmir relatorio = new Imprmir();
-          relatorio.imprimirRecurso(resposta);
+  //        Imprmir relatorio = new Imprmir();
+  //        relatorio.imprimirRecurso(resposta);
 
           int quantidade_titulos = resposta.jsonPath()
                   .getList("title")
@@ -43,10 +43,8 @@ public class listartodosRecursosTest extends BaseTest {
                   .getList("findAll { it.userId == 1 }")
                   .size();
 
-          System.out.println(quantidade_titulos);
-          System.out.println(quantidade_userId);
-          assertTrue(validator.listarecurso_quantidade_id(quantidade_titulos, quantidadetitulosEsperada));
-          assertTrue(validator.listartodosrecurso_qtd_userId(quantidade_userId, quantidadeuseridEsperada));
+          assertTrue(validator.validarNumero(quantidade_titulos, quantidadetitulosEsperada));
+          assertTrue(validator.validarNumero(quantidade_userId, quantidadeuseridEsperada));
 
     }
 }
