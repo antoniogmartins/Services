@@ -2,11 +2,11 @@ package com.thecat.Tests;
 
 import com.thecat.Client.atualizarRecurso;
 import com.thecat.Config.BaseTest;
-import com.thecat.Impressao.Imprmir;
+import com.thecat.DTO.Response.RecursoResponseDTO;
+import com.thecat.DTO.Request.AtualizarRecursoDTO;
 import com.thecat.Utils.TestDataReader;
 import com.thecat.Validator.validacoes;
 import io.restassured.response.Response;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -21,42 +21,53 @@ public class atualizarRecursoTest extends BaseTest {
       static Stream<Arguments> dadosAtualizarRecurso() {
          return TestDataReader.lerCSV(
                 "testdata/atualiza_recurso.csv"
-         );
+         ).map(arguments -> {
+
+             Object[] valores = arguments.get();
+
+             int id = (Integer) valores[0];
+             int statusEsperado = (Integer) valores[1];
+
+             String titulo = (String) valores[2];
+             String corpo = (String) valores[3];
+             int userId = (Integer) valores[4];
+
+             AtualizarRecursoDTO request =
+                     new AtualizarRecursoDTO(
+                             titulo,
+                             corpo,
+                             userId
+                     );
+
+             return Arguments.of(
+                     id,
+                     statusEsperado,
+                     request
+             );
+         });
       }
 
       @ParameterizedTest
       @MethodSource("dadosAtualizarRecurso")
-      public void atualizarRecurso(int id, int statusEsperado, String titulo, String corpo, int userId){
+
+      public void atualizarRecurso(int id, int statusEsperado, AtualizarRecursoDTO request) {
 
           atualizarRecurso atualizarecurso = new atualizarRecurso();
           validacoes validator = new validacoes();
 
-          Response resposta = atualizarecurso.atualizaRecurso(id,titulo,corpo,userId);
+          Response resposta = atualizarecurso.atualizaRecurso(id, request);
           assertEquals(statusEsperado, resposta.statusCode());
+          RecursoResponseDTO recurso =
+                   resposta.as(RecursoResponseDTO.class);
 
-     //     Imprmir relatorio = new Imprmir();
-     //     relatorio.imprimirRecurso(resposta);
+          //     Imprmir relatorio = new Imprmir();
+          //     relatorio.imprimirRecurso(resposta);
 
-          String tituloAtual = resposta.jsonPath()
-                  .getString("title");
-
-          String corpoAtual = resposta.jsonPath()
-                  .getString("body");
-
-          int userIdAtual = resposta.jsonPath()
-                  .getInt("userId");
-
-          int idAtual = resposta.jsonPath()
-                  //.getMap("$")
-                  //.containsKey("id") ? 1 : 0;
-                  .getInt("id");
-
-          assertTrue(validator.validarNumero(userId, userIdAtual));
-          assertTrue(validator.validarTexto(titulo, tituloAtual));
-          assertTrue(validator.validarTexto(corpo, corpoAtual));
-          assertTrue(validator.validarNumero(id, idAtual));
+          assertTrue(validator.validarNumero(request.getUserId(), recurso.getUserId()));
+          assertTrue(validator.validarTexto(request.getTitle(), recurso.getTitle()));
+          assertTrue(validator.validarTexto(request.getBody(), recurso.getBody()));
+          assertTrue(validator.validarNumero(id, recurso.getId()));
 
 
-
-    }
+      }
 }

@@ -1,7 +1,7 @@
 package com.thecat.Tests;
 import com.thecat.Client.buscarRecurso;
 import com.thecat.Config.BaseTest;
-import com.thecat.Impressao.Imprmir;
+import com.thecat.DTO.Request.AtualizarRecursoDTO;
 import com.thecat.Validator.validacoes;
 import io.restassured.response.Response;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -29,6 +29,8 @@ public class buscarRecursoTest extends BaseTest {
 
           Response resposta = buscarRecurso.getRecurso(id);
           assertEquals(statusEsperado, resposta.statusCode());
+          AtualizarRecursoDTO recurso =
+                resposta.as(AtualizarRecursoDTO.class);
 
     //      Imprmir relatorio = new Imprmir();
     //      relatorio.imprimirRecurso(resposta);
@@ -43,9 +45,9 @@ public class buscarRecursoTest extends BaseTest {
           int IdAtual = resposta.jsonPath()
                   .getInt("id");
 
-          assertTrue(validator.validarNumero(id,IdAtual));
-          assertTrue(validator.validarTexto(tituloEsperado, tituloAtual));
-          assertTrue(validator.validarTexto(corpoEsperado,corpoAtual));
+          assertTrue(validator.validarNumero(IdAtual, id));
+          assertTrue(validator.validarTexto(tituloAtual, recurso.getTitle()));
+          assertTrue(validator.validarTexto(corpoAtual,recurso.getBody()));
 
     }
 }

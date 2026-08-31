@@ -1,32 +1,21 @@
 package com.thecat.Client;
 
 import io.restassured.response.Response;
-
-import java.util.HashMap;
-import java.util.Map;
-
+import com.thecat.DTO.Request.CriarRecursoDTO;
 import static io.restassured.RestAssured.given;
 
 public class criarRecurso {
 
-    Response resposta;
+    public Response getcriaRecurso(CriarRecursoDTO request) {
 
-    public Response getcriaRecurso(String titulo, String corpo,int userId) {
-
-            Map<String, Object> body = new HashMap<>();
-            body.put("title", titulo);
-            body.put("body", corpo);
-            body.put("userId", userId);
-
-            resposta =
-                   given()
+            return given()
                            .contentType("application/json; charset=UTF-8")
-                           .body(body)
+                           .body(request)
                                .when()
                            .post("/posts")
                            .then()
                                      .extract().response();
-           return resposta;
+
     }
 
 }

@@ -5,17 +5,14 @@ import static io.restassured.RestAssured.*;
 
 public class filtrarRecursos {
 
-    Response resposta;
-
     public Response getFiltrarRecurso(int userId){
 
-           resposta =
-                   given()
-                           .contentType("application/json")
+           return given()
+                           .contentType("application/json; charset=UTF-8")
                                .when()
                            .get("/posts?userId={userId}", userId)
                                .then()
                                      .extract().response();
-           return resposta;
+
     }
 }

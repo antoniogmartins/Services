@@ -5,18 +5,15 @@ import static io.restassured.RestAssured.*;
 
 public class buscarRecurso{
 
-    Response resposta;
-
     public Response getRecurso(int id){
 
-           resposta =
-                   given()
-                           .contentType("application/json")
+           return given()
+                           .contentType("application/json; charset=UTF-8")
                                .when()
                            .get("/posts/{id}", id)
                                .then()
                                      .extract().response();
-           return resposta;
+
     }
 
 }

@@ -6,16 +6,15 @@ import static io.restassured.RestAssured.given;
 
 public class listarhierarquiaRecursos {
 
-    Response resposta;
+
     public Response gethierarquiaRecursos(int postId){
 
-           resposta =
-                   given()
-                           .contentType("application/json")
+           return given()
+                           .contentType("application/json; charset=UTF-8")
                                .when()
                            .get("/posts/{postId}/comments", postId)
                                .then()
                                      .extract().response();
-           return resposta;
+
     }
 }

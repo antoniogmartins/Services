@@ -39,6 +39,14 @@ public class ConfigManager {
 
     public static String getBaseUrl() {
 
-        return properties.getProperty("base.url");
+        String baseUrl = properties.getProperty("base.url");
+
+        if (baseUrl == null || baseUrl.isBlank()) {
+            throw new RuntimeException(
+                    "Propriedade 'base.url' não encontrada ou vazia"
+            );
+        }
+
+        return baseUrl;
     }
 }

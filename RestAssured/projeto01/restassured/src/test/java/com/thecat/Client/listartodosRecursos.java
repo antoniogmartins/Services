@@ -6,16 +6,15 @@ import static io.restassured.RestAssured.given;
 
 public class listartodosRecursos {
 
-    Response resposta;
+
     public Response getRecurso(){
 
-           resposta =
-                   given()
-                           .contentType("application/json")
+           return given()
+                           .contentType("application/json; charset=UTF-8")
                                .when()
                            .get("/posts")
                                .then()
                                      .extract().response();
-           return resposta;
+
     }
 }

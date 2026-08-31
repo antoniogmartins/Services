@@ -42,8 +42,8 @@ public class fIltrarRecursosTest extends BaseTest {
                 .getList("findAll { it.userId == " + userId + " }")
                 .size();
 
-        assertTrue(validator.filtrarecurso_quantidade_id(quantidadeEsperada, quantidade_id));
-        assertTrue(validator.filtrarecurso_quantidade_userId(quantidadeEsperada, quantidade_userId));
+        assertTrue(validator.validarNumero(quantidadeEsperada, quantidade_id));
+        assertTrue(validator.validarNumero(quantidadeEsperada, quantidade_userId));
 
     }
 }
