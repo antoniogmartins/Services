@@ -1,204 +1,123 @@
-# 🚀 API Automation Tests — REST Assured + Java
+# 🚀 API Automation Tests — Java + REST Assured
 
-Framework de automação de testes de API desenvolvido em **Java 17 + REST Assured + JUnit 6**, aplicando conceitos e boas práticas de **QA Automation / Quality Engineering**.
+Projeto de **automação de testes de API REST** desenvolvido em Java utilizando **REST Assured + JUnit 5/6**, com foco em boas práticas de automação, organização de código, reutilização, Data Driven Testing e utilização de DTOs para representação de Request e Response.
 
-O projeto utiliza a API pública **JSONPlaceholder** como aplicação de referência para os testes.
+O projeto utiliza a API pública **JSONPlaceholder** como ambiente de testes.
 
-A automação foi construída de forma incremental, evoluindo de chamadas REST individuais para uma estrutura organizada com:
+---
 
-* API Clients
-* Request DTOs
-* Response DTOs
-* Data Driven Testing
+## 🎯 Objetivo
+
+O objetivo deste projeto é demonstrar, na prática, a construção de uma solução de **API Automation** utilizando Java e REST Assured, aplicando conceitos utilizados em projetos reais de QA Automation.
+
+Entre os principais conceitos implementados estão:
+
+* Testes automatizados de API REST
+* REST Assured
+* Java
+* JUnit
 * Parameterized Tests
-* Configuração por ambiente
-* Request Specification reutilizável
-* Desserialização de respostas
-* Validações utilizando JUnit Assertions e Java Streams
+* Data Driven Testing
+* CSV como fonte de dados
+* Request DTO
+* Response DTO
+* Desserialização de JSON
+* Validação de objetos Java
+* Java Streams
+* Reutilização de `RequestSpecification`
+* Separação de responsabilidades
+* Organização em camadas
 * Maven
+* Git
+* GitHub
 * GitHub Actions / CI
-
----
-
-# 🎯 Objetivo
-
-O objetivo deste projeto é construir uma estrutura de automação de APIs próxima de um framework utilizado em projetos reais de **QA Automation / Quality Engineering**.
-
-O projeto busca demonstrar:
-
-* Automação de APIs REST;
-* Separação de responsabilidades;
-* Reutilização de código;
-* Data Driven Testing;
-* Parameterized Tests;
-* Request DTO;
-* Response DTO;
-* Serialização e desserialização;
-* Configuração por ambiente;
-* Request Specification reutilizável;
-* Validação de objetos e coleções;
-* Uso de Java Streams em testes;
-* Organização de API Clients;
-* Execução através de Maven;
-* Integração com CI/CD.
-
-A proposta não é apenas testar endpoints, mas construir uma base que possa evoluir para um framework de automação **reutilizável, escalável e sustentável**.
-
----
-
-# 🛠️ Tecnologias
-
-| Tecnologia         | Utilização                            |
-| ------------------ | ------------------------------------- |
-| Java 17            | Linguagem principal                   |
-| REST Assured 6.0.1 | Automação de APIs REST                |
-| JUnit 6            | Framework de testes                   |
-| Maven              | Build e gerenciamento de dependências |
-| Jackson            | Serialização e desserialização        |
-| JSONPath           | Navegação complementar em JSON        |
-| Apache Commons CSV | Leitura dos dados de teste            |
-| Git                | Controle de versão                    |
-| GitHub             | Repositório                           |
-| GitHub Actions     | CI/CD                                 |
 
 ---
 
 # 🏗️ Arquitetura
 
-A estrutura foi organizada utilizando separação de responsabilidades entre:
-
-```text
-                    ┌──────────────────────┐
-                    │      Test Data       │
-                    │         CSV          │
-                    └──────────┬───────────┘
-                               │
-                               ▼
-                    ┌──────────────────────┐
-                    │   TestDataReader     │
-                    └──────────┬───────────┘
-                               │
-                               ▼
-                    ┌──────────────────────┐
-                    │   Parameterized Test │
-                    └──────────┬───────────┘
-                               │
-                    ┌──────────▼───────────┐
-                    │      Request DTO     │
-                    └──────────┬───────────┘
-                               │
-                               ▼
-                    ┌──────────────────────┐
-                    │        Client        │
-                    └──────────┬───────────┘
-                               │
-                               ▼
-                    ┌──────────────────────┐
-                    │    RequestConfig     │
-                    │ RequestSpecification │
-                    └──────────┬───────────┘
-                               │
-                               ▼
-                    ┌──────────────────────┐
-                    │      REST API        │
-                    └──────────┬───────────┘
-                               │
-                               ▼
-                    ┌──────────────────────┐
-                    │    Response DTO      │
-                    └──────────┬───────────┘
-                               │
-                               ▼
-                    ┌──────────────────────┐
-                    │   JUnit Assertions   │
-                    │   Java Streams       │
-                    └──────────────────────┘
-```
-
----
-
-# 📁 Estrutura do projeto
+O projeto foi organizado buscando separar responsabilidades entre configuração, comunicação com a API, dados, testes e validações.
 
 ```text
 RestAssured/
 │
-├── projeto01/
-│   └── restassured/
+├── src/
+│   ├── main/
+│   │   └── java/
+│   │       └── com/
+│   │           └── thecat/
+│   │               │
+│   │               ├── Client/
+│   │               │   ├── atualizarRecurso.java
+│   │               │   ├── buscarRecurso.java
+│   │               │   ├── criarRecurso.java
+│   │               │   ├── deletarRecurso.java
+│   │               │   ├── filtrarRecursos.java
+│   │               │   ├── listarhierarquiaRecursos.java
+│   │               │   └── listartodosRecursos.java
+│   │               │
+│   │               ├── Config/
+│   │               │   ├── BaseConfig.java
+│   │               │   ├── BaseTest.java
+│   │               │   ├── ConfigManager.java
+│   │               │   └── RequestConfig.java
+│   │               │
+│   │               ├── DTO/
+│   │               │   ├── Request/
+│   │               │   │   ├── CriarRecursoDTO.java
+│   │               │   │   └── AtualizarRecursoDTO.java
+│   │               │   │
+│   │               │   └── Response/
+│   │               │       ├── RecursoResponseDTO.java
+│   │               │       └── ComentarioResponseDTO.java
+│   │               │
+│   │               ├── Utils/
+│   │               │   └── TestDataReader.java
+│   │               │
+│   │               └── Validator/
+│   │                   └── validacoes.java
+│   │
+│   └── test/
+│       ├── java/
+│       │   └── com/
+│       │       └── thecat/
+│       │           └── Tests/
+│       │               ├── atualizarRecursoTest.java
+│       │               ├── buscarRecursoTest.java
+│       │               ├── criarRecursoTest.java
+│       │               ├── deletarRecursoTest.java
+│       │               ├── fIltrarRecursosTest.java
+│       │               ├── listarhierarquiaRecursosTest.java
+│       │               └── listartodosRecursosTest.java
+│       │
+│       └── resources/
+│           └── testdata/
+│               ├── atualizar_recurso.csv
+│               ├── buscar_recurso.csv
+│               ├── criar_recurso.csv
+│               ├── deletar_recurso.csv
+│               ├── listar_filtrarecursos.csv
+│               ├── listar_hierarquiarecursos.csv
+│               └── listar_todosrecursos.csv
 │
-│       ├── src/
-│       │
-│       ├── main/
-│       │   └── java/
-│       │       └── com.thecat/
-│       │
-│       │           ├── Client/
-│       │           │   ├── atualizarRecurso.java
-│       │           │   ├── buscarRecurso.java
-│       │           │   ├── criarRecurso.java
-│       │           │   ├── deletarRecurso.java
-│       │           │   ├── filtrarRecursos.java
-│       │           │   ├── listarhierarquiaRecursos.java
-│       │           │   └── listartodosRecursos.java
-│       │           │
-│       │           ├── Config/
-│       │           │   ├── ConfigManager.java
-│       │           │   ├── BaseTest.java
-│       │           │   └── RequestConfig.java
-│       │           │
-│       │           ├── DTO/
-│       │           │   ├── Request/
-│       │           │   │   ├── CriarRecursoDTO.java
-│       │           │   │   └── AtualizarRecursoDTO.java
-│       │           │   │
-│       │           │   └── Response/
-│       │           │       ├── RecursoResponseDTO.java
-│       │           │       └── ComentarioResponseDTO.java
-│       │           │
-│       │           └── Validator/
-│       │
-│       └── test/
-│           │
-│           ├── java/
-│           │   └── com.thecat.Tests/
-│           │       ├── atualizarRecursoTest.java
-│           │       ├── buscarRecursoTest.java
-│           │       ├── criarRecursoTest.java
-│           │       ├── deletarRecursoTest.java
-│           │       ├── filtrarRecursosTest.java
-│           │       ├── listarhierarquiaRecursosTest.java
-│           │       └── listartodosRecursosTest.java
-│           │
-│           └── resources/
-│               │
-│               ├── environments/
-│               │   └── qa.properties
-│               │
-│               └── testdata/
-│                   ├── buscar_recurso.csv
-│                   ├── listar_todosrecursos.csv
-│                   ├── listar_filtrarecursos.csv
-│                   ├── listar_hierarquiarecursos.csv
-│                   ├── criar_recurso.csv
-│                   ├── atualiza_recurso.csv
-│                   └── deletar_recurso.csv
-│
-└── pom.xml
+├── pom.xml
+└── README.md
 ```
 
 ---
 
-# 🔌 API Clients
+# 🧩 Separação de responsabilidades
 
-Cada endpoint possui seu próprio Client.
+A estrutura foi pensada para evitar que os testes concentrem todas as responsabilidades.
 
-O Client é responsável exclusivamente pela comunicação HTTP.
+## Client
+
+As classes `Client` são responsáveis pela comunicação com a API.
 
 Exemplo:
 
 ```java
-public Response atualizaRecurso(
-        int id,
-        AtualizarRecursoDTO request) {
+public Response atualizaRecurso(int id, AtualizarRecursoDTO request) {
 
     return RequestConfig.requestSpec()
             .body(request)
@@ -210,27 +129,13 @@ public Response atualizaRecurso(
 }
 ```
 
-O teste não precisa conhecer detalhes da construção da requisição.
-
-Ele apenas informa:
-
-```java
-client.atualizaRecurso(id, request);
-```
-
-Essa separação reduz a duplicação e facilita a manutenção.
+O teste não precisa conhecer detalhes de URL, método HTTP ou configuração da requisição.
 
 ---
 
 # ⚙️ RequestConfig
 
-A configuração comum das requisições foi centralizada em:
-
-```text
-RequestConfig.java
-```
-
-Exemplo:
+A classe `RequestConfig` centraliza a configuração comum das requisições.
 
 ```java
 public class RequestConfig {
@@ -243,71 +148,48 @@ public class RequestConfig {
 }
 ```
 
-Os Clients reutilizam essa configuração:
+Dessa forma, os Clients podem reutilizar a mesma configuração:
 
 ```java
 RequestConfig.requestSpec()
-        .body(request)
-        .when()
-        .post("/posts");
 ```
 
-Dessa forma, configurações comuns não precisam ser repetidas em todos os Clients.
-
----
-
-# 🧱 BaseTest e configuração de ambiente
-
-O `BaseTest` configura a URL base da API:
+Isso evita duplicação de código como:
 
 ```java
-@BeforeAll
-static void setup() {
-    RestAssured.baseURI = ConfigManager.getBaseUrl();
-}
+given()
+    .contentType("application/json")
 ```
 
-A URL é carregada pelo `ConfigManager`.
-
-Arquivo:
-
-```text
-src/test/resources/environments/qa.properties
-```
-
-Exemplo:
-
-```properties
-base.url=https://jsonplaceholder.typicode.com
-```
-
-O ambiente pode ser selecionado através de:
-
-```bash
-mvn test -Denv=qa
-```
-
-A arquitetura permite adicionar futuramente:
-
-```text
-qa.properties
-staging.properties
-prod.properties
-```
-
-sem alterar os testes.
+em todos os Clients.
 
 ---
 
-# 📦 DTO Pattern
+# 📦 DTO — Data Transfer Object
 
 O projeto utiliza DTOs para representar os dados enviados e recebidos pela API.
 
-## Request DTO
+Existem dois tipos principais:
 
-Representa o corpo enviado para a API.
+```text
+DTO
+│
+├── Request
+│   ├── CriarRecursoDTO
+│   └── AtualizarRecursoDTO
+│
+└── Response
+    ├── RecursoResponseDTO
+    └── ComentarioResponseDTO
+```
 
-### Criar recurso
+---
+
+# 📤 Request DTO
+
+O **Request DTO** representa os dados que serão enviados para a API.
+
+Por exemplo:
 
 ```java
 CriarRecursoDTO request =
@@ -318,37 +200,29 @@ CriarRecursoDTO request =
         );
 ```
 
-### Atualizar recurso
-
-```java
-AtualizarRecursoDTO request =
-        new AtualizarRecursoDTO(
-                titulo,
-                corpo,
-                userId
-        );
-```
-
-O DTO é enviado diretamente:
+E posteriormente:
 
 ```java
 .body(request)
+```
+
+O objeto Java é convertido para JSON pelo REST Assured/Jackson.
+
+Exemplo:
+
+```json
+{
+  "title": "Novo recurso",
+  "body": "Conteúdo do recurso",
+  "userId": 1
+}
 ```
 
 ---
 
 # 📥 Response DTO
 
-As respostas da API também são representadas por DTOs.
-
-## RecursoResponseDTO
-
-```text
-id
-title
-body
-userId
-```
+O **Response DTO** representa os dados retornados pela API.
 
 Exemplo:
 
@@ -357,126 +231,65 @@ RecursoResponseDTO recurso =
         resposta.as(RecursoResponseDTO.class);
 ```
 
-## ComentarioResponseDTO
+A resposta JSON:
 
-Utilizado para respostas que retornam uma coleção de comentários:
-
-```text
-postId
-id
-name
-email
-body
+```json
+{
+  "userId": 1,
+  "id": 1,
+  "title": "Título",
+  "body": "Conteúdo"
+}
 ```
 
-Como o endpoint retorna um array:
+é convertida para um objeto Java.
 
-```text
-GET /posts/{postId}/comments
-```
-
-a resposta é convertida para:
+Isso permite trabalhar com:
 
 ```java
-List<ComentarioResponseDTO>
+recurso.getId();
+recurso.getTitle();
+recurso.getBody();
+recurso.getUserId();
 ```
+
+em vez de depender constantemente de:
+
+```java
+response.jsonPath()
+```
+
+---
+
+# 📚 Response DTO para listas
+
+Quando a API retorna vários objetos, utilizamos uma lista de DTOs.
 
 Exemplo:
 
 ```java
-List<ComentarioResponseDTO> comentarios =
+List<RecursoResponseDTO> recursos =
         resposta.jsonPath()
                 .getList(
                         "",
-                        ComentarioResponseDTO.class
+                        RecursoResponseDTO.class
                 );
 ```
 
----
-
-# 🔄 Request DTO × Response DTO
-
-Uma das principais decisões arquiteturais do projeto é separar claramente:
+Agora cada item da resposta é representado por um objeto:
 
 ```text
-Request DTO
-     │
-     │ dados enviados
-     ▼
-   API
-     │
-     │ dados retornados
-     ▼
-Response DTO
-```
-
-Por exemplo:
-
-```text
-CriarRecursoDTO
-       │
-       ▼
-    POST /posts
-       │
-       ▼
-RecursoResponseDTO
-```
-
-Isso evita utilizar o mesmo objeto para representar conceitos diferentes.
-
----
-
-# 🧪 Testes automatizados
-
-Atualmente o projeto possui **7 classes principais de testes**, cobrindo operações GET, POST, PUT e DELETE.
-
-## 1. Buscar recurso
-
-```http
-GET /posts/{id}
-```
-
-Classe:
-
-```text
-buscarRecursoTest
-```
-
-Valida:
-
-* Status Code;
-* ID;
-* título;
-* corpo;
-* dados retornados pelo Response DTO.
-
----
-
-## 2. Listar todos os recursos
-
-```http
-GET /posts
-```
-
-Classe:
-
-```text
-listartodosRecursosTest
-```
-
-A resposta é convertida para:
-
-```java
 List<RecursoResponseDTO>
+        │
+        ├── RecursoResponseDTO
+        ├── RecursoResponseDTO
+        ├── RecursoResponseDTO
+        └── ...
 ```
 
-São realizadas validações sobre:
+Isso permite utilizar recursos da linguagem Java, como Streams.
 
-* Status Code;
-* quantidade de recursos;
-* quantidade de recursos pertencentes a determinado `userId`.
-
-Para a análise da coleção são utilizados Java Streams:
+Exemplo:
 
 ```java
 long quantidadeUserId =
@@ -489,87 +302,123 @@ long quantidadeUserId =
 
 ---
 
-## 3. Filtrar recursos
+# 💬 ComentarioResponseDTO
 
-```http
-GET /posts?userId={userId}
-```
-
-Classe:
+Para o endpoint:
 
 ```text
-filtrarRecursosTest
-```
-
-A resposta é convertida para:
-
-```java
-List<RecursoResponseDTO>
-```
-
-Além da quantidade esperada, o teste verifica se todos os recursos retornados pertencem ao usuário solicitado:
-
-```java
-assertTrue(
-        recursos.stream()
-                .allMatch(recurso ->
-                        recurso.getUserId() == userId
-                )
-);
-```
-
----
-
-## 4. Listar comentários relacionados
-
-```http
 GET /posts/{postId}/comments
 ```
 
-Classe:
+a API retorna uma lista de comentários.
 
-```text
-listarhierarquiaRecursosTest
-```
-
-Como o endpoint retorna uma coleção, utilizamos:
+Por isso foi criado um DTO específico:
 
 ```java
-List<ComentarioResponseDTO>
+ComentarioResponseDTO
 ```
 
-O teste verifica se todos os comentários pertencem ao `postId` solicitado:
+com os seguintes campos:
 
 ```java
-assertTrue(
-        comentarios.stream()
-                .allMatch(comentario ->
-                        comentario.getPostId() == postId
-                )
-);
+private int postId;
+private int id;
+private String name;
+private String email;
+private String body;
+```
+
+A resposta pode ser convertida diretamente:
+
+```java
+List<ComentarioResponseDTO> comentarios =
+        resposta.jsonPath()
+                .getList(
+                        "",
+                        ComentarioResponseDTO.class
+                );
 ```
 
 ---
 
-## 5. Criar recurso
+# 🧪 Testes implementados
 
-```http
-POST /posts
-```
+Atualmente o projeto contempla os seguintes cenários:
 
-Classe:
+| Teste                  | Método | Endpoint                   | Objetivo                      |
+| ---------------------- | ------ | -------------------------- | ----------------------------- |
+| Criar recurso          | POST   | `/posts`                   | Criar um novo recurso         |
+| Buscar recurso         | GET    | `/posts/{id}`              | Buscar recurso por ID         |
+| Atualizar recurso      | PUT    | `/posts/{id}`              | Atualizar recurso             |
+| Deletar recurso        | DELETE | `/posts/{id}`              | Excluir recurso               |
+| Filtrar recursos       | GET    | `/posts?userId={userId}`   | Filtrar por usuário           |
+| Listar recursos        | GET    | `/posts`                   | Retornar todos os recursos    |
+| Hierarquia/Comentários | GET    | `/posts/{postId}/comments` | Buscar comentários de um post |
+
+---
+
+# 🧪 Data Driven Testing
+
+Os testes utilizam arquivos CSV como fonte de dados.
+
+Exemplo:
 
 ```text
-criarRecursoTest
+testdata/
+│
+├── criar_recurso.csv
+├── atualizar_recurso.csv
+├── buscar_recurso.csv
+├── deletar_recurso.csv
+├── listar_filtrarecursos.csv
+├── listar_hierarquiarecursos.csv
+└── listar_todosrecursos.csv
 ```
 
-Utiliza:
+A leitura dos arquivos é centralizada na classe:
 
 ```java
-CriarRecursoDTO
+TestDataReader
 ```
 
-Request:
+---
+
+# 🔄 ParameterizedTest
+
+Os dados são executados utilizando JUnit Parameterized Tests.
+
+Exemplo:
+
+```java
+@ParameterizedTest
+@MethodSource("dadosCriarRecurso")
+public void getcriarRecurso(
+        int id,
+        int statusEsperado,
+        CriarRecursoDTO request) {
+```
+
+Isso permite executar o mesmo teste com diferentes conjuntos de dados.
+
+---
+
+# 🏭 MethodSource
+
+Os dados são fornecidos pelo método:
+
+```java
+static Stream<Arguments> dadosCriarRecurso()
+```
+
+Exemplo:
+
+```java
+return TestDataReader.lerCSV(
+        "testdata/criar_recurso.csv"
+);
+```
+
+Quando necessário, os dados do CSV são transformados em DTOs:
 
 ```java
 CriarRecursoDTO request =
@@ -580,281 +429,232 @@ CriarRecursoDTO request =
         );
 ```
 
-O Client envia:
-
-```java
-.body(request)
-```
-
-A resposta é desserializada:
-
-```java
-RecursoResponseDTO recurso =
-        resposta.as(RecursoResponseDTO.class);
-```
-
 ---
 
-## 6. Atualizar recurso
+# 🧰 TestDataReader
 
-```http
-PUT /posts/{id}
-```
+A classe `TestDataReader` possui a responsabilidade de:
 
-Classe:
-
-```text
-atualizarRecursoTest
-```
-
-Utiliza:
-
-```java
-AtualizarRecursoDTO
-```
-
-O ID é utilizado como Path Parameter:
-
-```java
-.put("/posts/{id}", id)
-```
-
-Enquanto o DTO representa o Request Body:
-
-```java
-.body(request)
-```
-
-A resposta é convertida para:
-
-```java
-RecursoResponseDTO
-```
-
----
-
-## 7. Deletar recurso
-
-```http
-DELETE /posts/{id}
-```
-
-Classe:
-
-```text
-deletarRecursoTest
-```
-
-Valida:
-
-* Status Code;
-* conteúdo da resposta;
-* comportamento esperado do endpoint.
-
----
-
-# 📊 Data Driven Testing
-
-Os testes utilizam arquivos CSV para separar **dados de teste** da **lógica de automação**.
-
-Exemplo:
-
-```csv
-id,statusEsperado,title,body,userId
-1,201,Meu titulo,Meu corpo,1
-2,201,Outro titulo,Outro corpo,2
-3,201,Terceiro titulo,Terceiro corpo,3
-```
-
-O `TestDataReader` é responsável por:
-
-* localizar o arquivo;
-* ler o CSV;
-* identificar as colunas;
+* localizar o CSV;
+* abrir o arquivo;
+* identificar o cabeçalho;
+* ler os registros;
 * converter os valores;
-* fornecer os dados para os testes parametrizados.
+* disponibilizar os dados como `Stream<Arguments>`.
+
+A conversão suporta diferentes tipos:
+
+```text
+String
+Integer
+Long
+Double
+Boolean
+```
+
+Isso permite que os testes permaneçam independentes da implementação da leitura dos dados.
 
 ---
 
-# 🔁 Parameterized Tests
+# 🔎 Validações
 
-Os testes utilizam:
+O projeto possui uma classe específica para validações:
 
 ```java
-@ParameterizedTest
-@MethodSource(...)
+validacoes
 ```
+
+Ela centraliza métodos utilizados pelos testes, como:
+
+```java
+validarNumero(...)
+```
+
+e:
+
+```java
+validarTexto(...)
+```
+
+Isso reduz duplicação e mantém a lógica de comparação fora dos Clients.
+
+---
+
+# 🌊 Java Streams
+
+O projeto também utiliza Java Streams para trabalhar com coleções de objetos.
 
 Exemplo:
 
 ```java
-@ParameterizedTest
-@MethodSource("dadosCriarRecurso")
-public void criarRecurso(
-        int id,
-        int statusEsperado,
-        CriarRecursoDTO request) {
-
-    // teste
-}
+assertTrue(
+        comentarios.stream()
+                .allMatch(comentario ->
+                        comentario.getPostId() == postId
+                )
+);
 ```
 
-Essa abordagem permite executar o mesmo cenário com diferentes conjuntos de dados.
+Nesse caso, `allMatch()` verifica se **todos os comentários pertencem ao `postId` informado**.
 
-Para aumentar a cobertura, podemos adicionar novos registros aos arquivos CSV sem duplicar a implementação do teste.
+Outro exemplo:
+
+```java
+long quantidadeUserId =
+        recursos.stream()
+                .filter(recurso ->
+                        recurso.getUserId() == 1
+                )
+                .count();
+```
+
+Nesse caso:
+
+1. `stream()` percorre a lista;
+2. `filter()` mantém apenas os recursos do usuário `1`;
+3. `count()` contabiliza os elementos encontrados.
 
 ---
 
-# ☕ Java Streams aplicado a testes
+# 🔁 Fluxo da automação
 
-O projeto também utiliza recursos do Java moderno para trabalhar com coleções.
-
-## allMatch()
-
-Verifica se todos os elementos satisfazem uma condição:
-
-```java
-comentarios.stream()
-        .allMatch(comentario ->
-                comentario.getPostId() == postId
-        );
-```
-
-## filter()
-
-Seleciona elementos que atendem a uma condição:
-
-```java
-recursos.stream()
-        .filter(recurso ->
-                recurso.getUserId() == 1
-        );
-```
-
-## count()
-
-Conta os elementos resultantes:
-
-```java
-recursos.stream()
-        .filter(recurso ->
-                recurso.getUserId() == 1
-        )
-        .count();
-```
-
-Esses recursos permitem que os testes trabalhem diretamente com objetos Java, reduzindo a necessidade de navegação manual pelo JSON.
-
----
-
-# 🧹 Evolução das validações
-
-Durante a evolução do framework, algumas validações inicialmente realizadas através de:
-
-```java
-jsonPath()
-```
-
-foram substituídas por objetos desserializados.
-
-Antes:
-
-```java
-String titulo =
-        resposta.jsonPath()
-                .getString("title");
-```
-
-Agora:
-
-```java
-RecursoResponseDTO recurso =
-        resposta.as(RecursoResponseDTO.class);
-
-String titulo =
-        recurso.getTitle();
-```
-
-Para coleções:
-
-```java
-List<RecursoResponseDTO> recursos =
-        resposta.jsonPath()
-                .getList(
-                        "",
-                        RecursoResponseDTO.class
-                );
-```
-
-Essa abordagem melhora:
-
-* legibilidade;
-* tipagem;
-* manutenção;
-* reutilização;
-* organização dos testes.
-
-O `Validator` permanece disponível para regras de validação reutilizáveis quando realmente fizer sentido, mas não é mais utilizado obrigatoriamente em todas as assertions.
-
----
-
-# 🧩 Separation of Responsibilities
-
-O framework segue uma separação clara:
+O fluxo principal do projeto pode ser representado da seguinte forma:
 
 ```text
-Test
-│
-└── Cenários e Assertions
-
-Client
-│
-└── Comunicação HTTP
-
-Request DTO
-│
-└── Dados enviados para API
-
-Response DTO
-│
-└── Dados recebidos da API
-
-RequestConfig
-│
-└── Configuração reutilizável das requisições
-
+CSV
+ │
+ ▼
 TestDataReader
-│
-└── Leitura dos dados de teste
-
-ConfigManager
-│
-└── Configuração dos ambientes
-
-BaseTest
-│
-└── Configuração inicial do REST Assured
+ │
+ ▼
+ParameterizedTest
+ │
+ ▼
+Request DTO
+ │
+ ▼
+Client
+ │
+ ▼
+RequestConfig
+ │
+ ▼
+REST Assured
+ │
+ ▼
+API
+ │
+ ▼
+Response
+ │
+ ▼
+Response DTO
+ │
+ ▼
+Validações
+ │
+ ▼
+JUnit Assertion
 ```
 
-Essa separação evita concentrar toda a lógica dentro das classes de teste.
+Esse fluxo permite separar claramente:
+
+**Dados → Teste → Request → API → Response → Validação**
 
 ---
 
-# ▶️ Como executar
+# 🧱 Exemplo completo
 
-## Executar todos os testes
+Um teste de atualização segue aproximadamente este fluxo:
 
-```bash
-mvn test
+```java
+AtualizarRecursoDTO request =
+        new AtualizarRecursoDTO(
+                titulo,
+                corpo,
+                userId
+        );
+
+Response resposta =
+        atualizarecurso.atualizaRecurso(
+                id,
+                request
+        );
+
+assertEquals(
+        statusEsperado,
+        resposta.statusCode()
+);
+
+RecursoResponseDTO recurso =
+        resposta.as(
+                RecursoResponseDTO.class
+        );
+
+assertTrue(
+        validator.validarNumero(
+                request.getUserId(),
+                recurso.getUserId()
+        )
+);
 ```
 
-## Executar especificando o ambiente
+O teste fica responsável pela **orquestração e validação**, enquanto o Client fica responsável pela **comunicação HTTP**.
 
-```bash
-mvn test -Denv=qa
+---
+
+# 🛠️ Tecnologias
+
+| Tecnologia         | Utilização                              |
+| ------------------ | --------------------------------------- |
+| Java 17            | Linguagem principal                     |
+| REST Assured       | Automação de APIs REST                  |
+| JUnit              | Framework de testes                     |
+| Maven              | Gerenciamento do projeto e dependências |
+| Jackson            | Serialização/Desserialização JSON       |
+| Apache Commons CSV | Leitura dos arquivos CSV                |
+| Git                | Controle de versão                      |
+| GitHub             | Repositório                             |
+| GitHub Actions     | Integração/execução contínua            |
+
+---
+
+# 📦 Dependências principais
+
+O projeto utiliza Maven para gerenciamento das dependências.
+
+Principais bibliotecas:
+
+```text
+REST Assured
+JUnit
+Jackson
+Apache Commons CSV
 ```
 
-## Limpar e executar
+As versões e configurações podem ser consultadas diretamente no:
+
+```text
+pom.xml
+```
+
+---
+
+# ▶️ Executando o projeto
+
+Clone o repositório:
+
+```bash
+git clone https://github.com/antoniogmartins/Services.git
+```
+
+Acesse o projeto:
+
+```bash
+cd Services/RestAssured/projeto01/restassured
+```
+
+Execute os testes:
 
 ```bash
 mvn clean test
@@ -862,202 +662,304 @@ mvn clean test
 
 ---
 
-# 📈 Status atual
+# 🧪 Executando um teste específico
 
-## ✅ Implementado
+Exemplo:
 
-* [x] Java 17
-* [x] REST Assured
-* [x] JUnit
-* [x] Maven
-* [x] JSONPath
-* [x] Jackson
-* [x] Apache Commons CSV
-* [x] Data Driven Testing
-* [x] CSV Test Data
-* [x] Parameterized Tests
-* [x] 7 API Test Classes
-* [x] API Clients
-* [x] Request DTO
-* [x] Response DTO
-* [x] Serialization / Deserialization
-* [x] Request Specification reutilizável
-* [x] Environment Configuration
-* [x] Base Test
-* [x] GET
-* [x] POST
-* [x] PUT
-* [x] DELETE
-* [x] Path Parameters
-* [x] Query Parameters
-* [x] Request Body
-* [x] Response validation
-* [x] Java Streams em validações de coleções
-* [x] Git / GitHub
-* [x] GitHub Actions / CI
+```bash
+mvn test -Dtest=criarRecursoTest
+```
+
+Outro exemplo:
+
+```bash
+mvn test -Dtest=atualizarRecursoTest
+```
 
 ---
 
-# 🔮 Roadmap
+# 🌎 Ambientes
 
-## Próximas evoluções
+A configuração do projeto foi estruturada para permitir utilização de diferentes ambientes através da configuração centralizada.
 
-### Framework
+Exemplo:
 
-* [ ] Melhorar nomenclatura das classes
-* [ ] Padronizar métodos dos Clients
-* [ ] Padronizar nomenclatura dos testes
-* [ ] Revisar responsabilidades do Validator
+```bash
+mvn clean test -Denv=staging
+```
+
+A configuração é gerenciada pelas classes:
+
+```text
+BaseConfig
+ConfigManager
+BaseTest
+```
+
+---
+
+# 🤖 CI/CD
+
+O projeto possui integração com **GitHub Actions** para execução automatizada dos testes.
+
+Fluxo:
+
+```text
+Git Push
+   │
+   ▼
+GitHub Actions
+   │
+   ▼
+Setup Java
+   │
+   ▼
+Maven
+   │
+   ▼
+mvn clean test
+   │
+   ▼
+Testes REST Assured
+   │
+   ▼
+Resultado
+```
+
+Isso permite executar a suíte de testes automaticamente após alterações no projeto.
+
+---
+
+# 📊 Boas práticas aplicadas
+
+Durante a evolução do projeto foram aplicadas algumas práticas importantes de automação:
+
+### ✔ Separação de responsabilidades
+
+```text
+Client       → Comunicação com API
+DTO Request  → Dados enviados
+DTO Response → Dados recebidos
+Config       → Configurações
+Utils        → Utilitários
+Validator    → Validações
+Tests        → Cenários de teste
+CSV          → Dados de teste
+```
+
+### ✔ Reutilização
+
+A configuração HTTP é centralizada em:
+
+```java
+RequestConfig.requestSpec()
+```
+
+### ✔ Data Driven Testing
+
+Os dados de teste ficam separados da lógica.
+
+### ✔ DTO
+
+Evita trabalhar diretamente com estruturas JSON espalhadas pelo código.
+
+### ✔ Parameterized Tests
+
+Permite executar o mesmo cenário com diferentes dados.
+
+### ✔ Streams
+
+Permite realizar operações sobre coleções de DTOs de forma mais expressiva.
+
+---
+
+# 📈 Evolução do projeto
+
+O projeto foi desenvolvido de forma incremental.
+
+### Etapa 1
+
+Testes básicos utilizando REST Assured:
+
+```text
+given()
+when()
+then()
+```
+
+### Etapa 2
+
+Criação dos Clients.
+
+### Etapa 3
+
+Parameterized Tests.
+
+### Etapa 4
+
+Data Driven Testing utilizando CSV.
+
+### Etapa 5
+
+Criação do `TestDataReader`.
+
+### Etapa 6
+
+Criação dos Request DTOs.
+
+```text
+CriarRecursoDTO
+AtualizarRecursoDTO
+```
+
+### Etapa 7
+
+Criação dos Response DTOs.
+
+```text
+RecursoResponseDTO
+ComentarioResponseDTO
+```
+
+### Etapa 8
+
+Desserialização das respostas:
+
+```java
+response.as(RecursoResponseDTO.class)
+```
+
+e:
+
+```java
+response.jsonPath()
+        .getList("", RecursoResponseDTO.class);
+```
+
+### Etapa 9
+
+Centralização da configuração HTTP:
+
+```java
+RequestConfig.requestSpec()
+```
+
+### Etapa 10
+
+Utilização de Java Streams para validação de coleções.
+
+---
+
+# 🚧 Próximos passos
+
+A arquitetura atual permite evoluir o projeto para recursos mais avançados de automação.
+
+Próximas possibilidades:
+
+* [ ] Melhorar nomenclatura das classes seguindo convenções Java
+* [ ] Padronizar nomes de métodos
+* [ ] Criar métodos HTTP genéricos quando fizer sentido
+* [ ] Centralizar endpoints
 * [ ] Criar constantes para endpoints
-* [ ] Melhorar tratamento de erros
-
-### API Automation
-
-* [ ] JSON Schema Validation
-* [ ] API Contract Testing
-* [ ] Authentication / JWT
-* [ ] Headers dinâmicos
-* [ ] Query Parameters reutilizáveis
-* [ ] Request/Response Logging
-* [ ] REST Assured Filters
-* [ ] Response Specification
-
-### Test Data
-
-* [ ] Melhor gerenciamento dos dados
-* [ ] Data Factory
-* [ ] Test Data Builder
-* [ ] Dados dinâmicos
-* [ ] Randomização controlada
-
-### Reporting
-
-* [ ] Maven Surefire Reports
-* [ ] Allure Reports
-* [ ] Evidências de execução
-* [ ] Dashboard de testes
-
-### CI/CD
-
-* [ ] Execução por ambiente
-* [ ] Execução paralela
-* [ ] Quality Gates
-* [ ] Branch Protection
-* [ ] Integração com pipeline CI/CD
-
-### Performance
-
-* [ ] K6
-* [ ] Performance Testing
-* [ ] Load Testing
-* [ ] Stress Testing
-* [ ] Métricas e thresholds
-
-### Infraestrutura
-
-* [ ] Docker
-* [ ] Execução containerizada
-* [ ] Integração com observabilidade
+* [ ] Evoluir as validações
+* [ ] Criar DTOs adicionais
+* [ ] Implementar validação de schema
+* [ ] Implementar JSON Schema
+* [ ] Adicionar Allure Report
+* [ ] Melhorar relatórios de execução
+* [ ] Adicionar testes negativos
+* [ ] Adicionar testes de contrato
+* [ ] Adicionar testes de headers
+* [ ] Adicionar testes de autenticação
+* [ ] Evoluir a estratégia de CI/CD
+* [ ] Dockerizar a execução
+* [ ] Integrar com ferramentas de observabilidade
 
 ---
 
-# 🧭 Próxima evolução arquitetural
+# 📚 Conceitos praticados
 
-A evolução planejada do framework é:
+Este projeto também serve como laboratório para evolução em:
 
 ```text
-                     ┌──────────────────────┐
-                     │      Test Data       │
-                     │         CSV          │
-                     └──────────┬───────────┘
-                                │
-                                ▼
-                     ┌──────────────────────┐
-                     │   TestDataReader     │
-                     └──────────┬───────────┘
-                                │
-                                ▼
-                     ┌──────────────────────┐
-                     │   Parameterized Test │
-                     └──────────┬───────────┘
-                                │
-                                ▼
-                     ┌──────────────────────┐
-                     │      Request DTO     │
-                     └──────────┬───────────┘
-                                │
-                                ▼
-                     ┌──────────────────────┐
-                     │        Client        │
-                     └──────────┬───────────┘
-                                │
-                                ▼
-                     ┌──────────────────────┐
-                     │    RequestConfig     │
-                     └──────────┬───────────┘
-                                │
-                                ▼
-                     ┌──────────────────────┐
-                     │       REST API       │
-                     └──────────┬───────────┘
-                                │
-                                ▼
-                     ┌──────────────────────┐
-                     │    Response DTO      │
-                     └──────────┬───────────┘
-                                │
-                                ▼
-                     ┌──────────────────────┐
-                     │ JUnit + Java Streams │
-                     │     Assertions       │
-                     └──────────────────────┘
+Java
+ │
+ ├── POO
+ ├── Classes
+ ├── Objetos
+ ├── Encapsulamento
+ ├── Construtores
+ ├── Getters / Setters
+ ├── Collections
+ ├── List
+ ├── Streams
+ ├── Lambda
+ │
+ └── Exceptions
+
+REST Assured
+ │
+ ├── given()
+ ├── when()
+ ├── then()
+ ├── RequestSpecification
+ ├── Response
+ ├── JSONPath
+ └── Desserialização
+
+JUnit
+ │
+ ├── @Test
+ ├── @ParameterizedTest
+ ├── @MethodSource
+ └── Assertions
+
+QA Automation
+ │
+ ├── API Testing
+ ├── Data Driven Testing
+ ├── Test Automation
+ ├── Regression Testing
+ ├── Validation
+ └── CI/CD
 ```
 
 ---
 
-# 💡 Objetivo final
-
-A evolução deste projeto é transformar uma automação inicialmente baseada em requisições individuais em um **framework profissional de API Automation**.
-
-```text
-API Automation
-       +
-Data Driven Testing
-       +
-Parameterized Tests
-       +
-DTO Pattern
-       +
-Environment Management
-       +
-Reusable Request Specification
-       +
-Contract Testing
-       +
-Performance Testing
-       +
-CI/CD
-       +
-Reporting
-       =
-Professional QA Automation Framework
-```
-
----
-
-# 👨‍💻 Author
+# 👨‍💻 Autor
 
 **Antonio G. Martins**
 
-QA Automation / Quality Engineering
+QA Automation / Quality Assurance
 
-**Java • REST Assured • JUnit • Selenium • Cypress • Playwright • Robot Framework • K6 • JMeter • GitHub Actions**
+Especialização prática em:
+
+```text
+Java
+REST Assured
+Selenium
+Cypress
+Playwright
+Robot Framework
+JMeter
+K6
+API Testing
+Test Automation
+```
 
 ---
 
-# 📌 Repository
+# 🔗 Repositório
 
-[Services — RestAssured](https://github.com/antoniogmartins/Services/tree/main/RestAssured)
+**GitHub**
 
-⭐ Se este projeto for útil, considere deixar uma estrela no repositório.
+https://github.com/antoniogmartins/Services/tree/main/RestAssured
+
+---
+
+## ⭐ Considerações
+
+Este projeto está em evolução contínua e representa um laboratório prático para aplicação de conceitos de **Java, API Automation, REST Assured, JUnit, DTO, Data Driven Testing e boas práticas de engenharia de software**.
+
+A arquitetura está sendo evoluída gradualmente com o objetivo de aproximar o projeto de uma estrutura utilizada em ambientes profissionais de **QA Automation / Quality Engineering**.
 
