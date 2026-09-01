@@ -2,7 +2,7 @@ package com.thecat.Tests;
 
 import com.thecat.Client.listartodosRecursos;
 import com.thecat.Config.BaseTest;
-import com.thecat.Impressao.Imprmir;
+import com.thecat.DTO.Response.RecursoResponseDTO;
 import com.thecat.Utils.TestDataReader;
 import com.thecat.Validator.validacoes;
 import io.restassured.response.Response;
@@ -10,6 +10,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import java.util.List;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -27,7 +28,6 @@ public class listartodosRecursosTest extends BaseTest {
       public void getlistartodosRecursos(int statusEsperado,int quantidadetitulosEsperada, int quantidadeuseridEsperada){
 
           listartodosRecursos listartodosrecursos = new listartodosRecursos();
-          validacoes validator = new validacoes();
 
           Response resposta = listartodosrecursos.getRecurso();
           assertEquals(statusEsperado, resposta.statusCode());
@@ -35,16 +35,23 @@ public class listartodosRecursosTest extends BaseTest {
   //        Imprmir relatorio = new Imprmir();
   //        relatorio.imprimirRecurso(resposta);
 
-          int quantidade_titulos = resposta.jsonPath()
-                  .getList("title")
-                  .size();
+          List<RecursoResponseDTO> recursos =
+                  resposta.jsonPath()
+                          .getList(
+                                  "",
+                                  RecursoResponseDTO.class
+                          );
 
-          int quantidade_userId = resposta.jsonPath()
-                  .getList("findAll { it.userId == 1 }")
-                  .size();
+          long quantidadeUserId =
+                  recursos.stream()
+                          .filter(recurso ->
+                                  recurso.getUserId() == 1
+                          )
+                          .count();
 
-          assertTrue(validator.validarNumero(quantidade_titulos, quantidadetitulosEsperada));
-          assertTrue(validator.validarNumero(quantidade_userId, quantidadeuseridEsperada));
+
+          assertEquals(quantidadetitulosEsperada,recursos.size());
+          assertEquals(quantidadeuseridEsperada, quantidadeUserId);
 
     }
 }

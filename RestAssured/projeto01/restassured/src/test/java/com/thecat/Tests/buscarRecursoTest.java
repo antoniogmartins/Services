@@ -44,9 +44,9 @@ public class buscarRecursoTest extends BaseTest {
           int IdAtual = resposta.jsonPath()
                   .getInt("id");
 
-          assertTrue(validator.validarNumero(IdAtual, id));
-          assertTrue(validator.validarTexto(tituloAtual, recurso.getTitle()));
-          assertTrue(validator.validarTexto(corpoAtual, recurso.getBody()));
+          assertTrue(validator.validarNumero(id, recurso.getId()));
+          assertTrue(validator.validarTexto(tituloEsperado, recurso.getTitle()));
+          assertTrue(validator.validarTexto(corpoEsperado, recurso.getBody()));
 
     }
 }

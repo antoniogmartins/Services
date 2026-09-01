@@ -37,9 +37,8 @@ public class deletarRecursoTest extends BaseTest {
       //    Imprmir relatorio = new Imprmir();
       //    relatorio.imprimirRecurso(resposta);
 
-          String resultadoAtual = resposta.asString().trim();
 
-          assertTrue(validator.validarTexto(resultadoAtual, ResultadoEsperado));
+          assertTrue(validator.validarTexto(resposta.asString().trim(), ResultadoEsperado));
 
     }
 }
