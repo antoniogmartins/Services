@@ -47,17 +47,17 @@ jobs:
 
       - name: Validate Maven project
         run: mvn validate
-        working-directory: ./RestAssured/projeto01/restassured
+        working-directory: ./RestAssured/projeto01/restassured01
 
 
       - name: Compile tests
         run: mvn test-compile
-        working-directory: ./RestAssured/projeto01/restassured
+        working-directory: ./RestAssured/projeto01/restassured01
 
 
       - name: Run API tests
         run: mvn clean test
-        working-directory: ./RestAssured/projeto01/restassured
+        working-directory: ./RestAssured/projeto01/restassured01
 
 
       - name: Tests completed successfully
