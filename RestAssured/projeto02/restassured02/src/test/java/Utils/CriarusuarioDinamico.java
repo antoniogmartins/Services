@@ -2,7 +2,7 @@ package Utils;
 
 import java.security.SecureRandom;
 
-public class criarusuarioDinamico {
+public class CriarusuarioDinamico {
 
     private static final SecureRandom random = new SecureRandom();
 
@@ -21,7 +21,7 @@ public class criarusuarioDinamico {
                 sobrenomes[random.nextInt(sobrenomes.length)];
     }
 
-    public static String gerarEmailDinamico(String nome) {
+    public static String geraremailDinamico(String nome) {
         String nomeEmail = nome
                 .toLowerCase()
                 .replace(" ", ".");
@@ -31,7 +31,7 @@ public class criarusuarioDinamico {
         return nomeEmail + numero + "@example.com";
     }
 
-    public static String gerarPasswordDinamico(int tamanho) {
+    public static String gerarpasswordDinamico(int tamanho) {
         String caracteres =
                 "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +
                         "abcdefghijklmnopqrstuvwxyz" +

@@ -1,17 +1,17 @@
 package Usuarios;
 
-import Config.baseTest;
+import static Config.BaseTest.*;
+import static Data.GerarcorpousuarioDinamico.*;
 import io.restassured.response.*;
 import org.junit.jupiter.api.*;
-import static Utils.geracorpousuarioDinamico.*;
 import static io.restassured.RestAssured.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class usuariosTest {
+public class UsuariosTest {
 
    private static String url;
-   private static String acessToken;
+//   private static String acessToken;
    private static String idusuario;
    private static String email;
    private static String corpo;
@@ -20,8 +20,8 @@ public class usuariosTest {
 
     @BeforeAll
     public static void setup() {
-        url = baseTest.Dados();
-        corpo = gerarMassadeDadosUsuarioDinamica();
+        url = Dados();
+        corpo = gerarcorpousuarioDinamico();
     }
 
     @Test
@@ -91,9 +91,9 @@ public class usuariosTest {
     @Order(5)
     public void testalterarUsuarios() {
 
-        String body = gerarMassadeDadosUsuarioDinamica();
+      //  String body = gerarMassadeDadosUsuarioDinamica();
         resposta = given()
-                .body(body)
+                .body(corpo)
                 .contentType("application/json")
                 .when()
                 .put(url + "/usuarios/"+idusuario)

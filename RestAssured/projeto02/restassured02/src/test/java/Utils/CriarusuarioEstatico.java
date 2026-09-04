@@ -1,11 +1,11 @@
 package Utils;
 
-public class criarusuarioEstatico {
+public class CriarusuarioEstatico {
 
     private String email;
     private String password;
 
-    public criarusuarioEstatico(String email, String password) {
+    public CriarusuarioEstatico(String email, String password) {
         this.email = email;
         this.password = password;
     }

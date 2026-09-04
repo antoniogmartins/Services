@@ -1,31 +1,25 @@
 package Login;
 
-import Config.baseTest;
+import static Config.BaseTest.*;
+import static Data.GerarcorpousuarioEstatico.*;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.*;
-import static Utils.geracorpousuarioEstatico.*;
 import static io.restassured.RestAssured.given;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class loginTest {
+public class LoginTest {
 
-   private static String url;
-   public static String acessToken;
-   private static String corpo;
-
+    private static String url;
+    public static String acessToken;
+    private static String corpo;
 
     static Response resposta;
-
-    @BeforeAll
-    public static void setup() {
-        baseTest baseTest = new baseTest();
-        url = baseTest.Dados();
-        corpo = gerarMassadeDadosUsuarioEstatico();
-    }
 
   //  @Test
     @Order(1)
     public static String obterToken() {
+        url = Dados();
+        corpo = gerarcorpousuarioEstatico();
 
         resposta = given()
                 .body(corpo)

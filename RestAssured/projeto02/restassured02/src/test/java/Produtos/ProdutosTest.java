@@ -1,44 +1,44 @@
 package Produtos;
 
-import Config.baseTest;
-import Login.loginTest;
-import Utils.geracorpoprodutoDinamico;
+import static Config.BaseTest.*;
+
+import Data.GerarprodutosDinamico;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.*;
-
-import static Login.loginTest.obterToken;
+import static Login.LoginTest.*;
 import static io.restassured.RestAssured.given;
-
+import Utils.CriarprodutosDinamico;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class produtosTest {
+public class ProdutosTest {
    private static String acessToken;
    private static String idusuario;
    private static String email;
    private static String url;
-   private static String corpo;
+   private static CriarprodutosDinamico corpo;
 
    Response resposta;
 
     @BeforeAll
     public static void setup() {
-        baseTest baseTest = new baseTest();
-        url = baseTest.Dados();
-        loginTest.setup();
+        url = Dados();
         acessToken = obterToken();
-      //  System.out.println("Token de Acesso: " + acessToken);
-      //  System.out.println("Corpo do Produto: " + geracorpoprodutoDinamico.gerarProduto());
+        corpo = GerarprodutosDinamico.gerarProduto();
     }
 
     @Test
     @Order(1)
     public void testcadastraProdutos() {
+        System.out.println("Dados: " + url);
         System.out.println("Token de Acesso: " + acessToken);
-        System.out.println("Token de Acesso: " + geracorpoprodutoDinamico.gerarProduto());
+        System.out.println("Corpo do Produto: " + corpo.getNome());
+        System.out.println("Preço do Produto: " + corpo.getPreco());
+        System.out.println("Descrição do Produto: " + corpo.getDescricao());
+        System.out.println("Quantidade do Produto: " + corpo.getQuantidade());
 
         resposta =
                 given()
-                .body(geracorpoprodutoDinamico.gerarProduto())
+                .body(corpo)
                    .contentType("application/json")
                    .header("Authorization", acessToken)
                 .when()
@@ -52,6 +52,8 @@ public class produtosTest {
 
         // idusuario = resposta.jsonPath().getString("_id");
         // System.out.println("ID do usuário: " + idusuario);
+
+
 
     }
 

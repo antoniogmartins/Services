@@ -1,6 +1,6 @@
 package Config;
 
-public class baseTest {
+public class BaseTest {
 
     private static final String url = "https://serverest.dev";
 

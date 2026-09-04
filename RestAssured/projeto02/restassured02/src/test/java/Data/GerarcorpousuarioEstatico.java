@@ -1,10 +1,12 @@
-package Utils;
+package Data;
 
-public class geracorpousuarioEstatico {
+import Utils.CriarusuarioEstatico;
 
-    public static String gerarMassadeDadosUsuarioEstatico(){
+public class GerarcorpousuarioEstatico {
 
-        criarusuarioEstatico criarusuarioestatico = new criarusuarioEstatico("fulano@qa.com","teste");
+    public static String gerarcorpousuarioEstatico(){
+
+        CriarusuarioEstatico criarusuarioestatico = new CriarusuarioEstatico("fulano@qa.com","teste");
         String email = criarusuarioestatico.getEmail();
         String password = criarusuarioestatico.getPassword();
 
