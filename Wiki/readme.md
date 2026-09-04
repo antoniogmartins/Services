@@ -2,30 +2,30 @@
 
 ## 🧪 API Testing
 
-- [API Testing](API-Testing.md)
-- [Postman](Postman.md)
+- [API Testing](apitesting.md)
+- [Postman](postman.md)
 
 ## 🤖 API Automation
 
-- [API Automation](API-Automation.md)
-- [REST Assured](REST-Assured.md)
-- [REST Assured — Projeto 01](REST-Assured-Projeto-01.md)
-- [REST Assured — Projeto 02](REST-Assured-Projeto-02.md)
-- [Robot Framework](Robot-Framework.md)
-- [Python API Testing](Python-API-Testing.md)
+- [API Automation](apiautomation.md)
+- [REST Assured](restrassured.md)
+- [REST Assured — Projeto 01](restassured_projeto01.md)
+- [REST Assured — Projeto 02](restassured_projeto02.md)
+- [Robot Framework](robot-framework_api.md)
+- [Python API Testing](python-api-testing.md)
 
 ## 🏗️ API Development
 
-- [API Development](API-Development.md)
+- [API Development](apidevelopment.md)
 
 ## ⚡ API Performance
 
-- [API Performance](API-Performance.md)
+- [API Performance](apiperformance.md)
 
 ## 🔧 API Engineering
 
-- [API Engineering](API-Engineering.md)
+- [API Engineering](apiengineering.md)
 
 ## 🧠 AI / LLM / Agents
 
-- [AI / LLM / Agents](AI-LLM-Agents.md)
+- [AI / LLM / Agents](ai_llm_agents.md)
