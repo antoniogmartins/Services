@@ -84,7 +84,7 @@ Projeto focado em:
 
 Área destinada à automação de APIs utilizando Robot Framework e bibliotecas Python.
 
-[Robot Framework](https://github.com/antoniogmartins/Services/blob/main/Wiki/robot-framework_api)
+[Robot Framework](https://github.com/antoniogmartins/Services/blob/main/Wiki/robot_framework_api)
 
 ---
 
@@ -92,7 +92,7 @@ Projeto focado em:
 
 Projeto dedicado à automação de APIs utilizando Python.
 
-[Python API Testing](https://github.com/antoniogmartins/Services/blob/main/Wiki/python-api-testing)
+[Python API Testing](https://github.com/antoniogmartins/Services/blob/main/Wiki/python_api_testing)
 
 ---
 
