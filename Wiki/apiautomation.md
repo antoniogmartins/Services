@@ -39,6 +39,8 @@ Tecnologias presentes nos projetos:
 * MethodSource
 * GitHub Actions
 
+[REST Assured](https://github.com/antoniogmartins/Services/blob/main/Wiki/restassured.md)
+
 ---
 
 # 📁 Projetos

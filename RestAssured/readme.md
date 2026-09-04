@@ -6,9 +6,9 @@ Este módulo faz parte do meu laboratório prático de **QA Automation / SDET**,
 
 ---
 
-## 📚 Projetos
+# 📚 Projetos
 
-### 🧪 Projeto 01 — API Automation Framework
+# 🧪 Projeto 01 — API Automation Framework
 
 **Localização:**
 
@@ -42,7 +42,7 @@ Principais conceitos implementados:
 
 ### 🔗 Acessar Projeto 01
 
-[📂 Projeto 01 — RestAssured01](./projeto01/restassured01)
+[📂 Projeto 01 — RestAssured01](https://github.com/antoniogmartins/Services/blob/main/Wiki/restassured_projeto01.md)
 
 ---
 
@@ -81,7 +81,7 @@ Principais conceitos implementados:
 
 ### 🔗 Acessar Projeto 02
 
-[📂 Projeto 02 — RestAssured02](./projeto02/restassured02)
+[📂 Projeto 02 — RestAssured02](https://github.com/antoniogmartins/Services/blob/main/Wiki/restassured_projeto02.md)
 
 ---
 
