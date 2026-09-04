@@ -1,9 +1,9 @@
 # 🚀 RestAssured
 
-* [🏠 Home](Home)
+* [🏠 Home](https://github.com/antoniogmartins/Services/blob/main/RestAssured/home.md)
 * [🗺️ Roadmap](https://github.com/antoniogmartins/Services/blob/main/RestAssured/roadmap.md)
-* [🏗️ Architecture](Architecture)
-* [🛠️ Technologies](Technologies)
+* [🏗️ Architecture](https://github.com/antoniogmartins/Services/blob/main/RestAssured/architecture.md)
+* [🛠️ Technologies](https://github.com/antoniogmartins/Services/blob/main/RestAssured/technologies.md)
 
 ---
 
