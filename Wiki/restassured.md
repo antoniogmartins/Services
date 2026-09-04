@@ -344,11 +344,11 @@ Os detalhes de implementação de cada projeto estão disponíveis em seus respe
 
 ### Projeto 01
 
-[📂 Documentação do Projeto 01]((./projeto01/restassured01)
+[📂 Documentação do Projeto 01]((https://github.com/antoniogmartins/Services/blob/main/Wiki/restassured_projeto01.md)
 
 ### Projeto 02
 
-[📂 Documentação do Projeto 02](./projeto02/restassured02)
+[📂 Documentação do Projeto 02](https://github.com/antoniogmartins/Services/blob/main/Wiki/restassured_projeto02.md)
 
 ---
 
