@@ -40,7 +40,6 @@ Fundamentos e práticas para validação de APIs REST.
 ### Conteúdos
 
 * [API Testing](https://github.com/antoniogmartins/Services/blob/main/Wiki/apitesting.md)
-* [Postman](https://github.com/antoniogmartins/Services/blob/main/Wiki/postman.md)
 
 ### Principais conceitos
 
@@ -65,9 +64,6 @@ Fundamentos e práticas para validação de APIs REST.
 Automação de testes de APIs utilizando diferentes tecnologias e abordagens.
 
 * [API Automation](https://github.com/antoniogmartins/Services/blob/main/Wiki/apiautomation.md)
-* [REST Assured](https://github.com/antoniogmartins/Services/blob/main/Wiki/restassured.md)
-* [Robot Framework — API Testing](https://github.com/antoniogmartins/Services/blob/main/Wiki/robot_framework_api.md)
-* [Python — API Testing](https://github.com/antoniogmartins/Services/blob/main/Wiki/apitesting.md)
 
 ### Objetivo
 
