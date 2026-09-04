@@ -1,43 +1,60 @@
-# 🚀 RestAssured
+# Services
 
-* [🏠 Home](https://github.com/antoniogmartins/Services/blob/main/RestAssured/home.md)
-* [🗺️ Roadmap](https://github.com/antoniogmartins/Services/blob/main/RestAssured/roadmap.md)
-* [🏗️ Architecture](https://github.com/antoniogmartins/Services/blob/main/RestAssured/architecture.md)
-* [🛠️ Technologies](https://github.com/antoniogmartins/Services/blob/main/RestAssured/technologies.md)
+### 🏠 Overview
 
----
-
-# 🧪 Projeto 01
-
-* [Overview](https://github.com/antoniogmartins/Services/blob/main/RestAssured/projeto01/restassured01/Projeto-01-Overview)
-* [Architecture](https://github.com/antoniogmartins/Services/blob/main/RestAssured/projeto01/restassured01/Projeto-01-Architecture)
-* [Project Structure](https://github.com/antoniogmartins/Services/blob/main/RestAssured/projeto01/restassured01/Projeto-01-Project-Structure)
-* [Configuration](https://github.com/antoniogmartins/Services/blob/main/RestAssured/projeto01/restassured01/Projeto-01-Configuration)
-* [Clients](https://github.com/antoniogmartins/Services/blob/main/RestAssured/projeto01/restassured01/Projeto-01-Clients)
-* [DTOs](https://github.com/antoniogmartins/Services/blob/main/RestAssured/projeto01/restassured01/Projeto-01-DTOs)
-* [Data Driven Testing](https://github.com/antoniogmartins/Services/blob/main/RestAssured/projeto01/restassured01/Projeto-01-Data-Driven-Testing)
-* [API Tests](https://github.com/antoniogmartins/Services/blob/main/RestAssured/projeto01/restassured01/Projeto-01-API-Tests)
-* [Validation](https://github.com/antoniogmartins/Services/blob/main/RestAssured/projeto01/restassured01/Projeto-01-Validation)
-* [CI/CD](https://github.com/antoniogmartins/Services/blob/main/RestAssured/projeto01/restassured01/Projeto-01-CI-CD)
-* [Performance](https://github.com/antoniogmartins/Services/blob/main/RestAssured/projeto01/restassured01/Projeto-01-Performance)
+* [Home](Home)
 
 ---
 
-# 🔐 Projeto 02
+### 🧪 API Testing
 
-* [Overview](https://github.com/antoniogmartins/Services/blob/main/RestAssured/projeto02/restassured02/Projeto-02-Overview)
-* [Architecture](Projeto-02-Architecture)
-* [Project Structure](Projeto-02-Project-Structure)
-* [Authentication](Projeto-02-Authentication)
-* [Users](Projeto-02-Users)
-* [Products](Projeto-02-Products)
-* [Test Data](Projeto-02-Test-Data)
-* [Execution](Projeto-02-Execution)
+* [API Testing](API-Testing)
+* [Postman](Postman)
 
 ---
 
-# 📚 QA Concepts
+### 🤖 API Automation
 
-* [API Testing Concepts](API-Testing-Concepts)
-* [Future Evolution](Future-Evolution)
+* [API Automation](API-Automation)
+* [REST Assured](REST-Assured)
+* [Projeto 01](REST-Assured-Projeto-01)
+* [Projeto 02](REST-Assured-Projeto-02)
+* [Robot Framework](Robot-Framework)
+* [Python](Python-API-Testing)
+
+---
+
+### 🏗️ API Development
+
+* [API Development](API-Development)
+
+---
+
+### ⚡ API Performance
+
+* [API Performance](API-Performance)
+
+---
+
+### 🔧 API Engineering
+
+* [API Engineering](API-Engineering)
+
+---
+
+### 🧠 AI / LLM / Agents
+
+* [AI / LLM / Agents](AI-LLM-Agents)
+
+---
+
+### 📚 Roadmap
+
+* Java
+* REST Assured
+* API Testing
+* CI/CD
+* Performance
+* Contract Testing
+* AI Agents
 
