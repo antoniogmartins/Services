@@ -344,7 +344,7 @@ Os detalhes de implementação de cada projeto estão disponíveis em seus respe
 
 ### Projeto 01
 
-[📂 Documentação do Projeto 01](./projeto01/restassured01)
+[📂 Documentação do Projeto 01]((./projeto01/restassured01)
 
 ### Projeto 02
 
