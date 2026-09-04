@@ -39,8 +39,8 @@ Fundamentos e práticas para validação de APIs REST.
 
 ### Conteúdos
 
-* [API Testing](./apitesting.md)
-* [Postman](./postman.md)
+* [API Testing](https://github.com/antoniogmartins/Services/blob/main/Wiki/apitesting.md)
+* [Postman](https://github.com/antoniogmartins/Services/blob/main/Wiki/postman.md)
 
 ### Principais conceitos
 
@@ -64,12 +64,10 @@ Fundamentos e práticas para validação de APIs REST.
 
 Automação de testes de APIs utilizando diferentes tecnologias e abordagens.
 
-* [API Automation](./apiautomation.md)
-* [REST Assured](./restassured.md)
-* [REST Assured — Projeto 01](./restassured_projeto01.md)
-* [REST Assured — Projeto 02](./restassured_projeto02.md)
-* [Robot Framework — API Testing](./robot_framework_api.md)
-* [Python — API Testing](./python_api_testing.md)
+* [API Automation](https://github.com/antoniogmartins/Services/blob/main/Wiki/apiautomation.md)
+* [REST Assured](https://github.com/antoniogmartins/Services/blob/main/Wiki/restassured.md)
+* [Robot Framework — API Testing](https://github.com/antoniogmartins/Services/blob/main/Wiki/robot_framework_api.md)
+* [Python — API Testing](https://github.com/antoniogmartins/Services/blob/main/Wiki/apitesting.md)
 
 ### Objetivo
 
@@ -88,48 +86,6 @@ Report
    ↓
 Feedback
 ```
-
----
-
-# ☕ REST Assured
-
-O **REST Assured** é utilizado nesta documentação como uma das principais ferramentas para automação de testes de APIs utilizando Java.
-
-A documentação aborda desde os fundamentos até projetos práticos.
-
-### Conteúdos
-
-**Fundamentos**
-
-[REST Assured](./restassured.md)
-
-**Projeto 01**
-
-[REST Assured — Projeto 01](./restassured_projeto01.md)
-
-**Projeto 02**
-
-[REST Assured — Projeto 02](./restassured_projeto02.md)
-
-### Conceitos trabalhados
-
-* GET
-* POST
-* PUT
-* DELETE
-* Path Parameters
-* Query Parameters
-* Headers
-* Request Body
-* Response Body
-* Status Code
-* Assertions
-* JSON
-* Organização de testes
-* Reutilização de código
-* Configuração de ambientes
-* Dados de teste
-* Execução automatizada
 
 ---
 
@@ -156,7 +112,7 @@ A documentação utiliza diferentes ferramentas para demonstrar abordagens de te
 
 Conteúdos relacionados ao desenvolvimento e à construção de APIs e serviços.
 
-* [API Development](./apidevelopment.md)
+* [API Development](https://github.com/antoniogmartins/Services/blob/main/Wiki/apidevelopment.md)
 
 ### Objetivos
 
@@ -173,7 +129,7 @@ Conteúdos relacionados ao desenvolvimento e à construção de APIs e serviços
 
 Testes relacionados ao comportamento de APIs sob diferentes condições de carga.
 
-* [API Performance](./apiperformance.md)
+* [API Performance](https://github.com/antoniogmartins/Services/blob/main/Wiki/apiperformance.md)
 
 ### Principais objetivos
 
@@ -196,7 +152,7 @@ A análise de performance complementa os testes funcionais, permitindo avaliar n
 
 Conteúdos relacionados à visão mais ampla de engenharia aplicada a APIs.
 
-* [API Engineering](./apiengineering.md)
+* [API Engineering](https://github.com/antoniogmartins/Services/blob/main/Wiki/apiengineering.md)
 
 A proposta é conectar:
 
@@ -222,7 +178,7 @@ O objetivo é aproximar a atividade de QA de uma visão de **Quality Engineering
 
 Conteúdos relacionados à aplicação de Inteligência Artificial, Large Language Models e Agents em contextos de engenharia e qualidade de software.
 
-* [AI / LLM / Agents](./ai_llm_agents.md)
+* [AI / LLM / Agents](https://github.com/antoniogmartins/Services/blob/main/Wiki/ai_llm_agents.md)
 
 ### Possíveis aplicações
 
@@ -240,71 +196,6 @@ LLM / AI
 
 A proposta é explorar como IA pode apoiar atividades de **QA, automação e engenharia de software**.
 
----
-
-# 🗺️ Learning Path
-
-Para quem está começando com testes de API e deseja evoluir para automação, uma sequência recomendada é:
-
-### 01 — Fundamentos
-
-[API Testing](./apitesting.md)
-
-↓
-
-### 02 — Testes manuais de API
-
-[Postman](./postman.md)
-
-↓
-
-### 03 — Automação
-
-[API Automation](./apiautomation.md)
-
-↓
-
-### 04 — REST Assured
-
-[REST Assured](./restassured.md)
-
-↓
-
-### 05 — Projeto prático
-
-[REST Assured — Projeto 01](./restassured_projeto01.md)
-
-↓
-
-### 06 — Evolução do framework
-
-[REST Assured — Projeto 02](./restassured_projeto02.md)
-
-↓
-
-### 07 — Outras abordagens
-
-[Robot Framework](./robot_framework_api.md)
-
-[Python API Testing](./python_api_testing.md)
-
-↓
-
-### 08 — Performance
-
-[API Performance](./apiperformance.md)
-
-↓
-
-### 09 — Engineering
-
-[API Engineering](./apiengineering.md)
-
-↓
-
-### 10 — AI / LLM
-
-[AI / LLM / Agents](./ai_llm_agents.md)
 
 ---
 
