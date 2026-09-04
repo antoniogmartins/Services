@@ -72,7 +72,7 @@ Principais conceitos:
 * MethodSource
 * Response Validation
 
-[Ver Projeto 01](REST-Assured-Projeto-01)
+[Ver Projeto 01](https://github.com/antoniogmartins/Services/blob/main/Wiki/restassured_projeto01.md)
 
 ---
 
@@ -94,7 +94,7 @@ Produto
 API
 ```
 
-[Ver Projeto 02](REST-Assured-Projeto-02)
+[Ver Projeto 02](https://github.com/antoniogmartins/Services/blob/main/Wiki/restassured_projeto02.md)
 
 ---
 
