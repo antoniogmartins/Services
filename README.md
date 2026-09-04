@@ -23,10 +23,10 @@ O objetivo é demonstrar diferentes abordagens para validar, automatizar, analis
 A arquitetura conceitual do laboratório está organizada em cinco pilares:
 
 ```text
-                         SERVICES
-                            │
-                 API QUALITY ENGINEERING
-                            │
+                          SERVICES
+                             │
+                  API QUALITY ENGINEERING
+                             │
        ┌──────────┬─────────┼─────────┬──────────┐
        ▼          ▼         ▼         ▼          ▼
  API TESTING  API AUTOMATION  API DEVELOPMENT  API PERFORMANCE  API ENGINEERING
@@ -373,7 +373,7 @@ Services/
 └── README.md
 ```
 
-> A estrutura física é organizada principalmente por tecnologia e projeto. A organização conceitual por pilares é apresentada neste README e será detalhada na Wiki.
+> A estrutura física é organizada principalmente por tecnologia e projeto. A organização conceitual por pilares é apresentada neste README e está documentada em [`Wiki/`](Wiki/).
 
 ---
 
@@ -549,12 +549,14 @@ IA/
 
 # 📖 Documentação
 
-A documentação conceitual e técnica será organizada na **GitHub Wiki**.
+A documentação conceitual e técnica do projeto está organizada no diretório **`Wiki/`**, utilizando arquivos Markdown versionados junto ao código.
 
-A Wiki será estruturada de acordo com os cinco pilares:
+📚 **[Acessar a documentação do Services](Wiki/README.md)**
+
+A documentação acompanha a evolução do laboratório e está organizada de acordo com os principais pilares do projeto:
 
 ```text
-Services Wiki
+Services Documentation
 │
 ├── 🏠 Home
 │
@@ -587,6 +589,8 @@ Services Wiki
     ├── Docker
     └── Observability
 ```
+
+> A documentação será evoluída juntamente com os projetos, mantendo o conhecimento técnico versionado dentro do próprio repositório.
 
 ---
 
