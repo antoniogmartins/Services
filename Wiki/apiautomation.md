@@ -59,7 +59,7 @@ Principais conceitos:
 * Parameterized Tests
 * Response Validation
 
-[REST Assured — Projeto 01](restassured_projeto01)
+[REST Assured — Projeto 01](https://github.com/antoniogmartins/Services/blob/main/Wiki/restassured_projeto01.md)
 
 ---
 
@@ -76,7 +76,7 @@ Projeto focado em:
 * Dados dinâmicos
 * JavaFaker
 
-[REST Assured — Projeto 02](restassured_projeto02)
+[REST Assured — Projeto 02](https://github.com/antoniogmartins/Services/blob/main/Wiki/restassured_projeto02.md)
 
 ---
 
