@@ -8,11 +8,11 @@
 ## 🤖 API Automation
 
 - [API Automation](apiautomation.md)
-- [REST Assured](restrassured.md)
+- [REST Assured](restassured.md)
 - [REST Assured — Projeto 01](restassured_projeto01.md)
 - [REST Assured — Projeto 02](restassured_projeto02.md)
-- [Robot Framework Api Testing](robot-framework_api.md)
-- [Python API Testing](python-api-testing.md)
+- [Robot Framework Api Testing](robot_framework_api.md)
+- [Python API Testing](python_api_testing.md)
 
 ## 🏗️ API Development
 
