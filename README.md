@@ -551,7 +551,7 @@ IA/
 
 A documentação conceitual e técnica do projeto está organizada no diretório **`Wiki/`**, utilizando arquivos Markdown versionados junto ao código.
 
-📚 **[Acessar a documentação do Services](Wiki/README.md)**
+📚 **[Acessar a documentação do Services](https://github.com/antoniogmartins/Services/tree/main/Wiki)**
 
 A documentação acompanha a evolução do laboratório e está organizada de acordo com os principais pilares do projeto:
 
