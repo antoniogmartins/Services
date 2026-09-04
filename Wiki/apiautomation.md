@@ -59,7 +59,7 @@ Principais conceitos:
 * Parameterized Tests
 * Response Validation
 
-[REST Assured — Projeto 01](REST-Assured-Projeto-01)
+[REST Assured — Projeto 01](restassured_projeto01)
 
 ---
 
@@ -76,7 +76,7 @@ Projeto focado em:
 * Dados dinâmicos
 * JavaFaker
 
-[REST Assured — Projeto 02](REST-Assured-Projeto-02)
+[REST Assured — Projeto 02](restassured_projeto02)
 
 ---
 
@@ -84,7 +84,7 @@ Projeto focado em:
 
 Área destinada à automação de APIs utilizando Robot Framework e bibliotecas Python.
 
-[Robot Framework](Robot-Framework)
+[Robot Framework](robot-framework_api)
 
 ---
 
@@ -92,7 +92,7 @@ Projeto focado em:
 
 Projeto dedicado à automação de APIs utilizando Python.
 
-[Python API Testing](Python-API-Testing)
+[Python API Testing](python-api-testing)
 
 ---
 
