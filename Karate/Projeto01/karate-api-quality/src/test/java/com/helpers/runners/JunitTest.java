@@ -1,4 +1,4 @@
-package runners;
+package com.runners;
 
 import io.karatelabs.core.SuiteResult;
 import org.junit.jupiter.api.Test;

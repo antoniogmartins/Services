@@ -1,6 +1,6 @@
 Feature: Resources API
 
-  Scenario: CT01 Listar todos os Recursos e verificar retorno do response
+  Scenario: CT01 List all resources and verify the response.
      Given url baseUrl
      And path 'posts'
      And header Accept = 'application/json'
@@ -10,7 +10,7 @@ Feature: Resources API
      And match each response contains data
      And match response[0].id == '#number'
 
-  Scenario: CT02 Listar Recurso por userID e verificar que o UserId retornado é 1
+  Scenario: CT02 List resource by userID and verify that the returned UserId is 1.
      Given url baseUrl
      And path 'posts/1'
      And header Accept = 'application/json'
@@ -21,7 +21,7 @@ Feature: Resources API
      And match response.title == '#string'
      And match response.body == '#string'
 
-Scenario: CT03 Filtrar Recursos por userId e verificar que o UserId retornado é 1
+  Scenario: CT03 Filter Resources by userId and verify that the returned UserId is 1.
      Given url baseUrl
      And path 'posts'
      And param userId = 1
@@ -30,7 +30,7 @@ Scenario: CT03 Filtrar Recursos por userId e verificar que o UserId retornado é
      And def data = read('../data/recursos/response/recursos.json')
      And match each response contains data
 
-Scenario: CT04 Listar Hierarquia dos Recursos e verificar que o Body é uma string
+  Scenario: CT04 List resource hierarchy and verify that the body is a string.
      Given url baseUrl
      And path 'posts',3, 'comments'
      When method get
@@ -38,7 +38,7 @@ Scenario: CT04 Listar Hierarquia dos Recursos e verificar que o Body é uma stri
      And def data = read('../data/recursos/response/recursos_listagem.json')
      And match each response contains data
 
-Scenario: CT05 Criar Recurso e verificar o retorno do response
+  Scenario: CT05 Create resource and verify the response.
      Given url baseUrl
      And path 'posts'
      And def data = read('../data/recursos/request/recursos_create.json')
@@ -50,7 +50,7 @@ Scenario: CT05 Criar Recurso e verificar o retorno do response
      And def data = read('../data/recursos/response/recursos_conteudo_listagem.json')
      And match response contains data
 
-Scenario: CT06 Atualizar todos os dados de um Recurso
+  Scenario: CT06 Update all data for a resource
      Given url baseUrl
      And path 'posts', 1
      And def data = read('../data/recursos/request/recursos.json')
@@ -61,7 +61,7 @@ Scenario: CT06 Atualizar todos os dados de um Recurso
      And def data = read('../data/recursos/response/recursos_put.json')
      And match response == data
 
-Scenario: CT07 Atualizar somente um dado do Recurso
+  Scenario: CT07 Atualizar somente um dado do Recurso
      Given url baseUrl
      And path 'posts', 1
      And def data = read('../data/recursos/request/recursos_patch.json')
@@ -72,7 +72,7 @@ Scenario: CT07 Atualizar somente um dado do Recurso
      And def data = read('../data/recursos/response/recursos_patch.json')
      And match response == data
 
-Scenario: CT08 Deletar Recurso
+  Scenario: CT08 Deletar Recurso
      Given url baseUrl
      And path 'posts', 1
      And header Accept = 'application/json'

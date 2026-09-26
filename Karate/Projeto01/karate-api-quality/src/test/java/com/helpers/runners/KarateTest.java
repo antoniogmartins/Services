@@ -1,4 +1,4 @@
-package runners;
+package com.helpers.runners;
 
 import io.karatelabs.junit6.Karate;
 import org.junit.jupiter.api.DynamicNode;

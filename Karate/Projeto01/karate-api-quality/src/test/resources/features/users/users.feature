@@ -1,6 +1,6 @@
 Feature: Users API
 
-Scenario: CT01 Listar todos Usuarios
+  Scenario: CT01 Listar todos Usuarios
     Given url baseUrl
     And path 'users'
     And header Accept = 'application/json'
@@ -11,7 +11,7 @@ Scenario: CT01 Listar todos Usuarios
     And def streets = karate.map(response, function(x){ return x.address.street })
     And match each streets == '#string'
 
-Scenario: CT02 Listar um Usuario
+  Scenario: CT02 Listar um Usuario
     Given url baseUrl
     And path 'users', 1
     And header Accept = 'application/json'
@@ -21,7 +21,7 @@ Scenario: CT02 Listar um Usuario
     And match response == data
     And match response.address.geo.lat == '#string'
 
-Scenario: CT03 Listar Comentarios de todos Usuarios
+  Scenario: CT03 Listar Comentarios de todos Usuarios
     Given url baseUrl
     And path 'users', 1, 'comments'
     And header Accept = 'application/json'
@@ -30,7 +30,7 @@ Scenario: CT03 Listar Comentarios de todos Usuarios
     And def data = read('../data/users/response/comments.json')
     And match each response contains data
 
-Scenario: CT04 Listar Comentarios relacionados a um PostId
+  Scenario: CT04 Listar Comentarios relacionados a um PostId
     Given url baseUrl
     And path 'comments'
     And param postId = 10
@@ -40,7 +40,7 @@ Scenario: CT04 Listar Comentarios relacionados a um PostId
     And def data = read('../data/users/response/comments.json')
     And match each response contains data
 
-Scenario: CT05 Criar um Usuario
+  Scenario: CT05 Criar um Usuario
     Given url baseUrl
     And path 'users'
     And def data = read('../data/users/request/users.json')
@@ -51,7 +51,7 @@ Scenario: CT05 Criar um Usuario
     And def data = read('../data/users/response/users_create.json')
     And match response == data
 
-Scenario: CT06 Atualizar todos os dados de um Usuario
+  Scenario: CT06 Atualizar todos os dados de um Usuario
     Given url baseUrl
     And path 'users', 10
     And def data = read('../data/users/request/users.json')
@@ -62,7 +62,7 @@ Scenario: CT06 Atualizar todos os dados de um Usuario
     And def data = read('../data/users/response/users_create.json')
     And match response == data
 
-Scenario: CT07 Atualizar somente um dado do Usuario
+  Scenario: CT07 Atualizar somente um dado do Usuario
     Given url baseUrl
     And path 'users', 1
     And def data = read('../data/users/request/users_patch.json')
@@ -73,7 +73,7 @@ Scenario: CT07 Atualizar somente um dado do Usuario
     And def data = read('../data/users/response/users_patch.json')
     And match response == data
 
-Scenario: CT08 Deletar Usuario
+  Scenario: CT08 Deletar Usuario
     Given url baseUrl
     And path 'users', 1
     And header Accept = 'application/json'

@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Projeto01.iml" filepath="$PROJECT_DIR$/.idea/Projeto01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/karate-api-quality/karate-api-quality.iml" filepath="$PROJECT_DIR$/karate-api-quality/karate-api-quality.iml" />
     </modules>
   </component>
 </project>
