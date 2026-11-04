@@ -197,20 +197,6 @@ curl -X POST "http://localhost:8000/generate-tests" \
 }
 ```
 
----
-
-## 🧪 Executando os Testes Gerados
-
-```bash
-# Executar todos os testes gerados com pytest
-pytest tests/ -v
-
-# Executar cenários BDD com behave
-behave tests/features/
-```
-
----
-
 ## 📊 Tipos de Cenários Gerados
 
 | Categoria | Descrição |
@@ -223,6 +209,16 @@ behave tests/features/
 | **Performance** | Timeouts e comportamento sob carga |
 
 ---
+
+## 🧪 Executando os Testes Gerados
+
+```bash
+# Executar todos os testes gerados com pytest
+pytest tests/ -v
+
+# Executar cenários BDD com behave
+behave tests/features/
+```
 
 ## 🤝 Contribuindo
 
